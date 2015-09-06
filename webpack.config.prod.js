@@ -4,27 +4,13 @@ var webpack = require('webpack');
 var collectExampleSource = require('./collect');
 
 
-module.exports = {
-    entry: [
-        "webpack-dev-server/client?http://localhost:8080",
-        'webpack/hot/dev-server',
-        './examples/main'
-    ],
-    devServer: {
-        contentBase: './examples/',
-        hot: true
-    },
-    devtool: "source-map",
-    debug: true,
+var config = {
+    entry: './examples/main',
     output: {
-        path: path.join(__dirname, 'examples'),
-        filename: 'bundle.js',
-    },
-    resolveLoader: {
-        modulesDirectories: ['node_modules']
+        path: './examples/dist',
+        filename: 'bundle.js'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.IgnorePlugin(/un~$/),
         new webpack.DefinePlugin({
             EXAMPLE_SRC: JSON.stringify(collectExampleSource())
@@ -63,3 +49,5 @@ module.exports = {
         ]
     }
 };
+
+module.exports = config;

@@ -1,4 +1,5 @@
 dist
 test
-examples
 webpack.config.js
+webpack.config.prod.js
+collect.js
