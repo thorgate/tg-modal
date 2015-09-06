@@ -5,7 +5,7 @@ class Example extends Component {
     static propTypes = {
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        onToggle: PropTypes.func.isRequired,
+        src: PropTypes.string.isRequired
     };
 
     constructor(props) {
@@ -30,24 +30,31 @@ class Example extends Component {
         }
 
         return (
-            <pre>
-                {this.props.children}
-            </pre>
+            <div className="code-block">
+                <pre>
+                    {this.props.src}
+                </pre>
+            </div>
         );
     }
 
     render() {
-        const {title, description, onToggle} = this.props;
+        const {title, description} = this.props;
 
         return (
-            <div>
-                <h2>{title}</h2>
+            <div className="example-block">
+                <h2>
+                    {title}
+
+                    <a href="" className="btn btn-link" onClick={this.toggleCode.bind(this)}>Toggle Code</a>
+                </h2>
                 <p>
                     {description}
-
-                    <a onClick={onToggle}>Launch</a>
-                    <a onClick={this.toggleCode.bind(this)}>See Code</a>
                 </p>
+
+                <div className="btn-group">
+                    {this.props.children}
+                </div>
 
                 {this.renderCode()}
             </div>

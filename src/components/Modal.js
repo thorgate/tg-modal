@@ -4,6 +4,10 @@ import Backdrop from './Backdrop';
 
 
 const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+const keyCodes = {
+    ESCAPE: 27,
+    ENTER: 13
+};
 
 class Modal extends Component {
     static propTypes = {
@@ -11,29 +15,75 @@ class Modal extends Component {
 
         isOpen: PropTypes.bool.isRequired,
         isStatic: PropTypes.bool,
-        wrapBody: PropTypes.bool,
+        isBasic: PropTypes.bool,
+        noWrap: PropTypes.bool,
+        transitionName: PropTypes.string,
 
         title: PropTypes.node,
+        onToggle: PropTypes.func.isRequired,
+
         onRequestClose: PropTypes.func.isRequired,
-        onToggle: PropTypes.func.isRequired
+        onConfirm: PropTypes.func,
+        onCancel: PropTypes.func
     };
 
     static defaultProps = {
-        wrapBody: true
+        noWrap: false,
+        transitionName: 'fade'
     };
 
     componentDidMount() {
         this.props.onToggle(this.props.isOpen);
+
+        if (typeof document !== 'undefined') {
+            document.addEventListener('keydown', this.onKeyDown.bind(this), false);
+        }
     }
 
     componentWillReceiveProps(nextProps) {
         this.props.onToggle(nextProps.isOpen);
     }
 
+    componentWillUnmount() {
+        if (typeof document !== 'undefined') {
+            document.removeEventListener('keydown', this.onKeyDown.bind(this), false);
+        }
+    }
+
+    onKeyDown(e) {
+        // Handle escape press
+        if (e.which === keyCodes.ESCAPE) {
+            this.onRequestClose(e);
+        } else if (e.which === keyCodes.ENTER) {
+            if (this.props.onConfirm) {
+                e.preventDefault();
+
+                this.props.onConfirm();
+            }
+        }
+    }
+
     onRequestClose(e) {
         e.preventDefault();
 
-        this.props.onRequestClose();
+        if (this.props.onCancel && this.props.isOpen) {
+            this.props.onCancel();
+        }
+
+        if (!this.props.isStatic) {
+            // Don't call it if we are already closing
+            if (this.props.onRequestClose && this.props.isOpen) {
+                this.props.onRequestClose();
+            }
+        }
+    }
+
+    onBackdropClick(e) {
+        if (!this.props.isStatic) {
+            this.onRequestClose(e);
+        } else {
+            e.preventDefault();
+        }
     }
 
     stopPropagate(e) {
@@ -41,7 +91,7 @@ class Modal extends Component {
     }
 
     renderModalBody() {
-        if (this.props.wrapBody) {
+        if (!this.props.noWrap) {
             return (
                 <div className="modal-body">
                     {this.props.children}
@@ -76,8 +126,10 @@ class Modal extends Component {
             return [];
         }
 
+        const cx = `modal${this.props.isBasic ? ' modal-basic' : ''}`;
+
         const parts = [
-            (<div className="modal" key="modal" onClick={this.onRequestClose.bind(this)}>
+            (<div className={cx} key="modal" onClick={this.onBackdropClick.bind(this)}>
                 <div className="modal-dialog" key="dialog">
                     <div className="modal-content" onClick={this.stopPropagate.bind(this)}>
                         {this.renderModalHeader()}
@@ -86,7 +138,7 @@ class Modal extends Component {
                 </div>
             </div>
         ), (
-            <Backdrop isStatic={this.props.isStatic} onRequestClose={this.onRequestClose.bind(this)} key="backdrop" />
+            <Backdrop isStatic={this.props.isStatic} onRequestClose={this.onBackdropClick.bind(this)} key="backdrop" />
         )];
 
         return parts;
@@ -95,7 +147,7 @@ class Modal extends Component {
     render() {
         return (
             <div>
-                <ReactCSSTransitionGroup transitionName="fade" component="div">
+                <ReactCSSTransitionGroup transitionName={this.props.transitionName} component="div">
                     {this.renderModal()}
                 </ReactCSSTransitionGroup>
             </div>

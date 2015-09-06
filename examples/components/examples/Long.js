@@ -1,108 +1,33 @@
 import React, {Component} from 'react';
-import Markdown from 'react-remarkable';
 
-import Modal from '../src/browser';
-
-import Example from './Example';
-import theMarkdown from './example.md';
+import Modal from '../../../src/browser';
 
 
-// Load styles
-require('./style.scss');
-require('../src/styles/default.scss');
-
-
-class App extends Component {
+class LongModalExample extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            examples: {
-                first: false,
-                long: false,
-                md: false
-            }
+            isOpen: false
         };
     }
 
-    toggleModal(target) {
-        return (e) => {
-            if (e) {
-                e.preventDefault();
-            }
+    toggleModal(e) {
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
 
-            const examples = this.state.examples;
-            examples[target] = !examples[target];
-
-            this.setState({
-                examples: examples
-            });
-        };
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
     }
 
     render() {
-        const {first, long, md} = this.state.examples;
-
-        // TODO: Support all the following cases:
-        //  - basic
-        //  - static
-        //  - actions (onConfirm, onCancel) + own buttons
-        //  - Keyboard events (escape/ enter)
-
-        // TODO: Fix backdrop click reopen bug
-        // TODO: Code examples
-        // TODO: Provide a hook for isomorphic rendering (onToggle)
-
         return (
             <div>
-                <h1>tg-modal</h1>
+                <a href="" className="btn btn-primary" onClick={this.toggleModal.bind(this)}>Open</a>
 
-                <div className="link-block">
-                    <Example title="Simple modal" description="Modal with one paragraph of text." onToggle={this.toggleModal('first')}>
-                        The code...
-                    </Example>
-
-                    <Example title="Basic modal" description="Modal can also reduce its complexity" onToggle={this.toggleModal('basic')}>
-                        The code...
-                    </Example>
-
-                    <Example title="Static modal" description="Modal can be static" onToggle={this.toggleModal('static')}>
-                        The code...
-                    </Example>
-
-                    <Example title="Action modal" description="Modals can be used for user actions" onToggle={this.toggleModal('action')}>
-                        The code...
-                    </Example>
-
-                    <Example title="Action modal (basic)" description="Also works in basic mode" onToggle={this.toggleModal('actionBasic')}>
-                        The code...
-                    </Example>
-
-                    <Example title="Scrolling modal" description="Modals with long content will be scrollable" onToggle={this.toggleModal('long')}>
-                        The code...
-                    </Example>
-
-                    <Example title="Markdown modal" description="Modals can render everything. This example uses react-remarkable to display markdown" onToggle={this.toggleModal('md')}>
-                        The code...
-                    </Example>
-                </div>
-
-                <Modal isOpen={first} title="First modal" onRequestClose={this.toggleModal('first')}>
-                    <p>
-                        Viral deep v squid chia, letterpress wayfarers artisan
-                        meggings tote bag four loko keffiyeh hoodie cronut four
-                        dollar toast flannel.
-                    </p>
-
-                    <p>
-                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter
-                        photo booth deep v quinoa four dollar toast trust fund
-                        freegan. Food truck Godard semiotics, YOLO mixtape
-                        asymmetrical selfies Thundercats 8-bit.
-                    </p>
-                </Modal>
-
-                <Modal isOpen={long} title="Long modal" onRequestClose={this.toggleModal('long')}>
+                <Modal isOpen={this.state.isOpen} title="Longcat is long" onRequestClose={this.toggleModal.bind(this)}>
                     <p>
                         Viral deep v squid chia, letterpress wayfarers artisan
                         meggings tote bag four loko keffiyeh hoodie cronut four
@@ -186,13 +111,9 @@ class App extends Component {
                         chia butcher.
                     </p>
                 </Modal>
-
-                <Modal isOpen={md} onRequestClose={this.toggleModal('md')}>
-                    <Markdown source={theMarkdown} />
-                </Modal>
             </div>
         );
     }
 }
 
-export default App;
+export default LongModalExample;

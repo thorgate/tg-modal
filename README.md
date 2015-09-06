@@ -18,6 +18,17 @@ npm install tg-modal
 
 See the examples.
 
+## Known issues
+
+ - Missing an Uncontrolled modal (ModalTrigger component)
+ - Problems with animations
+  - We depend on react/addons, but we shouldn't
+  - Animations break if we close trigger close/reopen while the opposite action is still transitioning
+  - We shouldn't trigger callBacks while transitions are still running
+ - Scrollbar width is hardcoded to 17px. This should be calculated in the browser.
+ - onToggle hooks for serverside rendering
+ - missing tests
+
 ## License
 
 MIT © [Thorgate](http://github.com/thorgate)

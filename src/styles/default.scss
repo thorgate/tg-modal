@@ -1,5 +1,9 @@
 // default.scss
 
+body.modal-open {
+    overflow: hidden;
+    padding-right: 17px; // TODO: Calculate the correct padding...
+}
 
 .modal {
     position: fixed;
@@ -28,7 +32,7 @@
             transform-origin: 50% 25%;
 
             .modal-header {
-                padding: 1.125rem 0.9375rem;
+                padding: 1.8rem 1.5rem;
                 position: relative;
 
                 .modal-title {
@@ -36,20 +40,20 @@
                     margin: 0;
 
                     font-size: 1.5em;
-                    line-height: 1.875rem;
+                    line-height: 3rem;
                     font-weight: 500;
                 }
 
                 .close {
                     cursor: pointer;
                     position: absolute;
-                    top: 1.125rem;
-                    right: 0.9375rem;
+                    top: 1.8rem;
+                    right: 1.5rem;
                     z-index: 1;
                     opacity: .6;
                     color: rgb(60, 60, 80);
-                    width: 1.875rem;
-                    height: 1.875rem;
+                    width: 3rem;
+                    height: 3rem;
 
                     font-size: 1.25em;
                     padding: 0;
@@ -68,7 +72,7 @@
             }
 
             .modal-body {
-                padding: 1.125rem 0.9375rem;
+                padding: 1.8rem 1.5rem;
                 position: relative;
 
                 img {
@@ -77,8 +81,44 @@
                 }
             }
 
+            .modal-footer {
+                padding: 1.8rem 1.5rem;
+                position: relative;
+                text-align: right;
+
+                a + a {
+                    margin-left: 1rem;
+                }
+            }
+
             .modal-header + .modal-body {
                 padding-top: 0;
+            }
+        }
+    }
+
+    &.modal-basic {
+        .modal-dialog {
+            top: 40%;
+            transform: translateY(-50%);
+            position: absolute;
+            left: 0;
+            right: 0;
+
+            .modal-content {
+                background: transparent;
+                color: #fff;
+                text-align: center;
+
+                .modal-header {
+                    .close {
+                        display: none;
+                    }
+                }
+            }
+
+            .modal-footer {
+                text-align: center;
             }
         }
     }
