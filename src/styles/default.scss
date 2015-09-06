@@ -1,0 +1,141 @@
+// default.scss
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+
+    .modal-dialog {
+        position: relative;
+        width: auto;
+        margin: 10px;
+
+        @media (min-width: 768px) {
+            width: 600px;
+            margin: 30px auto;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 0;
+            transform-origin: 50% 25%;
+
+            .modal-header {
+                padding: 1.125rem 0.9375rem;
+                position: relative;
+
+                .modal-title {
+                    padding: 0;
+                    margin: 0;
+
+                    font-size: 1.5em;
+                    line-height: 1.875rem;
+                    font-weight: 500;
+                }
+
+                .close {
+                    cursor: pointer;
+                    position: absolute;
+                    top: 1.125rem;
+                    right: 0.9375rem;
+                    z-index: 1;
+                    opacity: .6;
+                    color: rgb(60, 60, 80);
+                    width: 1.875rem;
+                    height: 1.875rem;
+
+                    font-size: 1.25em;
+                    padding: 0;
+
+                    background: transparent;
+                    border: 0px none transparent;
+
+                    transition: background 300ms ease;
+
+                    &:focus,
+                    &:hover {
+                        background-color: rgba(#000, 0.1);
+                        outline: none;
+                    }
+                }
+            }
+
+            .modal-body {
+                padding: 1.125rem 0.9375rem;
+                position: relative;
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+
+            .modal-header + .modal-body {
+                padding-top: 0;
+            }
+        }
+    }
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+
+    background: rgba(#000, 0.85);
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeOut {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+.fade-enter {
+    animation: fadeIn 300ms ease;
+
+    .modal-content {
+        transform: scale(0.8);
+    }
+
+    &.fade-enter-active {
+        .modal-content {
+            transform: scale(1);
+            transition: transform 300ms ease;
+        }
+    }
+}
+
+.fade-leave {
+    animation: fadeOut 300ms ease;
+
+    .modal-content {
+        transform: scale(1);
+    }
+
+    &.fade-leave-active {
+        .modal-content {
+            transform: scale(0.8);
+            transition: transform 300ms ease;
+        }
+    }
+}
