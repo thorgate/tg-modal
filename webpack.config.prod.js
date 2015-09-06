@@ -7,7 +7,7 @@ var collectExampleSource = require('./collect');
 var config = {
     entry: './examples/main',
     output: {
-        path: './examples/dist',
+        path: './.tmp',
         filename: 'bundle.js'
     },
     plugins: [
