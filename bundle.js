@@ -56,7 +56,7 @@
 
 	var _componentsApp2 = _interopRequireDefault(_componentsApp);
 
-	var _packageJson = __webpack_require__(259);
+	var _packageJson = __webpack_require__(260);
 
 	var _packageJson2 = _interopRequireDefault(_packageJson);
 
@@ -20463,25 +20463,21 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _srcBrowser = __webpack_require__(158);
-
-	var _srcBrowser2 = _interopRequireDefault(_srcBrowser);
-
-	var _Example = __webpack_require__(180);
+	var _Example = __webpack_require__(158);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _PackageHeader = __webpack_require__(181);
+	var _PackageHeader = __webpack_require__(159);
 
 	var _PackageHeader2 = _interopRequireDefault(_PackageHeader);
 
-	var _examples = __webpack_require__(182);
+	var _examples = __webpack_require__(160);
 
 	var examples = _interopRequireWildcard(_examples);
 
 	// Load styles
-	__webpack_require__(253);
-	__webpack_require__(257);
+	__webpack_require__(254);
+	__webpack_require__(258);
 
 	// The example app
 
@@ -20516,49 +20512,49 @@
 	                            _Example2['default'],
 	                            { title: 'Simple modal',
 	                                description: 'Modal with one paragraph of text.',
-	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Longcat is long\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Simple },
+	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: props.initialOpen || false,\n            anwser: null\n        };\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component, PropTypes} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen}\n                       title=\"Longcat is long\"\n                       onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Simple },
 	                            _react2['default'].createElement(examples.Simple, null)
 	                        ),
 	                        _react2['default'].createElement(
 	                            _Example2['default'],
 	                            { title: 'Basic modal',
 	                                description: 'Modals can also reduce its complexity',
-	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Longcat is long\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Basic },
+	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: props.initialOpen || false,\n            anwser: null\n        };\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component, PropTypes} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen}\n                       title=\"Longcat is long\"\n                       onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Basic },
 	                            _react2['default'].createElement(examples.Basic, null)
 	                        ),
 	                        _react2['default'].createElement(
 	                            _Example2['default'],
 	                            { title: 'Static modal',
 	                                description: 'Modals can be static',
-	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Longcat is long\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Static },
+	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: props.initialOpen || false,\n            anwser: null\n        };\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component, PropTypes} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen}\n                       title=\"Longcat is long\"\n                       onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Static },
 	                            _react2['default'].createElement(examples.Static, null)
 	                        ),
 	                        _react2['default'].createElement(
 	                            _Example2['default'],
 	                            { title: 'Action modal',
 	                                description: 'Modals can be used for user actions/confirmation boxes',
-	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Longcat is long\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Confirm },
+	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: props.initialOpen || false,\n            anwser: null\n        };\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component, PropTypes} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen}\n                       title=\"Longcat is long\"\n                       onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Confirm },
 	                            _react2['default'].createElement(examples.Confirm, null)
 	                        ),
 	                        _react2['default'].createElement(
 	                            _Example2['default'],
 	                            { title: 'Action modal (basic)',
 	                                description: 'Also works in basic/static mode',
-	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Longcat is long\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).BasicConfirm },
+	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: props.initialOpen || false,\n            anwser: null\n        };\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component, PropTypes} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen}\n                       title=\"Longcat is long\"\n                       onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).BasicConfirm },
 	                            _react2['default'].createElement(examples.BasicConfirm, null)
 	                        ),
 	                        _react2['default'].createElement(
 	                            _Example2['default'],
 	                            { title: 'Scrolling',
 	                                description: 'Modals with content that exceeds the viewport will be scrollable',
-	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Longcat is long\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Long },
+	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: props.initialOpen || false,\n            anwser: null\n        };\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component, PropTypes} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen}\n                       title=\"Longcat is long\"\n                       onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Long },
 	                            _react2['default'].createElement(examples.Long, null)
 	                        ),
 	                        _react2['default'].createElement(
 	                            _Example2['default'],
 	                            { title: 'Special content',
 	                                description: 'Modals render react components. This example uses react-remarkable to display markdown',
-	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Longcat is long\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Markdown },
+	                                src: ({"Basic":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isBasic title=\"Hello\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        I'm a basic modal!\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicModalExample;\n","BasicConfirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass BasicConfirmModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false,\n            anwser: null\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} isBasic isStatic noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default BasicConfirmModalExample;\n","Confirm":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass ConfirmModalExample extends Component {\n\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: props.initialOpen || false,\n            anwser: null\n        };\n    }\n\n    onCancel() {\n        this.setState({\n            anwser: 'DO NOT WANT',\n            isOpen: false\n        });\n    }\n\n    onConfirm() {\n        this.setState({\n            anwser: 'GIMME',\n            isOpen: false\n        });\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    renderAnwser() {\n        if (!this.state.anwser) {\n            return null;\n        }\n\n        return (\n            <span><b>You anwsered:</b> {this.state.anwser}</span>\n        );\n    }\n\n    render() {\n        return (\n            <div className=\"modal-example\">\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                {this.renderAnwser()}\n\n                <Modal isOpen={this.state.isOpen} noWrap title=\"Do you want cookies?\"\n                       onRequestClose={this.toggleModal.bind(this)}\n                       onCancel={this.onCancel.bind(this)}\n                       onConfirm={this.onConfirm.bind(this)}>\n                    <div className=\"modal-body\">\n                        <p>\n                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.\n                        </p>\n                    </div>\n                    <div className=\"modal-footer\">\n                        <a className=\"btn btn-default\" onClick={this.onCancel.bind(this)}>Im on a diet</a>\n                        <a className=\"btn btn-success\" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>\n                    </div>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default ConfirmModalExample;\n","index":"export Simple from './Simple';\nexport Basic from './Basic';\nexport Static from './Static';\nexport Confirm from './Confirm';\nexport BasicConfirm from './BasicConfirm';\nexport Long from './Long';\nexport Markdown from './Markdown';\n","Long":"import React, {Component, PropTypes} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass LongModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen}\n                       title=\"Longcat is long\"\n                       onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n\n                    <p>\n                        Helvetica banh mi Wes Anderson aesthetic, stumptown keytar\n                        ugh beard VHS you probably haven't heard of them Carles\n                        Neutra bespoke pour-over Odd Future. Crucifix banjo Tumblr\n                        3 wolf moon, readymade tilde master cleanse. Neutra fingerstache\n                        seitan, cornhole hoodie Pinterest messenger bag food\n                        truck authentic cold-pressed wayfarers narwhal pug blog yr.\n                        Heirloom vinyl kitsch, jean shorts banjo cold-pressed\n                        slow-carb skateboard keffiyeh next level farm-to-table\n                        pickled whatever. Whatever Brooklyn trust fund, migas\n                        skateboard Marfa typewriter Tumblr pork belly farm-to-table.\n                        Fashion axe paleo selfies, put a bird on it small batch artisan\n                        salvia lomo messenger bag polaroid synth leggings drinking\n                        vinegar letterpress organic. Slow-carb church-key chambray\n                        disrupt, Portland you probably haven't heard of them Schlitz\n                        literally PBR&amp;B trust fund fap.\n                    </p>\n\n                    <p>\n                        Fashion axe bitters chillwave, try-hard four loko retro pour-over\n                        raw denim cronut meh kale chips chambray. Beard drinking vinegar\n                        retro, quinoa 3 wolf moon artisan sustainable. DIY Bushwick hashtag\n                        Schlitz, church-key synth tousled freegan typewriter Banksy.\n                        Authentic disrupt YOLO, ugh selfies health goth iPhone chillwave.\n                        Direct trade single-origin coffee iPhone Marfa. Organic 8-bit butcher\n                        normcore, salvia Odd Future twee cray. Gentrify fixie Tumblr raw denim craft beer.\n                    </p>\n\n                    <p>\n                        Literally Williamsburg butcher, small batch drinking vinegar\n                        bicycle rights messenger bag. Readymade 3 wolf moon blog ennui\n                        mumblecore selvage sartorial plaid, tousled fap paleo. You probably\n                        haven't heard of them YOLO actually, leggings four dollar toast\n                        street art kale chips Kickstarter 8-bit messenger bag. Artisan\n                        Truffaut actually beard, authentic vegan pour-over tattooed Marfa\n                        tote bag narwhal try-hard. Blog gluten-free single-origin coffee\n                        crucifix pug, Pitchfork you probably haven't heard of them distillery\n                        master cleanse meggings cardigan. Brooklyn artisan whatever food truck,\n                        Carles tilde pug tofu pour-over put a bird on it Banksy migas you\n                        probably haven't heard of them mlkshk flannel. Hoodie mlkshk four\n                        dollar toast sriracha, Brooklyn Bushwick pug 8-bit.\n                    </p>\n\n                    <p>\n                        Blog typewriter you probably haven't heard of them locavore,\n                        letterpress twee authentic. Yr distillery post-ironic, ennui irony\n                        American Apparel literally Tumblr. Kickstarter +1 chillwave sartorial\n                        distillery, normcore Carles single-origin coffee American Apparel flannel.\n                        Authentic pour-over stumptown forage, cray direct trade literally Pinterest\n                        locavore 3 wolf moon organic slow-carb vegan. Mlkshk dreamcatcher try-hard,\n                        butcher Blue Bottle cred PBR typewriter bespoke. Listicle ennui pork belly\n                        sriracha, Bushwick meggings letterpress DIY butcher McSweeney's slow-carb\n                        forage direct trade. Carles jean shorts VHS, chambray hashtag PBR Echo Park\n                        authentic retro listicle ugh raw denim skateboard literally.\n                    </p>\n\n                    <p>\n                        Banksy hoodie pop-up, Pitchfork skateboard DIY typewriter selvage\n                        dreamcatcher. Art party hoodie XOXO, typewriter slow-carb ugh Odd\n                        Future lo-fi mumblecore PBR&amp;B letterpress stumptown Brooklyn normcore\n                        viral. You probably haven't heard of them Neutra plaid Shoreditch ethical,\n                        kitsch fashion axe. IPhone deep v Intelligentsia, +1 squid Pinterest\n                        Williamsburg gentrify selvage Bushwick chambray master cleanse mixtape\n                        Godard polaroid. Stumptown listicle butcher Echo Park PBR&amp;B Brooklyn\n                        typewriter Bushwick locavore, pickled lo-fi. +1 fingerstache bicycle rights\n                        trust fund, blog try-hard banh mi disrupt Bushwick. High Life migas quinoa\n                        cray, roof party wolf chambray ennui bicycle rights viral Wes Anderson\n                        chia butcher.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default LongModalExample;\n","Markdown":"import React, {Component} from 'react';\n\nimport Markdown from 'react-remarkable';\n\nimport theMarkdown from '../../files/example.md';\n\nimport Modal from '../../../src/browser';\n\n\nclass MarkdownModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"Awesome markdown\" onRequestClose={this.toggleModal.bind(this)}>\n                    <Markdown source={theMarkdown} />\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default MarkdownModalExample;\n","Simple":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass SimpleModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} title=\"First modal\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Viral deep v squid chia, letterpress wayfarers artisan\n                        meggings tote bag four loko keffiyeh hoodie cronut four\n                        dollar toast flannel.\n                    </p>\n\n                    <p>\n                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter\n                        photo booth deep v quinoa four dollar toast trust fund\n                        freegan. Food truck Godard semiotics, YOLO mixtape\n                        asymmetrical selfies Thundercats 8-bit.\n                    </p>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default SimpleModalExample;\n","Static":"import React, {Component} from 'react';\n\nimport Modal from '../../../src/browser';\n\n\nclass StaticModalExample extends Component {\n    constructor(props) {\n        super(props);\n\n        this.state = {\n            isOpen: false\n        };\n    }\n\n    toggleModal(e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n\n        this.setState({\n            isOpen: !this.state.isOpen\n        });\n    }\n\n    render() {\n        return (\n            <div>\n                <a href=\"\" className=\"btn btn-primary\" onClick={this.toggleModal.bind(this)}>Open</a>\n\n                <Modal isOpen={this.state.isOpen} isStatic title=\"Something really important\" onRequestClose={this.toggleModal.bind(this)}>\n                    <p>\n                        Do you agree?\n                    </p>\n\n                    <a href=\"\" className=\"btn btn-danger\" onClick={this.toggleModal.bind(this)}>I understand</a>\n                </Modal>\n            </div>\n        );\n    }\n}\n\nexport default StaticModalExample;\n"}).Markdown },
 	                            _react2['default'].createElement(examples.Markdown, null)
 	                        )
 	                    )
@@ -20626,6 +20622,337 @@
 /* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var Example = (function (_Component) {
+	    _inherits(Example, _Component);
+
+	    _createClass(Example, null, [{
+	        key: "propTypes",
+	        value: {
+	            title: _react.PropTypes.string.isRequired,
+	            description: _react.PropTypes.string.isRequired,
+	            src: _react.PropTypes.string.isRequired
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Example(props) {
+	        _classCallCheck(this, Example);
+
+	        _get(Object.getPrototypeOf(Example.prototype), "constructor", this).call(this, props);
+
+	        this.state = {
+	            showCode: false
+	        };
+	    }
+
+	    _createClass(Example, [{
+	        key: "toggleCode",
+	        value: function toggleCode(e) {
+	            e.preventDefault();
+
+	            this.setState({
+	                showCode: !this.state.showCode
+	            });
+	        }
+	    }, {
+	        key: "renderCode",
+	        value: function renderCode() {
+	            if (!this.state.showCode) {
+	                return null;
+	            }
+
+	            return _react2["default"].createElement(
+	                "div",
+	                { className: "code-block" },
+	                _react2["default"].createElement(
+	                    "pre",
+	                    null,
+	                    this.props.src
+	                )
+	            );
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+	            var _props = this.props;
+	            var title = _props.title;
+	            var description = _props.description;
+
+	            return _react2["default"].createElement(
+	                "div",
+	                { className: "example-block" },
+	                _react2["default"].createElement(
+	                    "h2",
+	                    null,
+	                    title,
+	                    _react2["default"].createElement(
+	                        "a",
+	                        { href: "", className: "btn btn-link", onClick: this.toggleCode.bind(this) },
+	                        "Toggle Code"
+	                    )
+	                ),
+	                _react2["default"].createElement(
+	                    "p",
+	                    null,
+	                    description
+	                ),
+	                _react2["default"].createElement(
+	                    "div",
+	                    { className: "btn-group" },
+	                    this.props.children
+	                ),
+	                this.renderCode()
+	            );
+	        }
+	    }]);
+
+	    return Example;
+	})(_react.Component);
+
+	exports["default"] = Example;
+	module.exports = exports["default"];
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var PackageHeader = (function (_Component) {
+	    _inherits(PackageHeader, _Component);
+
+	    function PackageHeader() {
+	        _classCallCheck(this, PackageHeader);
+
+	        _get(Object.getPrototypeOf(PackageHeader.prototype), "constructor", this).apply(this, arguments);
+	    }
+
+	    _createClass(PackageHeader, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2["default"].createElement(
+	                "div",
+	                { className: "jumbotron" },
+	                _react2["default"].createElement(
+	                    "div",
+	                    { className: "container" },
+	                    _react2["default"].createElement(
+	                        "p",
+	                        { className: "lead" },
+	                        this.props.name
+	                    ),
+	                    _react2["default"].createElement(
+	                        "p",
+	                        { className: "lead" },
+	                        this.props.description
+	                    ),
+	                    _react2["default"].createElement(
+	                        "small",
+	                        { className: "version" },
+	                        "Currently ",
+	                        this.props.version
+	                    )
+	                )
+	            );
+	        }
+	    }], [{
+	        key: "propTypes",
+	        value: {
+	            name: _react.PropTypes.string.isRequired,
+	            version: _react.PropTypes.string.isRequired
+	        },
+	        enumerable: true
+	    }]);
+
+	    return PackageHeader;
+	})(_react.Component);
+
+	exports["default"] = PackageHeader;
+	module.exports = exports["default"];
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _Simple2 = __webpack_require__(161);
+
+	var _Simple3 = _interopRequireDefault(_Simple2);
+
+	exports.Simple = _Simple3['default'];
+
+	var _Basic2 = __webpack_require__(185);
+
+	var _Basic3 = _interopRequireDefault(_Basic2);
+
+	exports.Basic = _Basic3['default'];
+
+	var _Static2 = __webpack_require__(186);
+
+	var _Static3 = _interopRequireDefault(_Static2);
+
+	exports.Static = _Static3['default'];
+
+	var _Confirm2 = __webpack_require__(187);
+
+	var _Confirm3 = _interopRequireDefault(_Confirm2);
+
+	exports.Confirm = _Confirm3['default'];
+
+	var _BasicConfirm2 = __webpack_require__(188);
+
+	var _BasicConfirm3 = _interopRequireDefault(_BasicConfirm2);
+
+	exports.BasicConfirm = _BasicConfirm3['default'];
+
+	var _Long2 = __webpack_require__(189);
+
+	var _Long3 = _interopRequireDefault(_Long2);
+
+	exports.Long = _Long3['default'];
+
+	var _Markdown2 = __webpack_require__(190);
+
+	var _Markdown3 = _interopRequireDefault(_Markdown2);
+
+	exports.Markdown = _Markdown3['default'];
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _srcBrowser = __webpack_require__(162);
+
+	var _srcBrowser2 = _interopRequireDefault(_srcBrowser);
+
+	var SimpleModalExample = (function (_Component) {
+	    _inherits(SimpleModalExample, _Component);
+
+	    function SimpleModalExample(props) {
+	        _classCallCheck(this, SimpleModalExample);
+
+	        _get(Object.getPrototypeOf(SimpleModalExample.prototype), 'constructor', this).call(this, props);
+
+	        this.state = {
+	            isOpen: false
+	        };
+	    }
+
+	    _createClass(SimpleModalExample, [{
+	        key: 'toggleModal',
+	        value: function toggleModal(e) {
+	            if (e && e.preventDefault) {
+	                e.preventDefault();
+	            }
+
+	            this.setState({
+	                isOpen: !this.state.isOpen
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2['default'].createElement(
+	                'div',
+	                null,
+	                _react2['default'].createElement(
+	                    'a',
+	                    { href: '', className: 'btn btn-primary', onClick: this.toggleModal.bind(this) },
+	                    'Open'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcBrowser2['default'],
+	                    { isOpen: this.state.isOpen, title: 'First modal', onRequestClose: this.toggleModal.bind(this) },
+	                    _react2['default'].createElement(
+	                        'p',
+	                        null,
+	                        'Viral deep v squid chia, letterpress wayfarers artisan meggings tote bag four loko keffiyeh hoodie cronut four dollar toast flannel.'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'p',
+	                        null,
+	                        'Pinterest 8-bit DIY pug cold-pressed Carles, typewriter photo booth deep v quinoa four dollar toast trust fund freegan. Food truck Godard semiotics, YOLO mixtape asymmetrical selfies Thundercats 8-bit.'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return SimpleModalExample;
+	})(_react.Component);
+
+	exports['default'] = SimpleModalExample;
+	module.exports = exports['default'];
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
@@ -20648,11 +20975,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _componentsModal = __webpack_require__(159);
+	var _componentsModal = __webpack_require__(163);
 
 	var _componentsModal2 = _interopRequireDefault(_componentsModal);
 
-	var _toggleClass = __webpack_require__(179);
+	var _toggleClass = __webpack_require__(184);
 
 	var _toggleClass2 = _interopRequireDefault(_toggleClass);
 
@@ -20671,14 +20998,59 @@
 
 	    _createClass(BrowserModal, [{
 	        key: 'onToggle',
-	        value: function onToggle(state) {
-	            (0, _toggleClass2['default'])(document.body, 'modal-open', state);
+	        value: function onToggle(state, scrollbarSize) {
+	            if (typeof document !== 'undefined') {
+	                var container = document.body;
+
+	                // Toggle open class
+	                (0, _toggleClass2['default'])(container, 'modal-open', state);
+
+	                // Update paddings
+	                if (state) {
+	                    this._origPadding = container.style.paddingRight;
+	                    container.style.paddingRight = parseInt(this._origPadding || 0, 10) + scrollbarSize + 'px';
+	                } else {
+	                    container.style.paddingRight = this._origPadding;
+	                }
+	            }
+
+	            if (state) {
+	                this.actionShow({
+	                    className: 'modal-open'
+	                });
+	            } else {
+	                this.actionHide({
+	                    className: 'modal-open'
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'actionShow',
+	        value: function actionShow(bodyProps) {
+	            if (this.props.actionShow) {
+	                this.props.actionShow(bodyProps);
+	            }
+	        }
+	    }, {
+	        key: 'actionHide',
+	        value: function actionHide(bodyProps) {
+	            if (this.props.actionHide) {
+	                this.props.actionHide(bodyProps);
+	            }
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2['default'].createElement(_componentsModal2['default'], _extends({}, this.props, { onToggle: this.onToggle }));
+	            return _react2['default'].createElement(_componentsModal2['default'], _extends({}, this.props, { onToggle: this.onToggle.bind(this) }));
 	        }
+	    }], [{
+	        key: 'propTypes',
+	        value: {
+	            // These callbacks can be used for serverside rendering
+	            actionShow: _react.PropTypes.func,
+	            actionHide: _react.PropTypes.func
+	        },
+	        enumerable: true
 	    }]);
 
 	    return BrowserModal;
@@ -20688,7 +21060,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 159 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20707,13 +21079,17 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _reactAddons = __webpack_require__(160);
+	var _reactAddons = __webpack_require__(164);
 
 	var _reactAddons2 = _interopRequireDefault(_reactAddons);
 
-	var _Backdrop = __webpack_require__(178);
+	var _Backdrop = __webpack_require__(182);
 
 	var _Backdrop2 = _interopRequireDefault(_Backdrop);
+
+	var _utilsScrollbarSize = __webpack_require__(183);
+
+	var _utilsScrollbarSize2 = _interopRequireDefault(_utilsScrollbarSize);
 
 	var ReactCSSTransitionGroup = _reactAddons2['default'].addons.CSSTransitionGroup;
 	var keyCodes = {
@@ -20724,16 +21100,51 @@
 	var Modal = (function (_Component) {
 	    _inherits(Modal, _Component);
 
-	    function Modal() {
+	    _createClass(Modal, null, [{
+	        key: 'propTypes',
+	        value: {
+	            children: _reactAddons.PropTypes.node,
+
+	            isOpen: _reactAddons.PropTypes.bool.isRequired,
+	            isStatic: _reactAddons.PropTypes.bool,
+	            isBasic: _reactAddons.PropTypes.bool,
+	            noWrap: _reactAddons.PropTypes.bool,
+	            transitionName: _reactAddons.PropTypes.string,
+
+	            title: _reactAddons.PropTypes.node,
+	            onToggle: _reactAddons.PropTypes.func.isRequired,
+
+	            onRequestClose: _reactAddons.PropTypes.func.isRequired,
+	            onConfirm: _reactAddons.PropTypes.func,
+	            onCancel: _reactAddons.PropTypes.func
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            noWrap: false,
+	            transitionName: 'fade'
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Modal(props) {
 	        _classCallCheck(this, Modal);
 
-	        _get(Object.getPrototypeOf(Modal.prototype), 'constructor', this).apply(this, arguments);
+	        _get(Object.getPrototypeOf(Modal.prototype), 'constructor', this).call(this, props);
+
+	        // Make serverside actions work
+	        if (props.isOpen) {
+	            if (typeof window === 'undefined') {
+	                this.props.onToggle(this.props.isOpen, Modal.getScrollbarWidth());
+	            }
+	        }
 	    }
 
 	    _createClass(Modal, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            this.props.onToggle(this.props.isOpen);
+	            this.props.onToggle(this.props.isOpen, Modal.getScrollbarWidth());
 
 	            if (typeof document !== 'undefined') {
 	                document.addEventListener('keydown', this.onKeyDown.bind(this), false);
@@ -20742,7 +21153,7 @@
 	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
-	            this.props.onToggle(nextProps.isOpen);
+	            this.props.onToggle(nextProps.isOpen, Modal.getScrollbarWidth());
 	        }
 	    }, {
 	        key: 'componentWillUnmount',
@@ -20880,31 +21291,14 @@
 	            );
 	        }
 	    }], [{
-	        key: 'propTypes',
-	        value: {
-	            children: _reactAddons.PropTypes.node,
-
-	            isOpen: _reactAddons.PropTypes.bool.isRequired,
-	            isStatic: _reactAddons.PropTypes.bool,
-	            isBasic: _reactAddons.PropTypes.bool,
-	            noWrap: _reactAddons.PropTypes.bool,
-	            transitionName: _reactAddons.PropTypes.string,
-
-	            title: _reactAddons.PropTypes.node,
-	            onToggle: _reactAddons.PropTypes.func.isRequired,
-
-	            onRequestClose: _reactAddons.PropTypes.func.isRequired,
-	            onConfirm: _reactAddons.PropTypes.func,
-	            onCancel: _reactAddons.PropTypes.func
-	        },
-	        enumerable: true
-	    }, {
-	        key: 'defaultProps',
-	        value: {
-	            noWrap: false,
-	            transitionName: 'fade'
-	        },
-	        enumerable: true
+	        key: 'getScrollbarWidth',
+	        value: function getScrollbarWidth() {
+	            if (typeof document === 'undefined') {
+	                return null;
+	            } else {
+	                return (0, _utilsScrollbarSize2['default'])();
+	            }
+	        }
 	    }]);
 
 	    return Modal;
@@ -20914,14 +21308,14 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 160 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(161);
+	module.exports = __webpack_require__(165);
 
 
 /***/ },
-/* 161 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20944,18 +21338,18 @@
 
 	'use strict';
 
-	var LinkedStateMixin = __webpack_require__(162);
+	var LinkedStateMixin = __webpack_require__(166);
 	var React = __webpack_require__(2);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(165);
-	var ReactCSSTransitionGroup = __webpack_require__(166);
+	  __webpack_require__(169);
+	var ReactCSSTransitionGroup = __webpack_require__(170);
 	var ReactFragment = __webpack_require__(10);
-	var ReactTransitionGroup = __webpack_require__(167);
+	var ReactTransitionGroup = __webpack_require__(171);
 	var ReactUpdates = __webpack_require__(26);
 
-	var cx = __webpack_require__(175);
-	var cloneWithProps = __webpack_require__(169);
-	var update = __webpack_require__(176);
+	var cx = __webpack_require__(179);
+	var cloneWithProps = __webpack_require__(173);
+	var update = __webpack_require__(180);
 
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -20972,7 +21366,7 @@
 
 	if ("production" !== process.env.NODE_ENV) {
 	  React.addons.Perf = __webpack_require__(150);
-	  React.addons.TestUtils = __webpack_require__(177);
+	  React.addons.TestUtils = __webpack_require__(181);
 	}
 
 	module.exports = React;
@@ -20980,7 +21374,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 162 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20997,8 +21391,8 @@
 
 	'use strict';
 
-	var ReactLink = __webpack_require__(163);
-	var ReactStateSetters = __webpack_require__(164);
+	var ReactLink = __webpack_require__(167);
+	var ReactStateSetters = __webpack_require__(168);
 
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -21025,7 +21419,7 @@
 
 
 /***/ },
-/* 163 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21102,7 +21496,7 @@
 
 
 /***/ },
-/* 164 */
+/* 168 */
 /***/ function(module, exports) {
 
 	/**
@@ -21212,7 +21606,7 @@
 
 
 /***/ },
-/* 165 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21265,7 +21659,7 @@
 
 
 /***/ },
-/* 166 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21287,10 +21681,10 @@
 	var assign = __webpack_require__(13);
 
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(167)
+	  __webpack_require__(171)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(172)
+	  __webpack_require__(176)
 	);
 
 	var ReactCSSTransitionGroup = React.createClass({
@@ -21339,7 +21733,7 @@
 
 
 /***/ },
-/* 167 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21356,10 +21750,10 @@
 	'use strict';
 
 	var React = __webpack_require__(2);
-	var ReactTransitionChildMapping = __webpack_require__(168);
+	var ReactTransitionChildMapping = __webpack_require__(172);
 
 	var assign = __webpack_require__(13);
-	var cloneWithProps = __webpack_require__(169);
+	var cloneWithProps = __webpack_require__(173);
 	var emptyFunction = __webpack_require__(16);
 
 	var ReactTransitionGroup = React.createClass({
@@ -21573,7 +21967,7 @@
 
 
 /***/ },
-/* 168 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21682,7 +22076,7 @@
 
 
 /***/ },
-/* 169 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21700,7 +22094,7 @@
 	'use strict';
 
 	var ReactElement = __webpack_require__(11);
-	var ReactPropTransferer = __webpack_require__(170);
+	var ReactPropTransferer = __webpack_require__(174);
 
 	var keyOf = __webpack_require__(39);
 	var warning = __webpack_require__(15);
@@ -21744,7 +22138,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 170 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21762,7 +22156,7 @@
 
 	var assign = __webpack_require__(13);
 	var emptyFunction = __webpack_require__(16);
-	var joinClasses = __webpack_require__(171);
+	var joinClasses = __webpack_require__(175);
 
 	/**
 	 * Creates a transfer strategy that will merge prop values using the supplied
@@ -21858,7 +22252,7 @@
 
 
 /***/ },
-/* 171 */
+/* 175 */
 /***/ function(module, exports) {
 
 	/**
@@ -21903,7 +22297,7 @@
 
 
 /***/ },
-/* 172 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21922,8 +22316,8 @@
 
 	var React = __webpack_require__(2);
 
-	var CSSCore = __webpack_require__(173);
-	var ReactTransitionEvents = __webpack_require__(174);
+	var CSSCore = __webpack_require__(177);
+	var ReactTransitionEvents = __webpack_require__(178);
 
 	var onlyChild = __webpack_require__(156);
 	var warning = __webpack_require__(15);
@@ -22054,7 +22448,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 173 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22169,7 +22563,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 174 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22284,7 +22678,7 @@
 
 
 /***/ },
-/* 175 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22343,7 +22737,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 176 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22517,7 +22911,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 177 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23035,7 +23429,7 @@
 
 
 /***/ },
-/* 178 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23096,7 +23490,43 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 179 */
+/* 183 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	var size = undefined;
+
+	// Original source available at: https://github.com/react-bootstrap/dom-helpers/blob/master/src/util/scrollbarSize.js
+
+	function getScrollbarSize(recalc) {
+	    if (!size || recalc) {
+	        if (typeof document !== 'undefined') {
+	            var scrollDiv = document.createElement('div');
+
+	            scrollDiv.style.position = 'absolute';
+	            scrollDiv.style.top = '-9999px';
+	            scrollDiv.style.width = '50px';
+	            scrollDiv.style.height = '50px';
+	            scrollDiv.style.overflow = 'scroll';
+
+	            document.body.appendChild(scrollDiv);
+	            size = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+	            document.body.removeChild(scrollDiv);
+	        }
+	    }
+
+	    return size;
+	}
+
+	exports['default'] = getScrollbarSize;
+	module.exports = exports['default'];
+
+/***/ },
+/* 184 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23132,251 +23562,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 180 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var Example = (function (_Component) {
-	    _inherits(Example, _Component);
-
-	    _createClass(Example, null, [{
-	        key: "propTypes",
-	        value: {
-	            title: _react.PropTypes.string.isRequired,
-	            description: _react.PropTypes.string.isRequired,
-	            src: _react.PropTypes.string.isRequired
-	        },
-	        enumerable: true
-	    }]);
-
-	    function Example(props) {
-	        _classCallCheck(this, Example);
-
-	        _get(Object.getPrototypeOf(Example.prototype), "constructor", this).call(this, props);
-
-	        this.state = {
-	            showCode: false
-	        };
-	    }
-
-	    _createClass(Example, [{
-	        key: "toggleCode",
-	        value: function toggleCode(e) {
-	            e.preventDefault();
-
-	            this.setState({
-	                showCode: !this.state.showCode
-	            });
-	        }
-	    }, {
-	        key: "renderCode",
-	        value: function renderCode() {
-	            if (!this.state.showCode) {
-	                return null;
-	            }
-
-	            return _react2["default"].createElement(
-	                "div",
-	                { className: "code-block" },
-	                _react2["default"].createElement(
-	                    "pre",
-	                    null,
-	                    this.props.src
-	                )
-	            );
-	        }
-	    }, {
-	        key: "render",
-	        value: function render() {
-	            var _props = this.props;
-	            var title = _props.title;
-	            var description = _props.description;
-
-	            return _react2["default"].createElement(
-	                "div",
-	                { className: "example-block" },
-	                _react2["default"].createElement(
-	                    "h2",
-	                    null,
-	                    title,
-	                    _react2["default"].createElement(
-	                        "a",
-	                        { href: "", className: "btn btn-link", onClick: this.toggleCode.bind(this) },
-	                        "Toggle Code"
-	                    )
-	                ),
-	                _react2["default"].createElement(
-	                    "p",
-	                    null,
-	                    description
-	                ),
-	                _react2["default"].createElement(
-	                    "div",
-	                    { className: "btn-group" },
-	                    this.props.children
-	                ),
-	                this.renderCode()
-	            );
-	        }
-	    }]);
-
-	    return Example;
-	})(_react.Component);
-
-	exports["default"] = Example;
-	module.exports = exports["default"];
-
-/***/ },
-/* 181 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var PackageHeader = (function (_Component) {
-	    _inherits(PackageHeader, _Component);
-
-	    function PackageHeader() {
-	        _classCallCheck(this, PackageHeader);
-
-	        _get(Object.getPrototypeOf(PackageHeader.prototype), "constructor", this).apply(this, arguments);
-	    }
-
-	    _createClass(PackageHeader, [{
-	        key: "render",
-	        value: function render() {
-	            return _react2["default"].createElement(
-	                "div",
-	                { className: "jumbotron" },
-	                _react2["default"].createElement(
-	                    "div",
-	                    { className: "container" },
-	                    _react2["default"].createElement(
-	                        "p",
-	                        { className: "lead" },
-	                        this.props.name
-	                    ),
-	                    _react2["default"].createElement(
-	                        "p",
-	                        { className: "lead" },
-	                        this.props.description
-	                    ),
-	                    _react2["default"].createElement(
-	                        "small",
-	                        { className: "version" },
-	                        "Currently ",
-	                        this.props.version
-	                    )
-	                )
-	            );
-	        }
-	    }], [{
-	        key: "propTypes",
-	        value: {
-	            name: _react.PropTypes.string.isRequired,
-	            version: _react.PropTypes.string.isRequired
-	        },
-	        enumerable: true
-	    }]);
-
-	    return PackageHeader;
-	})(_react.Component);
-
-	exports["default"] = PackageHeader;
-	module.exports = exports["default"];
-
-/***/ },
-/* 182 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _Simple2 = __webpack_require__(183);
-
-	var _Simple3 = _interopRequireDefault(_Simple2);
-
-	exports.Simple = _Simple3['default'];
-
-	var _Basic2 = __webpack_require__(184);
-
-	var _Basic3 = _interopRequireDefault(_Basic2);
-
-	exports.Basic = _Basic3['default'];
-
-	var _Static2 = __webpack_require__(185);
-
-	var _Static3 = _interopRequireDefault(_Static2);
-
-	exports.Static = _Static3['default'];
-
-	var _Confirm2 = __webpack_require__(186);
-
-	var _Confirm3 = _interopRequireDefault(_Confirm2);
-
-	exports.Confirm = _Confirm3['default'];
-
-	var _BasicConfirm2 = __webpack_require__(187);
-
-	var _BasicConfirm3 = _interopRequireDefault(_BasicConfirm2);
-
-	exports.BasicConfirm = _BasicConfirm3['default'];
-
-	var _Long2 = __webpack_require__(188);
-
-	var _Long3 = _interopRequireDefault(_Long2);
-
-	exports.Long = _Long3['default'];
-
-	var _Markdown2 = __webpack_require__(189);
-
-	var _Markdown3 = _interopRequireDefault(_Markdown2);
-
-	exports.Markdown = _Markdown3['default'];
-
-/***/ },
-/* 183 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23399,94 +23585,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _srcBrowser = __webpack_require__(158);
-
-	var _srcBrowser2 = _interopRequireDefault(_srcBrowser);
-
-	var SimpleModalExample = (function (_Component) {
-	    _inherits(SimpleModalExample, _Component);
-
-	    function SimpleModalExample(props) {
-	        _classCallCheck(this, SimpleModalExample);
-
-	        _get(Object.getPrototypeOf(SimpleModalExample.prototype), 'constructor', this).call(this, props);
-
-	        this.state = {
-	            isOpen: false
-	        };
-	    }
-
-	    _createClass(SimpleModalExample, [{
-	        key: 'toggleModal',
-	        value: function toggleModal(e) {
-	            if (e && e.preventDefault) {
-	                e.preventDefault();
-	            }
-
-	            this.setState({
-	                isOpen: !this.state.isOpen
-	            });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2['default'].createElement(
-	                'div',
-	                null,
-	                _react2['default'].createElement(
-	                    'a',
-	                    { href: '', className: 'btn btn-primary', onClick: this.toggleModal.bind(this) },
-	                    'Open'
-	                ),
-	                _react2['default'].createElement(
-	                    _srcBrowser2['default'],
-	                    { isOpen: this.state.isOpen, title: 'First modal', onRequestClose: this.toggleModal.bind(this) },
-	                    _react2['default'].createElement(
-	                        'p',
-	                        null,
-	                        'Viral deep v squid chia, letterpress wayfarers artisan meggings tote bag four loko keffiyeh hoodie cronut four dollar toast flannel.'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'p',
-	                        null,
-	                        'Pinterest 8-bit DIY pug cold-pressed Carles, typewriter photo booth deep v quinoa four dollar toast trust fund freegan. Food truck Godard semiotics, YOLO mixtape asymmetrical selfies Thundercats 8-bit.'
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return SimpleModalExample;
-	})(_react.Component);
-
-	exports['default'] = SimpleModalExample;
-	module.exports = exports['default'];
-
-/***/ },
-/* 184 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _srcBrowser = __webpack_require__(158);
+	var _srcBrowser = __webpack_require__(162);
 
 	var _srcBrowser2 = _interopRequireDefault(_srcBrowser);
 
@@ -23545,7 +23644,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23568,7 +23667,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _srcBrowser = __webpack_require__(158);
+	var _srcBrowser = __webpack_require__(162);
 
 	var _srcBrowser2 = _interopRequireDefault(_srcBrowser);
 
@@ -23632,7 +23731,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23655,7 +23754,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _srcBrowser = __webpack_require__(158);
+	var _srcBrowser = __webpack_require__(162);
 
 	var _srcBrowser2 = _interopRequireDefault(_srcBrowser);
 
@@ -23668,23 +23767,12 @@
 	        _get(Object.getPrototypeOf(ConfirmModalExample.prototype), 'constructor', this).call(this, props);
 
 	        this.state = {
-	            isOpen: false,
+	            isOpen: props.initialOpen || false,
 	            anwser: null
 	        };
 	    }
 
 	    _createClass(ConfirmModalExample, [{
-	        key: 'toggleModal',
-	        value: function toggleModal(e) {
-	            if (e && e.preventDefault) {
-	                e.preventDefault();
-	            }
-
-	            this.setState({
-	                isOpen: !this.state.isOpen
-	            });
-	        }
-	    }, {
 	        key: 'onCancel',
 	        value: function onCancel() {
 	            this.setState({
@@ -23698,6 +23786,17 @@
 	            this.setState({
 	                anwser: 'GIMME',
 	                isOpen: false
+	            });
+	        }
+	    }, {
+	        key: 'toggleModal',
+	        value: function toggleModal(e) {
+	            if (e && e.preventDefault) {
+	                e.preventDefault();
+	            }
+
+	            this.setState({
+	                isOpen: !this.state.isOpen
 	            });
 	        }
 	    }, {
@@ -23772,7 +23871,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23795,7 +23894,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _srcBrowser = __webpack_require__(158);
+	var _srcBrowser = __webpack_require__(162);
 
 	var _srcBrowser2 = _interopRequireDefault(_srcBrowser);
 
@@ -23912,7 +24011,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23935,7 +24034,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _srcBrowser = __webpack_require__(158);
+	var _srcBrowser = __webpack_require__(162);
 
 	var _srcBrowser2 = _interopRequireDefault(_srcBrowser);
 
@@ -23976,7 +24075,9 @@
 	                ),
 	                _react2['default'].createElement(
 	                    _srcBrowser2['default'],
-	                    { isOpen: this.state.isOpen, title: 'Longcat is long', onRequestClose: this.toggleModal.bind(this) },
+	                    { isOpen: this.state.isOpen,
+	                        title: 'Longcat is long',
+	                        onRequestClose: this.toggleModal.bind(this) },
 	                    _react2['default'].createElement(
 	                        'p',
 	                        null,
@@ -24024,7 +24125,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24047,15 +24148,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRemarkable = __webpack_require__(190);
+	var _reactRemarkable = __webpack_require__(191);
 
 	var _reactRemarkable2 = _interopRequireDefault(_reactRemarkable);
 
-	var _filesExampleMd = __webpack_require__(252);
+	var _filesExampleMd = __webpack_require__(253);
 
 	var _filesExampleMd2 = _interopRequireDefault(_filesExampleMd);
 
-	var _srcBrowser = __webpack_require__(158);
+	var _srcBrowser = __webpack_require__(162);
 
 	var _srcBrowser2 = _interopRequireDefault(_srcBrowser);
 
@@ -24110,7 +24211,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24125,7 +24226,7 @@
 
 	var _React2 = _interopRequireDefault(_React);
 
-	var _Markdown = __webpack_require__(191);
+	var _Markdown = __webpack_require__(192);
 
 	var _Markdown2 = _interopRequireDefault(_Markdown);
 
@@ -24186,17 +24287,17 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	module.exports = __webpack_require__(192);
+	module.exports = __webpack_require__(193);
 
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24205,21 +24306,21 @@
 	 * Local dependencies
 	 */
 
-	var assign       = __webpack_require__(193).assign;
-	var Renderer     = __webpack_require__(195);
-	var ParserCore   = __webpack_require__(197);
-	var ParserBlock  = __webpack_require__(215);
-	var ParserInline = __webpack_require__(230);
-	var Ruler        = __webpack_require__(198);
+	var assign       = __webpack_require__(194).assign;
+	var Renderer     = __webpack_require__(196);
+	var ParserCore   = __webpack_require__(198);
+	var ParserBlock  = __webpack_require__(216);
+	var ParserInline = __webpack_require__(231);
+	var Ruler        = __webpack_require__(199);
 
 	/**
 	 * Preset configs
 	 */
 
 	var config = {
-	  'default':    __webpack_require__(249),
-	  'full':       __webpack_require__(250),
-	  'commonmark': __webpack_require__(251)
+	  'default':    __webpack_require__(250),
+	  'full':       __webpack_require__(251),
+	  'commonmark': __webpack_require__(252)
 	};
 
 	/**
@@ -24393,11 +24494,11 @@
 	 * rendering.
 	 */
 
-	module.exports.utils = __webpack_require__(193);
+	module.exports.utils = __webpack_require__(194);
 
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24484,7 +24585,7 @@
 
 	var NAMED_ENTITY_RE   = /&([a-z#][a-z0-9]{1,31});/gi;
 	var DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i;
-	var entities = __webpack_require__(194);
+	var entities = __webpack_require__(195);
 
 	function replaceEntityPattern(match, name) {
 	  var code = 0;
@@ -24544,7 +24645,7 @@
 
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports) {
 
 	// List of valid entities
@@ -26684,7 +26785,7 @@
 
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26693,8 +26794,8 @@
 	 * Local dependencies
 	 */
 
-	var utils = __webpack_require__(193);
-	var rules = __webpack_require__(196);
+	var utils = __webpack_require__(194);
+	var rules = __webpack_require__(197);
 
 	/**
 	 * Expose `Renderer`
@@ -26765,7 +26866,7 @@
 
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26774,10 +26875,10 @@
 	 * Local dependencies
 	 */
 
-	var has             = __webpack_require__(193).has;
-	var unescapeMd      = __webpack_require__(193).unescapeMd;
-	var replaceEntities = __webpack_require__(193).replaceEntities;
-	var escapeHtml      = __webpack_require__(193).escapeHtml;
+	var has             = __webpack_require__(194).has;
+	var unescapeMd      = __webpack_require__(194).unescapeMd;
+	var replaceEntities = __webpack_require__(194).replaceEntities;
+	var escapeHtml      = __webpack_require__(194).escapeHtml;
 
 	/**
 	 * Renderer rules cache
@@ -27197,7 +27298,7 @@
 
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27206,22 +27307,22 @@
 	 * Local dependencies
 	 */
 
-	var Ruler = __webpack_require__(198);
+	var Ruler = __webpack_require__(199);
 
 	/**
 	 * Core parser `rules`
 	 */
 
 	var _rules = [
-	  [ 'block',          __webpack_require__(199)          ],
-	  [ 'abbr',           __webpack_require__(200)           ],
-	  [ 'references',     __webpack_require__(203)     ],
-	  [ 'inline',         __webpack_require__(208)         ],
-	  [ 'footnote_tail',  __webpack_require__(209)  ],
-	  [ 'abbr2',          __webpack_require__(210)          ],
-	  [ 'replacements',   __webpack_require__(211)   ],
-	  [ 'smartquotes',    __webpack_require__(212)    ],
-	  [ 'linkify',        __webpack_require__(213)        ]
+	  [ 'block',          __webpack_require__(200)          ],
+	  [ 'abbr',           __webpack_require__(201)           ],
+	  [ 'references',     __webpack_require__(204)     ],
+	  [ 'inline',         __webpack_require__(209)         ],
+	  [ 'footnote_tail',  __webpack_require__(210)  ],
+	  [ 'abbr2',          __webpack_require__(211)          ],
+	  [ 'replacements',   __webpack_require__(212)   ],
+	  [ 'smartquotes',    __webpack_require__(213)    ],
+	  [ 'linkify',        __webpack_require__(214)        ]
 	];
 
 	/**
@@ -27261,7 +27362,7 @@
 
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27540,7 +27641,7 @@
 
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27563,7 +27664,7 @@
 
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Parse abbreviation definitions, i.e. `*[abbr]: description`
@@ -27572,8 +27673,8 @@
 	'use strict';
 
 
-	var StateInline    = __webpack_require__(201);
-	var parseLinkLabel = __webpack_require__(202);
+	var StateInline    = __webpack_require__(202);
+	var parseLinkLabel = __webpack_require__(203);
 
 
 	function parseAbbr(str, parserInline, options, env) {
@@ -27639,7 +27740,7 @@
 
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports) {
 
 	// Inline parser state
@@ -27727,7 +27828,7 @@
 
 
 /***/ },
-/* 202 */
+/* 203 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27792,17 +27893,17 @@
 
 
 /***/ },
-/* 203 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var StateInline          = __webpack_require__(201);
-	var parseLinkLabel       = __webpack_require__(202);
-	var parseLinkDestination = __webpack_require__(204);
-	var parseLinkTitle       = __webpack_require__(206);
-	var normalizeReference   = __webpack_require__(207);
+	var StateInline          = __webpack_require__(202);
+	var parseLinkLabel       = __webpack_require__(203);
+	var parseLinkDestination = __webpack_require__(205);
+	var parseLinkTitle       = __webpack_require__(207);
+	var normalizeReference   = __webpack_require__(208);
 
 
 	function parseReference(str, parser, options, env) {
@@ -27896,14 +27997,14 @@
 
 
 /***/ },
-/* 204 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var normalizeLink = __webpack_require__(205);
-	var unescapeMd    = __webpack_require__(193).unescapeMd;
+	var normalizeLink = __webpack_require__(206);
+	var unescapeMd    = __webpack_require__(194).unescapeMd;
 
 	/**
 	 * Parse link destination
@@ -27986,12 +28087,12 @@
 
 
 /***/ },
-/* 205 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var replaceEntities = __webpack_require__(193).replaceEntities;
+	var replaceEntities = __webpack_require__(194).replaceEntities;
 
 	module.exports = function normalizeLink(url) {
 	  var normalized = replaceEntities(url);
@@ -28005,13 +28106,13 @@
 
 
 /***/ },
-/* 206 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var unescapeMd = __webpack_require__(193).unescapeMd;
+	var unescapeMd = __webpack_require__(194).unescapeMd;
 
 	/**
 	 * Parse link title
@@ -28057,7 +28158,7 @@
 
 
 /***/ },
-/* 207 */
+/* 208 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28071,7 +28172,7 @@
 
 
 /***/ },
-/* 208 */
+/* 209 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28090,7 +28191,7 @@
 
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28191,7 +28292,7 @@
 
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports) {
 
 	// Enclose abbreviations in <abbr> tags
@@ -28285,7 +28386,7 @@
 
 
 /***/ },
-/* 211 */
+/* 212 */
 /***/ function(module, exports) {
 
 	// Simple typographical replacements
@@ -28355,7 +28456,7 @@
 
 
 /***/ },
-/* 212 */
+/* 213 */
 /***/ function(module, exports) {
 
 	// Convert straight quotation marks to typographic ones
@@ -28474,7 +28575,7 @@
 
 
 /***/ },
-/* 213 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Replace link-like texts with link nodes.
@@ -28484,7 +28585,7 @@
 	'use strict';
 
 
-	var Autolinker = __webpack_require__(214);
+	var Autolinker = __webpack_require__(215);
 
 
 	var LINK_SCAN_RE = /www|@|\:\/\//;
@@ -28641,7 +28742,7 @@
 
 
 /***/ },
-/* 214 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -30970,7 +31071,7 @@
 
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30979,26 +31080,26 @@
 	 * Local dependencies
 	 */
 
-	var Ruler      = __webpack_require__(198);
-	var StateBlock = __webpack_require__(216);
+	var Ruler      = __webpack_require__(199);
+	var StateBlock = __webpack_require__(217);
 
 	/**
 	 * Parser rules
 	 */
 
 	var _rules = [
-	  [ 'code',       __webpack_require__(217) ],
-	  [ 'fences',     __webpack_require__(218),     [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'blockquote', __webpack_require__(219), [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'hr',         __webpack_require__(220),         [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'list',       __webpack_require__(221),       [ 'paragraph', 'blockquote' ] ],
-	  [ 'footnote',   __webpack_require__(222),   [ 'paragraph' ] ],
-	  [ 'heading',    __webpack_require__(223),    [ 'paragraph', 'blockquote' ] ],
-	  [ 'lheading',   __webpack_require__(224) ],
-	  [ 'htmlblock',  __webpack_require__(225),  [ 'paragraph', 'blockquote' ] ],
-	  [ 'table',      __webpack_require__(227),      [ 'paragraph' ] ],
-	  [ 'deflist',    __webpack_require__(228),    [ 'paragraph' ] ],
-	  [ 'paragraph',  __webpack_require__(229) ]
+	  [ 'code',       __webpack_require__(218) ],
+	  [ 'fences',     __webpack_require__(219),     [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'blockquote', __webpack_require__(220), [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'hr',         __webpack_require__(221),         [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'list',       __webpack_require__(222),       [ 'paragraph', 'blockquote' ] ],
+	  [ 'footnote',   __webpack_require__(223),   [ 'paragraph' ] ],
+	  [ 'heading',    __webpack_require__(224),    [ 'paragraph', 'blockquote' ] ],
+	  [ 'lheading',   __webpack_require__(225) ],
+	  [ 'htmlblock',  __webpack_require__(226),  [ 'paragraph', 'blockquote' ] ],
+	  [ 'table',      __webpack_require__(228),      [ 'paragraph' ] ],
+	  [ 'deflist',    __webpack_require__(229),    [ 'paragraph' ] ],
+	  [ 'paragraph',  __webpack_require__(230) ]
 	];
 
 	/**
@@ -31131,7 +31232,7 @@
 
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports) {
 
 	// Parser state class
@@ -31295,7 +31396,7 @@
 
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports) {
 
 	// Code block (4 spaces padded)
@@ -31337,7 +31438,7 @@
 
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports) {
 
 	// fences (``` lang, ~~~ lang)
@@ -31434,7 +31535,7 @@
 
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports) {
 
 	// Block quotes
@@ -31573,7 +31674,7 @@
 
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports) {
 
 	// Horizontal rule
@@ -31624,7 +31725,7 @@
 
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports) {
 
 	// Lists
@@ -31896,7 +31997,7 @@
 
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports) {
 
 	// Process footnote reference list
@@ -31969,7 +32070,7 @@
 
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports) {
 
 	// heading (#, ##, ...)
@@ -32033,7 +32134,7 @@
 
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports) {
 
 	// lheading (---, ===)
@@ -32094,7 +32195,7 @@
 
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// HTML block
@@ -32102,7 +32203,7 @@
 	'use strict';
 
 
-	var block_names = __webpack_require__(226);
+	var block_names = __webpack_require__(227);
 
 
 	var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
@@ -32174,7 +32275,7 @@
 
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports) {
 
 	// List of valid html blocks names, accorting to commonmark spec
@@ -32242,7 +32343,7 @@
 
 
 /***/ },
-/* 227 */
+/* 228 */
 /***/ function(module, exports) {
 
 	// GFM table, non-standard
@@ -32382,7 +32483,7 @@
 
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports) {
 
 	// Definition lists
@@ -32595,7 +32696,7 @@
 
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports) {
 
 	// Paragraph
@@ -32660,7 +32761,7 @@
 
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32669,31 +32770,31 @@
 	 * Local dependencies
 	 */
 
-	var Ruler       = __webpack_require__(198);
-	var StateInline = __webpack_require__(201);
-	var utils       = __webpack_require__(193);
+	var Ruler       = __webpack_require__(199);
+	var StateInline = __webpack_require__(202);
+	var utils       = __webpack_require__(194);
 
 	/**
 	 * Inline Parser `rules`
 	 */
 
 	var _rules = [
-	  [ 'text',            __webpack_require__(231) ],
-	  [ 'newline',         __webpack_require__(232) ],
-	  [ 'escape',          __webpack_require__(233) ],
-	  [ 'backticks',       __webpack_require__(234) ],
-	  [ 'del',             __webpack_require__(235) ],
-	  [ 'ins',             __webpack_require__(236) ],
-	  [ 'mark',            __webpack_require__(237) ],
-	  [ 'emphasis',        __webpack_require__(238) ],
-	  [ 'sub',             __webpack_require__(239) ],
-	  [ 'sup',             __webpack_require__(240) ],
-	  [ 'links',           __webpack_require__(241) ],
-	  [ 'footnote_inline', __webpack_require__(242) ],
-	  [ 'footnote_ref',    __webpack_require__(243) ],
-	  [ 'autolink',        __webpack_require__(244) ],
-	  [ 'htmltag',         __webpack_require__(246) ],
-	  [ 'entity',          __webpack_require__(248) ]
+	  [ 'text',            __webpack_require__(232) ],
+	  [ 'newline',         __webpack_require__(233) ],
+	  [ 'escape',          __webpack_require__(234) ],
+	  [ 'backticks',       __webpack_require__(235) ],
+	  [ 'del',             __webpack_require__(236) ],
+	  [ 'ins',             __webpack_require__(237) ],
+	  [ 'mark',            __webpack_require__(238) ],
+	  [ 'emphasis',        __webpack_require__(239) ],
+	  [ 'sub',             __webpack_require__(240) ],
+	  [ 'sup',             __webpack_require__(241) ],
+	  [ 'links',           __webpack_require__(242) ],
+	  [ 'footnote_inline', __webpack_require__(243) ],
+	  [ 'footnote_ref',    __webpack_require__(244) ],
+	  [ 'autolink',        __webpack_require__(245) ],
+	  [ 'htmltag',         __webpack_require__(247) ],
+	  [ 'entity',          __webpack_require__(249) ]
 	];
 
 	/**
@@ -32827,7 +32928,7 @@
 
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports) {
 
 	// Skip text characters for text token, place those to pending buffer
@@ -32886,7 +32987,7 @@
 
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports) {
 
 	// Proceess '\n'
@@ -32940,7 +33041,7 @@
 
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports) {
 
 	// Proceess escaped chars and hardbreaks
@@ -32995,7 +33096,7 @@
 
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports) {
 
 	// Parse backticks
@@ -33047,7 +33148,7 @@
 
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports) {
 
 	// Process ~~deleted text~~
@@ -33137,7 +33238,7 @@
 
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports) {
 
 	// Process ++inserted text++
@@ -33227,7 +33328,7 @@
 
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports) {
 
 	// Process ==highlighted text==
@@ -33317,7 +33418,7 @@
 
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports) {
 
 	// Process *this* and _that_
@@ -33472,7 +33573,7 @@
 
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports) {
 
 	// Process ~subscript~
@@ -33536,7 +33637,7 @@
 
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports) {
 
 	// Process ^superscript^
@@ -33600,17 +33701,17 @@
 
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process [links](<to> "stuff")
 
 	'use strict';
 
-	var parseLinkLabel       = __webpack_require__(202);
-	var parseLinkDestination = __webpack_require__(204);
-	var parseLinkTitle       = __webpack_require__(206);
-	var normalizeReference   = __webpack_require__(207);
+	var parseLinkLabel       = __webpack_require__(203);
+	var parseLinkDestination = __webpack_require__(205);
+	var parseLinkTitle       = __webpack_require__(207);
+	var normalizeReference   = __webpack_require__(208);
 
 
 	module.exports = function links(state, silent) {
@@ -33771,14 +33872,14 @@
 
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process inline footnotes (^[...])
 
 	'use strict';
 
-	var parseLinkLabel = __webpack_require__(202);
+	var parseLinkLabel = __webpack_require__(203);
 
 
 	module.exports = function footnote_inline(state, silent) {
@@ -33830,7 +33931,7 @@
 
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports) {
 
 	// Process footnote references ([^...])
@@ -33898,15 +33999,15 @@
 
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process autolinks '<protocol:...>'
 
 	'use strict';
 
-	var url_schemas   = __webpack_require__(245);
-	var normalizeLink = __webpack_require__(205);
+	var url_schemas   = __webpack_require__(246);
+	var normalizeLink = __webpack_require__(206);
 
 
 	/*eslint max-len:0*/
@@ -33982,7 +34083,7 @@
 
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports) {
 
 	// List of valid url schemas, accorting to commonmark spec
@@ -34160,7 +34261,7 @@
 
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html tags
@@ -34168,7 +34269,7 @@
 	'use strict';
 
 
-	var HTML_TAG_RE = __webpack_require__(247).HTML_TAG_RE;
+	var HTML_TAG_RE = __webpack_require__(248).HTML_TAG_RE;
 
 
 	function isLetter(ch) {
@@ -34215,7 +34316,7 @@
 
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports) {
 
 	// Regexps to match html elements
@@ -34280,17 +34381,17 @@
 
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html entity - &#123;, &#xAF;, &quot;, ...
 
 	'use strict';
 
-	var entities          = __webpack_require__(194);
-	var has               = __webpack_require__(193).has;
-	var isValidEntityCode = __webpack_require__(193).isValidEntityCode;
-	var fromCodePoint     = __webpack_require__(193).fromCodePoint;
+	var entities          = __webpack_require__(195);
+	var has               = __webpack_require__(194).has;
+	var isValidEntityCode = __webpack_require__(194).isValidEntityCode;
+	var fromCodePoint     = __webpack_require__(194).fromCodePoint;
 
 
 	var DIGITAL_RE = /^&#((?:x[a-f0-9]{1,8}|[0-9]{1,8}));/i;
@@ -34334,7 +34435,7 @@
 
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports) {
 
 	// Remarkable default options
@@ -34418,7 +34519,7 @@
 
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports) {
 
 	// Remarkable default options
@@ -34461,7 +34562,7 @@
 
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports) {
 
 	// Commonmark default options
@@ -34537,22 +34638,22 @@
 
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports) {
 
 	module.exports = "This demonstrates some of what [Markdown][1] is capable of doing.\n\nRendered using [react-remarkable][2] which uses [remarkable][3] to render\nmarkdown with [React][4].\n\n# h1\n## H2\n### H3\n#### H4\n##### H5\n###### H6\n \nParagraphs are separated\nby a blank line.\n\nLeave 2 spaces at the end of a line to do a  \nline break\n\nText attributes *italic*, **bold**, \n`monospace`, ~~strikethrough~~ .\n\nA [link](http://example.com).\n[28]\n\nShopping list:\n\n  * apples\n  * oranges\n  * pears\n\nNumbered list:\n\n  1. apples\n  2. oranges\n  3. pears\n\n  [1]: https://en.wikipedia.org/wiki/Markdown#Example\n  [2]: https://github.com/acdlite/react-remarkable\n  [3]: https://github.com/jonschlinkert/remarkable\n  [4]: http://facebook.github.io/react/\n"
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(254);
+	var content = __webpack_require__(255);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(256)(content, {});
+	var update = __webpack_require__(257)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -34569,10 +34670,10 @@
 	}
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(255)();
+	exports = module.exports = __webpack_require__(256)();
 	// imports
 
 
@@ -34583,7 +34684,7 @@
 
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports) {
 
 	/*
@@ -34639,7 +34740,7 @@
 
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -34864,16 +34965,16 @@
 
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(258);
+	var content = __webpack_require__(259);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(256)(content, {});
+	var update = __webpack_require__(257)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -34890,26 +34991,26 @@
 	}
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(255)();
+	exports = module.exports = __webpack_require__(256)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "body.modal-open {\n  overflow: hidden;\n  padding-right: 17px; }\n\n.modal {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1050;\n  overflow: hidden;\n  -webkit-overflow-scrolling: touch;\n  outline: 0; }\n  .modal .modal-dialog {\n    position: relative;\n    width: auto;\n    margin: 10px; }\n    @media (min-width: 768px) {\n      .modal .modal-dialog {\n        width: 600px;\n        margin: 30px auto; } }\n    .modal .modal-dialog .modal-content {\n      background: #fff;\n      padding: 0;\n      -webkit-transform-origin: 50% 25%;\n          -ms-transform-origin: 50% 25%;\n              transform-origin: 50% 25%; }\n      .modal .modal-dialog .modal-content .modal-header {\n        padding: 1.8rem 1.5rem;\n        position: relative; }\n        .modal .modal-dialog .modal-content .modal-header .modal-title {\n          padding: 0;\n          margin: 0;\n          font-size: 1.5em;\n          line-height: 3rem;\n          font-weight: 500; }\n        .modal .modal-dialog .modal-content .modal-header .close {\n          cursor: pointer;\n          position: absolute;\n          top: 1.8rem;\n          right: 1.5rem;\n          z-index: 1;\n          opacity: .6;\n          color: #3c3c50;\n          width: 3rem;\n          height: 3rem;\n          font-size: 1.25em;\n          padding: 0;\n          background: transparent;\n          border: 0px none transparent;\n          -webkit-transition: background 300ms ease;\n                  transition: background 300ms ease; }\n          .modal .modal-dialog .modal-content .modal-header .close:focus,\n          .modal .modal-dialog .modal-content .modal-header .close:hover {\n            background-color: rgba(0, 0, 0, 0.1);\n            outline: none; }\n      .modal .modal-dialog .modal-content .modal-body {\n        padding: 1.8rem 1.5rem;\n        position: relative; }\n        .modal .modal-dialog .modal-content .modal-body img {\n          max-width: 100%;\n          height: auto; }\n      .modal .modal-dialog .modal-content .modal-footer {\n        padding: 1.8rem 1.5rem;\n        position: relative;\n        text-align: right; }\n        .modal .modal-dialog .modal-content .modal-footer a + a {\n          margin-left: 1rem; }\n      .modal .modal-dialog .modal-content .modal-header + .modal-body {\n        padding-top: 0; }\n  .modal.modal-basic .modal-dialog {\n    top: 40%;\n    -webkit-transform: translateY(-50%);\n        -ms-transform: translateY(-50%);\n            transform: translateY(-50%);\n    position: absolute;\n    left: 0;\n    right: 0; }\n    .modal.modal-basic .modal-dialog .modal-content {\n      background: transparent;\n      color: #fff;\n      text-align: center; }\n      .modal.modal-basic .modal-dialog .modal-content .modal-header .close {\n        display: none; }\n    .modal.modal-basic .modal-dialog .modal-footer {\n      text-align: center; }\n\n.modal-backdrop {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1040;\n  background: rgba(0, 0, 0, 0.85); }\n\n.modal-open .modal {\n  overflow-x: hidden;\n  overflow-y: auto; }\n\n@-webkit-keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-webkit-keyframes fadeOut {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@keyframes fadeOut {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n.fade-enter {\n  -webkit-animation: fadeIn 300ms ease;\n          animation: fadeIn 300ms ease; }\n  .fade-enter .modal-content {\n    -webkit-transform: scale(0.8);\n        -ms-transform: scale(0.8);\n            transform: scale(0.8); }\n  .fade-enter.fade-enter-active .modal-content {\n    -webkit-transform: scale(1);\n        -ms-transform: scale(1);\n            transform: scale(1);\n    -webkit-transition: -webkit-transform 300ms ease;\n            transition: transform 300ms ease; }\n\n.fade-leave {\n  -webkit-animation: fadeOut 300ms ease;\n          animation: fadeOut 300ms ease; }\n  .fade-leave .modal-content {\n    -webkit-transform: scale(1);\n        -ms-transform: scale(1);\n            transform: scale(1); }\n  .fade-leave.fade-leave-active .modal-content {\n    -webkit-transform: scale(0.8);\n        -ms-transform: scale(0.8);\n            transform: scale(0.8);\n    -webkit-transition: -webkit-transform 300ms ease;\n            transition: transform 300ms ease; }\n", ""]);
+	exports.push([module.id, "body.modal-open {\n  overflow: hidden; }\n\n.modal {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1050;\n  overflow: hidden;\n  -webkit-overflow-scrolling: touch;\n  outline: 0; }\n  .modal .modal-dialog {\n    position: relative;\n    width: auto;\n    margin: 10px; }\n    @media (min-width: 768px) {\n      .modal .modal-dialog {\n        width: 600px;\n        margin: 30px auto; } }\n    .modal .modal-dialog .modal-content {\n      background: #fff;\n      padding: 0;\n      -webkit-transform-origin: 50% 25%;\n          -ms-transform-origin: 50% 25%;\n              transform-origin: 50% 25%; }\n      .modal .modal-dialog .modal-content .modal-header {\n        padding: 1.8rem 1.5rem;\n        position: relative; }\n        .modal .modal-dialog .modal-content .modal-header .modal-title {\n          padding: 0;\n          margin: 0;\n          font-size: 1.5em;\n          line-height: 3rem;\n          font-weight: 500; }\n        .modal .modal-dialog .modal-content .modal-header .close {\n          cursor: pointer;\n          position: absolute;\n          top: 1.8rem;\n          right: 1.5rem;\n          z-index: 1;\n          opacity: .6;\n          color: #3c3c50;\n          width: 3rem;\n          height: 3rem;\n          font-size: 1.25em;\n          padding: 0;\n          background: transparent;\n          border: 0px none transparent;\n          -webkit-transition: background 300ms ease;\n                  transition: background 300ms ease; }\n          .modal .modal-dialog .modal-content .modal-header .close:focus,\n          .modal .modal-dialog .modal-content .modal-header .close:hover {\n            background-color: rgba(0, 0, 0, 0.1);\n            outline: none; }\n      .modal .modal-dialog .modal-content .modal-body {\n        padding: 1.8rem 1.5rem;\n        position: relative; }\n        .modal .modal-dialog .modal-content .modal-body img {\n          max-width: 100%;\n          height: auto; }\n      .modal .modal-dialog .modal-content .modal-footer {\n        padding: 1.8rem 1.5rem;\n        position: relative;\n        text-align: right; }\n        .modal .modal-dialog .modal-content .modal-footer a + a {\n          margin-left: 1rem; }\n      .modal .modal-dialog .modal-content .modal-header + .modal-body {\n        padding-top: 0; }\n  .modal.modal-basic .modal-dialog {\n    top: 40%;\n    -webkit-transform: translateY(-50%);\n        -ms-transform: translateY(-50%);\n            transform: translateY(-50%);\n    position: absolute;\n    left: 0;\n    right: 0; }\n    .modal.modal-basic .modal-dialog .modal-content {\n      background: transparent;\n      color: #fff;\n      text-align: center; }\n      .modal.modal-basic .modal-dialog .modal-content .modal-header .close {\n        display: none; }\n    .modal.modal-basic .modal-dialog .modal-footer {\n      text-align: center; }\n\n.modal-backdrop {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1040;\n  background: rgba(0, 0, 0, 0.85); }\n\n.modal-open .modal {\n  overflow-x: hidden;\n  overflow-y: auto; }\n\n@-webkit-keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@-webkit-keyframes fadeOut {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n@keyframes fadeOut {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n.fade-enter {\n  -webkit-animation: fadeIn 300ms ease;\n          animation: fadeIn 300ms ease; }\n  .fade-enter .modal-content {\n    -webkit-transform: scale(0.8);\n        -ms-transform: scale(0.8);\n            transform: scale(0.8); }\n  .fade-enter.fade-enter-active .modal-content {\n    -webkit-transform: scale(1);\n        -ms-transform: scale(1);\n            transform: scale(1);\n    -webkit-transition: -webkit-transform 300ms ease;\n            transition: transform 300ms ease; }\n\n.fade-leave {\n  -webkit-animation: fadeOut 300ms ease;\n          animation: fadeOut 300ms ease; }\n  .fade-leave .modal-content {\n    -webkit-transform: scale(1);\n        -ms-transform: scale(1);\n            transform: scale(1); }\n  .fade-leave.fade-leave-active .modal-content {\n    -webkit-transform: scale(0.8);\n        -ms-transform: scale(0.8);\n            transform: scale(0.8);\n    -webkit-transition: -webkit-transform 300ms ease;\n            transition: transform 300ms ease; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports) {
 
 	module.exports = {
 		"name": "tg-modal",
-		"version": "0.1.0",
+		"version": "0.1.1",
 		"description": "Universal controlled modals for React",
 		"main": "index",
 		"repository": {
@@ -34919,7 +35020,8 @@
 		"keywords": [
 			"react",
 			"modal",
-			"isomorphic"
+			"isomorphic",
+			"universal"
 		],
 		"author": "Thorgate <info@thorgate.eu>",
 		"license": "MIT",
@@ -34946,6 +35048,7 @@
 			"is": "*",
 			"isparta": "*",
 			"json-loader": "^0.5.2",
+			"koa": "^1.0.0",
 			"lodash": "*",
 			"mocha": "*",
 			"node-sass": "^3.3.2",
@@ -34982,6 +35085,7 @@
 			"postpublish": "git push origin master --follow-tags; npm run gh-update",
 			"toc": "doctoc --github --title \"# Changelog\" CHANGELOG.md",
 			"start": "./node_modules/.bin/webpack-dev-server",
+			"server": "node --harmony server.js",
 			"build-examples": "./node_modules/.bin/webpack --config=webpack.config.prod.js",
 			"gh-update": "cp examples/index.html .tmp/ && npm run build-examples && npm run gh-push",
 			"pregh-update": "rimraf .tmp && mkdir .tmp",
