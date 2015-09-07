@@ -3,13 +3,15 @@ var webpack = require('webpack');
 
 var collectExampleSource = require('./collect');
 
+function withHot(file) {
+    return ['webpack-dev-server/client?http://localhost:8080', 'webpack/hot/dev-server', file];
+}
 
 module.exports = {
-    entry: [
-        "webpack-dev-server/client?http://localhost:8080",
-        'webpack/hot/dev-server',
-        './examples/main'
-    ],
+    entry: {
+        bundle: withHot('./examples/main'),
+        render: withHot('./examples/render'),
+    },
     devServer: {
         contentBase: './examples/',
         hot: true
@@ -18,7 +20,7 @@ module.exports = {
     debug: true,
     output: {
         path: path.join(__dirname, 'examples'),
-        filename: 'bundle.js',
+        filename: '[name].js',
     },
     resolveLoader: {
         modulesDirectories: ['node_modules']

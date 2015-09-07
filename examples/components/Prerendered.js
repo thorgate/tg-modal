@@ -1,14 +1,19 @@
 import React, {Component, PropTypes} from 'react';
 
-import Modal from '../../../src/browser';
+import Modal from './Serverside';
 
 
-class LongModalExample extends Component {
+class Prerendered extends Component {
+    static propTypes = {
+        initialOpen: PropTypes.bool,
+        kiosk: PropTypes.object.isRequired
+    };
+
     constructor(props) {
         super(props);
 
         this.state = {
-            isOpen: false
+            isOpen: props.initialOpen || false
         };
     }
 
@@ -29,6 +34,7 @@ class LongModalExample extends Component {
 
                 <Modal isOpen={this.state.isOpen}
                        title="Longcat is long"
+                       kiosk={this.props.kiosk}
                        onRequestClose={this.toggleModal.bind(this)}>
                     <p>
                         Viral deep v squid chia, letterpress wayfarers artisan
@@ -118,4 +124,4 @@ class LongModalExample extends Component {
     }
 }
 
-export default LongModalExample;
+export default Prerendered;

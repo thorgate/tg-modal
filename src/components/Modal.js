@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react/addons';
 
 import Backdrop from './Backdrop';
+import getScrollbarSize from '../utils/scrollbarSize';
 
 
 const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
@@ -32,8 +33,19 @@ class Modal extends Component {
         transitionName: 'fade'
     };
 
+    constructor(props) {
+        super(props);
+
+        // Make serverside actions work
+        if (props.isOpen) {
+            if (typeof window === 'undefined') {
+                this.props.onToggle(this.props.isOpen, Modal.getScrollbarWidth());
+            }
+        }
+    }
+
     componentDidMount() {
-        this.props.onToggle(this.props.isOpen);
+        this.props.onToggle(this.props.isOpen, Modal.getScrollbarWidth());
 
         if (typeof document !== 'undefined') {
             document.addEventListener('keydown', this.onKeyDown.bind(this), false);
@@ -41,7 +53,7 @@ class Modal extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.props.onToggle(nextProps.isOpen);
+        this.props.onToggle(nextProps.isOpen, Modal.getScrollbarWidth());
     }
 
     componentWillUnmount() {
@@ -152,6 +164,16 @@ class Modal extends Component {
                 </ReactCSSTransitionGroup>
             </div>
         );
+    }
+
+    static getScrollbarWidth() {
+        if (typeof document === 'undefined') {
+            return null;
+        }
+
+        else {
+            return getScrollbarSize();
+        }
     }
 }
 

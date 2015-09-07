@@ -1,7 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 
-import Modal from '../../src/browser';
-
 import Example from './Example';
 import PackageHeader from './PackageHeader';
 

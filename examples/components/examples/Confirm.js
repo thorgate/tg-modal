@@ -4,23 +4,14 @@ import Modal from '../../../src/browser';
 
 
 class ConfirmModalExample extends Component {
+
     constructor(props) {
         super(props);
 
         this.state = {
-            isOpen: false,
+            isOpen: props.initialOpen || false,
             anwser: null
         };
-    }
-
-    toggleModal(e) {
-        if (e && e.preventDefault) {
-            e.preventDefault();
-        }
-
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
     }
 
     onCancel() {
@@ -34,6 +25,16 @@ class ConfirmModalExample extends Component {
         this.setState({
             anwser: 'GIMME',
             isOpen: false
+        });
+    }
+
+    toggleModal(e) {
+        if (e && e.preventDefault) {
+            e.preventDefault();
+        }
+
+        this.setState({
+            isOpen: !this.state.isOpen
         });
     }
 
