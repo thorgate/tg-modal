@@ -10,7 +10,8 @@
   "keywords": [
     "react",
     "modal",
-    "isomorphic"
+    "isomorphic",
+    "universal"
   ],
   "author": "Thorgate <info@thorgate.eu>",
   "license": "MIT",
