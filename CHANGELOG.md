@@ -8,6 +8,10 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+### v0.2.0-dev
+
+  * Fix various backdrop click issues
+
 ### v0.1.1
 
   * Added serverside examples/recipe

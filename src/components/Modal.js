@@ -140,17 +140,17 @@ class Modal extends Component {
 
         const cx = `modal${this.props.isBasic ? ' modal-basic' : ''}`;
 
-        const parts = [
-            (<div className={cx} key="modal" onClick={this.onBackdropClick.bind(this)}>
+        const parts = [(
+            <div className={cx} key="modal">
                 <div className="modal-dialog" key="dialog">
-                    <div className="modal-content" onClick={this.stopPropagate.bind(this)}>
+                    <div className="modal-content">
                         {this.renderModalHeader()}
                         {this.renderModalBody()}
                     </div>
                 </div>
+
+                <Backdrop isStatic={this.props.isStatic} onRequestClose={this.onBackdropClick.bind(this)} key="backdrop" />
             </div>
-        ), (
-            <Backdrop isStatic={this.props.isStatic} onRequestClose={this.onBackdropClick.bind(this)} key="backdrop" />
         )];
 
         return parts;

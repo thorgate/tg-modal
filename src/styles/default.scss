@@ -19,6 +19,7 @@ body.modal-open {
         position: relative;
         width: auto;
         margin: 10px;
+        z-index: 1060;
 
         @media (min-width: 768px) {
             width: 600px;
