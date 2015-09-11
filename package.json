@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/thorgate/tg-modal.git"
   },
+  "files": [
+    "dist/"
+  ],
   "keywords": [
     "react",
     "modal",
@@ -80,7 +83,6 @@
     "build-examples": "./node_modules/.bin/webpack --config=webpack.config.prod.js",
     "gh-update": "cp examples/index.html .tmp/ && npm run build-examples && npm run gh-push",
     "pregh-update": "rimraf .tmp && mkdir .tmp",
-    "gh-push": "git checkout gh-pages && echo 'copy files from .tmp, commit and push'",
-    "postinstall": "npm run build"
+    "gh-push": "git checkout gh-pages && echo 'copy files from .tmp, commit and push'"
   }
 }
