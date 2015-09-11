@@ -13,7 +13,7 @@ const contents = fs.readFileSync(path.join(__dirname, 'index.html'), {encoding: 
 
 function template(bodyClasses, rendered) {
     return contents
-            .replace('bundle.js', '//localhost:8080/render.js')
+            .replace('bundle.js', '//localhost:8081/render.js')
             .replace('<div id="content"></div>', `<div id="content">${rendered}</div>`)
             .replace('<body>', `<body class="${bodyClasses}">`);
 }

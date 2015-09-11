@@ -8,6 +8,8 @@ import toggleClass from './toggle-class';
  * Wrapper for modal component that handles body class toggle clientside.
  */
 class BrowserModal extends Component {
+    static displayName = 'Modal';
+
     static propTypes = {
         // These callbacks can be used for serverside rendering
         actionShow: PropTypes.func,

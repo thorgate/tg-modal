@@ -11,6 +11,8 @@ const keyCodes = {
 };
 
 class Modal extends Component {
+    static displayName = 'Modal';
+
     static propTypes = {
         children: PropTypes.node,
 
@@ -98,6 +100,16 @@ class Modal extends Component {
         }
     }
 
+    static getScrollbarWidth() {
+        if (typeof document === 'undefined') {
+            return null;
+        }
+
+        else {
+            return getScrollbarSize();
+        }
+    }
+
     stopPropagate(e) {
         e.stopPropagation();
     }
@@ -164,16 +176,6 @@ class Modal extends Component {
                 </ReactCSSTransitionGroup>
             </div>
         );
-    }
-
-    static getScrollbarWidth() {
-        if (typeof document === 'undefined') {
-            return null;
-        }
-
-        else {
-            return getScrollbarSize();
-        }
     }
 }
 

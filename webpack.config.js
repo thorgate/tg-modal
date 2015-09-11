@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var collectExampleSource = require('./collect');
 
 function withHot(file) {
-    return ['webpack-dev-server/client?http://localhost:8080', 'webpack/hot/dev-server', file];
+    return ['webpack-dev-server/client?http://localhost:8081', 'webpack/hot/dev-server', file];
 }
 
 module.exports = {
@@ -14,6 +14,7 @@ module.exports = {
     },
     devServer: {
         contentBase: './examples/',
+        port: 8081,
         hot: true
     },
     devtool: "source-map",
