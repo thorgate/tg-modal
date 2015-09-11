@@ -1,0 +1,8 @@
+{
+    "name": "empty",
+    "version": 0,
+    "private": true,
+    "devDependencies": {
+        "tg-modal": "*"
+    }
+}
