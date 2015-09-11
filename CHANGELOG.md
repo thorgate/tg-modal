@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
+- [v0.2.0-dev](#v020-dev)
 - [v0.1.1](#v011)
 - [v0.1.0](#v010)
 - [v0.0.1](#v001)
@@ -11,6 +12,7 @@
 ### v0.2.0-dev
 
   * Fix various backdrop click issues
+  * Fix exports & add tests against breaking them
 
 ### v0.1.1
 
