@@ -62,7 +62,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "lint": "eslint src test",
-    "check": "npm run lint -s && dependency-check package.json --entry src",
+    "check": "npm run lint -s && ./node_modules/.bin/dependency-check package.json --entry src",
     "watch": "watch 'npm run build' src test",
     "test": "mocha -u exports -R nyan --require ./test/babel test",
     "prebuild": "npm run check -s && npm run clean -s",
@@ -71,7 +71,7 @@
     "coverage": "babel-node node_modules/.bin/isparta cover test/*.js",
     "coveralls": "npm run coverage -s && coveralls < coverage/lcov.info",
     "postcoveralls": "rimraf ./coverage",
-    "prepublish": "npm run build -s",
+    "prepublish": "npm run build -s && npm run build-examples",
     "deploy": "git pull --rebase origin master && git push origin master",
     "patch": "npm version patch && npm publish",
     "minor": "npm version minor && npm publish",
@@ -80,9 +80,6 @@
     "toc": "doctoc --github --title \"# Changelog\" CHANGELOG.md",
     "start": "./node_modules/.bin/webpack-dev-server",
     "server": "node --harmony server.js",
-    "build-examples": "./node_modules/.bin/webpack --config=webpack.config.prod.js",
-    "gh-update": "cp examples/index.html .tmp/ && npm run build-examples && npm run gh-push",
-    "pregh-update": "rimraf .tmp && mkdir .tmp",
-    "gh-push": "git checkout gh-pages && echo 'copy files from .tmp, commit and push'"
+    "build-examples": "./node_modules/.bin/webpack --config=webpack.config.prod.js && cp examples/index.html dist/examples"
   }
 }
