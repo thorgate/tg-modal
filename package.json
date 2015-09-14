@@ -8,7 +8,9 @@
     "url": "git+https://github.com/thorgate/tg-modal.git"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "index.js",
+    "lib.js"
   ],
   "keywords": [
     "react",
@@ -80,6 +82,6 @@
     "toc": "doctoc --github --title \"# Changelog\" CHANGELOG.md",
     "start": "./node_modules/.bin/webpack-dev-server",
     "server": "node --harmony server.js",
-    "build-examples": "./node_modules/.bin/webpack --config=webpack.config.prod.js && cp examples/index.html dist/examples"
+    "build-examples": "./node_modules/.bin/webpack --config=webpack.config.prod.js && cp examples/index.html dist/examples && cp src/styles/default.scss dist/"
   }
 }

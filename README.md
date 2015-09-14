@@ -36,7 +36,7 @@ class MyModal extends Modal {
         // Dispatch modalState action with bodyProps ({className: 'modal-open'})
         this.props.dispatch(modalState(bodyProps));
     }
-    
+
     actionHide(bodyProps) {
         // Dispatch modalState action with bodyProps ({className: ''})
         this.props.dispatch(modalState(bodyProps));
@@ -51,22 +51,13 @@ and modify your return html accordingly.
 
 > Well, you should be.
 
-If you are not using flux/redux and still want to prerender your modals serverside, 
+If you are not using flux/redux and still want to prerender your modals serverside,
 you can take a look at the following files:
 
  - [server.js](https://github.com/thorgate/tg-modal/tree/master/examples/server.js)
  - [render.js](https://github.com/thorgate/tg-modal/tree/master/examples/render.js)
  - [Prerendered.js](https://github.com/thorgate/tg-modal/tree/master/examples/components/Prerendered.js)
  - [Serverside.js](https://github.com/thorgate/tg-modal/tree/master/examples/components/Serverside.js)
-
-## Known issues
-
- - Missing an Uncontrolled modal (ModalTrigger component)
- - Problems with animations
-  - We depend on react/addons, but we shouldn't
-  - Animations break if we close trigger close/reopen while the opposite action is still transitioning
-  - We shouldn't trigger callBacks while transitions are still running
- - missing tests
 
 ## License
 

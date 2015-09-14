@@ -4,6 +4,10 @@ body.modal-open {
     overflow: hidden;
 }
 
+.modal, .modal-backdrop {
+    -webkit-transform-style: preserve-3d;
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -14,6 +18,8 @@ body.modal-open {
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
     outline: 0;
+
+    transform-origin: 50% 25%;
 
     .modal-dialog {
         position: relative;
@@ -29,7 +35,6 @@ body.modal-open {
         .modal-content {
             background: #fff;
             padding: 0;
-            transform-origin: 50% 25%;
 
             .modal-header {
                 padding: 1.8rem 1.5rem;
@@ -150,32 +155,44 @@ body.modal-open {
   to {opacity: 0;}
 }
 
-.fade-enter {
-    animation: fadeIn 300ms ease;
-
-    .modal-content {
+@keyframes scaleIn {
+    from {
+        opacity: 0;
         transform: scale(0.8);
     }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
-    &.fade-enter-active {
-        .modal-content {
-            transform: scale(1);
-            transition: transform 300ms ease;
-        }
+@keyframes scaleOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+.fade-enter {
+    &.modal {
+        animation: scaleIn 300ms ease;
+    }
+
+    &.modal-backdrop {
+        animation: fadeIn 300ms ease;
     }
 }
 
 .fade-leave {
-    animation: fadeOut 300ms ease;
-
-    .modal-content {
-        transform: scale(1);
+    &.modal {
+        animation: scaleOut 300ms ease;
     }
 
-    &.fade-leave-active {
-        .modal-content {
-            transform: scale(0.8);
-            transition: transform 300ms ease;
-        }
+    &.modal-backdrop {
+        animation: fadeOut 300ms ease;
     }
 }

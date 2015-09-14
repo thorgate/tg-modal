@@ -10,20 +10,20 @@ class ConfirmModalExample extends Component {
 
         this.state = {
             isOpen: props.initialOpen || false,
-            anwser: null
+            answer: null
         };
     }
 
     onCancel() {
         this.setState({
-            anwser: 'DO NOT WANT',
+            answer: 'DO NOT WANT',
             isOpen: false
         });
     }
 
     onConfirm() {
         this.setState({
-            anwser: 'GIMME',
+            answer: 'GIMME',
             isOpen: false
         });
     }
@@ -38,13 +38,13 @@ class ConfirmModalExample extends Component {
         });
     }
 
-    renderAnwser() {
-        if (!this.state.anwser) {
+    renderAnswer() {
+        if (!this.state.answer) {
             return null;
         }
 
         return (
-            <span><b>You anwsered:</b> {this.state.anwser}</span>
+            <span><b>You answered:</b> {this.state.answer}</span>
         );
     }
 
@@ -53,7 +53,7 @@ class ConfirmModalExample extends Component {
             <div className="modal-example">
                 <a href="" className="btn btn-primary" onClick={this.toggleModal.bind(this)}>Open</a>
 
-                {this.renderAnwser()}
+                {this.renderAnswer()}
 
                 <Modal isOpen={this.state.isOpen} noWrap title="Do you want cookies?"
                        onRequestClose={this.toggleModal.bind(this)}

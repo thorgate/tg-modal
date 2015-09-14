@@ -1,10 +1,11 @@
-import React, {Component, PropTypes} from 'react/addons';
+import React, {Component, PropTypes} from 'react';
 
 import Backdrop from './Backdrop';
 import getScrollbarSize from '../utils/scrollbarSize';
 
+import TimedCSSTransitionGroup from '../remote/TimedCSSTransitionGroup';
 
-const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
 const keyCodes = {
     ESCAPE: 27,
     ENTER: 13
@@ -20,7 +21,9 @@ class Modal extends Component {
         isStatic: PropTypes.bool,
         isBasic: PropTypes.bool,
         noWrap: PropTypes.bool,
+
         transitionName: PropTypes.string,
+        transitionDuration: PropTypes.number,
 
         title: PropTypes.node,
         onToggle: PropTypes.func.isRequired,
@@ -32,7 +35,8 @@ class Modal extends Component {
 
     static defaultProps = {
         noWrap: false,
-        transitionName: 'fade'
+        transitionName: 'fade',
+        transitionDuration: 300
     };
 
     constructor(props) {
@@ -56,6 +60,12 @@ class Modal extends Component {
 
     componentWillReceiveProps(nextProps) {
         this.props.onToggle(nextProps.isOpen, Modal.getScrollbarWidth());
+
+        if (this.props.isOpen !== nextProps.isOpen) {
+            this.setState({
+                animating: true
+            });
+        }
     }
 
     componentWillUnmount() {
@@ -69,10 +79,13 @@ class Modal extends Component {
         if (e.which === keyCodes.ESCAPE) {
             this.onRequestClose(e);
         } else if (e.which === keyCodes.ENTER) {
-            if (this.props.onConfirm) {
-                e.preventDefault();
+            // Don't do anything while animating
+            if (!this.state.animating) {
+                if (this.props.onConfirm) {
+                    e.preventDefault();
 
-                this.props.onConfirm();
+                    this.props.onConfirm();
+                }
             }
         }
     }
@@ -80,13 +93,17 @@ class Modal extends Component {
     onRequestClose(e) {
         e.preventDefault();
 
+        // Don't do anything while animating
+        if (this.state.animating) {
+            return;
+        }
+
         if (this.props.onCancel && this.props.isOpen) {
             this.props.onCancel();
         }
 
         if (!this.props.isStatic) {
-            // Don't call it if we are already closing
-            if (this.props.onRequestClose && this.props.isOpen) {
+            if (this.props.onRequestClose) {
                 this.props.onRequestClose();
             }
         }
@@ -108,6 +125,12 @@ class Modal extends Component {
         else {
             return getScrollbarSize();
         }
+    }
+
+    clearAnimating() {
+        this.setState({
+            animating: false
+        });
     }
 
     stopPropagate(e) {
@@ -153,16 +176,16 @@ class Modal extends Component {
         const cx = `modal${this.props.isBasic ? ' modal-basic' : ''}`;
 
         const parts = [(
-            <div className={cx} key="modal">
+            <div className={cx} key="modal" onClick={this.onBackdropClick.bind(this)}>
                 <div className="modal-dialog" key="dialog">
-                    <div className="modal-content">
+                    <div className="modal-content" onClick={this.stopPropagate.bind(this)}>
                         {this.renderModalHeader()}
                         {this.renderModalBody()}
                     </div>
                 </div>
-
-                <Backdrop isStatic={this.props.isStatic} onRequestClose={this.onBackdropClick.bind(this)} key="backdrop" />
             </div>
+        ), (
+            <Backdrop isStatic={this.props.isStatic} onRequestClose={this.onBackdropClick.bind(this)} key="backdrop" />
         )];
 
         return parts;
@@ -171,9 +194,16 @@ class Modal extends Component {
     render() {
         return (
             <div>
-                <ReactCSSTransitionGroup transitionName={this.props.transitionName} component="div">
+                <TimedCSSTransitionGroup
+                    transitionName={this.props.transitionName}
+                    transitionEnter={this.props.transitionDuration}
+                    transitionLeave={this.props.transitionDuration}
+                    afterEnter={this.clearAnimating.bind(this)}
+                    afterLeave={this.clearAnimating.bind(this)}
+                    component="div"
+                >
                     {this.renderModal()}
-                </ReactCSSTransitionGroup>
+                </TimedCSSTransitionGroup>
             </div>
         );
     }
