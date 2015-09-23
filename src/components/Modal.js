@@ -30,11 +30,13 @@ class Modal extends Component {
 
         onRequestClose: PropTypes.func.isRequired,
         onConfirm: PropTypes.func,
-        onCancel: PropTypes.func
+        onCancel: PropTypes.func,
+        keyboard: PropTypes.bool
     };
 
     static defaultProps = {
         noWrap: false,
+        keyboard: true,
         transitionName: 'fade',
         transitionDuration: 300
     };
@@ -53,8 +55,8 @@ class Modal extends Component {
     componentDidMount() {
         this.props.onToggle(this.props.isOpen, Modal.getScrollbarWidth());
 
-        if (typeof document !== 'undefined') {
-            document.addEventListener('keydown', this.onKeyDown.bind(this), false);
+        if (this.props.keyboard) {
+            this.bindKeyboard();
         }
     }
 
@@ -66,28 +68,14 @@ class Modal extends Component {
                 animating: true
             });
         }
+
+        if (this.props.keyboard !== nextProps.keyboard) {
+            nextProps.keyboard ? this.bindKeyboard() : this.unbindKeyboard();
+        }
     }
 
     componentWillUnmount() {
-        if (typeof document !== 'undefined') {
-            document.removeEventListener('keydown', this.onKeyDown.bind(this), false);
-        }
-    }
-
-    onKeyDown(e) {
-        // Handle escape press
-        if (e.which === keyCodes.ESCAPE) {
-            this.onRequestClose(e);
-        } else if (e.which === keyCodes.ENTER) {
-            // Don't do anything while animating
-            if (!this.state.animating) {
-                if (this.props.onConfirm) {
-                    e.preventDefault();
-
-                    this.props.onConfirm();
-                }
-            }
-        }
+        unbindKeyboard();
     }
 
     onRequestClose(e) {
@@ -124,6 +112,42 @@ class Modal extends Component {
 
         else {
             return getScrollbarSize();
+        }
+    }
+
+    handleKeys(e) {
+        // Handle escape press
+        if (e.which === keyCodes.ESCAPE) {
+            this.onRequestClose(e);
+        } else if (e.which === keyCodes.ENTER) {
+            // Don't do anything while animating
+            if (!this.state.animating) {
+                if (this.props.onConfirm) {
+                    e.preventDefault();
+
+                    this.props.onConfirm();
+                }
+            }
+        }
+    }
+
+    bindKeyboard() {
+        // Ensure we don't bind twice
+        this.unbindKeyboard();
+
+        if (typeof document !== 'undefined') {
+            this._keyHandler = this.handleKeys.bind(this);
+
+            document.addEventListener('keyup', this._keyHandler, false);
+        }
+    }
+
+    unbindKeyboard() {
+        if (typeof document !== 'undefined') {
+            if (this._keyHandler) {
+                document.removeEventListener('keyup', this._keyHandler, false);
+                this._keyHandler = null;
+            }
         }
     }
 
