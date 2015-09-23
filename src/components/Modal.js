@@ -44,6 +44,8 @@ class Modal extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {};
+
         // Make serverside actions work
         if (props.isOpen) {
             if (typeof window === 'undefined') {
