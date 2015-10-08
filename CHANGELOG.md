@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
+- [v0.2.7](#v027)
 - [v0.2.3](#v023)
 - [v0.2.2](#v022)
 - [v0.1.1](#v011)
