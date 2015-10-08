@@ -10,6 +10,10 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+### v0.2.7
+
+  * Fix bug with unbindKeyboard
+
 ### v0.2.3
 
   * Fix issues with animations

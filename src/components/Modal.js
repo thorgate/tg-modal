@@ -77,7 +77,7 @@ class Modal extends Component {
     }
 
     componentWillUnmount() {
-        unbindKeyboard();
+        this.unbindKeyboard();
     }
 
     onRequestClose(e) {
