@@ -63,9 +63,9 @@ class Modal extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.props.onToggle(nextProps.isOpen, Modal.getScrollbarWidth());
-
         if (this.props.isOpen !== nextProps.isOpen) {
+            this.props.onToggle(nextProps.isOpen, Modal.getScrollbarWidth());
+
             this.setState({
                 animating: true
             });
@@ -77,6 +77,10 @@ class Modal extends Component {
     }
 
     componentWillUnmount() {
+        if (this.props.isOpen) {
+            this.props.onToggle(false, Modal.getScrollbarWidth());
+        }
+
         this.unbindKeyboard();
     }
 
