@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
+- [v0.2.10](#v0210)
 - [v0.2.8](#v028)
 - [v0.2.7](#v027)
 - [v0.2.3](#v023)
@@ -11,6 +12,10 @@
 - [v0.0.1](#v001)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+### v0.2.10
+
+ * Fixed issue with escape triggering onRequestClose (see #7, thanks @schryer)
 
 ### v0.2.8
 
