@@ -1,6 +1,6 @@
 {
   "name": "tg-modal",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "Universal controlled modals for React",
   "main": "index",
   "repository": {
