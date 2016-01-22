@@ -92,13 +92,15 @@ class Modal extends Component {
             return;
         }
 
-        if (this.props.onCancel && this.props.isOpen) {
-            this.props.onCancel();
-        }
+        if (this.props.isOpen) {
+            if (this.props.onCancel) {
+                this.props.onCancel();
+            }
 
-        if (!this.props.isStatic) {
-            if (this.props.onRequestClose) {
-                this.props.onRequestClose();
+            if (!this.props.isStatic) {
+                if (this.props.onRequestClose) {
+                    this.props.onRequestClose();
+                }
             }
         }
     }
