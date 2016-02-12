@@ -1,0 +1,31 @@
+.example-block {
+    text-align: center;
+    padding-bottom: 80px;
+    border-bottom: 1px solid rgba(#d8d8d8, 0.35);
+
+    h2 {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    + .example-block {
+        padding-top: 80px;
+    }
+
+    .btn-group {
+        margin: 0 auto;
+        max-width: 450px;
+
+        a + a {
+            margin-left: 15px;
+        }
+    }
+
+    .response {
+        color: $paragraph-color;
+        margin-top: 10px;
+    }
+}

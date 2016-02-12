@@ -1,9 +1,13 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 
 import Modal from '../../../src/browser';
 
 
 class SimpleModalExample extends Component {
+    static propTypes = {
+        toggleCode: PropTypes.func.isRequired
+    };
+
     constructor(props) {
         super(props);
 
@@ -12,11 +16,7 @@ class SimpleModalExample extends Component {
         };
     }
 
-    toggleModal(e) {
-        if (e && e.preventDefault) {
-            e.preventDefault();
-        }
-
+    toggleModal() {
         this.setState({
             isOpen: !this.state.isOpen
         });
@@ -25,9 +25,12 @@ class SimpleModalExample extends Component {
     render() {
         return (
             <div>
-                <a href="" className="btn btn-primary" onClick={this.toggleModal.bind(this)}>Open</a>
+                <div className="btn-group">
+                    <a className="btn btn-primary" onClick={::this.toggleModal}>Open</a>
+                    <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
+                </div>
 
-                <Modal isOpen={this.state.isOpen} title="First modal" onRequestClose={this.toggleModal.bind(this)}>
+                <Modal isOpen={this.state.isOpen} autoWrap title="First modal" onCancel={::this.toggleModal}>
                     <p>
                         Viral deep v squid chia, letterpress wayfarers artisan
                         meggings tote bag four loko keffiyeh hoodie cronut four

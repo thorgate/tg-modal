@@ -4,5 +4,12 @@ import App from './components/App';
 
 import packageCfg from '../package.json';
 
+import {getRenderer} from '../src/react-utils';
 
-React.render(<App packageCfg={packageCfg} />, document.getElementById('content'));
+
+// Load styles
+require('./styles/main.scss');
+require('../src/styles/default.scss');
+
+
+getRenderer().render(<App packageCfg={packageCfg} />, document.getElementById('content'));

@@ -4,16 +4,21 @@ var webpack = require('webpack');
 var collectExampleSource = require('./collect');
 
 function withHot(file) {
-    return ['webpack-dev-server/client?http://localhost:8081', 'webpack/hot/dev-server', file];
+    return [
+        'webpack-dev-server/client?http://localhost:8081',
+        'webpack/hot/dev-server',
+        file
+    ];
 }
 
 module.exports = {
     entry: {
         bundle: withHot('./examples/main'),
-        render: withHot('./examples/render'),
+        render: withHot('./examples/render')
     },
     devServer: {
         contentBase: './examples/',
+        host: '0.0.0.0',
         port: 8081,
         hot: true
     },
@@ -34,17 +39,14 @@ module.exports = {
         })
     ],
     resolve: {
-        extensions: ['', '.js'],
-        alias: {
-            bootstrap: path.join(__dirname, 'node_modules', 'bootstrap-sass', 'assets', 'stylesheets', 'bootstrap')
-        }
+        extensions: ['', '.js']
     },
     module: {
         loaders: [
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel'
+                loaders: ['react-hot', 'babel']
             },
             {
                 test: /\.md/,
@@ -55,13 +57,16 @@ module.exports = {
                 loader: 'json'
             },
             {
+                test: /\.png|\.jpg|\.svg/,
+                loader: 'url'
+            },
+            {
                 test: /\.css/,
-                loader: 'style!css!autoprefixer'
+                loader: 'style!css!postcss'
             },
             {
                 test: /\.scss/,
-                loader: 'style!css!autoprefixer!sass?'+
-                        'includePaths[]=' + encodeURIComponent(path.resolve(__dirname, 'node_modules', 'bootstrap-sass', 'assets', 'stylesheets'))
+                loader: 'style!css!postcss!sass?includePaths[]=' + path.resolve(__dirname, "./node_modules/compass-mixins/lib")
             }
         ]
     }

@@ -38,7 +38,7 @@
 
 ### v0.1.1
 
-  * Added serverside examples/recipe
+  * Added server-side examples/recipe
   * Dynamically calculate the scrollbar size
 
 ### v0.1.0

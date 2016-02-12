@@ -5,7 +5,9 @@ body.modal-open {
 }
 
 .modal, .modal-backdrop {
-    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: translate3d(0,0,0)
 }
 
 .modal {
@@ -89,7 +91,6 @@ body.modal-open {
             .modal-footer {
                 padding: 1.8rem 1.5rem;
                 position: relative;
-                text-align: right;
 
                 a + a {
                     margin-left: 1rem;
@@ -145,6 +146,13 @@ body.modal-open {
     overflow-y: auto;
 }
 
+.modal-wrapper.animating {
+    .modal {
+        overflow: hidden;
+        user-select: none;
+    }
+}
+
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity: 1;}
@@ -190,9 +198,11 @@ body.modal-open {
 .fade-leave {
     &.modal {
         animation: scaleOut 300ms ease;
+        animation-fill-mode: forwards;
     }
 
     &.modal-backdrop {
         animation: fadeOut 300ms ease;
+        animation-fill-mode: forwards;
     }
 }

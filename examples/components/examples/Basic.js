@@ -1,14 +1,23 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 
 import Modal from '../../../src/browser';
 
 
 class BasicModalExample extends Component {
+    static propTypes = {
+        initialOpen: PropTypes.bool,
+        toggleCode: PropTypes.func.isRequired
+    };
+
+    static defaultProps = {
+        initialOpen: false
+    };
+
     constructor(props) {
         super(props);
 
         this.state = {
-            isOpen: false
+            isOpen: props.initialOpen
         };
     }
 
@@ -25,11 +34,14 @@ class BasicModalExample extends Component {
     render() {
         return (
             <div>
-                <a href="" className="btn btn-primary" onClick={this.toggleModal.bind(this)}>Open</a>
+                <div className="btn-group">
+                    <a className="btn btn-primary" onClick={::this.toggleModal}>Open</a>
+                    <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
+                </div>
 
-                <Modal isOpen={this.state.isOpen} isBasic title="Hello" onRequestClose={this.toggleModal.bind(this)}>
+                <Modal isOpen={this.state.isOpen} isBasic autoWrap title="Howdy!" onCancel={::this.toggleModal}>
                     <p>
-                        I'm a basic modal!
+                        I’m a basic modal
                     </p>
                 </Modal>
             </div>

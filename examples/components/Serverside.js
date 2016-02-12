@@ -13,6 +13,7 @@ export class Kiosk {
 
     flush() {
         this.__state = {
+            isOpen: false,
             className: ''
         };
     }
@@ -21,8 +22,9 @@ export class Kiosk {
         return this.__state;
     }
 
-    onAction(nextProps) {
-        this.__state.className = nextProps.className;
+    onAction(isOpen, bodyProps) {
+        this.state.isOpen = isOpen;
+        this.state.bodyProps = bodyProps;
     }
 }
 
@@ -30,21 +32,17 @@ export class Kiosk {
 // Extend the Base Modal component
 class ServerSideModal extends Modal {
     static propTypes = {
-        // Note: You could also pass kiosk down from the root via context
+        // Note: You could also pass kiosk down from the root component via context
         kiosk: PropTypes.object.isRequired
     };
 
-    actionShow(bodyProps) {
-        if (this.props.kiosk) {
-            // Call kiosk.onAction
-            this.props.kiosk.onAction(bodyProps);
-        }
-    }
+    onToggle(isOpen, bodyProps) {
+        // Call super.onToggle
+        super.onToggle(isOpen, bodyProps);
 
-    actionHide(bodyProps) {
+        // Pass action to our kiosk
         if (this.props.kiosk) {
-            // Call kiosk.onAction
-            this.props.kiosk.onAction(bodyProps);
+            this.props.kiosk.onAction(isOpen, bodyProps);
         }
     }
 }

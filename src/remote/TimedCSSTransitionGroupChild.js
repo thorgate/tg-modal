@@ -4,9 +4,11 @@
  */
 
 import React, {Component, PropTypes} from 'react';
-import CSSCore from 'react/lib/CSSCore';
 
 import validateTransitionProp from './validateTransitionProp';
+
+import {findDOMNode} from '../react-utils';
+import toggleClass from '../toggle-class';
 
 
 const TICK = 17;
@@ -16,6 +18,8 @@ class TimedCSSTransitionGroupChild extends Component {
     static displayName = 'TimedCSSTransitionGroupChild';
 
     static propTypes = {
+        children: PropTypes.node,
+
         name: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.shape({
@@ -42,65 +46,6 @@ class TimedCSSTransitionGroupChild extends Component {
         afterLeave: PropTypes.func
     };
 
-    transition(animationType, finishCallback, userSpecifiedDelay) {
-        const node = React.findDOMNode(this);
-
-        if (!node) {
-            if (finishCallback) {
-                finishCallback();
-            }
-            if (finishCallback) {
-                finishCallback();
-            }
-
-            return;
-        }
-
-        const className = this.props.name[animationType] || this.props.name + '-' + animationType;
-        const activeClassName = this.props.name[animationType + 'Active'] || className + '-active';
-        let timeout = null;
-
-        const endListener = (e) => {
-            if (e && e.target !== node) {
-                return;
-            }
-
-            clearTimeout(timeout);
-
-            CSSCore.removeClass(node, className);
-            CSSCore.removeClass(node, activeClassName);
-
-            if (finishCallback) {
-                finishCallback();
-            }
-        };
-
-        CSSCore.addClass(node, className);
-
-        // Need to do this to actually trigger a transition.
-        this.queueClass(activeClassName);
-
-        // Clean-up the animation after the specified delay
-        timeout = setTimeout(endListener, userSpecifiedDelay);
-    }
-
-    queueClass(className) {
-        this.classNameQueue.push(className);
-
-        if (!this.timeout) {
-            this.timeout = setTimeout(() => {
-                this.flushClassNameQueue();
-            }, TICK);
-        }
-    }
-
-    flushClassNameQueue() {
-        this.classNameQueue.forEach(() => CSSCore.addClass.bind(CSSCore, React.findDOMNode(this)));
-
-        this.classNameQueue.length = 0;
-        this.timeout = null;
-    }
-
     componentWillMount() {
         this.classNameQueue = [];
     }
@@ -113,6 +58,67 @@ class TimedCSSTransitionGroupChild extends Component {
 
     getRawKey() {
         return React.Children.only(this.props.children).key;
+    }
+
+    transition(animationType, finishCallback, userSpecifiedDelay) {
+        const node = findDOMNode(this);
+
+        if (!node) {
+            if (finishCallback) {
+                finishCallback();
+            }
+            if (finishCallback) {
+                finishCallback();
+            }
+
+            return;
+        }
+
+        const className = this.props.name[animationType] || `${this.props.name}-${animationType}`;
+        const activeClassName = this.props.name[`${animationType}Active`] || `${className}-active`;
+        let timeout = null;
+
+        const endListener = (e) => {
+            if (e && e.target !== node) {
+                return;
+            }
+
+            clearTimeout(timeout);
+
+            toggleClass(node, className, false);
+            toggleClass(node, activeClassName, false);
+
+            if (finishCallback) {
+                finishCallback();
+            }
+        };
+
+        toggleClass(node, className, true);
+
+        // Need to do this to actually trigger a transition.
+        this.queueClass(activeClassName);
+
+        // Clean-up the animation after the specified delay
+        timeout = setTimeout(endListener, userSpecifiedDelay);
+    }
+
+    flushClassNameQueue() {
+        this.classNameQueue.forEach((className) => {
+            toggleClass(findDOMNode(this), className, true);
+        });
+
+        this.classNameQueue.length = 0;
+        this.timeout = null;
+    }
+
+    queueClass(className) {
+        this.classNameQueue.push(className);
+
+        if (!this.timeout) {
+            this.timeout = setTimeout(() => {
+                this.flushClassNameQueue();
+            }, TICK);
+        }
     }
 
     chainedCall(action, done) {

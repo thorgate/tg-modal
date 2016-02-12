@@ -1,63 +1,78 @@
 # tg-modal
 
+## Introduction
+
+tg-modal is a react component for Modals. It aims to provide a standalone
+`Modal` without the need of adding a big UI library to your dependencies.
+
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 [![Downloads][download-badge]][npm-url]
 
-> Universal modal component for React.
-
-## Install
+## Installation
 
 ```sh
 npm install tg-modal
 ```
 
-## Basic Usage
-
-See the examples.
-
-## Serverside rendering
-
-Note: If you are fine with the small FOUC on page-load (class is added when Modal mounts clientside), you don't actually need this.
-
-Serverside rendering is simple when you are using flux (or redux). Just extend the base `Modal` component
-and override the methods: actionShow/actionHide.
-
-Note: You can also provide those callbacks as props each time you render a `Modal`, but that isn't DRY.
-
-For example (in redux):
+### Import
 
 ```js
-
-class MyModal extends Modal {
-    actionShow(bodyProps) {
-        // Dispatch modalState action with bodyProps ({className: 'modal-open'})
-        this.props.dispatch(modalState(bodyProps));
-    }
-
-    actionHide(bodyProps) {
-        // Dispatch modalState action with bodyProps ({className: ''})
-        this.props.dispatch(modalState(bodyProps));
-    }
-}
+import Modal from 'tg-modal';
 ```
 
-Then when you are doing serverside rendering, you can ask your store for the current bodyProps,
-and modify your return html accordingly.
+### Styles
 
-### Halp, im not using flux/redux
+To get the actual modal working (it might be invisible without them), one should import
+default styles to your own assets. These are available as `tg-modal/dist/default.scss`.
 
-> Well, you should be.
+> SCSS available at: `tg-modal/dist/default.scss`
 
-If you are not using flux/redux and still want to prerender your modals serverside,
-you can take a look at the following files:
+### Custom styles
 
- - [server.js](https://github.com/thorgate/tg-modal/tree/master/examples/server.js)
- - [render.js](https://github.com/thorgate/tg-modal/tree/master/examples/render.js)
- - [Prerendered.js](https://github.com/thorgate/tg-modal/tree/master/examples/components/Prerendered.js)
- - [Serverside.js](https://github.com/thorgate/tg-modal/tree/master/examples/components/Serverside.js)
+To use your own styles, the current recommendation is importing the default styles,
+and customizing them.
+
+## Usage
+
+Assuming you have included the style-sheet, you can render a simple modal like this:
+
+```js
+// Import the modal
+import Modal from 'tg-modal';
+
+<Modal isOpen={true} title="First modal" isStatic>
+    Modal body...
+</Modal>
+```
+
+This will render a static modal which can't be hidden by the user.
+
+### PropTypes
+
+    Property            |   Type        |   Description
+:-----------------------|:--------------|:--------------------------------
+    onCancel            |   func        |   Called when user cancels the modal (Close button, backdrop click or `ESC` pressed). `function () {}`
+    onConfirm           |   func        |   Called after confirm the modal (Currently only by pressing `ENTER`) `function () {}`
+    isOpen              |   bool        |   Should the modal be visible
+    title               |   node        |   When set `Modal` will render this as child of `Modal.Header` element.
+    isStatic            |   bool        |   is the modal Static (backdrop click won't trigger `onCancel`)
+    isBasic             |   bool        |   is the modal Basic (backdrop only, best for confirms)
+    keyboard            |   bool        |   Should the modal listen to keyboard events (`ENTER` or `ESCAPE` press) [default: true]
+    autoWrap            |   bool        |   If true, children will be wrapped inside `Modal.Body` [default: false]
+    onToggle            |   func        |   function called after modal is toggled. `function (isOpen, props) { }`
+    transitionName      |   string      |   Name of animation to use for open/close (to see how to define custom ones see default styles) [default: fade]
+    transitionDuration  |   int         |   Duration of the transition in milliseconds [default: 300]
+
+Props not specified here are considered internal, and are prone to change.
+
+### Examples
+
+Examples are available [here][public-url].
+
+## Troubleshooting
+
+If you encounter a problem, please [file an issue](https://github.com/thorgate/tg-modal/issues).
 
 ## License
 
@@ -66,13 +81,9 @@ MIT © [Thorgate](http://github.com/thorgate)
 [npm-url]: https://npmjs.org/package/tg-modal
 [npm-image]: https://img.shields.io/npm/v/tg-modal.svg?style=flat-square
 
-[travis-url]: https://travis-ci.org/thorgate/tg-modal
-[travis-image]: https://img.shields.io/travis/thorgate/tg-modal.svg?style=flat-square
-
-[coveralls-url]: https://coveralls.io/r/thorgate/tg-modal
-[coveralls-image]: https://img.shields.io/coveralls/thorgate/tg-modal.svg?style=flat-square
-
 [depstat-url]: https://david-dm.org/thorgate/tg-modal
 [depstat-image]: https://david-dm.org/thorgate/tg-modal.svg?style=flat-square
 
-[download-badge]: http://img.shields.io/npm/dm/tg-modal.svg?style=flat-square
+[download-badge]: https://img.shields.io/npm/dm/tg-modal.svg?style=flat-square
+
+[public-url]: https://thorgate.github.io/tg-modal
