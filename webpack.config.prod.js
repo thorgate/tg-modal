@@ -1,11 +1,17 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var collectExampleSource = require('./collect');
 
 
+var compassPath = path.resolve(__dirname, "./node_modules/compass-mixins/lib");
+
 var config = {
-    entry: './examples/main',
+    entry: {
+        main: './examples/main',
+        'default': './examples/default'
+    },
     output: {
         path: './dist/examples',
         filename: 'bundle.js'
@@ -14,13 +20,11 @@ var config = {
         new webpack.IgnorePlugin(/un~$/),
         new webpack.DefinePlugin({
             EXAMPLE_SRC: JSON.stringify(collectExampleSource())
-        })
+        }),
+        new ExtractTextPlugin('[name].css')
     ],
     resolve: {
-        extensions: ['', '.js'],
-        alias: {
-            bootstrap: path.join(__dirname, 'node_modules', 'bootstrap-sass', 'assets', 'stylesheets', 'bootstrap')
-        }
+        extensions: ['', '.js']
     },
     module: {
         loaders: [
@@ -34,17 +38,18 @@ var config = {
                 loader: 'raw'
             },
             {
+                test: /\.png|\.jpg|\.svg/,
+                loader: 'url'
+            },
+            {
                 test: /\.json/,
                 loader: 'json'
             },
             {
-                test: /\.css/,
-                loader: 'style!css!autoprefixer'
-            },
-            {
                 test: /\.scss/,
-                loader: 'style!css!autoprefixer!sass?'+
-                        'includePaths[]=' + encodeURIComponent(path.resolve(__dirname, 'node_modules', 'bootstrap-sass', 'assets', 'stylesheets'))
+                loader: ExtractTextPlugin.extract('style', 'css!postcss!sass?includePaths[]=' + compassPath, {
+                    publicPath: "../"
+                })
             }
         ]
     }

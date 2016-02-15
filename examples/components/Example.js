@@ -4,8 +4,9 @@ import React, {Component, PropTypes} from 'react';
 class Example extends Component {
     static propTypes = {
         title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        src: PropTypes.string.isRequired
+        component: PropTypes.func.isRequired,
+        src: PropTypes.string.isRequired,
+        children: PropTypes.node
     };
 
     constructor(props) {
@@ -39,21 +40,23 @@ class Example extends Component {
     }
 
     render() {
-        const {title, description} = this.props;
+        const {title, component, children} = this.props;
+
+        const modal = React.createElement(component, {
+            toggleCode: ::this.toggleCode
+        });
 
         return (
             <div className="example-block">
-                <h2>
+                <h4>
                     {title}
-
-                    <a href="" className="btn btn-link" onClick={this.toggleCode.bind(this)}>Toggle Code</a>
-                </h2>
+                </h4>
                 <p>
-                    {description}
+                    {children}
                 </p>
 
-                <div className="btn-group">
-                    {this.props.children}
+                <div>
+                    {modal}
                 </div>
 
                 {this.renderCode()}

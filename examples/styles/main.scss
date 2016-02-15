@@ -1,87 +1,134 @@
 // styles.scss
 
-@import "bootstrap";
+@import "compass";
+@import "variables";
 
-html {
-    position: relative;
-    min-height: 100%;
-}
+@import "base";
+@import "example";
+@import "footer";
 
-body {
-    margin-bottom: 60px;
-}
 
 .container--main {
     padding-bottom: 30px;
 }
 
+.logo-square {
+    background: url('../images/logo.svg') no-repeat center center;
+    height: 63px;
+    width: 63px;
+}
+
+.logo-wide {
+    float: left;
+    display: block;
+    background: url('../images/logo-wide.svg') no-repeat center center;
+    width: 120px;
+    height: 40px;
+
+    + span {
+        margin-left: 15px;
+    }
+}
+
 .jumbotron {
+    background: $jumbotron-bg url('../images/header.png') no-repeat center top;
+    background-size: cover;
+    min-height: 400px;
     text-align: center;
-    padding: 80px 0;
+    padding: 84px 0;
 
-    p.lead {
-        margin-bottom: 20px;
+    &, h1, h2, h3 {
+        color: $jumbotron-text;
+    }
+
+    .logo-square {
+        margin: 0 auto;
+    }
+
+    h1 {
         font-size: 20px;
-        font-weight: 300;
-        line-height: 1.4;
-        opacity: 0.7;
-
-        + p.lead {
-            font-size: 30px;
-            opacity: 1;
-        }
+        font-weight: 400;
+        margin-top: 16px;
     }
 
-    .version {
-        opacity: 0.5;
+    h2 {
+        font-size: 50px;
+        margin-top: 33px;
     }
 
-
-    @media (min-width: 768px) {
-        padding: 160px 0;
+    h3 {
+        font-size: 14px;
+        margin-top: 25px;
+        opacity: 0.53;
     }
 }
 
 .link-block {
+    padding-top: 110px;
+
     .example-block {
-        padding-bottom: 15px;
-        border-bottom: 1px solid #eee;
-
-        &:last-child {
-            border-bottom: none;
+        > h4 {
+            font-size: 45px;
+            line-height: 54px;
+            margin-bottom: 5px;
         }
 
-        h2 {
-            margin-top: 0;
+        > p {
+            margin-bottom: 24px;
         }
+    }
+}
 
-        + .example-block {
-            padding-top: 15px;
-        }
 
-        .modal-example {
-            a.btn-primary + span {
-                margin-left: 15px;
+.container {
+    .modal {
+        text-align: center;
+
+        .modal-dialog .modal-content {
+            border-radius: 5px;
+
+            .modal-header {
+                padding-bottom: 0;
+
+                .modal-title {
+                    font-size: 45px;
+                    line-height: 54px;
+                    margin-bottom: 20px;
+                }
+
+                .close {
+                    font-family: $headings-font-family;
+                    font-size: 24px;
+                    border-radius: 5px;
+                }
+            }
+
+            .modal-body {
+                padding-left: 50px;
+                padding-right: 50px;
             }
         }
 
-        .btn-group + .code-block {
-            margin-top: 15px;
-            overflow-x: auto;
-            max-width: 100%;
-
-            pre {
-                min-width: 900px;
+        &.modal-basic {
+            &, h1, p {
+                color: #fff;
             }
         }
     }
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background-color: $gray-lighter;
+.long {
+    .modal-body {
+        &, p {
+            color: #798489;
+            font-family: $content-font-family;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+    }
 }

@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
+- [v0.3.0](#v030)
 - [v0.2.10](#v0210)
 - [v0.2.8](#v028)
 - [v0.2.7](#v027)
@@ -12,6 +13,22 @@
 - [v0.0.1](#v001)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+### v0.3.0
+
+ * Now supports react 0.13-0.14
+ * Bugfix for IE11 (classList.toggle does not accept second argument)
+ * Replaced `noWrap` with `autoWrap`. Modal body is not automatically wrapped
+   by default anymore
+ * Made `onCancel` also handle `onRequestClose` logic
+ * Removed `onRequestClose`
+ * Updated requirements
+ * Separated all browser specific logic from core logic (simplifies future native modal release)
+ * Keyboard listeners can be toggled via `keyboard` prop
+ * Fixed chrome flicker issue
+ * New examples page layout
+
+ see [migrating](./Migrate.md) for migration guide
 
 ### v0.2.10
 
@@ -38,7 +55,7 @@
 
 ### v0.1.1
 
-  * Added serverside examples/recipe
+  * Added server-side examples/recipe
   * Dynamically calculate the scrollbar size
 
 ### v0.1.0

@@ -3,14 +3,13 @@
  * addons and under the BSD License.
  */
 
-import React, {Component, PropTypes} from 'react/addons';
+import React, {Component, PropTypes} from 'react';
+
+import {getTransitionGroup} from '../react-utils';
 
 import validateTransitionProp from './validateTransitionProp';
-
 import TimedCSSTransitionGroupChild from './TimedCSSTransitionGroupChild';
 
-
-const ReactTransitionGroup = React.addons.TransitionGroup;
 
 class TimedCSSTransitionGroup extends Component {
     static displayName = 'TimedCSSTransitionGroup';
@@ -53,9 +52,7 @@ class TimedCSSTransitionGroup extends Component {
     }
 
     render() {
-        return (
-            <ReactTransitionGroup {...this.props} childFactory={(child) => this._wrapChild(child)} />
-        );
+        return React.createElement(getTransitionGroup(), {...this.props, childFactory: ::this._wrapChild});
     }
 }
 

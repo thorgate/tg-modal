@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 
 import Markdown from 'react-remarkable';
 
@@ -8,6 +8,10 @@ import Modal from '../../../src/browser';
 
 
 class MarkdownModalExample extends Component {
+    static propTypes = {
+        toggleCode: PropTypes.func.isRequired
+    };
+
     constructor(props) {
         super(props);
 
@@ -16,11 +20,7 @@ class MarkdownModalExample extends Component {
         };
     }
 
-    toggleModal(e) {
-        if (e && e.preventDefault) {
-            e.preventDefault();
-        }
-
+    toggleModal() {
         this.setState({
             isOpen: !this.state.isOpen
         });
@@ -28,11 +28,16 @@ class MarkdownModalExample extends Component {
 
     render() {
         return (
-            <div>
-                <a href="" className="btn btn-primary" onClick={this.toggleModal.bind(this)}>Open</a>
+            <div className="markdown-wrapper">
+                <div className="btn-group">
+                    <a className="btn btn-primary" onClick={::this.toggleModal}>Open</a>
+                    <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
+                </div>
 
-                <Modal isOpen={this.state.isOpen} title="Awesome markdown" onRequestClose={this.toggleModal.bind(this)}>
-                    <Markdown source={theMarkdown} />
+                <Modal isOpen={this.state.isOpen} onCancel={::this.toggleModal}>
+                    <div className="modal-body">
+                        <Markdown source={theMarkdown} />
+                    </div>
                 </Modal>
             </div>
         );

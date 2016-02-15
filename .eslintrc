@@ -8,7 +8,8 @@
         "mocha": true
     },
     "globals": {
-        "chai": true
+        "chai": true,
+        "EXAMPLE_SRC": true
     },
     "rules": {
         "react/jsx-uses-react": 1,
@@ -20,6 +21,7 @@
         "react/react-in-jsx-scope": 2,
         "react/self-closing-comp": 1,
         "react/wrap-multilines": 2,
+        "react/jsx-indent-props": [2, 4],
 
         "quotes": [2, "single", "avoid-escape"],
         "comma-dangle": [2, "never"],
@@ -32,6 +34,9 @@
         "no-console": 0,
 
         "padded-blocks": [0, "never"],
-        "indent": [2, 4]
+        "indent": [2, 4],
+        "max-len": [2, 140, 4],
+        "object-curly-spacing": [0, "never"],
+        "arrow-body-style": [0, "as-needed"]
     }
 }

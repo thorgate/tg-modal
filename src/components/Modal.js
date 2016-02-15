@@ -1,41 +1,36 @@
 import React, {Component, PropTypes} from 'react';
 
-import Backdrop from './Backdrop';
-import getScrollbarSize from '../utils/scrollbarSize';
+import ModalDialog from './dom/ModalDialog';
+import ModalHeader from './dom/ModalHeader';
+import ModalBody from './dom/ModalBody';
+import Backdrop from './dom/Backdrop';
 
-import TimedCSSTransitionGroup from '../remote/TimedCSSTransitionGroup';
-
-
-const keyCodes = {
-    ESCAPE: 27,
-    ENTER: 13
-};
 
 class Modal extends Component {
     static displayName = 'Modal';
 
     static propTypes = {
+        isOpen: PropTypes.bool.isRequired,
+        onCancel: PropTypes.func.isRequired,
+        onConfirm: PropTypes.func,
+
         children: PropTypes.node,
 
-        isOpen: PropTypes.bool.isRequired,
         isStatic: PropTypes.bool,
         isBasic: PropTypes.bool,
-        noWrap: PropTypes.bool,
+        autoWrap: PropTypes.bool,
 
         transitionName: PropTypes.string,
         transitionDuration: PropTypes.number,
 
         title: PropTypes.node,
-        onToggle: PropTypes.func.isRequired,
 
-        onRequestClose: PropTypes.func.isRequired,
-        onConfirm: PropTypes.func,
-        onCancel: PropTypes.func,
-        keyboard: PropTypes.bool
+        // This is internally used
+        onToggle: PropTypes.func
     };
 
     static defaultProps = {
-        noWrap: false,
+        autoWrap: false,
         keyboard: true,
         transitionName: 'fade',
         transitionDuration: 300
@@ -46,117 +41,70 @@ class Modal extends Component {
 
         this.state = {};
 
-        // Make serverside actions work
         if (props.isOpen) {
-            if (typeof window === 'undefined') {
-                this.props.onToggle(this.props.isOpen, Modal.getScrollbarWidth());
-            }
+            this.onToggle(props.isOpen, this.getToggleProps());
         }
     }
 
     componentDidMount() {
-        this.props.onToggle(this.props.isOpen, Modal.getScrollbarWidth());
-
-        if (this.props.keyboard) {
-            this.bindKeyboard();
-        }
+        this.onToggle(this.props.isOpen, this.getToggleProps());
     }
 
     componentWillReceiveProps(nextProps) {
         if (this.props.isOpen !== nextProps.isOpen) {
-            this.props.onToggle(nextProps.isOpen, Modal.getScrollbarWidth());
-
             this.setState({
                 animating: true
+            }, () => {
+                this.onToggle(nextProps.isOpen, this.getToggleProps());
             });
-        }
-
-        if (this.props.keyboard !== nextProps.keyboard) {
-            nextProps.keyboard ? this.bindKeyboard() : this.unbindKeyboard();
         }
     }
 
     componentWillUnmount() {
         if (this.props.isOpen) {
-            this.props.onToggle(false, Modal.getScrollbarWidth());
+            this.onToggle(false, Modal.getScrollbarWidth());
         }
-
-        this.unbindKeyboard();
     }
 
-    onRequestClose(e) {
-        e.preventDefault();
+    onToggle(state, props) {
+        if (this.props.onToggle) {
+            this.props.onToggle(state, props);
+        }
+    }
 
+    onCancel(e, extra) {
         // Don't do anything while animating
         if (this.state.animating) {
             return;
         }
 
-        if (this.props.isOpen) {
+        if (this.props.isOpen && !this.props.isStatic) {
             if (this.props.onCancel) {
-                this.props.onCancel();
-            }
-
-            if (!this.props.isStatic) {
-                if (this.props.onRequestClose) {
-                    this.props.onRequestClose();
-                }
+                this.props.onCancel(e, extra);
             }
         }
     }
 
-    onBackdropClick(e) {
-        if (!this.props.isStatic) {
-            this.onRequestClose(e);
-        } else {
-            e.preventDefault();
-        }
+    getToggleProps() {
+        return {};
     }
 
-    static getScrollbarWidth() {
-        if (typeof document === 'undefined') {
-            return null;
-        }
-
-        else {
-            return getScrollbarSize();
-        }
+    getAnimatorClass() {
+        // Should be overwritten by the parent
+        return null;
     }
 
-    handleKeys(e) {
-        // Handle escape press
-        if (e.which === keyCodes.ESCAPE) {
-            this.onRequestClose(e);
-        } else if (e.which === keyCodes.ENTER) {
-            // Don't do anything while animating
-            if (!this.state.animating) {
-                if (this.props.onConfirm) {
-                    e.preventDefault();
+    getAnimatorProps() {
+        const {animating} = this.state;
 
-                    this.props.onConfirm();
-                }
-            }
-        }
-    }
-
-    bindKeyboard() {
-        // Ensure we don't bind twice
-        this.unbindKeyboard();
-
-        if (typeof document !== 'undefined') {
-            this._keyHandler = this.handleKeys.bind(this);
-
-            document.addEventListener('keyup', this._keyHandler, false);
-        }
-    }
-
-    unbindKeyboard() {
-        if (typeof document !== 'undefined') {
-            if (this._keyHandler) {
-                document.removeEventListener('keyup', this._keyHandler, false);
-                this._keyHandler = null;
-            }
-        }
+        return {
+            transitionName: this.props.transitionName,
+            transitionEnter: this.props.transitionDuration,
+            transitionLeave: this.props.transitionDuration,
+            afterEnter: ::this.clearAnimating,
+            afterLeave: ::this.clearAnimating,
+            animating
+        };
     }
 
     clearAnimating() {
@@ -165,16 +113,12 @@ class Modal extends Component {
         });
     }
 
-    stopPropagate(e) {
-        e.stopPropagation();
-    }
-
     renderModalBody() {
-        if (!this.props.noWrap) {
+        if (this.props.autoWrap) {
             return (
-                <div className="modal-body">
+                <ModalBody>
                     {this.props.children}
-                </div>
+                </ModalBody>
             );
         }
 
@@ -185,58 +129,45 @@ class Modal extends Component {
         const {title, isStatic} = this.props;
 
         if (!title) {
+            // No title: Return nothing
             return null;
+        } else if (typeof title === 'string') {
+            // Title is a string, return a ModalHeader
+            return (
+                <ModalHeader addClose={!isStatic} onCancel={::this.onCancel}>
+                    {title}
+                </ModalHeader>
+            );
+        } else {
+            // Fall back to rendering title directly (events should be handled by parent)
+            return title;
         }
-
-        const closeBtn = !isStatic ? (
-            <button className="close" aria-label="Close" onClick={this.onRequestClose.bind(this)}><span aria-hidden="true">&times;</span></button>
-        ) : null;
-
-        return (
-            <div className="modal-header">
-                <h1 className="modal-title">{title}</h1>
-                {closeBtn}
-            </div>
-        );
     }
 
     renderModal() {
-        if (!this.props.isOpen) {
+        const {isOpen, isBasic, isStatic} = this.props;
+
+        if (!isOpen) {
             return [];
         }
 
-        const cx = `modal${this.props.isBasic ? ' modal-basic' : ''}`;
-
         const parts = [(
-            <div className={cx} key="modal" onClick={this.onBackdropClick.bind(this)}>
-                <div className="modal-dialog" key="dialog">
-                    <div className="modal-content" onClick={this.stopPropagate.bind(this)}>
-                        {this.renderModalHeader()}
-                        {this.renderModalBody()}
-                    </div>
-                </div>
-            </div>
+            <ModalDialog isBasic={isBasic} onCancel={::this.onCancel} key="dialog">
+                {this.renderModalHeader()}
+                {this.renderModalBody()}
+            </ModalDialog>
         ), (
-            <Backdrop isStatic={this.props.isStatic} onRequestClose={this.onBackdropClick.bind(this)} key="backdrop" />
+            <Backdrop isStatic={isStatic} onCancel={::this.onCancel} key="backdrop" />
         )];
 
         return parts;
     }
 
     render() {
-        return (
-            <div>
-                <TimedCSSTransitionGroup
-                    transitionName={this.props.transitionName}
-                    transitionEnter={this.props.transitionDuration}
-                    transitionLeave={this.props.transitionDuration}
-                    afterEnter={this.clearAnimating.bind(this)}
-                    afterLeave={this.clearAnimating.bind(this)}
-                    component="div"
-                >
-                    {this.renderModal()}
-                </TimedCSSTransitionGroup>
-            </div>
+        return React.createElement(
+            this.getAnimatorClass(),
+            this.getAnimatorProps(),
+            this.renderModal()
         );
     }
 }

@@ -1,6 +1,24 @@
-// Overwrite bootstrap variables
-$font-family-base: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-$headings-font-family: 'Lato', $font-family-base;
+$font-family-base: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$content-font-family: 'Lato', $font-family-base;
+$headings-font-family: 'Muli', $font-family-base;
+$hack-font-family: 'Hack', monospace;
 
-$jumbotron-bg: #ef6036;
-$jumbotron-color: #fff;
+$tg-orange:                      #ef6036;
+$tg-white:                       #fff;
+
+$jumbotron-bg:                   #ef6036;
+$jumbotron-text:                 #fff;
+$jumbotron-text-muted:           #eee;
+
+$btn-primary-background:         $tg-orange;
+$btn-primary-border:             $tg-orange;
+$btn-primary-color:              $tg-white;
+
+$btn-secondary-background:       transparent;
+$btn-secondary-border:           #c2c2c2;
+$btn-secondary-color:            #c2c2c2;
+
+$heading-color:                  #587582;
+$paragraph-color:                #8c969b;
+
+$separator-color:                #FF0000;

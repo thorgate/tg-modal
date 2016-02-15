@@ -4,6 +4,7 @@ import React, {Component, PropTypes} from 'react';
 class PackageHeader extends Component {
     static propTypes = {
         name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
         version: PropTypes.string.isRequired
     };
 
@@ -11,13 +12,10 @@ class PackageHeader extends Component {
         return (
             <div className="jumbotron">
                 <div className="container">
-                    <p className="lead">{this.props.name}</p>
-
-                    <p className="lead">
-                        {this.props.description}
-                    </p>
-
-                    <small className="version">Currently {this.props.version}</small>
+                    <div className="logo logo-square"></div>
+                    <h1>{this.props.name}</h1>
+                    <h2>{this.props.description}</h2>
+                    <h3>Currently <span className="version">{this.props.version}</span></h3>
                 </div>
             </div>
         );

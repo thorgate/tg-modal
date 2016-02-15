@@ -1,21 +1,43 @@
-import { assert } from 'chai';
-import React, {Component} from 'react';
+import path from 'path';
+import fs from 'fs';
+
+import './utils';
+
+import {assert} from 'chai';
+import {Component} from 'react';
+
+import {findDOMNode} from '../src/react-utils';
 
 import Modal from '../index';
 
-export default {
-    'Exports work': {
-        'default export is not undefined'() {
-            assert.isDefined(Modal, 'default export should be defined');
-        },
-        'default export is a function'() {
-            assert.isFunction(Modal, 'default export should be a function');
-        },
-        'default export is a react component'() {
-            assert(Modal.prototype instanceof Component, 'default export should be a react component');
-        },
-        'default export is our Modal component'() {
-            assert(Modal && Modal.displayName === 'Modal', 'default export should be our Modal');
-        }
-    }
-};
+
+function assertValidComponent(a, key, displayName, Base = Component) {
+    assert.isDefined(a, `${key} should be defined`);
+    assert.isFunction(a, `${key} should be a function`);
+    assert(a.prototype instanceof Base, `${key} should be a Component`);
+    assert(a && a.displayName === displayName, `${key} should be ${displayName}`);
+}
+
+
+describe('Exports work', () => {
+    it('default export is correct', () => {
+        assertValidComponent(Modal, 'default export', 'Modal');
+    });
+
+    it('Default styles are in dist folder', () => {
+        assert(fs.existsSync(path.join(__dirname, '..', 'dist', 'default.css')), 'default.css should exist in dist/');
+        assert(fs.existsSync(path.join(__dirname, '..', 'dist', 'default.scss')), 'default.scss should exist in dist/');
+    });
+
+    it('default.Body is Modal.Body', () => {
+        assertValidComponent(Modal.Body, 'default.Body', 'Modal.Body');
+    });
+
+    it('default.Header is Modal.Header', () => {
+        assertValidComponent(Modal.Header, 'default.Header', 'Modal.Header');
+    });
+
+    it('findDOMNode is available', () => {
+        assert.isFunction(findDOMNode);
+    });
+});

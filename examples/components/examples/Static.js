@@ -1,9 +1,13 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 
-import Modal from '../../../src/browser';
+import Modal from '../../../src';
 
 
 class StaticModalExample extends Component {
+    static propTypes = {
+        toggleCode: PropTypes.func.isRequired
+    };
+
     constructor(props) {
         super(props);
 
@@ -25,14 +29,21 @@ class StaticModalExample extends Component {
     render() {
         return (
             <div>
-                <a href="" className="btn btn-primary" onClick={this.toggleModal.bind(this)}>Open</a>
+                <div className="btn-group">
+                    <a className="btn btn-primary" onClick={::this.toggleModal}>Open</a>
+                    <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
+                </div>
 
-                <Modal isOpen={this.state.isOpen} isStatic title="Something really important" onRequestClose={this.toggleModal.bind(this)}>
-                    <p>
-                        Do you agree?
-                    </p>
+                <Modal isOpen={this.state.isOpen} isStatic title="This is very important" onCancel={::this.toggleModal}>
+                    <Modal.Body>
+                        <p>
+                            Mauris non tempor quam, et lacinia.
+                        </p>
+                    </Modal.Body>
 
-                    <a href="" className="btn btn-danger" onClick={this.toggleModal.bind(this)}>I understand</a>
+                    <div className="modal-footer">
+                        <a className="btn btn-primary" onClick={::this.toggleModal}>Close</a>
+                    </div>
                 </Modal>
             </div>
         );

@@ -8,7 +8,6 @@ import * as examples from './examples';
 
 // Load styles
 require('../styles/main.scss');
-require('../../src/styles/default.scss');
 
 // The example app
 class App extends Component {
@@ -25,46 +24,61 @@ class App extends Component {
 
                 <div className="container container--main">
                     <div className="link-block">
-                        <Example title="Simple modal"
-                                 description="Modal with one paragraph of text."
-                                 src={EXAMPLE_SRC.Simple}>
-                            <examples.Simple />
+                        <Example
+                            title="Simple modal"
+                            component={examples.Simple}
+                            src={EXAMPLE_SRC.Simple}
+                        >
+                            Modal with one paragraph of text.
                         </Example>
 
-                        <Example title="Basic modal"
-                                 description="Modals can also reduce its complexity"
-                                 src={EXAMPLE_SRC.Basic}>
-                            <examples.Basic />
+                        <Example
+                            title="Basic modal"
+                            component={examples.Basic}
+                            src={EXAMPLE_SRC.Basic}
+                        >
+                            Modals can also reduce their complexity.
                         </Example>
 
-                        <Example title="Static modal"
-                                 description="Modals can be static"
-                                 src={EXAMPLE_SRC.Static}>
-                            <examples.Static />
+                        <Example
+                            title="Static modal"
+                            component={examples.Static}
+                            src={EXAMPLE_SRC.Static}
+                        >
+                            Modals can be static.
                         </Example>
 
-                        <Example title="Action modal"
-                                 description="Modals can be used for user actions/confirmation boxes"
-                                 src={EXAMPLE_SRC.Confirm}>
-                            <examples.Confirm />
+                        <Example
+                            title="Action modal"
+                            component={examples.Confirm}
+                            src={EXAMPLE_SRC.Confirm}
+                        >
+                            Modals can be used for user actions/confirmation boxes.
                         </Example>
 
-                        <Example title="Action modal (basic)"
-                                 description="Also works in basic/static mode"
-                                 src={EXAMPLE_SRC.BasicConfirm}>
-                            <examples.BasicConfirm />
+                        <Example
+                            title="Action modal (basic)"
+                            component={examples.BasicConfirm}
+                            src={EXAMPLE_SRC.BasicConfirm}
+                        >
+                            Also works in basic/static mode
                         </Example>
 
-                        <Example title="Scrolling"
-                                 description="Modals with content that exceeds the viewport will be scrollable"
-                                 src={EXAMPLE_SRC.Long}>
-                            <examples.Long />
+                        <Example
+                            title="Scrolling"
+                            component={examples.Long}
+                            src={EXAMPLE_SRC.Long}
+                        >
+                            Modals with content that exceeds the viewport will be scrollable
                         </Example>
 
-                        <Example title="Special content"
-                                 description="Modals render react components. This example uses react-remarkable to display markdown"
-                                 src={EXAMPLE_SRC.Markdown}>
-                            <examples.Markdown />
+                        <Example
+                            title="Special content"
+                            component={examples.Markdown}
+                            src={EXAMPLE_SRC.Markdown}
+                        >
+                            Modals render react components. This example uses react-remarkable
+                            to display markdown
                         </Example>
                     </div>
                 </div>
@@ -72,14 +86,16 @@ class App extends Component {
                 <footer className="footer">
                     <div className="container">
                         <div className="row">
-                            <div className="col-xs-6 text-left">
-                                <a href="https://twitter.com/thorgate">Twitter</a> |
-                                <a href="https://github.com/thorgate">Github</a> |
-                                <a href="https://www.npmjs.com/~thorgate">NPM</a>
+                            <div className="col-xs-6">
+                                <a href="http://thorgate.eu" className="logo logo-wide"></a>
+
+                                <span className="licence">Open source (MIT)</span>
                             </div>
 
-                            <div className="col-xs-6 text-right text-muted">
-                                Open source (MIT). Made with Love by <a href="http://thorgate.eu">Thorgate</a>
+                            <div className="col-xs-6 text-right">
+                                <a href="https://twitter.com/thorgate">Twitter</a>
+                                <a href="https://github.com/thorgate">Github</a>
+                                <a href="https://www.npmjs.com/~thorgate">NPM</a>
                             </div>
                         </div>
                     </div>

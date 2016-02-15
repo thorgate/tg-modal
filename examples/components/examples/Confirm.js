@@ -1,15 +1,23 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 
 import Modal from '../../../src/browser';
 
 
 class ConfirmModalExample extends Component {
+    static propTypes = {
+        initialOpen: PropTypes.bool,
+        toggleCode: PropTypes.func.isRequired
+    };
+
+    static defaultProps = {
+        initialOpen: false
+    };
 
     constructor(props) {
         super(props);
 
         this.state = {
-            isOpen: props.initialOpen || false,
+            isOpen: props.initialOpen,
             answer: null
         };
     }
@@ -28,45 +36,44 @@ class ConfirmModalExample extends Component {
         });
     }
 
-    toggleModal(e) {
-        if (e && e.preventDefault) {
-            e.preventDefault();
-        }
-
+    showModal() {
         this.setState({
-            isOpen: !this.state.isOpen
+            isOpen: true
         });
     }
 
     renderAnswer() {
-        if (!this.state.answer) {
-            return null;
-        }
-
         return (
-            <span><b>You answered:</b> {this.state.answer}</span>
+            <div className="response"><b>You answered:</b> {this.state.answer || '-'}</div>
         );
     }
 
     render() {
         return (
             <div className="modal-example">
-                <a href="" className="btn btn-primary" onClick={this.toggleModal.bind(this)}>Open</a>
+                <div className="btn-group">
+                    <a className="btn btn-primary" onClick={::this.showModal}>Open</a>
+                    <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
+                </div>
 
                 {this.renderAnswer()}
 
-                <Modal isOpen={this.state.isOpen} noWrap title="Do you want cookies?"
-                       onRequestClose={this.toggleModal.bind(this)}
-                       onCancel={this.onCancel.bind(this)}
-                       onConfirm={this.onConfirm.bind(this)}>
-                    <div className="modal-body">
+                <Modal
+                    isOpen={this.state.isOpen}
+                    onCancel={::this.onCancel}
+                    onConfirm={::this.onConfirm}
+                >
+                    <Modal.Header addClose={false}>
+                        Do you want cookies?
+                    </Modal.Header>
+                    <Modal.Body>
                         <p>
-                            You can also use keyboard to accept/decline. Try pressing ESCAPE or ENTER.
+                            You can also use <b>enter</b> or <b>escape</b> to accept or decline.
                         </p>
-                    </div>
+                    </Modal.Body>
                     <div className="modal-footer">
-                        <a className="btn btn-default" onClick={this.onCancel.bind(this)}>Im on a diet</a>
-                        <a className="btn btn-success" onClick={this.onConfirm.bind(this)}>AWW, YEAH</a>
+                        <a className="btn btn-primary" onClick={::this.onConfirm}>OH YES</a>
+                        <a className="btn btn-secondary" onClick={::this.onCancel}>NOPE</a>
                     </div>
                 </Modal>
             </div>
