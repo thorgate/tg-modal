@@ -134,7 +134,7 @@ class Modal extends Component {
         } else if (typeof title === 'string') {
             // Title is a string, return a ModalHeader
             return (
-                <ModalHeader isStatic={isStatic} onCancel={::this.onCancel}>
+                <ModalHeader addClose={!isStatic} onCancel={::this.onCancel}>
                     {title}
                 </ModalHeader>
             );

@@ -8,7 +8,7 @@ class ModalHeader extends Component {
         children: PropTypes.node,
         isStatic: PropTypes.bool,
         addClose: PropTypes.bool,
-        onCancel: PropTypes.func.isRequired
+        onCancel: PropTypes.func
     };
 
     static defaultProps = {
@@ -21,14 +21,16 @@ class ModalHeader extends Component {
         }
 
         if (!this.props.isStatic) {
-            this.props.onCancel(e, null);
+            if (this.props.onCancel) {
+                this.props.onCancel(e, null);
+            }
         }
     }
 
     render() {
-        const {isStatic, children, addClose} = this.props;
+        const {children, addClose} = this.props;
 
-        const closeBtn = !isStatic && addClose ? (
+        const closeBtn = addClose ? (
             <button className="close" aria-label="Close" onClick={::this.onCancel}><span aria-hidden="true">&times;</span></button>
         ) : null;
 

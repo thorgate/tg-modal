@@ -5,7 +5,7 @@
 Before version 0.3.0 modal contents were wrapped automatically
 by default unless one explicitly set `noWrap={true}` via props.
 
-However, in 0.3 the default wrapping was disabled. Simple fix
+However, in 0.3 default wrapping was disabled. Simple fix
 would be to add `autoWrap` prop to all modals that didn't use
 `noWrap`. For modals that had `noWrap` set to `true` one can
 remove the prop entirely.
