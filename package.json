@@ -1,6 +1,6 @@
 {
   "name": "tg-modal",
-  "version": "0.3.0-dev",
+  "version": "0.3.0",
   "description": "Universal controlled modals for React",
   "main": "index",
   "repository": {
@@ -81,7 +81,7 @@
     "watch": "watch 'npm run build' src test",
     "test": "mocha --compilers js:babel-register -u exports -R nyan --require ./test/utils test",
     "pretest": "npm run check-engine",
-    "prebuild": "npm run check -s && npm run clean -s",
+    "prebuild": "npm run check-engine",
     "build": "NODE_ENV=production babel --optional runtime src -d dist && npm run build-examples",
     "postbuild": "npm run test -s; npm run coverage",
     "coverage": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha -- -u exports --require ./test/utils test",
@@ -98,8 +98,7 @@
     "server": "node --harmony server.js",
     "build-examples": "NODE_ENV=production ./node_modules/.bin/webpack --config=webpack.config.prod.js",
     "postbuild-examples": "cp examples/index.html dist/examples && cp src/styles/default.scss dist/ && cp dist/examples/default.css dist && cp examples/images/favicon.png dist/examples",
-    "check-engine": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
-    "prebuild": "npm run check-engine"
+    "check-engine": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json"
   },
   "devEngines": {
     "node": "4.x || 5.x",
