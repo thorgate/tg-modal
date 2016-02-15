@@ -15,7 +15,7 @@ class ModalDialog extends Component {
             e.preventDefault();
         }
 
-        this.props.onCancel();
+        this.props.onCancel(e, null);
     }
 
     stopPropagate(e) {

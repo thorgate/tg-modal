@@ -50,9 +50,11 @@ This will render a static modal which can't be hidden by the user.
 
 ### PropTypes
 
+#### Modal
+
     Property            |   Type        |   Description
 :-----------------------|:--------------|:--------------------------------
-    onCancel            |   func        |   Called when user cancels the modal (Close button, backdrop click or `ESC` pressed). `function () {}`
+    onCancel            |   func        |   Called when user cancels the modal (Close button, backdrop click or `ESC` pressed). `function (event, keyboard) {}`
     onConfirm           |   func        |   Called after confirm the modal (Currently only by pressing `ENTER`) `function () {}`
     isOpen              |   bool        |   Should the modal be visible
     title               |   node        |   When set `Modal` will render this as child of `Modal.Header` element.
@@ -66,6 +68,22 @@ This will render a static modal which can't be hidden by the user.
 
 Props not specified here are considered internal, and are prone to change.
 
+#### Modal.Header
+
+    Property            |   Type        |   Description
+:-----------------------|:--------------|:--------------------------------
+    children            |   node        |   Contents
+    isStatic            |   bool        |   If true then the close button won't trigger `onCancel`
+    addClose            |   bool        |   Show the close button [default: true]
+    onCancel            |   func        |   Callback to trigger when the close button is clicked
+
+#### Modal.Body
+
+        Property            |   Type        |   Description
+    :-----------------------|:--------------|:--------------------------------
+        children            |   node        |   Contents
+        className           |   string      |   Class name to add to the wrapper div [default: modal-body]
+
 ### Examples
 
 Examples are available [here][public-url].
@@ -73,6 +91,10 @@ Examples are available [here][public-url].
 ## Troubleshooting
 
 If you encounter a problem, please [file an issue](https://github.com/thorgate/tg-modal/issues).
+
+## Migrating to 0.3.0
+
+see [migrating](./Migrate.md)
 
 ## License
 

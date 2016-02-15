@@ -21,7 +21,7 @@ class ModalHeader extends Component {
         }
 
         if (!this.props.isStatic) {
-            this.props.onCancel();
+            this.props.onCancel(e, null);
         }
     }
 

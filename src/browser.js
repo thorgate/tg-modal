@@ -104,7 +104,7 @@ class BrowserModal extends Modal {
     handleKeys(e) {
         // Handle escape press
         if (e.which === keyCodes.ESCAPE) {
-            this.onCancel(e);
+            this.onCancel(e, true);
         } else if (e.which === keyCodes.ENTER) {
             // Don't do anything while animating
             if (!this.state.animating) {

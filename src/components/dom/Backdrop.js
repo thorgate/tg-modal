@@ -18,7 +18,7 @@ class Backdrop extends Component {
         }
 
         if (!this.props.isStatic) {
-            this.props.onCancel();
+            this.props.onCancel(e, null);
         }
     }
 

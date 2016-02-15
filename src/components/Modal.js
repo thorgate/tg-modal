@@ -72,7 +72,7 @@ class Modal extends Component {
         }
     }
 
-    onCancel() {
+    onCancel(e, extra) {
         // Don't do anything while animating
         if (this.state.animating) {
             return;
@@ -80,7 +80,7 @@ class Modal extends Component {
 
         if (this.props.isOpen && !this.props.isStatic) {
             if (this.props.onCancel) {
-                this.props.onCancel();
+                this.props.onCancel(e, extra);
             }
         }
     }
