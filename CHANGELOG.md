@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
+- [v0.3.1](#v031)
 - [v0.3.0](#v030)
 - [v0.2.10](#v0210)
 - [v0.2.8](#v028)
@@ -19,7 +20,7 @@
  * Fixed issue with dynamic require calls caused by the utility
    library for version agnostic calls react api calls.
 
-   **Note for react 0.13.X:** Must import modal from `tg-modal/v013`.
+   **Note for react 0.13.X:** Must import modal from `tg-modal/v013`
 
 ### v0.3.0
 

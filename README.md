@@ -96,6 +96,10 @@ If you encounter a problem, please [file an issue](https://github.com/thorgate/t
 
 see [migrating](./Migrate.md)
 
+## React 0.13.X
+
+To use with 0.13.X of react, just import modal from `tg-modal/v013`
+
 ## License
 
 MIT © [Thorgate](http://github.com/thorgate)
