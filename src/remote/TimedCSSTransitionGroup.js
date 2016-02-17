@@ -5,8 +5,6 @@
 
 import React, {Component, PropTypes} from 'react';
 
-import {getTransitionGroup} from '../react-utils';
-
 import validateTransitionProp from './validateTransitionProp';
 import TimedCSSTransitionGroupChild from './TimedCSSTransitionGroupChild';
 
@@ -52,7 +50,7 @@ class TimedCSSTransitionGroup extends Component {
     }
 
     render() {
-        return React.createElement(getTransitionGroup(), {...this.props, childFactory: ::this._wrapChild});
+        return React.createElement($RVTransitionGroup, {...this.props, childFactory: ::this._wrapChild});
     }
 }
 

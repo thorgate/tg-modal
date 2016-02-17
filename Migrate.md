@@ -1,8 +1,8 @@
-# Migrating to 0.3.0
+# Migrating to 0.3
 
 ## Wrapping behavior
 
-Before version 0.3.0 modal contents were wrapped automatically
+Before version 0.3 modal contents were wrapped automatically
 by default unless one explicitly set `noWrap={true}` via props.
 
 However, in 0.3 default wrapping was disabled. Simple fix
@@ -13,7 +13,7 @@ remove the prop entirely.
 
 ## onRequestClose
 
-In version 0.3.0 `onRequestClose` was removed and `onCancel`
+In version 0.3 `onRequestClose` was removed and `onCancel`
 now also handles the logic for `onRequestClose`.
 
 To migrate just replace all `onRequestClose` props with `onCancel`.

@@ -1,6 +1,6 @@
 {
   "name": "tg-modal",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Universal controlled modals for React",
   "main": "index",
   "repository": {
@@ -9,6 +9,7 @@
   },
   "files": [
     "dist/",
+    "dist-013/",
     "index.js",
     "lib.js"
   ],
@@ -29,6 +30,7 @@
     "babel-core": "^6.5.1",
     "babel-eslint": "^4.1.8",
     "babel-loader": "^6.2.2",
+    "babel-plugin-react-version": "^0.1.0",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
@@ -83,6 +85,7 @@
     "pretest": "npm run check-engine",
     "prebuild": "npm run check-engine",
     "build": "NODE_ENV=production babel --optional runtime src -d dist && npm run build-examples",
+    "build-013": "NODE_ENV=production-0.13 babel --optional runtime src -d dist-013 && npm run build-examples",
     "postbuild": "npm run test -s; npm run coverage",
     "coverage": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha -- -u exports --require ./test/utils test",
     "coveralls": "npm run coverage -s && coveralls < coverage/lcov.info",
@@ -91,7 +94,7 @@
     "patch": "npm version patch && npm publish",
     "minor": "npm version minor && npm publish",
     "major": "npm version major && npm publish",
-    "prepublish": "npm run build -s",
+    "prepublish": "npm run build -s ; npm run build-013 -s",
     "postpublish": "git push origin master --follow-tags",
     "toc": "doctoc --github --title \"# Changelog\" CHANGELOG.md",
     "start": "./node_modules/.bin/webpack-dev-server",

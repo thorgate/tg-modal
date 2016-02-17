@@ -6,8 +6,6 @@ import './utils';
 import {assert} from 'chai';
 import {Component} from 'react';
 
-import {findDOMNode} from '../src/react-utils';
-
 import Modal from '../index';
 
 
@@ -38,6 +36,6 @@ describe('Exports work', () => {
     });
 
     it('findDOMNode is available', () => {
-        assert.isFunction(findDOMNode);
+        assert.isFunction($RVfindDomNode);
     });
 });
