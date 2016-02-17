@@ -24,7 +24,7 @@
 
 ### v0.3.0
 
- ** PLEASE UPGRADE TO 0.3.1 **
+ **PLEASE UPGRADE TO 0.3.2**
 
  * Now supports react 0.13-0.14
  * Bugfix for IE11 (classList.toggle does not accept second argument)
