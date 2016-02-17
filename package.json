@@ -11,7 +11,8 @@
     "dist/",
     "dist-013/",
     "index.js",
-    "lib.js"
+    "lib.js",
+    "v013.js"
   ],
   "keywords": [
     "react",

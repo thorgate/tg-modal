@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
-- [v0.3.1](#v031)
+- [v0.3.2](#v031)
 - [v0.3.0](#v030)
 - [v0.2.10](#v0210)
 - [v0.2.8](#v028)
@@ -15,7 +15,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-### v0.3.1
+### v0.3.2
 
  * Fixed issue with dynamic require calls caused by the utility
    library for version agnostic calls react api calls.
