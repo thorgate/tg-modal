@@ -7,7 +7,6 @@ import React, {Component, PropTypes} from 'react';
 
 import validateTransitionProp from './validateTransitionProp';
 
-import {findDOMNode} from '../react-utils';
 import toggleClass from '../toggle-class';
 
 
@@ -61,7 +60,7 @@ class TimedCSSTransitionGroupChild extends Component {
     }
 
     transition(animationType, finishCallback, userSpecifiedDelay) {
-        const node = findDOMNode(this);
+        const node = $RVfindDomNode(this);
 
         if (!node) {
             if (finishCallback) {
@@ -104,7 +103,7 @@ class TimedCSSTransitionGroupChild extends Component {
 
     flushClassNameQueue() {
         this.classNameQueue.forEach((className) => {
-            toggleClass(findDOMNode(this), className, true);
+            toggleClass($RVfindDomNode(this), className, true);
         });
 
         this.classNameQueue.length = 0;

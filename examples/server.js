@@ -7,8 +7,6 @@ import React from 'react';
 import {Kiosk} from './components/Serverside';
 import Prerendered from './components/Prerendered';
 
-import {getRenderer} from '../src/react-utils';
-
 
 const app = koa();
 const contents = fs.readFileSync(path.join(__dirname, 'index.html'), {encoding: 'utf-8'});
@@ -24,7 +22,7 @@ function template(bodyClasses, rendered) {
 function serverside() {
     return function * (next) {
         const kiosk = new Kiosk();
-        const rendered = getRenderer().renderToString(<Prerendered initialOpen kiosk={kiosk} />);
+        const rendered = $RVRenderer.renderToString(<Prerendered initialOpen kiosk={kiosk} />);
 
         this.body = template(kiosk.getState().className, rendered);
         yield * next;

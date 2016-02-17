@@ -14,7 +14,16 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+### v0.3.1
+
+ * Fixed issue with dynamic require calls caused by the utility
+   library for version agnostic calls react api calls.
+
+   **Note for react 0.13.X:** Must import modal from `tg-modal/v013`.
+
 ### v0.3.0
+
+ ** PLEASE UPGRADE TO 0.3.1 **
 
  * Now supports react 0.13-0.14
  * Bugfix for IE11 (classList.toggle does not accept second argument)

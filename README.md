@@ -92,7 +92,7 @@ Examples are available [here][public-url].
 
 If you encounter a problem, please [file an issue](https://github.com/thorgate/tg-modal/issues).
 
-## Migrating to 0.3.0
+## Migrating to 0.3
 
 see [migrating](./Migrate.md)
 
