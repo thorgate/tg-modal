@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 
 class ModalDialog extends Component {
@@ -10,26 +10,26 @@ class ModalDialog extends Component {
         animating: PropTypes.bool
     };
 
-    onCancel(e) {
+    onCancel = (e) => {
         if (e && e.preventDefault) {
             e.preventDefault();
         }
 
         this.props.onCancel(e, null);
-    }
+    };
 
-    stopPropagate(e) {
+    stopPropagate = (e) => {
         e.stopPropagation();
-    }
+    };
 
     render() {
-        const {children, isBasic} = this.props;
+        const { children, isBasic } = this.props;
         const className = `modal${isBasic ? ' modal-basic' : ''}`;
 
         return (
-            <div className={className} onClick={::this.onCancel}>
+            <div className={className} onClick={this.onCancel}>
                 <div className="modal-dialog">
-                    <div className="modal-content" onClick={::this.stopPropagate}>
+                    <div className="modal-content" onClick={this.stopPropagate}>
                         {children}
                     </div>
                 </div>

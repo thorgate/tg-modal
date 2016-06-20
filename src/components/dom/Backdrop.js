@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 
 class Backdrop extends Component {
@@ -12,7 +12,7 @@ class Backdrop extends Component {
         className: 'modal-backdrop'
     };
 
-    onCancel(e) {
+    onCancel = (e) => {
         if (e && e.preventDefault) {
             e.preventDefault();
         }
@@ -20,11 +20,11 @@ class Backdrop extends Component {
         if (!this.props.isStatic) {
             this.props.onCancel(e, null);
         }
-    }
+    };
 
     render() {
         return (
-            <div {...this.props} onClick={::this.onCancel}></div>
+            <div {...this.props} onClick={this.onCancel}></div>
         );
     }
 }

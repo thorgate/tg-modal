@@ -2,7 +2,8 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
-- [v0.3.2](#v031)
+- [v0.4.0](#v040)
+- [v0.3.2](#v032)
 - [v0.3.0](#v030)
 - [v0.2.10](#v0210)
 - [v0.2.8](#v028)
@@ -14,6 +15,14 @@
 - [v0.0.1](#v001)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+### v0.4.0
+
+ * Added react 15 to peerDependency range
+ * Get rid of binding in render calls
+ * Chore: Upgrade requirements
+ * Chore: Update eslint rules and change code formatting
+ * Use `babel-plugin-transform-runtime` and add `babel-runtime` to peerDependencies
 
 ### v0.3.2
 

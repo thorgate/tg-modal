@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 
 import Modal from '../../../src';
 
@@ -30,11 +30,11 @@ class StaticModalExample extends Component {
         return (
             <div>
                 <div className="btn-group">
-                    <a className="btn btn-primary" onClick={::this.toggleModal}>Open</a>
+                    <a className="btn btn-primary" onClick={this.toggleModal}>Open</a>
                     <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
                 </div>
 
-                <Modal isOpen={this.state.isOpen} isStatic title="This is very important" onCancel={::this.toggleModal}>
+                <Modal isOpen={this.state.isOpen} isStatic title="This is very important" onCancel={this.toggleModal}>
                     <Modal.Body>
                         <p>
                             Mauris non tempor quam, et lacinia.
@@ -42,7 +42,7 @@ class StaticModalExample extends Component {
                     </Modal.Body>
 
                     <div className="modal-footer">
-                        <a className="btn btn-primary" onClick={::this.toggleModal}>Close</a>
+                        <a className="btn btn-primary" onClick={this.toggleModal}>Close</a>
                     </div>
                 </Modal>
             </div>

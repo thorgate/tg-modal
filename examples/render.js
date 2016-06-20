@@ -2,7 +2,7 @@
 import React from 'react';
 
 import Prerendered from './components/Prerendered';
-import {Kiosk} from './components/Serverside';
+import { Kiosk } from './components/Serverside';
 
 // Load styles
 require('./styles/main.scss');

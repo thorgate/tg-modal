@@ -1,9 +1,13 @@
 {
-    "presets": ["es2015", "stage-0", "react"],
+    "presets": ["es2015", "react"],
     "plugins": [
         ["react-version", {
-            version: "014"
-        }]
+            version: "15"
+        }],
+        "transform-runtime",
+        "transform-class-properties",
+        "transform-object-rest-spread",
+        "transform-export-extensions"
     ],
 
     "env": {

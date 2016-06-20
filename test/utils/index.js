@@ -1,3 +1,0 @@
-require('chai');
-
-require('./dom');

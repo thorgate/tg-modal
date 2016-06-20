@@ -1,11 +1,12 @@
 import React from 'react';
-import {assert} from 'chai';
+import { assert } from 'chai';
 import sinon from 'sinon';
 
 import Backdrop from '../dist/components/dom/Backdrop';
 
 
 const TestUtils = $RVTestUtils;
+
 
 function buildContainer(component, props) {
     const elem = React.createElement(component, props);
@@ -28,7 +29,7 @@ describe('dom backdrop works', () => {
     it('onCancel is called after click', () => {
         const spy = sinon.spy();
 
-        const container = $RVfindDomNode(buildContainer(Backdrop, {onCancel: spy}));
+        const container = $RVfindDomNode(buildContainer(Backdrop, { onCancel: spy }));
 
         // test spy was not called yet
         assert.equal(spy.callCount, 0);
@@ -42,7 +43,7 @@ describe('dom backdrop works', () => {
 
     it('static wont call onCancel', () => {
         const spy = sinon.spy();
-        const container = $RVfindDomNode(buildContainer(Backdrop, {onCancel: spy, isStatic: true}));
+        const container = $RVfindDomNode(buildContainer(Backdrop, { onCancel: spy, isStatic: true }));
 
         // test spy was not called yet
         assert.equal(spy.callCount, 0);

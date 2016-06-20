@@ -4,12 +4,12 @@ import path from 'path';
 import koa from 'koa';
 import React from 'react';
 
-import {Kiosk} from './components/Serverside';
+import { Kiosk } from './components/Serverside';
 import Prerendered from './components/Prerendered';
 
 
 const app = koa();
-const contents = fs.readFileSync(path.join(__dirname, 'index.html'), {encoding: 'utf-8'});
+const contents = fs.readFileSync(path.join(__dirname, 'index.html'), { encoding: 'utf-8' });
 
 function template(bodyClasses, rendered) {
     return contents
@@ -20,12 +20,12 @@ function template(bodyClasses, rendered) {
 
 
 function serverside() {
-    return function * (next) {
+    return function *(next) {
         const kiosk = new Kiosk();
         const rendered = $RVRenderer.renderToString(<Prerendered initialOpen kiosk={kiosk} />);
 
         this.body = template(kiosk.getState().className, rendered);
-        yield * next;
+        yield* next;
     };
 }
 

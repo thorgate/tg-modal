@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import ModalDialog from './dom/ModalDialog';
 import ModalHeader from './dom/ModalHeader';
@@ -72,7 +72,7 @@ class Modal extends Component {
         }
     }
 
-    onCancel(e, extra) {
+    onCancel = (e, extra) => {
         // Don't do anything while animating
         if (this.state.animating) {
             return;
@@ -83,7 +83,7 @@ class Modal extends Component {
                 this.props.onCancel(e, extra);
             }
         }
-    }
+    };
 
     getToggleProps() {
         return {};
@@ -95,19 +95,19 @@ class Modal extends Component {
     }
 
     getAnimatorProps() {
-        const {animating} = this.state;
+        const { animating } = this.state;
 
         return {
             transitionName: this.props.transitionName,
             transitionEnter: this.props.transitionDuration,
             transitionLeave: this.props.transitionDuration,
-            afterEnter: ::this.clearAnimating,
-            afterLeave: ::this.clearAnimating,
+            afterEnter: this.clearAnimating,
+            afterLeave: this.clearAnimating,
             animating
         };
     }
 
-    clearAnimating() {
+    clearAnimating = () => {
         this.setState({
             animating: false
         });
@@ -126,7 +126,7 @@ class Modal extends Component {
     }
 
     renderModalHeader() {
-        const {title, isStatic} = this.props;
+        const { title, isStatic } = this.props;
 
         if (!title) {
             // No title: Return nothing
@@ -134,7 +134,7 @@ class Modal extends Component {
         } else if (typeof title === 'string') {
             // Title is a string, return a ModalHeader
             return (
-                <ModalHeader addClose={!isStatic} onCancel={::this.onCancel}>
+                <ModalHeader addClose={!isStatic} onCancel={this.onCancel}>
                     {title}
                 </ModalHeader>
             );
@@ -145,19 +145,19 @@ class Modal extends Component {
     }
 
     renderModal() {
-        const {isOpen, isBasic, isStatic} = this.props;
+        const { isOpen, isBasic, isStatic } = this.props;
 
         if (!isOpen) {
             return [];
         }
 
         const parts = [(
-            <ModalDialog isBasic={isBasic} onCancel={::this.onCancel} key="dialog">
+            <ModalDialog isBasic={isBasic} onCancel={this.onCancel} key="dialog">
                 {this.renderModalHeader()}
                 {this.renderModalBody()}
             </ModalDialog>
         ), (
-            <Backdrop isStatic={isStatic} onCancel={::this.onCancel} key="backdrop" />
+            <Backdrop isStatic={isStatic} onCancel={this.onCancel} key="backdrop" />
         )];
 
         return parts;

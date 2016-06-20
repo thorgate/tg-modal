@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 
 class Example extends Component {
@@ -17,13 +17,13 @@ class Example extends Component {
         };
     }
 
-    toggleCode(e) {
+    toggleCode = (e) => {
         e.preventDefault();
 
         this.setState({
             showCode: !this.state.showCode
         });
-    }
+    };
 
     renderCode() {
         if (!this.state.showCode) {
@@ -40,10 +40,10 @@ class Example extends Component {
     }
 
     render() {
-        const {title, component, children} = this.props;
+        const { title, component, children } = this.props;
 
         const modal = React.createElement(component, {
-            toggleCode: ::this.toggleCode
+            toggleCode: this.toggleCode
         });
 
         return (

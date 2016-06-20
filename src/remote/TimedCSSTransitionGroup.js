@@ -3,7 +3,7 @@
  * addons and under the BSD License.
  */
 
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import validateTransitionProp from './validateTransitionProp';
 import TimedCSSTransitionGroupChild from './TimedCSSTransitionGroupChild';
@@ -30,8 +30,8 @@ class TimedCSSTransitionGroup extends Component {
         transitionLeave: 1000
     };
 
-    _wrapChild(child) {
-        const {props} = this;
+    _wrapChild = (child) => {
+        const { props } = this;
 
         return (
             <TimedCSSTransitionGroupChild
@@ -47,10 +47,10 @@ class TimedCSSTransitionGroup extends Component {
                 {child}
             </TimedCSSTransitionGroupChild>
         );
-    }
+    };
 
     render() {
-        return React.createElement($RVTransitionGroup, {...this.props, childFactory: ::this._wrapChild});
+        return React.createElement($RVTransitionGroup, { ...this.props, childFactory: this._wrapChild });
     }
 }
 

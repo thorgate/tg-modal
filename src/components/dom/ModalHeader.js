@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 
 class ModalHeader extends Component {
@@ -15,7 +15,7 @@ class ModalHeader extends Component {
         addClose: true
     };
 
-    onCancel(e) {
+    onCancel = (e) => {
         if (e && e.preventDefault) {
             e.preventDefault();
         }
@@ -25,13 +25,13 @@ class ModalHeader extends Component {
                 this.props.onCancel(e, null);
             }
         }
-    }
+    };
 
     render() {
-        const {children, addClose} = this.props;
+        const { children, addClose } = this.props;
 
         const closeBtn = addClose ? (
-            <button className="close" aria-label="Close" onClick={::this.onCancel}><span aria-hidden="true">&times;</span></button>
+            <button className="close" aria-label="Close" onClick={this.onCancel}><span aria-hidden="true">&times;</span></button>
         ) : null;
 
         if (typeof children !== 'string') {

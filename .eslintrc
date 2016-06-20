@@ -9,7 +9,11 @@
     },
     "globals": {
         "chai": true,
-        "EXAMPLE_SRC": true
+        "EXAMPLE_SRC": true,
+        "$RVRenderer": false,
+        "$RVfindDomNode": false,
+        "$RVTransitionGroup": false,
+        "$RVTestUtils": false
     },
     "rules": {
         "react/jsx-uses-react": 1,
@@ -21,7 +25,15 @@
         "react/react-in-jsx-scope": 2,
         "react/self-closing-comp": 1,
         "react/wrap-multilines": 2,
+        "react/jsx-indent": [2, 4],
         "react/jsx-indent-props": [2, 4],
+        "react/prefer-stateless-function": 0,
+
+        "react/jsx-no-bind": [2, {
+            ignoreRefs: true,
+            allowArrowFunctions: false,
+            allowBind: false,
+        }],
 
         "quotes": [2, "single", "avoid-escape"],
         "comma-dangle": [2, "never"],
@@ -31,12 +43,11 @@
         "no-else-return": 0,
         "no-param-reassign": 0,
         "no-reserved-keys": 0,
-        "no-console": 0,
+        "no-console": 1,
 
         "padded-blocks": [0, "never"],
         "indent": [2, 4],
         "max-len": [2, 140, 4],
-        "object-curly-spacing": [0, "never"],
         "arrow-body-style": [0, "as-needed"]
     }
 }

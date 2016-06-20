@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 
 import Markdown from 'react-remarkable';
 
@@ -20,21 +20,21 @@ class MarkdownModalExample extends Component {
         };
     }
 
-    toggleModal() {
+    toggleModal = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
-    }
+    };
 
     render() {
         return (
             <div className="markdown-wrapper">
                 <div className="btn-group">
-                    <a className="btn btn-primary" onClick={::this.toggleModal}>Open</a>
+                    <a className="btn btn-primary" onClick={this.toggleModal}>Open</a>
                     <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
                 </div>
 
-                <Modal isOpen={this.state.isOpen} onCancel={::this.toggleModal}>
+                <Modal isOpen={this.state.isOpen} onCancel={this.toggleModal}>
                     <div className="modal-body">
                         <Markdown source={theMarkdown} />
                     </div>

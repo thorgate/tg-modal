@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 
 import Modal from '../../../src/browser';
 
@@ -17,21 +17,21 @@ class BasicConfirmModalExample extends Component {
         };
     }
 
-    onCancel() {
+    onCancel = () => {
         this.setState({
             answer: 'DO NOT WANT',
             isOpen: false
         });
-    }
+    };
 
-    onConfirm() {
+    onConfirm = () => {
         this.setState({
             answer: 'GIMME',
             isOpen: false
         });
-    }
+    };
 
-    showModal() {
+    showModal = () => {
         this.setState({
             isOpen: true
         });
@@ -47,7 +47,7 @@ class BasicConfirmModalExample extends Component {
         return (
             <div className="modal-example">
                 <div className="btn-group">
-                    <a className="btn btn-primary" onClick={::this.showModal}>Open</a>
+                    <a className="btn btn-primary" onClick={this.showModal}>Open</a>
                     <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
                 </div>
 
@@ -55,8 +55,8 @@ class BasicConfirmModalExample extends Component {
 
                 <Modal
                     isOpen={this.state.isOpen} isBasic
-                    onCancel={::this.onCancel}
-                    onConfirm={::this.onConfirm}
+                    onCancel={this.onCancel}
+                    onConfirm={this.onConfirm}
                 >
                     <Modal.Header addClose={false}>
                         Do you want cookies?
@@ -67,8 +67,8 @@ class BasicConfirmModalExample extends Component {
                         </p>
                     </Modal.Body>
                     <div className="modal-footer">
-                    <a className="btn btn-primary" onClick={::this.onConfirm}>OH YES</a>
-                        <a className="btn btn-secondary" onClick={::this.onCancel}>NOPE</a>
+                        <a className="btn btn-primary" onClick={this.onConfirm}>OH YES</a>
+                        <a className="btn btn-secondary" onClick={this.onCancel}>NOPE</a>
                     </div>
                 </Modal>
             </div>
