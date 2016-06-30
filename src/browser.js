@@ -1,5 +1,4 @@
-import _ from 'lodash';
-import {PropTypes} from 'react';
+import { PropTypes } from 'react';
 
 import TimedCSSTransitionGroup from './remote/TimedCSSTransitionGroup';
 
@@ -17,13 +16,15 @@ const keyCodes = {
  * Wrapper for modal component that handles DOM specific stuff
  */
 class BrowserModal extends Modal {
-    static propTypes = _.extend({}, Modal.propTypes, {
+    static propTypes = {
+        ...Modal.propTypes,
         keyboard: PropTypes.bool
-    });
+    };
 
-    static defaultProps = _.extend({}, Modal.defaultProps, {
+    static defaultProps = {
+        ...Modal.defaultProps,
         keyboard: true
-    });
+    };
 
     componentDidMount() {
         super.componentDidMount();
@@ -86,7 +87,7 @@ class BrowserModal extends Modal {
         this.unbindKeyboard();
 
         if (typeof document !== 'undefined') {
-            this._keyHandler = ::this.handleKeys;
+            this._keyHandler = this.handleKeys;
 
             document.addEventListener('keyup', this._keyHandler, false);
         }
@@ -101,7 +102,7 @@ class BrowserModal extends Modal {
         }
     }
 
-    handleKeys(e) {
+    handleKeys = (e) => {
         // Handle escape press
         if (e.which === keyCodes.ESCAPE) {
             this.onCancel(e, true);
@@ -115,7 +116,7 @@ class BrowserModal extends Modal {
                 }
             }
         }
-    }
+    };
 
     getAnimatorClass() {
         return TimedCSSTransitionGroup;

@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import Modal from './Serverside';
 
@@ -21,7 +21,7 @@ class Prerendered extends Component {
         };
     }
 
-    toggleModal(e) {
+    toggleModal = (e) => {
         if (e && e.preventDefault) {
             e.preventDefault();
         }
@@ -29,18 +29,18 @@ class Prerendered extends Component {
         this.setState({
             isOpen: !this.state.isOpen
         });
-    }
+    };
 
     render() {
         return (
             <div>
-                <a className="btn btn-primary" onClick={::this.toggleModal}>Open</a>
+                <a className="btn btn-primary" onClick={this.toggleModal}>Open</a>
 
                 <Modal
                     isOpen={this.state.isOpen}
                     title="Longcat is long"
                     kiosk={this.props.kiosk}
-                    onCancel={::this.toggleModal}
+                    onCancel={this.toggleModal}
                 >
                     <p>
                         Viral deep v squid chia, letterpress wayfarers artisan

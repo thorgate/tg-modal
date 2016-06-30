@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import Example from './Example';
 import PackageHeader from './PackageHeader';
@@ -16,7 +16,7 @@ class App extends Component {
     };
 
     render() {
-        const {name, description, version} = this.props.packageCfg;
+        const { name, description, version } = this.props.packageCfg;
 
         return (
             <div>

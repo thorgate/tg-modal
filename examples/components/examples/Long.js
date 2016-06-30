@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import Modal from '../../../src/browser';
 
@@ -16,21 +16,21 @@ class LongModalExample extends Component {
         };
     }
 
-    toggleModal() {
+    toggleModal = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
-    }
+    };
 
     render() {
         return (
             <div className="long">
                 <div className="btn-group">
-                    <a className="btn btn-primary" onClick={::this.toggleModal}>Open</a>
+                    <a className="btn btn-primary" onClick={this.toggleModal}>Open</a>
                     <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
                 </div>
 
-                <Modal isOpen={this.state.isOpen} title="Longcat is long" autoWrap onCancel={::this.toggleModal}>
+                <Modal isOpen={this.state.isOpen} title="Longcat is long" autoWrap onCancel={this.toggleModal}>
                     <p>
                         Viral deep v squid chia, letterpress wayfarers artisan
                         meggings tote bag four loko keffiyeh hoodie cronut four

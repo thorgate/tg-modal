@@ -6,6 +6,8 @@ function validateTransitionProp(props, propName) {
             return new Error(`${propName} must be a number (in milliseconds) greater than 0`);
         }
     }
+
+    return undefined;
 }
 
 

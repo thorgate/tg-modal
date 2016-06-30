@@ -1,10 +1,8 @@
 import path from 'path';
 import fs from 'fs';
 
-import './utils';
-
-import {assert} from 'chai';
-import {Component} from 'react';
+import { assert } from 'chai';
+import { Component } from 'react';
 
 import Modal from '../index';
 
