@@ -23,8 +23,12 @@ class Backdrop extends Component {
     };
 
     render() {
+        // remove warning for unused vars / missing proptype definition
+        /* eslint no-unused-vars: 0, react/prop-types: 0 */
+        const { isStatic, onCancel, ...rest } = this.props;
+
         return (
-            <div {...this.props} onClick={this.onCancel}></div>
+            <div {...rest} onClick={this.onCancel}></div>
         );
     }
 }
