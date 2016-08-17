@@ -50,7 +50,10 @@ class TimedCSSTransitionGroup extends Component {
     };
 
     render() {
-        return React.createElement($RVTransitionGroup, { ...this.props, childFactory: this._wrapChild });
+        // remove warning for unused vars / missing proptype definition
+        /* eslint no-unused-vars: 0, react/prop-types: 0 */
+        const { afterEnter, afterLeave, animating, ...rest } = this.props;
+        return React.createElement($RVTransitionGroup, { ...rest, childFactory: this._wrapChild });
     }
 }
 
