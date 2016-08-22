@@ -16,7 +16,7 @@ class StaticModalExample extends Component {
         };
     }
 
-    toggleModal(e) {
+    toggleModal = (e) => {
         if (e && e.preventDefault) {
             e.preventDefault();
         }
@@ -24,7 +24,7 @@ class StaticModalExample extends Component {
         this.setState({
             isOpen: !this.state.isOpen
         });
-    }
+    };
 
     render() {
         return (
