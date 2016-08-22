@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
+- [v0.4.1](#v041)
 - [v0.4.0](#v040)
 - [v0.3.2](#v032)
 - [v0.3.0](#v030)
@@ -15,6 +16,10 @@
 - [v0.0.1](#v001)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+### v0.4.1
+
+ * Fixed react warning when passing unknown props to dom elements (issue #13, thanks @worg)
 
 ### v0.4.0
 
