@@ -24389,6 +24389,16 @@
 
 	        var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(StaticModalExample).call(this, props));
 
+	        _this.toggleModal = function (e) {
+	            if (e && e.preventDefault) {
+	                e.preventDefault();
+	            }
+
+	            _this.setState({
+	                isOpen: !_this.state.isOpen
+	            });
+	        };
+
 	        _this.state = {
 	            isOpen: false
 	        };
@@ -24396,17 +24406,6 @@
 	    }
 
 	    (0, _createClass3.default)(StaticModalExample, [{
-	        key: 'toggleModal',
-	        value: function toggleModal(e) {
-	            if (e && e.preventDefault) {
-	                e.preventDefault();
-	            }
-
-	            this.setState({
-	                isOpen: !this.state.isOpen
-	            });
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
