@@ -148,12 +148,12 @@ class Modal extends Component {
         }
 
         const parts = [(
+            <Backdrop isStatic={isStatic} onCancel={this.onCancel} key="backdrop" />
+        ), (
             <ModalDialog isBasic={isBasic} onCancel={this.onCancel} key="dialog">
                 {this.renderModalHeader()}
                 {this.renderModalBody()}
             </ModalDialog>
-        ), (
-            <Backdrop isStatic={isStatic} onCancel={this.onCancel} key="backdrop" />
         )];
 
         return parts;
