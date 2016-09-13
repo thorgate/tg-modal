@@ -6,6 +6,9 @@ import Modal from './components/Modal';
 import toggleClass from './toggle-class';
 import getScrollbarSize from './utils/scrollbarSize';
 
+// This keeps track of how many modals that are open so that the
+// container class and container padding for the scrollbar is correctly set.
+let numberOfModalsOpen = 0;
 
 const keyCodes = {
     ESCAPE: 27,
@@ -37,6 +40,8 @@ class BrowserModal extends Modal {
     }
 
     componentWillUnmount() {
+        super.componentWillUnmount();
+
         if (typeof document !== 'undefined') {
             this.unbindKeyboard();
         }
@@ -65,20 +70,34 @@ class BrowserModal extends Modal {
         // Call super (calls props.onToggle)
         super.onToggle(state, props);
 
-        // Add body class
+        // Add body class and padding to scrollbar.
         if (typeof document !== 'undefined') {
             const container = document.body;
 
-            // Toggle open class
-            toggleClass(container, 'modal-open', state);
-
-            // Update body padding (for scrollbar)
+            // Increment modal count when opening.
             if (state) {
-                this._origPadding = container.style.paddingRight;
-                container.style.paddingRight = `${parseInt(this._origPadding || 0, 10) + props.scrollbarSize}px`;
-            } else {
-                container.style.paddingRight = this._origPadding;
+                numberOfModalsOpen += 1;
             }
+
+            // Add toggle body class and update body padding if there is only one modal open.
+            if (numberOfModalsOpen === 1) {
+
+                // Toggle open class.
+                toggleClass(container, 'modal-open', state);
+
+                if (state) {
+                    this._origPadding = container.style.paddingRight;
+                    container.style.paddingRight = `${parseInt(this._origPadding || 0, 10) + props.scrollbarSize}px`;
+                } else {
+                    container.style.paddingRight = this._origPadding;
+                }
+            }
+
+            // Decrement modal count when closing.
+            if (!state) {
+                numberOfModalsOpen = Math.max(numberOfModalsOpen - 1, 0);
+            }
+
         }
     }
 

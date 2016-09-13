@@ -1,11 +1,15 @@
 
 function toggleClass(el, className, state) {
+
     if (el.classList) {
         if (typeof state === 'undefined') {
             el.classList.toggle(className);
+        } else if (state) {
+            el.classList['add'](className);
         } else {
-            el.classList[state ? 'add' : 'remove'](className);
+            el.classList['remove'](className);
         }
+
     } else {
         const classes = el.className.split(' ');
         const existingIndex = classes.indexOf(className);
@@ -16,8 +20,7 @@ function toggleClass(el, className, state) {
 
         if (state) {
             classes.push(className);
-        }
-        else {
+        } else {
             classes.splice(existingIndex, 1);
         }
 
