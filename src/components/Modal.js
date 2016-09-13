@@ -40,10 +40,6 @@ class Modal extends Component {
         super(props);
 
         this.state = {};
-
-        if (props.isOpen) {
-            this.onToggle(props.isOpen, this.getToggleProps());
-        }
     }
 
     componentDidMount() {
@@ -62,7 +58,7 @@ class Modal extends Component {
 
     componentWillUnmount() {
         if (this.props.isOpen) {
-            this.onToggle(false, Modal.getScrollbarWidth());
+            this.onToggle(false, this.getToggleProps());
         }
     }
 
@@ -111,7 +107,7 @@ class Modal extends Component {
         this.setState({
             animating: false
         });
-    }
+    };
 
     renderModalBody() {
         if (this.props.autoWrap) {
@@ -152,12 +148,12 @@ class Modal extends Component {
         }
 
         const parts = [(
+            <Backdrop isStatic={isStatic} onCancel={this.onCancel} key="backdrop" />
+        ), (
             <ModalDialog isBasic={isBasic} onCancel={this.onCancel} key="dialog">
                 {this.renderModalHeader()}
                 {this.renderModalBody()}
             </ModalDialog>
-        ), (
-            <Backdrop isStatic={isStatic} onCancel={this.onCancel} key="backdrop" />
         )];
 
         return parts;
