@@ -73,6 +73,14 @@ class App extends Component {
                         </Example>
 
                         <Example
+                            title="Nested scrolling modals"
+                            component={examples.NestedLong}
+                            src={EXAMPLE_SRC.NestedLong}
+                        >
+                            Nested modals with content that exceeds the viewport are also scrollable
+                        </Example>
+
+                        <Example
                             title="Special content"
                             component={examples.Markdown}
                             src={EXAMPLE_SRC.Markdown}
