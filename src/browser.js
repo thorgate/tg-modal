@@ -6,6 +6,9 @@ import Modal from './components/Modal';
 import toggleClass from './toggle-class';
 import getScrollbarSize from './utils/scrollbarSize';
 
+// This keeps track of how many modals are open so that the
+// container padding for the scrollbar is correctly set.
+let numberOfModalsOpen = 0;
 
 const keyCodes = {
     ESCAPE: 27,
@@ -29,6 +32,8 @@ class BrowserModal extends Modal {
     componentDidMount() {
         super.componentDidMount();
 
+        numberOfModalsOpen += 1;
+
         if (typeof document !== 'undefined') {
             if (this.props.keyboard) {
                 this.bindKeyboard();
@@ -37,6 +42,9 @@ class BrowserModal extends Modal {
     }
 
     componentWillUnmount() {
+
+        numberOfModalsOpen = Math.max(numberOfModalsOpen - 1, 0);
+
         if (typeof document !== 'undefined') {
             this.unbindKeyboard();
         }
@@ -65,19 +73,21 @@ class BrowserModal extends Modal {
         // Call super (calls props.onToggle)
         super.onToggle(state, props);
 
-        // Add body class
+        // Add body class and padding for scrollbar if only one modal is open.
         if (typeof document !== 'undefined') {
             const container = document.body;
 
-            // Toggle open class
+            // Toggle open class.
             toggleClass(container, 'modal-open', state);
 
-            // Update body padding (for scrollbar)
-            if (state) {
-                this._origPadding = container.style.paddingRight;
-                container.style.paddingRight = `${parseInt(this._origPadding || 0, 10) + props.scrollbarSize}px`;
-            } else {
-                container.style.paddingRight = this._origPadding;
+            // Update body padding (for scrollbar) if there is only one modal open.
+            if (numberOfModalsOpen === 1) {
+                if (state) {
+                    this._origPadding = container.style.paddingRight;
+                    container.style.paddingRight = `${parseInt(this._origPadding || 0, 10) + props.scrollbarSize}px`;
+                } else {
+                    container.style.paddingRight = this._origPadding;
+                }
             }
         }
     }
