@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
+- [v0.5.0](#v050)
 - [v0.4.1](#v041)
 - [v0.4.0](#v040)
 - [v0.3.2](#v032)
@@ -16,6 +17,11 @@
 - [v0.0.1](#v001)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+### v0.5.0
+
+- Add support for nested modals (see #19 and #16 - Thanks @schryer)
+- Fix a bug which caused body class and style modifications to not be removed when unmounting an open modal (see #19 and #16 - Thanks @schryer)
 
 ### v0.4.1
 
