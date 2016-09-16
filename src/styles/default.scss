@@ -4,6 +4,8 @@ body.modal-open {
     overflow: hidden;
 }
 
+$modal-z-index = 1050;
+
 .modal, .modal-backdrop {
     transform-style: preserve-3d;
     backface-visibility: hidden;
@@ -16,7 +18,7 @@ body.modal-open {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1050;
+    z-index: $modal-z-index;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
     outline: 0;
@@ -27,7 +29,7 @@ body.modal-open {
         position: relative;
         width: auto;
         margin: 10px;
-        z-index: 1060;
+        z-index: $modal-z-index + 10;
 
         @media (min-width: 768px) {
             width: 600px;
@@ -136,7 +138,7 @@ body.modal-open {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1040;
+    z-index: $modal-z-index;
 
     background: rgba(#000, 0.85);
 }
