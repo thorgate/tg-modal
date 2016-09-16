@@ -5,9 +5,9 @@ function toggleClass(el, className, state) {
         if (typeof state === 'undefined') {
             el.classList.toggle(className);
         } else if (state) {
-            el.classList['add'](className);
+            el.classList.add(className);
         } else {
-            el.classList['remove'](className);
+            el.classList.remove(className);
         }
 
     } else {

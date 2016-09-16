@@ -41,6 +41,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.5.1",
     "chai": "*",
+    "classnames": "^2.2.5",
     "compass-mixins": "^0.12.7",
     "coveralls": "*",
     "css-loader": "^0.23.1",

@@ -1,36 +1,47 @@
 import React, { Component, PropTypes } from 'react';
 
+import classNames from 'classnames';
+
 import Modal from '../../../src/browser';
 
 
 class LongNestedModalExample extends Component {
     static propTypes = {
-        toggleCode: PropTypes.func.isRequired
+        toggleCode: PropTypes.func.isRequired,
+        maxModals: PropTypes.number.isRequired
     };
 
-    constructor(props) {
-        super(props);
+    static defaultProps = {
+        maxModals: 8
+    };
 
-        this.state = {
-            numberOfModals: 0
-        };
-    }
+    state = {
+        openModalCount: 0
+    };
 
     addModal = () => {
-        this.setState({numberOfModals: this.state.numberOfModals + 1});
+        this.setState({ openModalCount: Math.min(this.state.openModalCount + 1, this.props.maxModals) });
     };
 
     removeModal = () => {
-        this.setState({numberOfModals: Math.max(this.state.numberOfModals -1, 0)});
+        this.setState({ openModalCount: Math.max(this.state.openModalCount - 1, 0) });
     };
 
     renderLongModal = (index) => {
+        // Only show this modal if the index of it is less than count of open modals - 1
+        const isOpen = index <= this.state.openModalCount - 1;
+        const isAddDisabled = this.state.openModalCount >= this.props.maxModals;
 
         return (
-            <Modal key={index} isOpen={true} title={`This is modal #${index + 1}`} autoWrap onCancel={this.removeModal}>
+            <Modal key={index} isOpen={isOpen} title={`This is modal #${index + 1}`} autoWrap onCancel={this.removeModal}>
 
-                <div className="btn-group" style={{marginBottom: '30px'}}>
-                    <a className="btn btn-primary" onClick={this.addModal}>Add new long modal</a>
+                <div className="btn-group" style={{ marginBottom: '30px' }}>
+                    <a
+                        className={classNames('btn btn-primary', { disabled: isAddDisabled })}
+                        onClick={this.addModal}
+                    >
+                        Add new long modal
+                    </a>
                 </div>
 
                 <p>
@@ -110,7 +121,7 @@ class LongNestedModalExample extends Component {
                     chia butcher.
                 </p>
             </Modal>
-        )
+        );
     };
 
     render() {
@@ -121,11 +132,10 @@ class LongNestedModalExample extends Component {
                     <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
                 </div>
 
-                {[...Array(this.state.numberOfModals).keys()].map(i => this.renderLongModal(i))}
+                {[...Array(this.props.maxModals).keys()].map(i => this.renderLongModal(i))}
             </div>
         );
     }
 }
 
 export default LongNestedModalExample;
-

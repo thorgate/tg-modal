@@ -4,7 +4,7 @@ body.modal-open {
     overflow: hidden;
 }
 
-$modal-z-index = 1050;
+$modal-z-index: 1050;
 
 .modal, .modal-backdrop {
     transform-style: preserve-3d;

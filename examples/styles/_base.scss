@@ -105,6 +105,11 @@ a {
     &:hover {
         text-decoration: none;
     }
+
+    &.disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
 }
 
 .btn-primary {
