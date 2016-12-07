@@ -31,7 +31,6 @@ class Modal extends Component {
 
     static defaultProps = {
         autoWrap: false,
-        keyboard: true,
         transitionName: 'fade',
         transitionDuration: 300
     };
