@@ -81,6 +81,7 @@ Props not specified here are considered internal, and are prone to change.
     Property            |   Type        |   Description
 :-----------------------|:--------------|:--------------------------------
     children            |   node        |   Contents
+    className           |   string      |   Class name to add to the wrapper div [default: modal-header]
     isStatic            |   bool        |   If true then the close button won't trigger `onCancel`
     addClose            |   bool        |   Show the close button [default: true]
     onCancel            |   func        |   Callback to trigger when the close button is clicked

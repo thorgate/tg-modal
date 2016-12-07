@@ -88,6 +88,14 @@ class App extends Component {
                             Modals render react components. This example uses react-remarkable
                             to display markdown
                         </Example>
+
+                        <Example
+                            title="Modal with Header and Body components"
+                            component={examples.WithComponents}
+                            src={EXAMPLE_SRC.WithComponents}
+                        >
+                            Modals can be customized with Modal.Header and Modal.Body components.
+                        </Example>
                     </div>
                 </div>
 
