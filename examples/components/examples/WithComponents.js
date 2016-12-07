@@ -39,13 +39,17 @@ class WithComponentsModalExample extends Component {
                     <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
                 </div>
 
-                <Modal isOpen={this.state.isOpen} autoWrap onCancel={this.toggleModal}>
-                    <Modal.Header className="modal-header custom-header">
+                <Modal
+                    isOpen={this.state.isOpen}
+                    dialogClassName="modal-dialog custom-dialog"
+                    onCancel={this.toggleModal}
+                >
+                    <Modal.Header className="modal-header custom-header" addClose={false}>
                         Header component!
                     </Modal.Header>
                     <Modal.Body className="modal-body custom-body">
                         <p>
-                            I’m a modal with a Body.
+                            I’m a modal with custom classes for Dialog, Header and Body.
                         </p>
                     </Modal.Body>
                 </Modal>

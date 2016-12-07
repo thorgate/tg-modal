@@ -19,6 +19,7 @@ class Modal extends Component {
         isStatic: PropTypes.bool,
         isBasic: PropTypes.bool,
         autoWrap: PropTypes.bool,
+        dialogClassName: PropTypes.string,
 
         transitionName: PropTypes.string,
         transitionDuration: PropTypes.number,
@@ -31,6 +32,7 @@ class Modal extends Component {
 
     static defaultProps = {
         autoWrap: false,
+        dialogClassName: 'modal-dialog',
         transitionName: 'fade',
         transitionDuration: 300
     };
@@ -140,7 +142,7 @@ class Modal extends Component {
     }
 
     renderModal() {
-        const { isOpen, isBasic, isStatic } = this.props;
+        const { isOpen, isBasic, isStatic, dialogClassName } = this.props;
 
         if (!isOpen) {
             return [];
@@ -149,7 +151,7 @@ class Modal extends Component {
         const parts = [(
             <Backdrop isStatic={isStatic} onCancel={this.onCancel} key="backdrop" />
         ), (
-            <ModalDialog isBasic={isBasic} onCancel={this.onCancel} key="dialog">
+            <ModalDialog isBasic={isBasic} onCancel={this.onCancel} key="dialog" className={dialogClassName}>
                 {this.renderModalHeader()}
                 {this.renderModalBody()}
             </ModalDialog>

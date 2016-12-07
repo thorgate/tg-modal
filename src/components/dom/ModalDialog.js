@@ -4,10 +4,15 @@ import React, { Component, PropTypes } from 'react';
 class ModalDialog extends Component {
     static propTypes = {
         children: PropTypes.node,
+        className: PropTypes.string,
 
         onCancel: PropTypes.func.isRequired,
         isBasic: PropTypes.bool,
         animating: PropTypes.bool
+    };
+
+    static defaultProps = {
+        className: 'modal-dialog'
     };
 
     onCancel = (e) => {
@@ -23,12 +28,12 @@ class ModalDialog extends Component {
     };
 
     render() {
-        const { children, isBasic } = this.props;
-        const className = `modal${isBasic ? ' modal-basic' : ''}`;
+        const { children, isBasic, className } = this.props;
+        const wrapperClassName = `modal${isBasic ? ' modal-basic' : ''}`;
 
         return (
-            <div className={className} onClick={this.onCancel}>
-                <div className="modal-dialog">
+            <div className={wrapperClassName} onClick={this.onCancel}>
+                <div className={className}>
                     <div className="modal-content" onClick={this.stopPropagate}>
                         {children}
                     </div>
