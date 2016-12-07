@@ -30,13 +30,13 @@ class ModalHeader extends Component {
     render() {
         const { children, addClose } = this.props;
 
-        const closeBtn = addClose ? (
-            <button className="close" aria-label="Close" onClick={this.onCancel}><span aria-hidden="true">&times;</span></button>
-        ) : null;
-
         if (typeof children !== 'string') {
             return children;
         }
+
+        const closeBtn = addClose ? (
+            <button className="close" aria-label="Close" onClick={this.onCancel}><span aria-hidden="true">&times;</span></button>
+        ) : null;
 
         return (
             <div className="modal-header">
