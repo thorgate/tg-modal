@@ -1,6 +1,6 @@
 {
   "name": "tg-modal",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Universal controlled modals for React",
   "main": "index",
   "repository": {
@@ -110,7 +110,7 @@
     "check-engine": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json"
   },
   "devEngines": {
-    "node": "4.x || 5.x",
+    "node": "4.x || 5.x || 6.x",
     "npm": "2.x || 3.x"
   }
 }

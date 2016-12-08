@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
+- [v0.6.0](#v060)
 - [v0.5.0](#v050)
 - [v0.4.1](#v041)
 - [v0.4.0](#v040)
@@ -17,6 +18,11 @@
 - [v0.0.1](#v001)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+### v0.6.0
+
+- Added ability to add custom classes to ModalDialog (see #22 and #23 - Thanks @cvetanov)
+- Added ability to add custom classes to ModalHeader and optimized its render method (see #22 and #23 - Thanks @cvetanov)
 
 ### v0.5.0
 
