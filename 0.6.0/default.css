@@ -1,0 +1,144 @@
+body.modal-open {
+  overflow: hidden; }
+
+.modal, .modal-backdrop {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0); }
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  transform-origin: 50% 25%; }
+  .modal .modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+    z-index: 1060; }
+    @media (min-width: 768px) {
+      .modal .modal-dialog {
+        width: 600px;
+        margin: 30px auto; } }
+    .modal .modal-dialog .modal-content {
+      background: #fff;
+      padding: 0; }
+      .modal .modal-dialog .modal-content .modal-header {
+        padding: 1.8rem 1.5rem;
+        position: relative; }
+        .modal .modal-dialog .modal-content .modal-header .modal-title {
+          padding: 0;
+          margin: 0;
+          font-size: 1.5em;
+          line-height: 3rem;
+          font-weight: 500; }
+        .modal .modal-dialog .modal-content .modal-header .close {
+          cursor: pointer;
+          position: absolute;
+          top: 1.8rem;
+          right: 1.5rem;
+          z-index: 1;
+          opacity: .6;
+          color: #3c3c50;
+          width: 3rem;
+          height: 3rem;
+          font-size: 1.25em;
+          padding: 0;
+          background: transparent;
+          border: 0px none transparent;
+          transition: background 300ms ease; }
+          .modal .modal-dialog .modal-content .modal-header .close:focus, .modal .modal-dialog .modal-content .modal-header .close:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            outline: none; }
+      .modal .modal-dialog .modal-content .modal-body {
+        padding: 1.8rem 1.5rem;
+        position: relative; }
+        .modal .modal-dialog .modal-content .modal-body img {
+          max-width: 100%;
+          height: auto; }
+      .modal .modal-dialog .modal-content .modal-footer {
+        padding: 1.8rem 1.5rem;
+        position: relative; }
+        .modal .modal-dialog .modal-content .modal-footer a + a {
+          margin-left: 1rem; }
+      .modal .modal-dialog .modal-content .modal-header + .modal-body {
+        padding-top: 0; }
+  .modal.modal-basic .modal-dialog {
+    top: 40%;
+    transform: translateY(-50%);
+    position: absolute;
+    left: 0;
+    right: 0; }
+    .modal.modal-basic .modal-dialog .modal-content {
+      background: transparent;
+      color: #fff;
+      text-align: center; }
+      .modal.modal-basic .modal-dialog .modal-content .modal-header .close {
+        display: none; }
+    .modal.modal-basic .modal-dialog .modal-footer {
+      text-align: center; }
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  background: rgba(0, 0, 0, 0.85); }
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+.modal-wrapper.animating .modal {
+  overflow: hidden;
+  user-select: none; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8); }
+  to {
+    opacity: 1;
+    transform: scale(1); } }
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1); }
+  to {
+    opacity: 0;
+    transform: scale(0.8); } }
+
+.fade-enter.modal {
+  animation: scaleIn 300ms ease; }
+
+.fade-enter.modal-backdrop {
+  animation: fadeIn 300ms ease; }
+
+.fade-leave.modal {
+  animation: scaleOut 300ms ease;
+  animation-fill-mode: forwards; }
+
+.fade-leave.modal-backdrop {
+  animation: fadeOut 300ms ease;
+  animation-fill-mode: forwards; }
