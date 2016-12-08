@@ -6,12 +6,14 @@ class ModalHeader extends Component {
 
     static propTypes = {
         children: PropTypes.node,
+        className: PropTypes.string,
         isStatic: PropTypes.bool,
         addClose: PropTypes.bool,
         onCancel: PropTypes.func
     };
 
     static defaultProps = {
+        className: 'modal-header',
         addClose: true
     };
 
@@ -28,18 +30,18 @@ class ModalHeader extends Component {
     };
 
     render() {
-        const { children, addClose } = this.props;
-
-        const closeBtn = addClose ? (
-            <button className="close" aria-label="Close" onClick={this.onCancel}><span aria-hidden="true">&times;</span></button>
-        ) : null;
+        const { children, addClose, className } = this.props;
 
         if (typeof children !== 'string') {
             return children;
         }
 
+        const closeBtn = addClose ? (
+            <button className="close" aria-label="Close" onClick={this.onCancel}><span aria-hidden="true">&times;</span></button>
+        ) : null;
+
         return (
-            <div className="modal-header">
+            <div className={className}>
                 <h1 className="modal-title">{children}</h1>
                 {closeBtn}
             </div>

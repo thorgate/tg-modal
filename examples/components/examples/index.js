@@ -6,3 +6,4 @@ export BasicConfirm from './BasicConfirm';
 export Long from './Long';
 export NestedLong from './NestedLong';
 export Markdown from './Markdown';
+export WithComponents from './WithComponents';
