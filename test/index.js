@@ -4,7 +4,7 @@ import fs from 'fs';
 import { assert } from 'chai';
 import { Component } from 'react';
 
-import Modal from '../index';
+import Modal from '../src';
 
 
 function assertValidComponent(a, key, displayName, Base = Component) {
@@ -31,9 +31,5 @@ describe('Exports work', () => {
 
     it('default.Header is Modal.Header', () => {
         assertValidComponent(Modal.Header, 'default.Header', 'Modal.Header');
-    });
-
-    it('findDOMNode is available', () => {
-        assert.isFunction($RVfindDomNode);
     });
 });

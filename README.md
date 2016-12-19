@@ -19,10 +19,6 @@ npm install tg-modal
 
 Please also make sure you install `react-addons-transition-group`
 
-## React 0.13.X
-
-To use with 0.13.X of react, just import modal from `tg-modal/v013`
-
 ### Import
 
 ```js
@@ -100,10 +96,6 @@ Examples are available [here][public-url].
 ## Troubleshooting
 
 If you encounter a problem, please [file an issue](https://github.com/thorgate/tg-modal/issues).
-
-## Migrating to 0.3
-
-see [migrating](./Migrate.md)
 
 ## License
 
