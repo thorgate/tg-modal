@@ -9,11 +9,7 @@
     },
     "globals": {
         "chai": true,
-        "EXAMPLE_SRC": true,
-        "$RVRenderer": false,
-        "$RVfindDomNode": false,
-        "$RVTransitionGroup": false,
-        "$RVTestUtils": false
+        "EXAMPLE_SRC": true
     },
     "rules": {
         "react/jsx-uses-react": 1,

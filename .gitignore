@@ -2,9 +2,10 @@
 logs
 *.log
 .tmp
+.nyc_output
 node_modules
 dist
-dist-013
+es
 tmp
 coverage
 npm-debug.log

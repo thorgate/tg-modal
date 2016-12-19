@@ -1,5 +1,6 @@
 // Render serverside example in the client
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import Prerendered from './components/Prerendered';
 import { Kiosk } from './components/Serverside';
@@ -9,4 +10,4 @@ require('./styles/main.scss');
 
 const kiosk = new Kiosk();
 
-$RVRenderer.render(<Prerendered initialOpen kiosk={kiosk} />, document.getElementById('content'));
+ReactDOM.render(<Prerendered initialOpen kiosk={kiosk} />, document.getElementById('content'));

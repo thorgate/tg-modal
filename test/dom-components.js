@@ -1,11 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+
 import { assert } from 'chai';
 import sinon from 'sinon';
 
-import Backdrop from '../dist/components/dom/Backdrop';
-
-
-const TestUtils = $RVTestUtils;
+import Backdrop from '../src/components/dom/Backdrop';
 
 
 function buildContainer(component, props) {
@@ -17,7 +17,7 @@ function buildContainer(component, props) {
 
 describe('dom backdrop works', () => {
     it('renders correctly', () => {
-        const container = $RVfindDomNode(buildContainer(Backdrop, {}));
+        const container = ReactDOM.findDOMNode(buildContainer(Backdrop, {}));
 
         // Its a div
         assert.equal(container.nodeName, 'DIV');
@@ -29,7 +29,7 @@ describe('dom backdrop works', () => {
     it('onCancel is called after click', () => {
         const spy = sinon.spy();
 
-        const container = $RVfindDomNode(buildContainer(Backdrop, { onCancel: spy }));
+        const container = ReactDOM.findDOMNode(buildContainer(Backdrop, { onCancel: spy }));
 
         // test spy was not called yet
         assert.equal(spy.callCount, 0);
@@ -43,7 +43,7 @@ describe('dom backdrop works', () => {
 
     it('static wont call onCancel', () => {
         const spy = sinon.spy();
-        const container = $RVfindDomNode(buildContainer(Backdrop, { onCancel: spy, isStatic: true }));
+        const container = ReactDOM.findDOMNode(buildContainer(Backdrop, { onCancel: spy, isStatic: true }));
 
         // test spy was not called yet
         assert.equal(spy.callCount, 0);

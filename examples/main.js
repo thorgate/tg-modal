@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import App from './components/App';
 
@@ -10,4 +11,4 @@ require('./styles/main.scss');
 require('../src/styles/default.scss');
 
 
-$RVRenderer.render(<App packageCfg={packageCfg} />, document.getElementById('content'));
+ReactDOM.render(<App packageCfg={packageCfg} />, document.getElementById('content'));

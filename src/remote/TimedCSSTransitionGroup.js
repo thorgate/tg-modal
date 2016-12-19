@@ -4,6 +4,7 @@
  */
 
 import React, { Component, PropTypes } from 'react';
+import TransitionGroup from 'react-addons-transition-group';
 
 import validateTransitionProp from './validateTransitionProp';
 import TimedCSSTransitionGroupChild from './TimedCSSTransitionGroupChild';
@@ -53,7 +54,7 @@ class TimedCSSTransitionGroup extends Component {
         // remove warning for unused vars / missing proptype definition
         /* eslint no-unused-vars: 0, react/prop-types: 0 */
         const { afterEnter, afterLeave, animating, ...rest } = this.props;
-        return React.createElement($RVTransitionGroup, { ...rest, childFactory: this._wrapChild });
+        return React.createElement(TransitionGroup, { ...rest, childFactory: this._wrapChild });
     }
 }
 
