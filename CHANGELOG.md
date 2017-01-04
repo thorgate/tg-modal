@@ -2,6 +2,8 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
+- [v0.7.1](#v071)
+- [v0.7.0](#v070)
 - [v0.6.0](#v060)
 - [v0.5.0](#v050)
 - [v0.4.1](#v041)
@@ -18,6 +20,14 @@
 - [v0.0.1](#v001)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+### v0.7.1
+
+- Fixed see-through issues at the top-edge of the viewport on mobile browsers when location-bar is hidden (see #25 - Thanks @rivo)
+
+### v0.7.0
+
+- Added jsnext:main / modules build (for webpack2 and rollup). Based on (reactjs/redux#1042)
 
 ### v0.6.0
 
