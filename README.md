@@ -6,6 +6,8 @@ tg-modal is a react component for Modals. It aims to provide a standalone
 `Modal` without the need of adding a big UI library to your dependencies.
 
 [![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Coverage][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 [![Downloads][download-badge]][npm-url]
 
@@ -103,6 +105,12 @@ MIT © [Thorgate](http://github.com/thorgate)
 
 [npm-url]: https://npmjs.org/package/tg-modal
 [npm-image]: https://img.shields.io/npm/v/tg-modal.svg?style=flat-square
+
+[travis-url]: https://travis-ci.org/thorgate/tg-modal
+[travis-image]: https://img.shields.io/travis/thorgate/tg-modal.svg?style=flat-square
+
+[coveralls-url]: https://coveralls.io/github/thorgate/tg-modal?branch=master
+[coveralls-image]: https://coveralls.io/repos/github/thorgate/tg-modal/badge.svg?branch=master
 
 [depstat-url]: https://david-dm.org/thorgate/tg-modal
 [depstat-image]: https://david-dm.org/thorgate/tg-modal.svg?style=flat-square
