@@ -47,7 +47,7 @@ describe('ModalHeader', () => {
         assert.ok(container.classList.contains('foo'));
     });
 
-    it('addClose=false does not add close button works', () => {
+    it('addClose=false does not add close button', () => {
         const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { addClose: false, children: 'Hello world' }));
 
         // Close button is not rendered into the container
@@ -72,7 +72,7 @@ describe('ModalHeader', () => {
         assert.equal(spy.callCount, 1);
     });
 
-    it('onCancel is called after click', () => {
+    it('onCancel is not called when isStatic is true', () => {
         const spy = sinon.spy();
 
         const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { children: 'Hello world', onCancel: spy, isStatic: true }));
@@ -86,7 +86,7 @@ describe('ModalHeader', () => {
         // Trigger click
         TestUtils.Simulate.click(container.querySelector('button.close'));
 
-        // test spy was called once
+        // test spy was not called
         assert.equal(spy.callCount, 0);
     });
 
