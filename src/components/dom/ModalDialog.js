@@ -7,8 +7,7 @@ class ModalDialog extends Component {
         className: PropTypes.string,
 
         onCancel: PropTypes.func.isRequired,
-        isBasic: PropTypes.bool,
-        animating: PropTypes.bool
+        isBasic: PropTypes.bool
     };
 
     static defaultProps = {
@@ -16,6 +15,7 @@ class ModalDialog extends Component {
     };
 
     onCancel = (e) => {
+        /* istanbul ignore else */
         if (e && e.preventDefault) {
             e.preventDefault();
         }

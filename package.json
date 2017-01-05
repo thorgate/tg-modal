@@ -96,7 +96,7 @@
     "build:umd": "cross-env BABEL_ENV=commonjs $(npm bin)/babel src -d dist",
     "build:es": "cross-env BABEL_ENV=es $(npm bin)/babel src -d es",
     "postbuild": "npm run test -s; npm run coverage",
-    "test": "cross-env BABEL_ENV=test $(npm bin)/nyc --require babel-register --require jsdom-global/register mocha -u exports test/*.js",
+    "test": "cross-env BABEL_ENV=test $(npm bin)/nyc --require babel-register --require jsdom-global/register mocha -u exports test/test-*.js",
     "coverage": "nyc report && nyc report --reporter=html",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "postcoveralls": "rimraf ./coverage",

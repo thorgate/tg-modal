@@ -13,6 +13,7 @@ class Backdrop extends Component {
     };
 
     onCancel = (e) => {
+        /* istanbul ignore else */
         if (e && e.preventDefault) {
             e.preventDefault();
         }

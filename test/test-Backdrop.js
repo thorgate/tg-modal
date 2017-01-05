@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 
@@ -7,15 +6,10 @@ import sinon from 'sinon';
 
 import Backdrop from '../src/components/dom/Backdrop';
 
+import { buildContainer } from './util';
 
-function buildContainer(component, props) {
-    const elem = React.createElement(component, props);
-    const container = TestUtils.renderIntoDocument(elem);
 
-    return TestUtils.findRenderedComponentWithType(container, component);
-}
-
-describe('dom backdrop works', () => {
+describe('Modal Backdrop', () => {
     it('renders correctly', () => {
         const container = ReactDOM.findDOMNode(buildContainer(Backdrop, {}));
 
