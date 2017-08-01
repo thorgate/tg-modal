@@ -52,44 +52,44 @@ import Modal from 'tg-modal';
 </Modal>
 ```
 
-This will render a static modal which can't be hidden by the user.
+This will render a static modal, which cannot be hidden by the user.
 
 ### PropTypes
 
 #### Modal
 
-    Property            |   Type        |   Description
-:-----------------------|:--------------|:--------------------------------
-    onCancel            |   func        |   Called when user cancels the modal (Close button, backdrop click or `ESC` pressed). `function (event, keyboard) {}`
-    onConfirm           |   func        |   Called after confirm the modal (Currently only by pressing `ENTER`) `function () {}`
-    isOpen              |   bool        |   Should the modal be visible
-    title               |   node        |   When set `Modal` will render this as child of `Modal.Header` element.
-    isStatic            |   bool        |   is the modal Static (backdrop click won't trigger `onCancel`)
-    isBasic             |   bool        |   is the modal Basic (backdrop only, best for confirms)
-    keyboard            |   bool        |   Should the modal listen to keyboard events (`ENTER` or `ESCAPE` press) [default: true]
-    autoWrap            |   bool        |   If true, children will be wrapped inside `Modal.Body` [default: false]
-    onToggle            |   func        |   function called after modal is toggled. `function (isOpen, props) { }`
-    transitionName      |   string      |   Name of animation to use for open/close (to see how to define custom ones see default styles) [default: fade]
-    transitionDuration  |   int         |   Duration of the transition in milliseconds [default: 300]
+| Property            | Type   | Description 
+|---------------------|--------|------------
+| onCancel            | func   | Called when the user cancels the modal (Close button, backdrop click or `ESC` pressed). `function (event, keyboard) {}` 
+| onConfirm           | func   | Called after confirming the modal (Currently only by pressing `ENTER`) `function () {}` |
+| isOpen              | bool   | Should the modal be visible 
+| title               | node   | When set, `Modal` will render this as child of `Modal.Header` element. 
+| isStatic            | bool   | Is the modal Static (backdrop click won't trigger `onCancel`) 
+| isBasic             | bool   | Is the modal Basic (backdrop only, best for confirms) 
+| keyboard            | bool   | Should the modal listen to keyboard events (`ENTER` or `ESCAPE` press) [default: true] 
+| autoWrap            | bool   | If true, children will be wrapped inside `Modal.Body` [default: false] 
+| onToggle            | func   | Function called after the modal is toggled. `function (isOpen, props) { }` 
+| transitionName      | string | Name of animation to use for open/close (to see how to define custom ones, see default styles) [default: fade] 
+| transitionDuration  | int    | Duration of the transition in milliseconds [default: 300] 
 
 Props not specified here are considered internal, and are prone to change.
 
 #### Modal.Header
 
-    Property            |   Type        |   Description
-:-----------------------|:--------------|:--------------------------------
-    children            |   node        |   Contents
-    className           |   string      |   Class name to add to the wrapper div [default: modal-header]
-    isStatic            |   bool        |   If true then the close button won't trigger `onCancel`
-    addClose            |   bool        |   Show the close button [default: true]
-    onCancel            |   func        |   Callback to trigger when the close button is clicked
+| Property            | Type        | Description 
+|---------------------|-------------|--------------
+| children            | node        | Contents 
+| className           | string      | Class name to add to the wrapper div [default: modal-header] 
+| isStatic            | bool        | If true, the close button won't trigger `onCancel` 
+| addClose            | bool        | Show the close button [default: true]
+| onCancel            | func        | Callback to trigger when the close button is clicked
 
 #### Modal.Body
 
-        Property            |   Type        |   Description
-    :-----------------------|:--------------|:--------------------------------
-        children            |   node        |   Contents
-        className           |   string      |   Class name to add to the wrapper div [default: modal-body]
+| Property            | Type        | Description
+|---------------------|-------------|--------------------------------
+| children            | node        | Contents
+| className           | string      | Class name to add to the wrapper div [default: modal-body]
 
 ### Examples
 
