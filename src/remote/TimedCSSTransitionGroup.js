@@ -3,7 +3,8 @@
  * addons and under the BSD License.
  */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import TransitionGroup from 'react-addons-transition-group';
 
 import validateTransitionProp from './validateTransitionProp';
