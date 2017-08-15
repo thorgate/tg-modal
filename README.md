@@ -17,10 +17,6 @@ tg-modal is a react component for Modals. It aims to provide a standalone
 npm install tg-modal
 ```
 
-## React 0.14+
-
-Please also make sure you install `react-addons-transition-group`
-
 ### Import
 
 ```js

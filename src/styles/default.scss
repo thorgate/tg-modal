@@ -197,7 +197,7 @@ $modal-z-index: 1050;
     }
 }
 
-.fade-leave {
+.fade-exit {
     &.modal {
         animation: scaleOut 300ms ease;
         animation-fill-mode: forwards;

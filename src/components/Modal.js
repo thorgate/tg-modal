@@ -27,6 +27,9 @@ class Modal extends Component {
 
         title: PropTypes.node,
 
+        TransitionClass: PropTypes.any.isRequired,
+        TransitionGroupClass: PropTypes.any.isRequired,
+
         // This is internally used
         onToggle: PropTypes.func
     };
@@ -103,15 +106,20 @@ class Modal extends Component {
 
     getAnimatorProps() {
         const { animating } = this.state;
+        const { transitionName, transitionDuration } = this.props;
 
         return {
-            transitionName: this.props.transitionName,
-            transitionEnter: this.props.transitionDuration,
-            transitionLeave: this.props.transitionDuration,
-            afterEnter: this.clearAnimating,
-            afterLeave: this.clearAnimating,
-            animating
+            classNames: transitionName,
+            timeout: transitionDuration,
+            onEntered: this.clearAnimating,
+            onExited: this.clearAnimating,
+            unmountOnExit: true,
+            in: animating
         };
+    }
+
+    getAnimatorGroupProps() {
+        return {};
     }
 
     clearAnimating = () => {
@@ -170,6 +178,15 @@ class Modal extends Component {
         }
     }
 
+    renderTransition = (element) => {
+        const { TransitionClass } = this.props;
+        return (
+            <TransitionClass key={element.key} {...this.getAnimatorProps()}>
+                {React.cloneElement(element)}
+            </TransitionClass>
+        );
+    };
+
     renderModal() {
         const { isOpen, isBasic, isStatic, dialogClassName } = this.props;
 
@@ -177,23 +194,24 @@ class Modal extends Component {
             return [];
         }
 
-        const parts = [(
-            <Backdrop isStatic={isStatic} onCancel={this.onCancel} key="backdrop" />
-        ), (
-            <ModalDialog isBasic={isBasic} onCancel={this.onCancel} key="dialog" className={dialogClassName}>
-                {this.renderModalHeader()}
-                {this.renderModalBody()}
-            </ModalDialog>
-        )];
-
-        return parts;
+        return [
+            this.renderTransition(
+                <Backdrop isStatic={isStatic} onCancel={this.onCancel} key="backdrop" />
+            ),
+            this.renderTransition(
+                <ModalDialog isBasic={isBasic} onCancel={this.onCancel} key="dialog" className={dialogClassName}>
+                    {this.renderModalHeader()}
+                    {this.renderModalBody()}
+                </ModalDialog>
+            )];
     }
 
     render() {
-        return React.createElement(
-            this.getAnimatorClass(),
-            this.getAnimatorProps(),
-            this.renderModal()
+        const { TransitionGroupClass } = this.props;
+        return (
+            <TransitionGroupClass {...this.getAnimatorGroupProps()}>
+                {this.renderModal()}
+            </TransitionGroupClass>
         );
     }
 }
