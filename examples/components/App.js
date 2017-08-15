@@ -97,6 +97,14 @@ class App extends Component {
                         >
                             Modals can be customized with Modal.Header and Modal.Body components.
                         </Example>
+
+                        <Example
+                            title="Modal with Redux integration"
+                            component={examples.ReduxModal}
+                            src={EXAMPLE_SRC.ReduxModal}
+                        >
+                            Modal with controlling via Redux.
+                        </Example>
                     </div>
                 </div>
 
