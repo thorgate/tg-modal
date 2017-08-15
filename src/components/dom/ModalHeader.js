@@ -17,6 +17,15 @@ class ModalHeader extends Component {
         addClose: true
     };
 
+    constructor(props) {
+        super(props);
+
+        // warn if something is wrong with props
+        if (props.addClose && !props.onCancel) {
+            console.warn(`${ModalHeader.displayName}: addClose is defined but onCancel is missing!`);
+        }
+    }
+
     onCancel = (e) => {
         /* istanbul ignore else */
         if (e && e.preventDefault) {
