@@ -4,6 +4,7 @@ node_js:
   - "4"
   - "5"
   - "6"
+  - "7"
   - "node"
 
 before_script:
@@ -15,3 +16,19 @@ after_success:
 
 notifications:
     email: false
+
+deploy:
+  provider: npm
+  email: hi@thorgate.eu
+  api_key:
+    secure: >
+      QjU4OcGBgkJ1G6TyzPpKFXgp/PXaxkag+gCWs/+8mh8kqpduwLtKkbaBuAUk+S770sz6a6+2JPe3olC+y5S6dqb90zj+B5yprowmG4rG7AlOW
+      XxOkoX0Dx/epInOdp9mCrtjwQRnicDs5C3P0I088NknpXn7jlyXV4NlQxcy2ZDqajnq0MFv8Zp6dnM+i4V5mh0JIN3cS0mzbigSN0dupYijP8
+      n5EIcBTQt68aRngk6actwnEht6X7ymAxX+xzgHZYQLp/2meg2KoY+kOLysGU8rWWn/fy34l79UjKFwHw/JTRUcVCSI4C5IRdxWW+48LyWkV6E
+      sdU7GiCsCSIAV93GSMcsueutE9KCzlmDtjUTET5niX733hIFaeUtFCY5z6GBkajpkuBpYuue6FMdjIDgv34Gem6gH7WPkeEu/VHZKZR9Vx7H+
+      bX6lzypiU8z7BefLSetTLObsCJmeIzgjUWe5a512Pj3Vw3YxH9ei3ShAd0/waAOwYB5TccmZogO5skqOaRe/ZD1N+IoUOOiRHCxtOw4CgNuJX
+      4f8sUNNlYT4w/JVamNaJewjQ9acWru8jMO125nTq5KuU3w8V1SAF5/4Jt1hByQSQWVTSKzJJ8ZfqqQChLQh9Rm68yN8bJhqesZtOMos1h1MPd
+      9PG3t/l+Q8qQOH0FFvDirm1KoDDD8=
+  on:
+    tags: true
+    branch: master
