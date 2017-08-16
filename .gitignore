@@ -3,6 +3,7 @@ logs
 *.log
 .tmp
 .nyc_output
+.idea
 node_modules
 dist
 es

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-
-import TimedCSSTransitionGroup from './remote/TimedCSSTransitionGroup';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Modal from './components/Modal';
 import toggleClass from './toggle-class';
@@ -26,7 +25,10 @@ class BrowserModal extends Modal {
 
     static defaultProps = {
         ...Modal.defaultProps,
-        keyboard: true
+        keyboard: true,
+
+        TransitionClass: CSSTransition,
+        TransitionGroupClass: TransitionGroup
     };
 
     componentDidMount() {
@@ -137,13 +139,9 @@ class BrowserModal extends Modal {
         }
     };
 
-    getAnimatorClass() {
-        return TimedCSSTransitionGroup;
-    }
-
-    getAnimatorProps() {
+    getAnimatorGroupProps() {
         return {
-            ...super.getAnimatorProps(),
+            ...super.getAnimatorGroupProps(),
             component: 'div',
             className: `modal-wrapper${this.state.animating ? ' animating' : ''}`
         };
