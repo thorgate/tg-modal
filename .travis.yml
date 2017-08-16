@@ -22,13 +22,13 @@ deploy:
   email: hi@thorgate.eu
   api_key:
     secure: >
-      QjU4OcGBgkJ1G6TyzPpKFXgp/PXaxkag+gCWs/+8mh8kqpduwLtKkbaBuAUk+S770sz6a6+2JPe3olC+y5S6dqb90zj+B5yprowmG4rG7AlOW
-      XxOkoX0Dx/epInOdp9mCrtjwQRnicDs5C3P0I088NknpXn7jlyXV4NlQxcy2ZDqajnq0MFv8Zp6dnM+i4V5mh0JIN3cS0mzbigSN0dupYijP8
-      n5EIcBTQt68aRngk6actwnEht6X7ymAxX+xzgHZYQLp/2meg2KoY+kOLysGU8rWWn/fy34l79UjKFwHw/JTRUcVCSI4C5IRdxWW+48LyWkV6E
-      sdU7GiCsCSIAV93GSMcsueutE9KCzlmDtjUTET5niX733hIFaeUtFCY5z6GBkajpkuBpYuue6FMdjIDgv34Gem6gH7WPkeEu/VHZKZR9Vx7H+
-      bX6lzypiU8z7BefLSetTLObsCJmeIzgjUWe5a512Pj3Vw3YxH9ei3ShAd0/waAOwYB5TccmZogO5skqOaRe/ZD1N+IoUOOiRHCxtOw4CgNuJX
-      4f8sUNNlYT4w/JVamNaJewjQ9acWru8jMO125nTq5KuU3w8V1SAF5/4Jt1hByQSQWVTSKzJJ8ZfqqQChLQh9Rm68yN8bJhqesZtOMos1h1MPd
-      9PG3t/l+Q8qQOH0FFvDirm1KoDDD8=
+      jzIuX5jFSi8/6hvUrlnCwgMVsFXVVWs3E8+xpQxPAdZr/Xu08lmjGgBvnUgw+7uwGC9MJS5a7aRHD9Py/lEQZ6MCLAl5tSqNv1r6NQUGvtymq
+      7IBc2V28+NKGpQ2vAA+YKcf2oXiiT0aqmTNgSa4DQLXY77GRqmgc/9scw8gt9brGHj5+QCPqLVoJxShmanuk6k2MdojyW92mXfOkoysMO11Kd
+      BxJMyvMoKek2tZsgDkSsbYmOi7Hz/bTPVLBzleNtfC1kmIt39g2aSzdZclHRKqQJGml+qnuRq+DU9aqtSs4mkACp7n2HKDHIyAcYBmz5aHDPB
+      Bw1FnLm93Ht4+U/O64qy6hZWGci74ag5juXQCbXOw6M/J/Zyjo2M5Zzc3frL4Tu3WL6FfGsdW2TY1jNitlQlqI7TujIffD064+MiTLnuDoDeZ
+      6vyOZ32aFs9pLGOe8QmDEDFglAsaUKeuWuF2I72hbP+jwKLMH5W5KWHMLEvoZth4N3cxD1RJaHHCzP4ALE0AMGsgDprshSkpdJ0J0+H73niPD
+      /4+EErEnkB0FVYmWynzvMEBH4MAbXFCZj1zbibt6NHZI44n6fvyHX9gpbPg3fuCLpsBNWNkpIQaFvoGsODRo3LmEKZ2rObuArJx4+OE+wOdsG
+      2eFZClyuJi/5nJ1fBBAenRS0PBqLg=
   on:
     tags: true
-    branch: master
+    node: "7"
