@@ -12,7 +12,13 @@ import { buildContainer } from './util';
 
 describe('ModalHeader', () => {
     it('renders correctly', () => {
+        const spyConsoleWarn = sinon.spy();
+        console.warn = spyConsoleWarn;
+
         const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { children: 'Hello world' }));
+
+        // test spy was not called yet
+        assert.equal(spyConsoleWarn.callCount, 1);
 
         // Its a div
         assert.equal(container.nodeName, 'DIV');
@@ -31,14 +37,26 @@ describe('ModalHeader', () => {
     });
 
     it('raw children work', () => {
+        const spyConsoleWarn = sinon.spy();
+        console.warn = spyConsoleWarn;
+
         const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { children: (<span>Sup</span>) }));
+
+        // test spy was not called yet
+        assert.equal(spyConsoleWarn.callCount, 1);
 
         assert.equal(container.nodeName, 'SPAN');
         assert.equal(container.textContent, 'Sup');
     });
 
     it('className works', () => {
+        const spyConsoleWarn = sinon.spy();
+        console.warn = spyConsoleWarn;
+
         const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { className: 'foo', children: 'Hello world' }));
+
+        // test spy was not called yet
+        assert.equal(spyConsoleWarn.callCount, 1);
 
         // Its a div
         assert.equal(container.nodeName, 'DIV');
@@ -88,6 +106,22 @@ describe('ModalHeader', () => {
 
         // test spy was not called
         assert.equal(spy.callCount, 0);
+    });
+
+    it('addClose is defined and onCancel is not defined', () => {
+        const spyConsoleWarn = sinon.spy();
+        console.warn = spyConsoleWarn;
+
+        const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { children: 'Hello world', addClose: true }));
+
+        // test spy was not called yet
+        assert.equal(spyConsoleWarn.callCount, 1);
+
+        // Close button is rendered into the container
+        assert.equal(container.querySelectorAll('button.close').length, 1);
+
+        // Trigger click
+        TestUtils.Simulate.click(container.querySelector('button.close'));
     });
 
     it('click handler works w/o onCancel', () => {

@@ -41,6 +41,15 @@ class Modal extends Component {
         super(props);
 
         this.state = {};
+
+        // validate children props and warn if something is wrong
+        React.Children.forEach(props.children, (child) => {
+            if (child && child.type === ModalHeader) {
+                if (child.props.addClose && !child.props.onCancel) {
+                    console.warn(`${ModalHeader.displayName}: addClose is defined but onCancel is missing!`);
+                }
+            }
+        });
     }
 
     componentDidMount() {
@@ -110,16 +119,35 @@ class Modal extends Component {
         });
     };
 
+    renderChild = (child) => {
+        if (!child) {
+            return child;
+        }
+
+        const { onCancel: onCancel } = this.props;
+        const { addClose, headerOnCancel } = child.props || {};
+
+        if (child.type === ModalHeader && addClose && !headerOnCancel) {
+            return React.cloneElement(child, {
+                ...child.props,
+                onCancel
+            });
+        }
+
+        return child;
+    };
+
     renderModalBody() {
+        const children = React.Children.map(this.props.children, this.renderChild);
         if (this.props.autoWrap) {
             return (
                 <ModalBody>
-                    {this.props.children}
+                    {children}
                 </ModalBody>
             );
         }
 
-        return this.props.children;
+        return children;
     }
 
     renderModalHeader() {
