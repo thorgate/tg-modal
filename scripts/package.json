@@ -1,8 +1,12 @@
 {
-    "name": "empty",
-    "version": 0,
-    "private": true,
-    "devDependencies": {
-        "tg-modal": "*"
-    }
+  "name": "empty",
+  "version": 0,
+  "private": true,
+  "devDependencies": {
+    "babel-runtime": "^6.26.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-transition-group": "^2.2.0",
+    "tg-modal": "*"
+  }
 }
