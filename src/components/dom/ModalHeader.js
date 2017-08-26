@@ -14,7 +14,7 @@ class ModalHeader extends Component {
     };
 
     static defaultProps = {
-        className: 'modal-header',
+        className: 'tg-modal-header',
         addClose: true
     };
 
@@ -48,12 +48,12 @@ class ModalHeader extends Component {
         }
 
         const closeBtn = addClose ? (
-            <button className="close" aria-label="Close" onClick={this.onCancel}><span aria-hidden="true">&times;</span></button>
+            <button className="tg-modal-close" aria-label="Close" onClick={this.onCancel}><span aria-hidden="true">&times;</span></button>
         ) : null;
 
         return (
             <div className={className}>
-                <h1 className="modal-title">{children}</h1>
+                <h1 className="tg-modal-title">{children}</h1>
                 {closeBtn}
             </div>
         );

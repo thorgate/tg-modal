@@ -42,7 +42,7 @@ class StaticModalExample extends Component {
                         </p>
                     </Modal.Body>
 
-                    <div className="modal-footer">
+                    <div className="tg-modal-footer">
                         <a className="btn btn-primary" onClick={this.toggleModal}>Close</a>
                     </div>
                 </Modal>

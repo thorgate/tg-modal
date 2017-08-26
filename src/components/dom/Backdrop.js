@@ -10,7 +10,7 @@ class Backdrop extends Component {
     };
 
     static defaultProps = {
-        className: 'modal-backdrop'
+        className: 'tg-modal-backdrop'
     };
 
     onCancel = (e) => {

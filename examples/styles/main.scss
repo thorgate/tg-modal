@@ -81,39 +81,39 @@
 
 
 .container {
-    .modal {
+    .tg-modal {
         text-align: center;
 
-        .modal-dialog .modal-content {
+        .tg-modal-dialog .tg-modal-content {
             border-radius: 5px;
 
-            .modal-header {
+            .tg-modal-header {
                 padding-bottom: 0;
 
-                .modal-title {
+                .tg-modal-title {
                     font-size: 45px;
                     line-height: 54px;
                     margin-bottom: 20px;
                 }
 
-                .close {
+                .tg-modal-close {
                     font-family: $headings-font-family;
                     font-size: 24px;
                     border-radius: 5px;
                 }
             }
 
-            .modal-body {
+            .tg-modal-body {
                 padding-left: 50px;
                 padding-right: 50px;
             }
 
-            .modal-footer {
+            .tg-modal-footer {
                 padding-top: 0;
             }
         }
 
-        &.modal-basic {
+        &.tg-modal-basic {
             &, h1, p {
                 color: #fff;
             }
@@ -122,7 +122,7 @@
 }
 
 .long {
-    .modal-body {
+    .tg-modal-body {
         &, p {
             color: #798489;
             font-family: $content-font-family;

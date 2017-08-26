@@ -36,8 +36,8 @@ class Modal extends Component {
 
     static defaultProps = {
         autoWrap: false,
-        dialogClassName: 'modal-dialog',
-        transitionName: 'fade',
+        dialogClassName: 'tg-modal-dialog',
+        transitionName: 'tg-modal-fade',
         transitionDuration: 300
     };
 

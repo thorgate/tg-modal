@@ -65,8 +65,9 @@ This will render a static modal, which cannot be hidden by the user.
 | keyboard            | bool   | Should the modal listen to keyboard events (`ENTER` or `ESCAPE` press) [default: true] 
 | autoWrap            | bool   | If true, children will be wrapped inside `Modal.Body` [default: false] 
 | onToggle            | func   | Function called after the modal is toggled. `function (isOpen, props) { }` 
-| transitionName      | string | Name of animation to use for open/close (to see how to define custom ones, see default styles) [default: fade] 
-| transitionDuration  | int    | Duration of the transition in milliseconds [default: 300] 
+| transitionName      | string | Name of animation to use for open/close (to see how to define custom ones, see default styles) [default: tg-modal-fade]
+| transitionDuration  | int    | Duration of the transition in milliseconds [default: 300]
+| dialogClassName     | string | Classname to use for `ModalDialog` [default: tg-modal-dialog]
 
 Props not specified here are considered internal, and are prone to change.
 
@@ -75,7 +76,7 @@ Props not specified here are considered internal, and are prone to change.
 | Property            | Type        | Description 
 |---------------------|-------------|--------------
 | children            | node        | Contents 
-| className           | string      | Class name to add to the wrapper div [default: modal-header] 
+| className           | string      | Class name to add to the wrapper div [default: tg-modal-header]
 | isStatic            | bool        | If true, the close button won't trigger `onCancel` 
 | addClose            | bool        | Show the close button [default: true]
 | onCancel            | func        | Callback to trigger when the close button is clicked
@@ -85,7 +86,7 @@ Props not specified here are considered internal, and are prone to change.
 | Property            | Type        | Description
 |---------------------|-------------|--------------------------------
 | children            | node        | Contents
-| className           | string      | Class name to add to the wrapper div [default: modal-body]
+| className           | string      | Class name to add to the wrapper div [default: tg-modal-body]
 
 ### Examples
 

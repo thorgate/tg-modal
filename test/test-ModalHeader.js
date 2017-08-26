@@ -24,16 +24,16 @@ describe('ModalHeader', () => {
         assert.equal(container.nodeName, 'DIV');
 
         // It has the correct default class
-        assert.ok(container.classList.contains('modal-header'));
+        assert.ok(container.classList.contains('tg-modal-header'));
 
         // H1 is rendered into the container
-        assert.equal(container.querySelectorAll('h1.modal-title').length, 1);
+        assert.equal(container.querySelectorAll('h1.tg-modal-title').length, 1);
 
         // H1 value is correct
-        assert.equal(container.querySelector('h1.modal-title').textContent, 'Hello world');
+        assert.equal(container.querySelector('h1.tg-modal-title').textContent, 'Hello world');
 
         // Close button is rendered into the container
-        assert.equal(container.querySelectorAll('button.close').length, 1);
+        assert.equal(container.querySelectorAll('button.tg-modal-close').length, 1);
     });
 
     it('raw children work', () => {
@@ -69,7 +69,7 @@ describe('ModalHeader', () => {
         const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { addClose: false, children: 'Hello world' }));
 
         // Close button is not rendered into the container
-        assert.equal(container.querySelectorAll('button.close').length, 0);
+        assert.equal(container.querySelectorAll('button.tg-modal-close').length, 0);
     });
 
     it('onCancel is called after click', () => {
@@ -81,10 +81,10 @@ describe('ModalHeader', () => {
         assert.equal(spy.callCount, 0);
 
         // Close button is rendered into the container
-        assert.equal(container.querySelectorAll('button.close').length, 1);
+        assert.equal(container.querySelectorAll('button.tg-modal-close').length, 1);
 
         // Trigger click
-        TestUtils.Simulate.click(container.querySelector('button.close'));
+        TestUtils.Simulate.click(container.querySelector('button.tg-modal-close'));
 
         // test spy was called once
         assert.equal(spy.callCount, 1);
@@ -99,10 +99,10 @@ describe('ModalHeader', () => {
         assert.equal(spy.callCount, 0);
 
         // Close button is rendered into the container
-        assert.equal(container.querySelectorAll('button.close').length, 1);
+        assert.equal(container.querySelectorAll('button.tg-modal-close').length, 1);
 
         // Trigger click
-        TestUtils.Simulate.click(container.querySelector('button.close'));
+        TestUtils.Simulate.click(container.querySelector('button.tg-modal-close'));
 
         // test spy was not called
         assert.equal(spy.callCount, 0);
@@ -118,19 +118,19 @@ describe('ModalHeader', () => {
         assert.equal(spyConsoleWarn.callCount, 1);
 
         // Close button is rendered into the container
-        assert.equal(container.querySelectorAll('button.close').length, 1);
+        assert.equal(container.querySelectorAll('button.tg-modal-close').length, 1);
 
         // Trigger click
-        TestUtils.Simulate.click(container.querySelector('button.close'));
+        TestUtils.Simulate.click(container.querySelector('button.tg-modal-close'));
     });
 
     it('click handler works w/o onCancel', () => {
         const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { children: 'Hello world' }));
 
         // Close button is rendered into the container
-        assert.equal(container.querySelectorAll('button.close').length, 1);
+        assert.equal(container.querySelectorAll('button.tg-modal-close').length, 1);
 
         // Trigger click
-        TestUtils.Simulate.click(container.querySelector('button.close'));
+        TestUtils.Simulate.click(container.querySelector('button.tg-modal-close'));
     });
 });

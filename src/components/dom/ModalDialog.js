@@ -12,7 +12,7 @@ class ModalDialog extends Component {
     };
 
     static defaultProps = {
-        className: 'modal-dialog'
+        className: 'tg-modal-dialog'
     };
 
     onCancel = (e) => {
@@ -30,12 +30,12 @@ class ModalDialog extends Component {
 
     render() {
         const { children, isBasic, className } = this.props;
-        const wrapperClassName = `modal${isBasic ? ' modal-basic' : ''}`;
+        const wrapperClassName = `tg-modal${isBasic ? ' tg-modal-basic' : ''}`;
 
         return (
             <div className={wrapperClassName} onClick={this.onCancel}>
                 <div className={className}>
-                    <div className="modal-content" onClick={this.stopPropagate}>
+                    <div className="tg-modal-content" onClick={this.stopPropagate}>
                         {children}
                     </div>
                 </div>

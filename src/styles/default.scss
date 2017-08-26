@@ -1,18 +1,18 @@
 // default.scss
 
-body.modal-open {
+body.tg-modal-open {
     overflow: hidden;
 }
 
 $modal-z-index: 1050;
 
-.modal, .modal-backdrop {
+.tg-modal, .tg-modal-backdrop {
     transform-style: preserve-3d;
     backface-visibility: hidden;
     transform: translate3d(0,0,0)
 }
 
-.modal {
+.tg-modal {
     position: fixed;
     top: 0;
     right: 0;
@@ -25,7 +25,7 @@ $modal-z-index: 1050;
 
     transform-origin: 50% 25%;
 
-    .modal-dialog {
+    .tg-modal-dialog {
         position: relative;
         width: auto;
         margin: 10px;
@@ -36,15 +36,15 @@ $modal-z-index: 1050;
             margin: 30px auto;
         }
 
-        .modal-content {
+        .tg-modal-content {
             background: #fff;
             padding: 0;
 
-            .modal-header {
+            .tg-modal-header {
                 padding: 1.8rem 1.5rem;
                 position: relative;
 
-                .modal-title {
+                .tg-modal-title {
                     padding: 0;
                     margin: 0;
 
@@ -53,7 +53,7 @@ $modal-z-index: 1050;
                     font-weight: 500;
                 }
 
-                .close {
+                .tg-modal-close {
                     cursor: pointer;
                     position: absolute;
                     top: 1.8rem;
@@ -80,7 +80,7 @@ $modal-z-index: 1050;
                 }
             }
 
-            .modal-body {
+            .tg-modal-body {
                 padding: 1.8rem 1.5rem;
                 position: relative;
 
@@ -90,7 +90,7 @@ $modal-z-index: 1050;
                 }
             }
 
-            .modal-footer {
+            .tg-modal-footer {
                 padding: 1.8rem 1.5rem;
                 position: relative;
 
@@ -99,40 +99,40 @@ $modal-z-index: 1050;
                 }
             }
 
-            .modal-header + .modal-body {
+            .tg-modal-header + .tg-modal-body {
                 padding-top: 0;
             }
         }
     }
 
-    &.modal-basic {
-        .modal-dialog {
+    &.tg-modal-basic {
+        .tg-modal-dialog {
             top: 40%;
             transform: translateY(-50%);
             position: absolute;
             left: 0;
             right: 0;
 
-            .modal-content {
+            .tg-modal-content {
                 background: transparent;
                 color: #fff;
                 text-align: center;
 
-                .modal-header {
-                    .close {
+                .tg-modal-header {
+                    .tg-modal-close {
                         display: none;
                     }
                 }
             }
 
-            .modal-footer {
+            .tg-modal-footer {
                 text-align: center;
             }
         }
     }
 }
 
-.modal-backdrop {
+.tg-modal-backdrop {
     position: fixed;
     top: -100%;
     right: 0;
@@ -143,29 +143,29 @@ $modal-z-index: 1050;
     background: rgba(#000, 0.85);
 }
 
-.modal-open .modal {
+.tg-modal-open .tg-modal {
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-.modal-wrapper.animating {
-    .modal {
+.tg-modal-wrapper.tg-modal-animating {
+    .tg-modal {
         overflow: hidden;
         user-select: none;
     }
 }
 
-@keyframes fadeIn {
+@keyframes tg-modal-fade-in {
   from {opacity: 0;}
   to {opacity: 1;}
 }
 
-@keyframes fadeOut {
+@keyframes tg-modal-fade-out {
   from {opacity: 1;}
   to {opacity: 0;}
 }
 
-@keyframes scaleIn {
+@keyframes tg-modal-scale-in {
     from {
         opacity: 0;
         transform: scale(0.8);
@@ -176,7 +176,7 @@ $modal-z-index: 1050;
     }
 }
 
-@keyframes scaleOut {
+@keyframes tg-modal-scale-out {
     from {
         opacity: 1;
         transform: scale(1);
@@ -187,24 +187,24 @@ $modal-z-index: 1050;
     }
 }
 
-.fade-enter {
-    &.modal {
-        animation: scaleIn 300ms ease;
+.tg-modal-fade-enter {
+    &.tg-modal {
+        animation: tg-modal-scale-in 300ms ease;
     }
 
-    &.modal-backdrop {
-        animation: fadeIn 300ms ease;
+    &.tg-modal-backdrop {
+        animation: tg-modal-fade-in 300ms ease;
     }
 }
 
-.fade-exit {
-    &.modal {
-        animation: scaleOut 300ms ease;
+.tg-modal-fade-exit {
+    &.tg-modal {
+        animation: tg-modal-scale-out 300ms ease;
         animation-fill-mode: forwards;
     }
 
-    &.modal-backdrop {
-        animation: fadeOut 300ms ease;
+    &.tg-modal-backdrop {
+        animation: tg-modal-fade-out 300ms ease;
         animation-fill-mode: forwards;
     }
 }
