@@ -17,7 +17,7 @@ describe('Modal Backdrop', () => {
         assert.equal(container.nodeName, 'DIV');
 
         // It has the correct default class
-        assert.ok(container.classList.contains('modal-backdrop'));
+        assert.ok(container.classList.contains('tg-modal-backdrop'));
     });
 
     it('onCancel is called after click', () => {

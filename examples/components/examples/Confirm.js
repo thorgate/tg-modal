@@ -72,7 +72,7 @@ class ConfirmModalExample extends Component {
                             You can also use <b>enter</b> or <b>escape</b> to accept or decline.
                         </p>
                     </Modal.Body>
-                    <div className="modal-footer">
+                    <div className="tg-modal-footer">
                         <a className="btn btn-primary" onClick={this.onConfirm}>OH YES</a>
                         <a className="btn btn-secondary" onClick={this.onCancel}>NOPE</a>
                     </div>

@@ -10,7 +10,7 @@ class ModalBody extends Component {
     };
 
     static defaultProps = {
-        className: 'modal-body'
+        className: 'tg-modal-body'
     };
 
     render() {

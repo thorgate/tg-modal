@@ -52,7 +52,7 @@ class BrowserModal extends Modal {
     getToggleProps(isOpen) {
         return {
             scrollbarSize: typeof document !== 'undefined' ? getScrollbarSize() : null,
-            className: isOpen ? 'modal-open' : ''
+            className: isOpen ? 'tg-modal-open' : ''
         };
     }
 
@@ -85,7 +85,7 @@ class BrowserModal extends Modal {
             if (numberOfModalsOpen === 1) {
 
                 // Toggle open class.
-                toggleClass(container, 'modal-open', state);
+                toggleClass(container, 'tg-modal-open', state);
 
                 if (state) {
                     this._origPadding = container.style.paddingRight;
@@ -143,7 +143,7 @@ class BrowserModal extends Modal {
         return {
             ...super.getAnimatorGroupProps(),
             component: 'div',
-            className: `modal-wrapper${this.state.animating ? ' animating' : ''}`
+            className: `tg-modal-wrapper${this.state.animating ? ' tg-modal-animating' : ''}`
         };
     }
 }

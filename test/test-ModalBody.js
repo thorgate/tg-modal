@@ -15,7 +15,7 @@ describe('ModalBody', () => {
         assert.equal(container.nodeName, 'DIV');
 
         // It has the correct default class
-        assert.ok(container.classList.contains('modal-body'));
+        assert.ok(container.classList.contains('tg-modal-body'));
     });
 
     it('className works', () => {

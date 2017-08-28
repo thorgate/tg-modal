@@ -17,14 +17,14 @@ describe('ModalDialog', () => {
         // Its a div
         assert.equal(container.nodeName, 'DIV');
 
-        assert.ok(container.classList.contains('modal'));
+        assert.ok(container.classList.contains('tg-modal'));
 
         // It has the correct default class
-        assert.equal(container.querySelectorAll('.modal-dialog').length, 1);
+        assert.equal(container.querySelectorAll('.tg-modal-dialog').length, 1);
 
         // Run stopPropagate
-        assert.equal(container.querySelectorAll('.modal-content').length, 1);
-        TestUtils.Simulate.click(container.querySelector('.modal-content'));
+        assert.equal(container.querySelectorAll('.tg-modal-content').length, 1);
+        TestUtils.Simulate.click(container.querySelector('.tg-modal-content'));
     });
 
     it('isBasic works', () => {
@@ -34,10 +34,10 @@ describe('ModalDialog', () => {
         assert.equal(container.nodeName, 'DIV');
 
         // It has modal-basic
-        assert.ok(container.classList.contains('modal-basic'));
+        assert.ok(container.classList.contains('tg-modal-basic'));
 
         // It has the correct default class
-        assert.ok(container.classList.contains('modal'));
+        assert.ok(container.classList.contains('tg-modal'));
     });
 
     it('onCancel is called after click', () => {
@@ -70,10 +70,10 @@ describe('ModalDialog', () => {
         assert.equal(spy.callCount, 0);
 
         // Close button is rendered into the container
-        assert.equal(container.querySelectorAll('.modal-content').length, 1);
+        assert.equal(container.querySelectorAll('.tg-modal-content').length, 1);
 
         // Trigger click
-        TestUtils.Simulate.click(container.querySelector('.modal-content'));
+        TestUtils.Simulate.click(container.querySelector('.tg-modal-content'));
 
         // test spy was called once
         assert.equal(spy.callCount, 1);
@@ -83,7 +83,6 @@ describe('ModalDialog', () => {
 
         // test spy wasn't called
         assert.equal(spy.callCount, 1);
-
     });
 
     it('custom children work', () => {

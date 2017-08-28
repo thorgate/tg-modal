@@ -42,13 +42,13 @@ class WithComponentsModalExample extends Component {
 
                 <Modal
                     isOpen={this.state.isOpen}
-                    dialogClassName="modal-dialog custom-dialog"
+                    dialogClassName="tg-modal-dialog custom-dialog"
                     onCancel={this.toggleModal}
                 >
-                    <Modal.Header className="modal-header custom-header" addClose={false}>
+                    <Modal.Header className="tg-modal-header custom-header" addClose={false}>
                         Header component!
                     </Modal.Header>
-                    <Modal.Body className="modal-body custom-body">
+                    <Modal.Body className="tg-modal-body custom-body">
                         <p>
                             I’m a modal with custom classes for Dialog, Header and Body.
                         </p>
