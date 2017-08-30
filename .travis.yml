@@ -9,6 +9,8 @@ node_js:
 
 before_script:
   - npm run build
+  - sed -i 's/dist/#dist/' .gitignore
+  - sed -i 's/es/#es/' .gitignore
 
 after_success:
   - npm run coverage
