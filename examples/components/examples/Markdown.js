@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Markdown from 'react-remarkable';
+import ReactMarkdown from 'react-markdown';
 
 import theMarkdown from '../../files/example.md';
 
@@ -36,8 +36,8 @@ class MarkdownModalExample extends Component {
                 </div>
 
                 <Modal isOpen={this.state.isOpen} onCancel={this.toggleModal}>
-                    <div className="modal-body">
-                        <Markdown source={theMarkdown} />
+                    <div className="tg-modal-body">
+                        <ReactMarkdown source={theMarkdown} />
                     </div>
                 </Modal>
             </div>
