@@ -46,7 +46,7 @@ class Modal extends Component {
         TransitionClass: PropTypes.any.isRequired,
         TransitionGroupClass: PropTypes.any.isRequired,
 
-        style: PropTypes.style,
+        style: PropTypes.object,
 
         // Enable/disable keyboard events
         keyboard: PropTypes.bool,
@@ -177,11 +177,6 @@ class Modal extends Component {
         };
     }
 
-    getAnimatorClass() {
-        // Should be overwritten by the parent
-        return null;
-    }
-
     getAnimatorProps() {
         const { transitionName, transitionDuration } = this.props;
         const { animating } = this.state;
@@ -202,7 +197,7 @@ class Modal extends Component {
 
         return {
             component: 'div',
-            className: `tg-modal-wrapper ${wrapperClassName} ${this.state.animating ? 'tg-modal-animating' : ''}`.trim(),
+            className: `tg-modal-wrapper ${wrapperClassName} ${animating ? 'tg-modal-animating' : ''}`.trim(),
         };
     }
 
