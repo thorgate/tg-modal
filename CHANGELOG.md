@@ -2,6 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
+- [v0.8.0](#v080)
 - [v0.7.1](#v071)
 - [v0.7.0](#v070)
 - [v0.6.0](#v060)
@@ -20,6 +21,42 @@
 - [v0.0.1](#v001)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+### v0.8.0
+
+- :exclamation: Drop support for react `0.14`
+- Replace react-remarkable with react-markdown in examples [issue #44, PR #48 by @kaspar92]
+- Ensure all our css classes begin w/ `tg-modal` [issue #30, PR #47]
+  - Modal: dialogClassName default changed to `tg-modal-dialog`
+  - Modal: transitionName default changed to `tg-modal-fade`
+  - Modal.Header, Modal.Body, Modal.Backdrop, Modal.Dialog:
+    - className default changed to new variant
+  - All css changes:
+    - `.modal` -> `.tg-modal`
+    - `.modal-dialog` -> `.tg-modal-dialog`
+    - `.modal-content` -> `.tg-modal-content`
+    - `.modal-header` -> `.tg-modal-header`
+    - `.modal-title` -> `.tg-modal-title`
+    - `.close` -> `.tg-modal-close`
+    - `.modal-body` -> `.tg-modal-body`
+    - `.modal-footer` -> `.tg-modal-footer`
+    - `.modal-basic` -> `.tg-modal-basic`
+    - `.modal-backdrop` -> `.tg-modal-backdrop`
+    - `.modal-open` -> `.tg-modal-open`
+    - `.animating` -> `.tg-modal-animating`
+    - Keyframe `fadeIn` -> `tg-modal-fade-in`
+    - Keyframe `fadeOut` -> `tg-modal-fade-out`
+    - Keyframe `scaleIn` -> `tg-modal-scale-in`
+    - Keyframe `scaleOut` -> `tg-modal-scale-out`
+    - `.fade-enter` -> `.tg-modal-fade-enter`
+    - `.fade-exit` -> `.tg-modal-fade-exit`
+- Added tests [PR #26 by @dmtrm and @Jyrno42]
+- Support Node 8 and NPM 5 in devEngines [PR #37 by @raunofreiberg]
+- Add warning if `Modal.Header` is manually added [issue #33, PR #41 by @metsavaht]
+- Use `prop-types` instead of deprecated `React.propTypes` [issue #31, PR #38 by @raunofreiberg]
+- Remove TimedCSSTransitionGroup [issue #34, PR #39 by @metsavaht]
+- Add redux example [issue #32, PR #42 by @metsavaht]
+- Use `skip_cleanup = true` when doing travis releases (see more at https://docs.travis-ci.com/user/deployment/npm/#Releasing-build-artifacts)
 
 ### v0.7.1
 
