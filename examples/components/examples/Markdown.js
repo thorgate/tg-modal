@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 
 import theMarkdown from '../../files/example.md';
 
-import Modal from '../../../src/browser';
+import Modal from '../../../src/components/Modal';
 
 
 class MarkdownModalExample extends Component {

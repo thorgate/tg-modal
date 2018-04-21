@@ -11,7 +11,7 @@ var fs = require('fs');
  */
 function transformFile(contents) {
     // Show prettier import paths
-    contents = contents.replace('../../../src/browser', 'tg-modal');
+    contents = contents.replace('../../../src/components/Modal', 'tg-modal');
 
     return contents;
 }

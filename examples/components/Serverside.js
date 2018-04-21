@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import Modal from '../../src/browser';
+import Modal from '../../src/components/Modal';
 
 
 // Kiosk is like store+actions in the same class

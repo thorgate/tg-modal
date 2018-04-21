@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
+
+import getScrollbarSize from '../utils/scrollbarSize';
+import toggleClass from '../toggle-class';
 
 import ModalDialog from './dom/ModalDialog';
 import ModalHeader from './dom/ModalHeader';
 import ModalBody from './dom/ModalBody';
 import Backdrop from './dom/Backdrop';
+
+
+// This keeps track of how many modals that are open so that the
+// container class and container padding for the scrollbar is correctly set.
+let numberOfModalsOpen = 0;
+
+const keyCodes = {
+    ESCAPE: 27,
+    ENTER: 13
+};
 
 
 class Modal extends Component {
@@ -20,7 +34,9 @@ class Modal extends Component {
         isStatic: PropTypes.bool,
         isBasic: PropTypes.bool,
         autoWrap: PropTypes.bool,
+        className: PropTypes.string,
         dialogClassName: PropTypes.string,
+        wrapperClassName: PropTypes.string,
 
         transitionName: PropTypes.string,
         transitionDuration: PropTypes.number,
@@ -30,15 +46,28 @@ class Modal extends Component {
         TransitionClass: PropTypes.any.isRequired,
         TransitionGroupClass: PropTypes.any.isRequired,
 
+        style: PropTypes.object,
+
+        // Enable/disable keyboard events
+        keyboard: PropTypes.bool,
+
         // This is internally used
         onToggle: PropTypes.func
     };
 
     static defaultProps = {
         autoWrap: false,
+        className: '',
         dialogClassName: 'tg-modal-dialog',
+        wrapperClassName: '',
+
         transitionName: 'tg-modal-fade',
-        transitionDuration: 300
+        transitionDuration: 300,
+
+        keyboard: true,
+
+        TransitionClass: CSSTransition,
+        TransitionGroupClass: TransitionGroup
     };
 
     constructor(props) {
@@ -58,6 +87,12 @@ class Modal extends Component {
 
     componentDidMount() {
         this.onToggle(this.props.isOpen, this.getToggleProps());
+
+        if (typeof document !== 'undefined') {
+            if (this.props.keyboard) {
+                this.bindKeyboard();
+            }
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -68,17 +103,57 @@ class Modal extends Component {
                 this.onToggle(nextProps.isOpen, this.getToggleProps());
             });
         }
+
+        if (this.props.keyboard !== nextProps.keyboard) {
+            if (nextProps.keyboard) {
+                this.bindKeyboard();
+            } else {
+                this.unbindKeyboard();
+            }
+        }
     }
 
     componentWillUnmount() {
         if (this.props.isOpen) {
             this.onToggle(false, this.getToggleProps());
         }
+
+        if (typeof document !== 'undefined') {
+            this.unbindKeyboard();
+        }
     }
 
     onToggle(state, props) {
         if (this.props.onToggle) {
             this.props.onToggle(state, props);
+        }
+
+        // Add body class and padding to scrollbar.
+        if (typeof document !== 'undefined') {
+            const container = document.body;
+
+            // Increment modal count when opening.
+            if (state) {
+                numberOfModalsOpen += 1;
+            }
+
+            // Add toggle body class and update body padding if there is only one modal open.
+            if (numberOfModalsOpen === 1) {
+                // Toggle open class.
+                toggleClass(container, 'tg-modal-open', state);
+
+                if (state) {
+                    this._origPadding = container.style.paddingRight;
+                    container.style.paddingRight = `${parseInt(this._origPadding || 0, 10) + props.scrollbarSize}px`;
+                } else {
+                    container.style.paddingRight = this._origPadding;
+                }
+            }
+
+            // Decrement modal count when closing.
+            if (!state) {
+                numberOfModalsOpen = Math.max(numberOfModalsOpen - 1, 0);
+            }
         }
     }
 
@@ -95,18 +170,16 @@ class Modal extends Component {
         }
     };
 
-    getToggleProps() {
-        return {};
-    }
-
-    getAnimatorClass() {
-        // Should be overwritten by the parent
-        return null;
+    getToggleProps(isOpen) {
+        return {
+            scrollbarSize: typeof document !== 'undefined' ? getScrollbarSize() : null,
+            className: isOpen ? 'tg-modal-open' : ''
+        };
     }
 
     getAnimatorProps() {
-        const { animating } = this.state;
         const { transitionName, transitionDuration } = this.props;
+        const { animating } = this.state;
 
         return {
             classNames: transitionName,
@@ -119,7 +192,24 @@ class Modal extends Component {
     }
 
     getAnimatorGroupProps() {
-        return {};
+        const { wrapperClassName } = this.props;
+        const { animating } = this.state;
+
+        return {
+            component: 'div',
+            className: `tg-modal-wrapper ${wrapperClassName} ${animating ? 'tg-modal-animating' : ''}`.trim(),
+        };
+    }
+
+    bindKeyboard() {
+        // Ensure we don't bind twice
+        this.unbindKeyboard();
+
+        if (typeof document !== 'undefined') {
+            this._keyHandler = this.handleKeys;
+
+            document.addEventListener('keyup', this._keyHandler, false);
+        }
     }
 
     clearAnimating = () => {
@@ -127,6 +217,31 @@ class Modal extends Component {
             animating: false
         });
     };
+
+    handleKeys = (e) => {
+        // Handle escape press
+        if (e.which === keyCodes.ESCAPE) {
+            this.onCancel(e, true);
+        } else if (e.which === keyCodes.ENTER) {
+            // Don't do anything while animating
+            if (!this.state.animating) {
+                if (this.props.onConfirm) {
+                    e.preventDefault();
+
+                    this.props.onConfirm();
+                }
+            }
+        }
+    };
+
+    unbindKeyboard() {
+        if (typeof document !== 'undefined') {
+            if (this._keyHandler) {
+                document.removeEventListener('keyup', this._keyHandler, false);
+                this._keyHandler = null;
+            }
+        }
+    }
 
     renderChild = (child) => {
         if (!child) {
@@ -188,7 +303,7 @@ class Modal extends Component {
     };
 
     renderModal() {
-        const { isOpen, isBasic, isStatic, dialogClassName } = this.props;
+        const { isOpen, isBasic, isStatic, dialogClassName, className } = this.props;
 
         if (!isOpen) {
             return [];
@@ -199,7 +314,13 @@ class Modal extends Component {
                 <Backdrop isStatic={isStatic} onCancel={this.onCancel} key="backdrop" />
             ),
             this.renderTransition(
-                <ModalDialog isBasic={isBasic} onCancel={this.onCancel} key="dialog" className={dialogClassName}>
+                <ModalDialog
+                    key="dialog"
+                    isBasic={isBasic}
+                    onCancel={this.onCancel}
+                    className={dialogClassName}
+                    modalClassName={className}
+                >
                     {this.renderModalHeader()}
                     {this.renderModalBody()}
                 </ModalDialog>

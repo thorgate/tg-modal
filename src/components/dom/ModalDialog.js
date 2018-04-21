@@ -6,6 +6,7 @@ class ModalDialog extends Component {
     static propTypes = {
         children: PropTypes.node,
         className: PropTypes.string,
+        modalClassName: PropTypes.string,
 
         onCancel: PropTypes.func.isRequired,
         isBasic: PropTypes.bool
@@ -29,11 +30,10 @@ class ModalDialog extends Component {
     };
 
     render() {
-        const { children, isBasic, className } = this.props;
-        const wrapperClassName = `tg-modal${isBasic ? ' tg-modal-basic' : ''}`;
+        const { children, isBasic, className, modalClassName } = this.props;
 
         return (
-            <div className={wrapperClassName} onClick={this.onCancel}>
+            <div className={`tg-modal${isBasic ? ' tg-modal-basic' : ''} ${modalClassName}`} onClick={this.onCancel}>
                 <div className={className}>
                     <div className="tg-modal-content" onClick={this.stopPropagate}>
                         {children}

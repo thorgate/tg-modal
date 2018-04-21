@@ -10,9 +10,11 @@ import ModalDialog from '../src/components/dom/ModalDialog';
 import { buildContainer } from './util';
 
 
+const onCancel = () => null;
+
 describe('ModalDialog', () => {
     it('renders correctly', () => {
-        const container = ReactDOM.findDOMNode(buildContainer(ModalDialog));
+        const container = ReactDOM.findDOMNode(buildContainer(ModalDialog, { onCancel }));
 
         // Its a div
         assert.equal(container.nodeName, 'DIV');
@@ -28,7 +30,7 @@ describe('ModalDialog', () => {
     });
 
     it('isBasic works', () => {
-        const container = ReactDOM.findDOMNode(buildContainer(ModalDialog, { isBasic: true }));
+        const container = ReactDOM.findDOMNode(buildContainer(ModalDialog, { onCancel, isBasic: true }));
 
         // Its a div
         assert.equal(container.nodeName, 'DIV');
@@ -59,12 +61,12 @@ describe('ModalDialog', () => {
         const spy = sinon.spy();
 
         class TempModalDialog extends ModalDialog {
-            stopPropagate = (e) => {
+            stopPropagate = () => {
                 spy();
             };
-        };
+        }
 
-        const container = ReactDOM.findDOMNode(buildContainer(TempModalDialog, { onCancel: () => {} }));
+        const container = ReactDOM.findDOMNode(buildContainer(TempModalDialog, { onCancel }));
 
         // test spy was not called yet
         assert.equal(spy.callCount, 0);
@@ -86,7 +88,7 @@ describe('ModalDialog', () => {
     });
 
     it('custom children work', () => {
-        const container = ReactDOM.findDOMNode(buildContainer(ModalDialog, { children: (<span className="child">Sup</span>) }));
+        const container = ReactDOM.findDOMNode(buildContainer(ModalDialog, { onCancel, children: (<span className="child">Sup</span>) }));
 
         assert.equal(container.querySelectorAll('.child').length, 1);
     });

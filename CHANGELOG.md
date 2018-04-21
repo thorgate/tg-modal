@@ -22,11 +22,19 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+### v0.9.0-dev
+
+- Add react 16 to supported versions [issue #40, PR #51]
+- Removed BrowserModal indirection and merged BrowserModal w/ Modal [issue #35, PR #51]
+- Added prop `className` to `Modal` [issue #50, PR #51]
+  - Added prop `modalClassName` to `Modal.Dialog`
+- Added prop `wrapperClassName` to `Modal`
+- Added node 9 to supported development engines
+
 ### v0.8.0
 
 - :exclamation: Drop support for react `0.14`
-- Replace react-remarkable with react-markdown in examples [issue #44, PR #48 by @kaspar92]
-- Ensure all our css classes begin w/ `tg-modal` [issue #30, PR #47]
+- :exclamation: Ensure all our css classes begin w/ `tg-modal` [issue #30, PR #47]
   - Modal: dialogClassName default changed to `tg-modal-dialog`
   - Modal: transitionName default changed to `tg-modal-fade`
   - Modal.Header, Modal.Body, Modal.Backdrop, Modal.Dialog:
@@ -50,6 +58,7 @@
     - Keyframe `scaleOut` -> `tg-modal-scale-out`
     - `.fade-enter` -> `.tg-modal-fade-enter`
     - `.fade-exit` -> `.tg-modal-fade-exit`
+- Replace react-remarkable with react-markdown in examples [issue #44, PR #48 by @kaspar92]
 - Added tests [PR #26 by @dmtrm and @Jyrno42]
 - Support Node 8 and NPM 5 in devEngines [PR #37 by @raunofreiberg]
 - Add warning if `Modal.Header` is manually added [issue #33, PR #41 by @metsavaht]

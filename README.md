@@ -67,7 +67,9 @@ This will render a static modal, which cannot be hidden by the user.
 | onToggle            | func   | Function called after the modal is toggled. `function (isOpen, props) { }` 
 | transitionName      | string | Name of animation to use for open/close (to see how to define custom ones, see default styles) [default: tg-modal-fade]
 | transitionDuration  | int    | Duration of the transition in milliseconds [default: 300]
+| className           | string | Extra classnames to use for modal [default: ``]
 | dialogClassName     | string | Classname to use for `ModalDialog` [default: tg-modal-dialog]
+| wrapperClassName    | string | Extra classnames to use for modal wrapper [default: ``]
 
 Props not specified here are considered internal, and are prone to change.
 

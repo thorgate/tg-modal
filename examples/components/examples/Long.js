@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Modal from '../../../src/browser';
+import Modal from '../../../src/components/Modal';
 
 
 class LongModalExample extends Component {
