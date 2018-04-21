@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import classNames from 'classnames';
 
-import Modal from '../../../src/browser';
+import Modal from '../../../src/components/Modal';
 
 
 class LongNestedModalExample extends Component {

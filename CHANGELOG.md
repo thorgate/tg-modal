@@ -22,6 +22,15 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+### v0.9.0-dev
+
+- Removed BrowserModal indirection and merged BrowserModal w/ Modal (fixes #35)
+- Added prop `className` to `Modal` (fixes #50)
+- Added prop `wrapperClassName` to `Modal`
+- Added prop `modalClassName` to `Modal.Dialog`
+- Added node 9 to supported development engines
+
+
 ### v0.8.0
 
 - :exclamation: Drop support for react `0.14`

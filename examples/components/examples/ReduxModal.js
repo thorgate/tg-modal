@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect, Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import Modal from '../../../src/browser';
+import Modal from '../../../src/components/Modal';
 
 
 // redux actions and types
