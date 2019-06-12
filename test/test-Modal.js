@@ -81,4 +81,34 @@ describe('Modal', () => {
         const bodyNode = node.find(Modal.Body).shallow();
         expect(bodyNode.find('.tg-modal-body').text()).to.equal('hello');
     });
+
+    it('Adds event listener when open', () => {
+        let boundEventListener = false;
+        global.document.addEventListener = () => {
+            boundEventListener = true;
+        };
+
+        shallow(<Modal onCancel={onCancel} isOpen />);
+        expect(boundEventListener).to.equal(true);
+    });
+
+    it('Does not add event listener when closed', () => {
+        let boundEventListener = false;
+        global.document.addEventListener = () => {
+            boundEventListener = true;
+        };
+
+        shallow(<Modal onCancel={onCancel} isOpen={false} />);
+        expect(boundEventListener).to.equal(false);
+    });
+
+    it('Adds event listener when closed if keyboard is passed in', () => {
+        let boundEventListener = false;
+        global.document.addEventListener = () => {
+            boundEventListener = true;
+        };
+
+        shallow(<Modal onCancel={onCancel} isOpen={false} keyboard />);
+        expect(boundEventListener).to.equal(true);
+    });
 });

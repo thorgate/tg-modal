@@ -20,6 +20,8 @@ const keyCodes = {
     ENTER: 13,
 };
 
+const shouldBindKeyboard = ({ isOpen, keyboard }) => (keyboard === null ? isOpen : keyboard);
+
 class Modal extends Component {
     static displayName = 'Modal';
 
@@ -47,7 +49,8 @@ class Modal extends Component {
 
         style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 
-        // Enable/disable keyboard events
+        // Enable/disable keyboard events.
+        // When null, the default, it will behave as having same value as isOpen
         keyboard: PropTypes.bool,
 
         // Enable/disable body scroll locking
@@ -72,7 +75,7 @@ class Modal extends Component {
         transitionName: 'tg-modal-fade',
         transitionDuration: 300,
 
-        keyboard: true,
+        keyboard: null,
 
         onToggle: null,
         onConfirm: null,
@@ -111,16 +114,14 @@ class Modal extends Component {
         this.onToggle(isOpen, this.getToggleProps());
 
         if (typeof document !== 'undefined') {
-            const { keyboard } = this.props;
-
-            if (keyboard) {
+            if (shouldBindKeyboard(this.props)) {
                 this.bindKeyboard();
             }
         }
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const { isOpen, keyboard } = this.props;
+        const { isOpen } = this.props;
 
         if (prevProps.isOpen !== isOpen) {
             this.setState({
@@ -134,8 +135,10 @@ class Modal extends Component {
             this.onToggle(isOpen, this.getToggleProps());
         }
 
-        if (prevProps.keyboard !== keyboard) {
-            if (keyboard) {
+        const wasBound = shouldBindKeyboard(prevProps);
+        const shouldBind = shouldBindKeyboard(this.props);
+        if (wasBound !== shouldBind) {
+            if (shouldBind) {
                 this.bindKeyboard();
             } else {
                 this.unbindKeyboard();
