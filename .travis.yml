@@ -1,17 +1,17 @@
 language: node_js
 
 node_js:
-  - "6"
-  - "7"
   - "8"
+  - "9"
+  - "10"
   - "node"
 
 before_script:
-  - npm run build
+  - yarn build
 
 after_success:
-  - npm run coverage
-  - test $TRAVIS_NODE_VERSION = 8 && npm run coveralls
+  - yarn coverage
+  - test $TRAVIS_NODE_VERSION = 8 && yarn coveralls
 
 notifications:
     email: false
@@ -31,4 +31,4 @@ deploy:
       2eFZClyuJi/5nJ1fBBAenRS0PBqLg=
   on:
     tags: true
-    node: "8"
+    node: "10"
