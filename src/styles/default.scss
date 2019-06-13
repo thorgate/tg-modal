@@ -94,7 +94,8 @@ $modal-z-index: 1050;
                 padding: 1.8rem 1.5rem;
                 position: relative;
 
-                a + a {
+                a + a,
+                button + button {
                     margin-left: 1rem;
                 }
             }

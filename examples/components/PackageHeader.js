@@ -18,8 +18,7 @@ class PackageHeader extends Component {
                     <h1>{name}</h1>
                     <h2>{description}</h2>
                     <h3>
-                        Currently
-                        <span className="version">{version}</span>
+                        Currently <span className="version">{version}</span>
                     </h3>
                 </div>
             </div>

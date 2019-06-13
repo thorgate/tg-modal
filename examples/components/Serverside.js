@@ -5,20 +5,20 @@ import Modal from '../../src/components/Modal';
 // Kiosk is like store+actions in the same class
 export class Kiosk {
     constructor() {
-        this.__state = {
+        this.state = {
             className: '',
         };
     }
 
     flush() {
-        this.__state = {
+        this.state = {
             isOpen: false,
             className: '',
         };
     }
 
     getState() {
-        return this.__state;
+        return this.state;
     }
 
     onAction(isOpen, bodyProps) {

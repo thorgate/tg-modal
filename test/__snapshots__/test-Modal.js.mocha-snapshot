@@ -2589,3 +2589,2725 @@ exports["Renders children even if null(0)"] = {
   ]
 };
 
+exports["Modal/Renders with correct classes (isOpen=false)(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "TransitionGroup",
+    "props": {
+      "component": "div",
+      "className": "tg",
+      "children": [],
+      "childFactory": "childFactory"
+    },
+    "rendered": []
+  },
+  "type": "TransitionGroup",
+  "props": {
+    "component": "div",
+    "className": "tg",
+    "childFactory": "childFactory"
+  }
+};
+
+exports["Modal/Renders with correct classes (isOpen=true)(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "TransitionGroup",
+    "props": {
+      "component": "div",
+      "className": "tg",
+      "children": [
+        {
+          "type": "CSSTransition",
+          "key": "backdrop",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "Backdrop",
+              "key": "backdrop",
+              "props": {
+                "isStatic": false,
+                "onCancel": "[function]",
+                "className": "tg"
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        },
+        {
+          "type": "CSSTransition",
+          "key": "dialog",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "ModalDialog",
+              "key": "dialog",
+              "props": {
+                "isBasic": false,
+                "onCancel": "[function]",
+                "className": "tg",
+                "modalClassName": "",
+                "children": [
+                  null,
+                  null
+                ]
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        }
+      ],
+      "childFactory": "childFactory"
+    },
+    "rendered": [
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "children": [
+              null,
+              null
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            null,
+            null
+          ]
+        }
+      }
+    ]
+  },
+  "type": "TransitionGroup",
+  "props": {
+    "component": "div",
+    "className": "tg",
+    "childFactory": "childFactory"
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "backdrop"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "key": "backdrop"
+          },
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "key": "backdrop"
+          }
+        }
+      ]
+    },
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "children": [
+              null,
+              null
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            null,
+            null
+          ]
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "dialog"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "ModalDialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "key": "dialog",
+            "rendered": [
+              null,
+              null
+            ]
+          },
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "key": "dialog"
+          }
+        }
+      ]
+    }
+  ]
+};
+
+exports["Modal/Renders with correct classes (wrapperClassName)(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "TransitionGroup",
+    "props": {
+      "component": "div",
+      "className": "tg wrap",
+      "children": [
+        {
+          "type": "CSSTransition",
+          "key": "backdrop",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "Backdrop",
+              "key": "backdrop",
+              "props": {
+                "isStatic": false,
+                "onCancel": "[function]",
+                "className": "tg"
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        },
+        {
+          "type": "CSSTransition",
+          "key": "dialog",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "ModalDialog",
+              "key": "dialog",
+              "props": {
+                "isBasic": false,
+                "onCancel": "[function]",
+                "className": "tg",
+                "modalClassName": "",
+                "children": [
+                  null,
+                  null
+                ]
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        }
+      ],
+      "childFactory": "childFactory"
+    },
+    "rendered": [
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "children": [
+              null,
+              null
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            null,
+            null
+          ]
+        }
+      }
+    ]
+  },
+  "type": "TransitionGroup",
+  "props": {
+    "component": "div",
+    "className": "tg wrap",
+    "childFactory": "childFactory"
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "backdrop"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "key": "backdrop"
+          },
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "key": "backdrop"
+          }
+        }
+      ]
+    },
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "children": [
+              null,
+              null
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            null,
+            null
+          ]
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "dialog"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "ModalDialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "key": "dialog",
+            "rendered": [
+              null,
+              null
+            ]
+          },
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "key": "dialog"
+          }
+        }
+      ]
+    }
+  ]
+};
+
+exports["Modal/Renders with correct classes (className)(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "TransitionGroup",
+    "props": {
+      "component": "div",
+      "className": "tg",
+      "children": [
+        {
+          "type": "CSSTransition",
+          "key": "backdrop",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "Backdrop",
+              "key": "backdrop",
+              "props": {
+                "isStatic": false,
+                "onCancel": "[function]",
+                "className": "tg"
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        },
+        {
+          "type": "CSSTransition",
+          "key": "dialog",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "ModalDialog",
+              "key": "dialog",
+              "props": {
+                "isBasic": false,
+                "onCancel": "[function]",
+                "className": "tg",
+                "modalClassName": "goodest",
+                "children": [
+                  null,
+                  null
+                ]
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        }
+      ],
+      "childFactory": "childFactory"
+    },
+    "rendered": [
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "goodest",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "goodest",
+            "children": [
+              null,
+              null
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            null,
+            null
+          ]
+        }
+      }
+    ]
+  },
+  "type": "TransitionGroup",
+  "props": {
+    "component": "div",
+    "className": "tg",
+    "childFactory": "childFactory"
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "backdrop"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "key": "backdrop"
+          },
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "key": "backdrop"
+          }
+        }
+      ]
+    },
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "goodest",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "goodest",
+            "children": [
+              null,
+              null
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            null,
+            null
+          ]
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "dialog"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "ModalDialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "goodest",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "key": "dialog",
+            "rendered": [
+              null,
+              null
+            ]
+          },
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "goodest",
+            "key": "dialog"
+          }
+        }
+      ]
+    }
+  ]
+};
+
+exports["Modal/Renders with correct classes (dialogClassName)(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "TransitionGroup",
+    "props": {
+      "component": "div",
+      "className": "tg",
+      "children": [
+        {
+          "type": "CSSTransition",
+          "key": "backdrop",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "Backdrop",
+              "key": "backdrop",
+              "props": {
+                "isStatic": false,
+                "onCancel": "[function]",
+                "className": "tg"
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        },
+        {
+          "type": "CSSTransition",
+          "key": "dialog",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "ModalDialog",
+              "key": "dialog",
+              "props": {
+                "isBasic": false,
+                "onCancel": "[function]",
+                "className": "goodest",
+                "modalClassName": "",
+                "children": [
+                  null,
+                  null
+                ]
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        }
+      ],
+      "childFactory": "childFactory"
+    },
+    "rendered": [
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "goodest",
+              "modalClassName": "",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "goodest",
+            "modalClassName": "",
+            "children": [
+              null,
+              null
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            null,
+            null
+          ]
+        }
+      }
+    ]
+  },
+  "type": "TransitionGroup",
+  "props": {
+    "component": "div",
+    "className": "tg",
+    "childFactory": "childFactory"
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "backdrop"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "key": "backdrop"
+          },
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "key": "backdrop"
+          }
+        }
+      ]
+    },
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "goodest",
+              "modalClassName": "",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "goodest",
+            "modalClassName": "",
+            "children": [
+              null,
+              null
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            null,
+            null
+          ]
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "dialog"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "ModalDialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "goodest",
+              "modalClassName": "",
+              "children": [
+                null,
+                null
+              ]
+            },
+            "key": "dialog",
+            "rendered": [
+              null,
+              null
+            ]
+          },
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "goodest",
+            "modalClassName": "",
+            "key": "dialog"
+          }
+        }
+      ]
+    }
+  ]
+};
+
+exports["Modal/Renders with string title(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "TransitionGroup",
+    "props": {
+      "component": "div",
+      "className": "tg",
+      "children": [
+        {
+          "type": "CSSTransition",
+          "key": "backdrop",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "Backdrop",
+              "key": "backdrop",
+              "props": {
+                "isStatic": false,
+                "onCancel": "[function]",
+                "className": "tg"
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        },
+        {
+          "type": "CSSTransition",
+          "key": "dialog",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "ModalDialog",
+              "key": "dialog",
+              "props": {
+                "isBasic": false,
+                "onCancel": "[function]",
+                "className": "tg",
+                "modalClassName": "",
+                "children": [
+                  {
+                    "type": "ModalHeader",
+                    "props": {
+                      "addClose": true,
+                      "onCancel": "[function]",
+                      "children": "sum title",
+                      "className": "tg",
+                      "isStatic": false
+                    },
+                    "_store": {}
+                  },
+                  null
+                ]
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        }
+      ],
+      "childFactory": "childFactory"
+    },
+    "rendered": [
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                {
+                  "type": "ModalHeader",
+                  "props": {
+                    "addClose": true,
+                    "onCancel": "[function]",
+                    "children": "sum title",
+                    "className": "tg",
+                    "isStatic": false
+                  },
+                  "_store": {}
+                },
+                null
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "children": [
+              {
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "_store": {}
+              },
+              null
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            {
+              "nodeType": "class",
+              "type": "ModalHeader",
+              "props": {
+                "addClose": true,
+                "onCancel": "[function]",
+                "children": "sum title",
+                "className": "tg",
+                "isStatic": false
+              },
+              "rendered": "sum title"
+            },
+            null
+          ]
+        }
+      }
+    ]
+  },
+  "type": "TransitionGroup",
+  "props": {
+    "component": "div",
+    "className": "tg",
+    "childFactory": "childFactory"
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "backdrop"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "key": "backdrop"
+          },
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "key": "backdrop"
+          }
+        }
+      ]
+    },
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                {
+                  "type": "ModalHeader",
+                  "props": {
+                    "addClose": true,
+                    "onCancel": "[function]",
+                    "children": "sum title",
+                    "className": "tg",
+                    "isStatic": false
+                  },
+                  "_store": {}
+                },
+                null
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "children": [
+              {
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "_store": {}
+              },
+              null
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            {
+              "nodeType": "class",
+              "type": "ModalHeader",
+              "props": {
+                "addClose": true,
+                "onCancel": "[function]",
+                "children": "sum title",
+                "className": "tg",
+                "isStatic": false
+              },
+              "rendered": "sum title"
+            },
+            null
+          ]
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "dialog"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "ModalDialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                {
+                  "type": "ModalHeader",
+                  "props": {
+                    "addClose": true,
+                    "onCancel": "[function]",
+                    "children": "sum title",
+                    "className": "tg",
+                    "isStatic": false
+                  },
+                  "_store": {}
+                },
+                null
+              ]
+            },
+            "key": "dialog",
+            "rendered": [
+              {
+                "nodeType": "class",
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "rendered": "sum title"
+              },
+              null
+            ]
+          },
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "key": "dialog"
+          },
+          "children": [
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "rendered": "sum title"
+              },
+              "type": "Modal.Header",
+              "props": {
+                "addClose": true,
+                "onCancel": "[function]",
+                "className": "tg",
+                "isStatic": false
+              },
+              "children": [
+                "sum title"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+exports["Modal/Renders children(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "TransitionGroup",
+    "props": {
+      "component": "div",
+      "className": "tg",
+      "children": [
+        {
+          "type": "CSSTransition",
+          "key": "backdrop",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "Backdrop",
+              "key": "backdrop",
+              "props": {
+                "isStatic": false,
+                "onCancel": "[function]",
+                "className": "tg"
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        },
+        {
+          "type": "CSSTransition",
+          "key": "dialog",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "ModalDialog",
+              "key": "dialog",
+              "props": {
+                "isBasic": false,
+                "onCancel": "[function]",
+                "className": "tg",
+                "modalClassName": "",
+                "children": [
+                  {
+                    "type": "ModalHeader",
+                    "props": {
+                      "addClose": true,
+                      "onCancel": "[function]",
+                      "children": "sum title",
+                      "className": "tg",
+                      "isStatic": false
+                    },
+                    "_store": {}
+                  },
+                  {
+                    "type": "ModalBody",
+                    "props": {
+                      "children": [
+                        "am child"
+                      ],
+                      "className": "tg"
+                    },
+                    "_store": {}
+                  }
+                ]
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        }
+      ],
+      "childFactory": "childFactory"
+    },
+    "rendered": [
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                {
+                  "type": "ModalHeader",
+                  "props": {
+                    "addClose": true,
+                    "onCancel": "[function]",
+                    "children": "sum title",
+                    "className": "tg",
+                    "isStatic": false
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "ModalBody",
+                  "props": {
+                    "children": [
+                      "am child"
+                    ],
+                    "className": "tg"
+                  },
+                  "_store": {}
+                }
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "children": [
+              {
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "_store": {}
+              },
+              {
+                "type": "ModalBody",
+                "props": {
+                  "children": [
+                    "am child"
+                  ],
+                  "className": "tg"
+                },
+                "_store": {}
+              }
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            {
+              "nodeType": "class",
+              "type": "ModalHeader",
+              "props": {
+                "addClose": true,
+                "onCancel": "[function]",
+                "children": "sum title",
+                "className": "tg",
+                "isStatic": false
+              },
+              "rendered": "sum title"
+            },
+            {
+              "nodeType": "class",
+              "type": "ModalBody",
+              "props": {
+                "children": [
+                  "am child"
+                ],
+                "className": "tg"
+              },
+              "rendered": [
+                "am child"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "type": "TransitionGroup",
+  "props": {
+    "component": "div",
+    "className": "tg",
+    "childFactory": "childFactory"
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "backdrop"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "key": "backdrop"
+          },
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "key": "backdrop"
+          }
+        }
+      ]
+    },
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                {
+                  "type": "ModalHeader",
+                  "props": {
+                    "addClose": true,
+                    "onCancel": "[function]",
+                    "children": "sum title",
+                    "className": "tg",
+                    "isStatic": false
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "ModalBody",
+                  "props": {
+                    "children": [
+                      "am child"
+                    ],
+                    "className": "tg"
+                  },
+                  "_store": {}
+                }
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "children": [
+              {
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "_store": {}
+              },
+              {
+                "type": "ModalBody",
+                "props": {
+                  "children": [
+                    "am child"
+                  ],
+                  "className": "tg"
+                },
+                "_store": {}
+              }
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            {
+              "nodeType": "class",
+              "type": "ModalHeader",
+              "props": {
+                "addClose": true,
+                "onCancel": "[function]",
+                "children": "sum title",
+                "className": "tg",
+                "isStatic": false
+              },
+              "rendered": "sum title"
+            },
+            {
+              "nodeType": "class",
+              "type": "ModalBody",
+              "props": {
+                "children": [
+                  "am child"
+                ],
+                "className": "tg"
+              },
+              "rendered": [
+                "am child"
+              ]
+            }
+          ]
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "dialog"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "ModalDialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                {
+                  "type": "ModalHeader",
+                  "props": {
+                    "addClose": true,
+                    "onCancel": "[function]",
+                    "children": "sum title",
+                    "className": "tg",
+                    "isStatic": false
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "ModalBody",
+                  "props": {
+                    "children": [
+                      "am child"
+                    ],
+                    "className": "tg"
+                  },
+                  "_store": {}
+                }
+              ]
+            },
+            "key": "dialog",
+            "rendered": [
+              {
+                "nodeType": "class",
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "rendered": "sum title"
+              },
+              {
+                "nodeType": "class",
+                "type": "ModalBody",
+                "props": {
+                  "children": [
+                    "am child"
+                  ],
+                  "className": "tg"
+                },
+                "rendered": [
+                  "am child"
+                ]
+              }
+            ]
+          },
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "key": "dialog"
+          },
+          "children": [
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "rendered": "sum title"
+              },
+              "type": "Modal.Header",
+              "props": {
+                "addClose": true,
+                "onCancel": "[function]",
+                "className": "tg",
+                "isStatic": false
+              },
+              "children": [
+                "sum title"
+              ]
+            },
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "ModalBody",
+                "props": {
+                  "children": [
+                    "am child"
+                  ],
+                  "className": "tg"
+                },
+                "rendered": [
+                  "am child"
+                ]
+              },
+              "type": "Modal.Body",
+              "props": {
+                "className": "tg"
+              },
+              "children": [
+                "am child"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+exports["Modal/Renders children even if null(0)"] = {
+  "node": {
+    "nodeType": "class",
+    "type": "TransitionGroup",
+    "props": {
+      "component": "div",
+      "className": "tg",
+      "children": [
+        {
+          "type": "CSSTransition",
+          "key": "backdrop",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "Backdrop",
+              "key": "backdrop",
+              "props": {
+                "isStatic": false,
+                "onCancel": "[function]",
+                "className": "tg"
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        },
+        {
+          "type": "CSSTransition",
+          "key": "dialog",
+          "props": {
+            "classNames": "tg",
+            "timeout": 300,
+            "onEntered": "[function]",
+            "onExited": "[function]",
+            "unmountOnExit": true,
+            "children": {
+              "type": "ModalDialog",
+              "key": "dialog",
+              "props": {
+                "isBasic": false,
+                "onCancel": "[function]",
+                "className": "tg",
+                "modalClassName": "",
+                "children": [
+                  {
+                    "type": "ModalHeader",
+                    "props": {
+                      "addClose": true,
+                      "onCancel": "[function]",
+                      "children": "sum title",
+                      "className": "tg",
+                      "isStatic": false
+                    },
+                    "_store": {}
+                  },
+                  {
+                    "type": "ModalBody",
+                    "props": {
+                      "children": [
+                        "hello"
+                      ],
+                      "className": "tg"
+                    },
+                    "_store": {}
+                  }
+                ]
+              },
+              "_store": {}
+            }
+          },
+          "_store": {}
+        }
+      ],
+      "childFactory": "childFactory"
+    },
+    "rendered": [
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                {
+                  "type": "ModalHeader",
+                  "props": {
+                    "addClose": true,
+                    "onCancel": "[function]",
+                    "children": "sum title",
+                    "className": "tg",
+                    "isStatic": false
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "ModalBody",
+                  "props": {
+                    "children": [
+                      "hello"
+                    ],
+                    "className": "tg"
+                  },
+                  "_store": {}
+                }
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "children": [
+              {
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "_store": {}
+              },
+              {
+                "type": "ModalBody",
+                "props": {
+                  "children": [
+                    "hello"
+                  ],
+                  "className": "tg"
+                },
+                "_store": {}
+              }
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            {
+              "nodeType": "class",
+              "type": "ModalHeader",
+              "props": {
+                "addClose": true,
+                "onCancel": "[function]",
+                "children": "sum title",
+                "className": "tg",
+                "isStatic": false
+              },
+              "rendered": "sum title"
+            },
+            {
+              "nodeType": "class",
+              "type": "ModalBody",
+              "props": {
+                "children": [
+                  "hello"
+                ],
+                "className": "tg"
+              },
+              "rendered": [
+                "hello"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "type": "TransitionGroup",
+  "props": {
+    "component": "div",
+    "className": "tg",
+    "childFactory": "childFactory"
+  },
+  "children": [
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "Backdrop",
+            "key": "backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "_store": {}
+          }
+        },
+        "key": "backdrop",
+        "rendered": {
+          "nodeType": "class",
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg"
+          },
+          "key": "backdrop"
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "backdrop"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "Backdrop",
+            "props": {
+              "isStatic": false,
+              "onCancel": "[function]",
+              "className": "tg"
+            },
+            "key": "backdrop"
+          },
+          "type": "Backdrop",
+          "props": {
+            "isStatic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "key": "backdrop"
+          }
+        }
+      ]
+    },
+    {
+      "node": {
+        "nodeType": "class",
+        "type": "CSSTransition",
+        "props": {
+          "classNames": "tg",
+          "timeout": 300,
+          "onEntered": "[function]",
+          "onExited": "[function]",
+          "unmountOnExit": true,
+          "children": {
+            "type": "ModalDialog",
+            "key": "dialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                {
+                  "type": "ModalHeader",
+                  "props": {
+                    "addClose": true,
+                    "onCancel": "[function]",
+                    "children": "sum title",
+                    "className": "tg",
+                    "isStatic": false
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "ModalBody",
+                  "props": {
+                    "children": [
+                      "hello"
+                    ],
+                    "className": "tg"
+                  },
+                  "_store": {}
+                }
+              ]
+            },
+            "_store": {}
+          }
+        },
+        "key": "dialog",
+        "rendered": {
+          "nodeType": "class",
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "children": [
+              {
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "_store": {}
+              },
+              {
+                "type": "ModalBody",
+                "props": {
+                  "children": [
+                    "hello"
+                  ],
+                  "className": "tg"
+                },
+                "_store": {}
+              }
+            ]
+          },
+          "key": "dialog",
+          "rendered": [
+            {
+              "nodeType": "class",
+              "type": "ModalHeader",
+              "props": {
+                "addClose": true,
+                "onCancel": "[function]",
+                "children": "sum title",
+                "className": "tg",
+                "isStatic": false
+              },
+              "rendered": "sum title"
+            },
+            {
+              "nodeType": "class",
+              "type": "ModalBody",
+              "props": {
+                "children": [
+                  "hello"
+                ],
+                "className": "tg"
+              },
+              "rendered": [
+                "hello"
+              ]
+            }
+          ]
+        }
+      },
+      "type": "CSSTransition",
+      "props": {
+        "classNames": "tg",
+        "timeout": 300,
+        "onEntered": "[function]",
+        "onExited": "[function]",
+        "unmountOnExit": true,
+        "key": "dialog"
+      },
+      "children": [
+        {
+          "node": {
+            "nodeType": "class",
+            "type": "ModalDialog",
+            "props": {
+              "isBasic": false,
+              "onCancel": "[function]",
+              "className": "tg",
+              "modalClassName": "",
+              "children": [
+                {
+                  "type": "ModalHeader",
+                  "props": {
+                    "addClose": true,
+                    "onCancel": "[function]",
+                    "children": "sum title",
+                    "className": "tg",
+                    "isStatic": false
+                  },
+                  "_store": {}
+                },
+                {
+                  "type": "ModalBody",
+                  "props": {
+                    "children": [
+                      "hello"
+                    ],
+                    "className": "tg"
+                  },
+                  "_store": {}
+                }
+              ]
+            },
+            "key": "dialog",
+            "rendered": [
+              {
+                "nodeType": "class",
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "rendered": "sum title"
+              },
+              {
+                "nodeType": "class",
+                "type": "ModalBody",
+                "props": {
+                  "children": [
+                    "hello"
+                  ],
+                  "className": "tg"
+                },
+                "rendered": [
+                  "hello"
+                ]
+              }
+            ]
+          },
+          "type": "ModalDialog",
+          "props": {
+            "isBasic": false,
+            "onCancel": "[function]",
+            "className": "tg",
+            "modalClassName": "",
+            "key": "dialog"
+          },
+          "children": [
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "ModalHeader",
+                "props": {
+                  "addClose": true,
+                  "onCancel": "[function]",
+                  "children": "sum title",
+                  "className": "tg",
+                  "isStatic": false
+                },
+                "rendered": "sum title"
+              },
+              "type": "Modal.Header",
+              "props": {
+                "addClose": true,
+                "onCancel": "[function]",
+                "className": "tg",
+                "isStatic": false
+              },
+              "children": [
+                "sum title"
+              ]
+            },
+            {
+              "node": {
+                "nodeType": "class",
+                "type": "ModalBody",
+                "props": {
+                  "children": [
+                    "hello"
+                  ],
+                  "className": "tg"
+                },
+                "rendered": [
+                  "hello"
+                ]
+              },
+              "type": "Modal.Body",
+              "props": {
+                "className": "tg"
+              },
+              "children": [
+                "hello"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+

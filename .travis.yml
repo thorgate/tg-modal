@@ -4,6 +4,7 @@ node_js:
   - "8"
   - "9"
   - "10"
+  - "11"
   - "node"
 
 before_script:
@@ -11,7 +12,7 @@ before_script:
 
 after_success:
   - yarn coverage
-  - test $TRAVIS_NODE_VERSION = 8 && yarn coveralls
+  - test $TRAVIS_NODE_VERSION = 10 && yarn coveralls
 
 notifications:
     email: false

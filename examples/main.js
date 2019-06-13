@@ -9,4 +9,4 @@ import packageCfg from '../package.json';
 require('./styles/main.scss');
 require('../src/styles/default.scss');
 
-ReactDOM.render(<App packageCfg={packageCfg} />, document.getElementById('content'));
+ReactDOM.hydrate(<App packageCfg={packageCfg} />, document.getElementById('content'));
