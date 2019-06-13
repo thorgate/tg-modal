@@ -14,6 +14,8 @@ module.exports = {
     devServer: {
         contentBase: './examples/',
         host: '0.0.0.0',
+        // Enable when using ngrok
+        // disableHostCheck: true,
         port: 8081,
         hot: true
     },

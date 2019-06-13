@@ -37,6 +37,7 @@
 - Add prettier
 - Update webpack, eslint and babel configuration
 - Migrate away from componentWillReceiveProps
+- Add `position: fixed` to `body.tg-modal-open` in default styles - see #21
 
 ### v0.8.0
 

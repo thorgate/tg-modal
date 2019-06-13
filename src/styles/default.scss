@@ -2,6 +2,7 @@
 
 body.tg-modal-open {
     overflow: hidden;
+    position: fixed;
 }
 
 $modal-z-index: 1050;
