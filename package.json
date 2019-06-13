@@ -120,7 +120,7 @@
     "check-engine": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json"
   },
   "devEngines": {
-    "node": "6.x || 7.x || 8.x || 9.x || 10.x || 11.x"
+    "node": "6.x || 7.x || 8.x || 10.x || 11.x || 12.x"
   },
   "nyc": {
     "sourceMap": false,
