@@ -6,7 +6,6 @@ import ModalBody from '../src/components/dom/ModalBody';
 
 import { buildContainer } from './util';
 
-
 describe('ModalBody', () => {
     it('renders correctly', () => {
         const container = ReactDOM.findDOMNode(buildContainer(ModalBody, {}));

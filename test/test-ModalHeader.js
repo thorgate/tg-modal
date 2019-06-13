@@ -9,7 +9,6 @@ import ModalHeader from '../src/components/dom/ModalHeader';
 
 import { buildContainer } from './util';
 
-
 describe('ModalHeader', () => {
     it('renders correctly', () => {
         const spyConsoleWarn = sinon.spy();
@@ -40,7 +39,7 @@ describe('ModalHeader', () => {
         const spyConsoleWarn = sinon.spy();
         console.warn = spyConsoleWarn;
 
-        const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { children: (<span>Sup</span>) }));
+        const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { children: <span>Sup</span> }));
 
         // test spy was not called yet
         assert.equal(spyConsoleWarn.callCount, 1);
@@ -53,7 +52,9 @@ describe('ModalHeader', () => {
         const spyConsoleWarn = sinon.spy();
         console.warn = spyConsoleWarn;
 
-        const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { className: 'foo', children: 'Hello world' }));
+        const container = ReactDOM.findDOMNode(
+            buildContainer(ModalHeader, { className: 'foo', children: 'Hello world' }),
+        );
 
         // test spy was not called yet
         assert.equal(spyConsoleWarn.callCount, 1);
@@ -66,7 +67,9 @@ describe('ModalHeader', () => {
     });
 
     it('addClose=false does not add close button', () => {
-        const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { addClose: false, children: 'Hello world' }));
+        const container = ReactDOM.findDOMNode(
+            buildContainer(ModalHeader, { addClose: false, children: 'Hello world' }),
+        );
 
         // Close button is not rendered into the container
         assert.equal(container.querySelectorAll('button.tg-modal-close').length, 0);
@@ -93,7 +96,9 @@ describe('ModalHeader', () => {
     it('onCancel is not called when isStatic is true', () => {
         const spy = sinon.spy();
 
-        const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { children: 'Hello world', onCancel: spy, isStatic: true }));
+        const container = ReactDOM.findDOMNode(
+            buildContainer(ModalHeader, { children: 'Hello world', onCancel: spy, isStatic: true }),
+        );
 
         // test spy was not called yet
         assert.equal(spy.callCount, 0);
@@ -112,7 +117,9 @@ describe('ModalHeader', () => {
         const spyConsoleWarn = sinon.spy();
         console.warn = spyConsoleWarn;
 
-        const container = ReactDOM.findDOMNode(buildContainer(ModalHeader, { children: 'Hello world', addClose: true }));
+        const container = ReactDOM.findDOMNode(
+            buildContainer(ModalHeader, { children: 'Hello world', addClose: true }),
+        );
 
         // test spy was not called yet
         assert.equal(spyConsoleWarn.callCount, 1);

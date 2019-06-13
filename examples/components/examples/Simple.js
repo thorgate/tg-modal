@@ -3,46 +3,50 @@ import PropTypes from 'prop-types';
 
 import Modal from '../../../src/components/Modal';
 
-
 class SimpleModalExample extends Component {
     static propTypes = {
-        toggleCode: PropTypes.func.isRequired
+        toggleCode: PropTypes.func.isRequired,
     };
 
     constructor(props) {
         super(props);
 
         this.state = {
-            isOpen: false
+            isOpen: false,
         };
     }
 
     toggleModal = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
+        this.setState((prevState) => ({
+            isOpen: !prevState.isOpen,
+        }));
     };
 
     render() {
+        const { toggleCode } = this.props;
+        const { isOpen } = this.state;
+
         return (
             <div>
                 <div className="btn-group">
-                    <a className="btn btn-primary" onClick={this.toggleModal}>Open</a>
-                    <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
+                    <button type="button" className="btn btn-primary" onClick={this.toggleModal}>
+                        Open
+                    </button>
+                    <button type="button" className="btn btn-secondary" onClick={toggleCode}>
+                        Code
+                    </button>
                 </div>
 
-                <Modal isOpen={this.state.isOpen} autoWrap title="First modal" onCancel={this.toggleModal}>
+                <Modal isOpen={isOpen} autoWrap title="First modal" onCancel={this.toggleModal}>
                     <p>
-                        Viral deep v squid chia, letterpress wayfarers artisan
-                        meggings tote bag four loko keffiyeh hoodie cronut four
-                        dollar toast flannel.
+                        Viral deep v squid chia, letterpress wayfarers artisan meggings tote bag four loko keffiyeh
+                        hoodie cronut four dollar toast flannel.
                     </p>
 
                     <p>
-                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter
-                        photo booth deep v quinoa four dollar toast trust fund
-                        freegan. Food truck Godard semiotics, YOLO mixtape
-                        asymmetrical selfies Thundercats 8-bit.
+                        Pinterest 8-bit DIY pug cold-pressed Carles, typewriter photo booth deep v quinoa four dollar
+                        toast trust fund freegan. Food truck Godard semiotics, YOLO mixtape asymmetrical selfies
+                        Thundercats 8-bit.
                     </p>
                 </Modal>
             </div>

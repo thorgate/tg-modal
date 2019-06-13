@@ -5,7 +5,6 @@ import ModalBody from './components/dom/ModalBody';
 import ModalDialog from './components/dom/ModalDialog';
 import ModalHeader from './components/dom/ModalHeader';
 
-
 Modal.Backdrop = Backdrop;
 Modal.Body = ModalBody;
 Modal.Dialog = ModalDialog;

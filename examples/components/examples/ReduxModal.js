@@ -5,7 +5,6 @@ import { createStore } from 'redux';
 
 import Modal from '../../../src/components/Modal';
 
-
 // redux actions and types
 const OPEN_MODAL = 'redux-example/OPEN_MODAL';
 const CLOSE_MODAL = 'redux-example/CLOSE_MODAL';
@@ -13,18 +12,19 @@ const CLOSE_MODAL = 'redux-example/CLOSE_MODAL';
 const openModal = () => ({ type: OPEN_MODAL });
 const closeModal = () => ({ type: CLOSE_MODAL });
 
-
 const ReduxModal = ({ isOpen, onOpen, onClose, toggleCode }) => (
     <div>
         <div className="btn-group">
-            <a className="btn btn-primary" onClick={onOpen}>Open</a>
-            <a className="btn btn-secondary" onClick={toggleCode}>Code</a>
+            <button type="button" className="btn btn-primary" onClick={onOpen}>
+                Open
+            </button>
+            <button type="button" className="btn btn-secondary" onClick={toggleCode}>
+                Code
+            </button>
         </div>
 
         <Modal isOpen={isOpen} isBasic autoWrap title="Howdy!" onCancel={onClose}>
-            <p>
-                I’m a Redux controlled modal
-            </p>
+            <p>I’m a Redux controlled modal</p>
         </Modal>
     </div>
 );
@@ -33,37 +33,35 @@ ReduxModal.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     onOpen: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
-    toggleCode: PropTypes.func.isRequired
+    toggleCode: PropTypes.func.isRequired,
 };
 
 // state is single reducer to display modal, so we return it
-const mapStateToProps = state => ({
-    isOpen: state
+const mapStateToProps = (state) => ({
+    isOpen: state,
 });
 
 // map modal open and close actions
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onOpen: () => dispatch(openModal()),
-    onClose: () => dispatch(closeModal())
+    onClose: () => dispatch(closeModal()),
 });
-
 
 const ReduxModalConnector = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(ReduxModal);
-
 
 function reducer(state = false, action) {
     switch (action.type) {
-    case OPEN_MODAL:
-        return true;
+        case OPEN_MODAL:
+            return true;
 
-    case CLOSE_MODAL:
-        return false;
+        case CLOSE_MODAL:
+            return false;
 
-    default:
-        return state;
+        default:
+            return state;
     }
 }
 
@@ -76,7 +74,7 @@ const ReduxApp = ({ toggleCode }) => (
 );
 
 ReduxApp.propTypes = {
-    toggleCode: PropTypes.func.isRequired
+    toggleCode: PropTypes.func.isRequired,
 };
 
 export default ReduxApp;

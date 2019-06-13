@@ -6,17 +6,18 @@ class ModalBody extends Component {
 
     static propTypes = {
         children: PropTypes.node,
-        className: PropTypes.string
+        className: PropTypes.string,
     };
 
     static defaultProps = {
-        className: 'tg-modal-body'
+        children: null,
+        className: 'tg-modal-body',
     };
 
     render() {
-        return (
-            <div {...this.props}>{this.props.children}</div>
-        );
+        const { children } = this.props;
+
+        return <div {...this.props}>{children}</div>;
     }
 }
 

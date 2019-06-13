@@ -8,28 +8,25 @@ import ReactDOMServer from 'react-dom/server';
 import { Kiosk } from './components/Serverside';
 import Prerendered from './components/Prerendered';
 
-
 const app = koa();
 const contents = fs.readFileSync(path.join(__dirname, 'index.html'), { encoding: 'utf-8' });
 
 function template(bodyClasses, rendered) {
     return contents
-            .replace('bundle.js', '//localhost:8081/render.js')
-            .replace('<div id="content"></div>', `<div id="content">${rendered}</div>`)
-            .replace('<body>', `<body class="${bodyClasses}">`);
+        .replace('bundle.js', '//localhost:8081/render.js')
+        .replace('<div id="content"></div>', `<div id="content">${rendered}</div>`)
+        .replace('<body>', `<body class="${bodyClasses}">`);
 }
 
-
 function serverside() {
-    return function *(next) {
+    return function*(next) {
         const kiosk = new Kiosk();
-        const rendered = ReactDOM.renderToString(<Prerendered initialOpen kiosk={kiosk} />);
+        const rendered = ReactDOMServer.renderToString(<Prerendered initialOpen kiosk={kiosk} />);
 
         this.body = template(kiosk.getState().className, rendered);
         yield* next;
     };
 }
-
 
 app.use(serverside());
 

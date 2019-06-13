@@ -3,17 +3,16 @@ import PropTypes from 'prop-types';
 
 import Modal from '../../../src';
 
-
 class StaticModalExample extends Component {
     static propTypes = {
-        toggleCode: PropTypes.func.isRequired
+        toggleCode: PropTypes.func.isRequired,
     };
 
     constructor(props) {
         super(props);
 
         this.state = {
-            isOpen: false
+            isOpen: false,
         };
     }
 
@@ -22,28 +21,35 @@ class StaticModalExample extends Component {
             e.preventDefault();
         }
 
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
+        this.setState((prevState) => ({
+            isOpen: !prevState.isOpen,
+        }));
     };
 
     render() {
+        const { toggleCode } = this.props;
+        const { isOpen } = this.state;
+
         return (
             <div>
                 <div className="btn-group">
-                    <a className="btn btn-primary" onClick={this.toggleModal}>Open</a>
-                    <a className="btn btn-secondary" onClick={this.props.toggleCode}>Code</a>
+                    <button type="button" className="btn btn-primary" onClick={this.toggleModal}>
+                        Open
+                    </button>
+                    <button type="button" className="btn btn-secondary" onClick={toggleCode}>
+                        Code
+                    </button>
                 </div>
 
-                <Modal isOpen={this.state.isOpen} isStatic title="This is very important" onCancel={this.toggleModal}>
+                <Modal isOpen={isOpen} isStatic title="This is very important" onCancel={this.toggleModal}>
                     <Modal.Body>
-                        <p>
-                            Mauris non tempor quam, et lacinia.
-                        </p>
+                        <p>Mauris non tempor quam, et lacinia.</p>
                     </Modal.Body>
 
                     <div className="tg-modal-footer">
-                        <a className="btn btn-primary" onClick={this.toggleModal}>Close</a>
+                        <button type="button" className="btn btn-primary" onClick={this.toggleModal}>
+                            Close
+                        </button>
                     </div>
                 </Modal>
             </div>

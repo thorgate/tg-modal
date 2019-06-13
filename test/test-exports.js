@@ -6,14 +6,12 @@ import { Component } from 'react';
 
 import Modal from '../src';
 
-
 function assertValidComponent(a, key, displayName, Base = Component) {
     assert.isDefined(a, `${key} should be defined`);
     assert.isFunction(a, `${key} should be a function`);
     assert(a.prototype instanceof Base, `${key} should be a Component`);
     assert(a && a.displayName === displayName, `${key} should be ${displayName}`);
 }
-
 
 describe('Exports work', () => {
     it('default export is correct', () => {
