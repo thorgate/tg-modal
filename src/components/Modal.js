@@ -82,7 +82,9 @@ class Modal extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            animating: false,
+        };
 
         // validate children props and warn if something is wrong
         React.Children.forEach(props.children, (child) => {
@@ -109,23 +111,23 @@ class Modal extends Component {
         }
     }
 
-    // TODO: Migrate to SAFE lifecycles
-    componentWillReceiveProps(nextProps) {
+    componentDidUpdate(prevProps, prevState) {
         const { isOpen, keyboard } = this.props;
 
-        if (isOpen !== nextProps.isOpen) {
-            this.setState(
-                {
-                    animating: true,
-                },
-                () => {
-                    this.onToggle(nextProps.isOpen, this.getToggleProps());
-                },
-            );
+        if (prevProps.isOpen !== isOpen) {
+            this.setState({
+                animating: true,
+            });
         }
 
-        if (keyboard !== nextProps.keyboard) {
-            if (nextProps.keyboard) {
+        const { animating } = this.state;
+
+        if (!prevState.animating && animating) {
+            this.onToggle(isOpen, this.getToggleProps());
+        }
+
+        if (prevProps.keyboard !== keyboard) {
+            if (keyboard) {
                 this.bindKeyboard();
             } else {
                 this.unbindKeyboard();
@@ -183,7 +185,7 @@ class Modal extends Component {
 
     onCancel = (e, extra) => {
         // Don't do anything while animating
-        const { animating } = true;
+        const { animating } = this.state;
 
         if (animating) {
             return;

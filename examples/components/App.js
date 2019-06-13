@@ -80,6 +80,10 @@ class App extends Component {
                         >
                             Modal with controlling via Redux.
                         </Example>
+
+                        <Example title="StrictMode modal" component={examples.StrictMode} src={EXAMPLE_SRC.StrictMode}>
+                            Modal wrapped inside React.StrictMode
+                        </Example>
                     </div>
                 </div>
 

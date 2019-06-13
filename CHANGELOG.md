@@ -31,7 +31,12 @@
 - Added prop `className` to `Modal` [issue #50, PR #51]
   - Added prop `modalClassName` to `Modal.Dialog`
 - Added prop `wrapperClassName` to `Modal`
-- Added node 9 to supported development engines
+- Update dependencies
+- Use yarn
+- Use node 8-12 in CI
+- Add prettier
+- Update webpack, eslint and babel configuration
+- Migrate away from componentWillReceiveProps
 
 ### v0.8.0
 
