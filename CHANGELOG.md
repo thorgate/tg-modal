@@ -3,7 +3,8 @@
 # Changelog
 
 - [Changelog](#changelog)
-    - [v0.9.0-beta.0 (in development)](#v090-beta0-in-development)
+    - [v0.9.0-beta.1](#v090-beta1)
+    - [v0.9.0-beta.0](#v090-beta0)
     - [v0.8.0](#v080)
     - [v0.7.1](#v071)
     - [v0.7.0](#v070)
@@ -24,7 +25,11 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-### v0.9.0-beta.0 (in development)
+### v0.9.0-beta.1
+
+- By default only listen to keyboard events when modal is open
+
+### v0.9.0-beta.0
 
 - :exclamation: Drop support for react below `16.3.0`
 - Removed BrowserModal indirection and merged BrowserModal w/ Modal [issue #35, PR #51]
@@ -39,7 +44,6 @@
 - Migrate away from componentWillReceiveProps
 - Lock scroll of main body when modal is open via body-scroll-lock (issue #21, PR #54)
   - Fixes scrolling issues in mobile browsers
-- By default only listen to keyboard events when modal is open
 
 ### v0.8.0
 
