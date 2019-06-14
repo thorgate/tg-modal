@@ -1,0 +1,249 @@
+.tg-modal, .tg-modal-backdrop {
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.tg-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  transform-origin: 50% 25%;
+}
+
+.tg-modal .tg-modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+  z-index: 1060;
+}
+
+@media (min-width: 768px) {
+  .tg-modal .tg-modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+}
+
+.tg-modal .tg-modal-dialog .tg-modal-content {
+  background: #fff;
+  padding: 0;
+}
+
+.tg-modal .tg-modal-dialog .tg-modal-content .tg-modal-header {
+  padding: 1.8rem 1.5rem;
+  position: relative;
+}
+
+.tg-modal .tg-modal-dialog .tg-modal-content .tg-modal-header .tg-modal-title {
+  padding: 0;
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 3rem;
+  font-weight: 500;
+}
+
+.tg-modal .tg-modal-dialog .tg-modal-content .tg-modal-header .tg-modal-close {
+  cursor: pointer;
+  position: absolute;
+  top: 1.8rem;
+  right: 1.5rem;
+  z-index: 1;
+  opacity: .6;
+  color: #3c3c50;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25em;
+  padding: 0;
+  background: transparent;
+  border: 0px none transparent;
+  transition: background 300ms ease;
+}
+
+.tg-modal .tg-modal-dialog .tg-modal-content .tg-modal-header .tg-modal-close:focus, .tg-modal .tg-modal-dialog .tg-modal-content .tg-modal-header .tg-modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.tg-modal .tg-modal-dialog .tg-modal-content .tg-modal-body {
+  padding: 1.8rem 1.5rem;
+  position: relative;
+}
+
+.tg-modal .tg-modal-dialog .tg-modal-content .tg-modal-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.tg-modal .tg-modal-dialog .tg-modal-content .tg-modal-footer {
+  padding: 1.8rem 1.5rem;
+  position: relative;
+}
+
+.tg-modal .tg-modal-dialog .tg-modal-content .tg-modal-footer a + a,
+.tg-modal .tg-modal-dialog .tg-modal-content .tg-modal-footer button + button {
+  margin-left: 1rem;
+}
+
+.tg-modal .tg-modal-dialog .tg-modal-content .tg-modal-header + .tg-modal-body {
+  padding-top: 0;
+}
+
+.tg-modal.tg-modal-basic .tg-modal-dialog {
+  top: 40%;
+  transform: translateY(-50%);
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.tg-modal.tg-modal-basic .tg-modal-dialog .tg-modal-content {
+  background: transparent;
+  color: #fff;
+  text-align: center;
+}
+
+.tg-modal.tg-modal-basic .tg-modal-dialog .tg-modal-content .tg-modal-header .tg-modal-close {
+  display: none;
+}
+
+.tg-modal.tg-modal-basic .tg-modal-dialog .tg-modal-footer {
+  text-align: center;
+}
+
+.tg-modal-backdrop {
+  position: fixed;
+  top: -100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.tg-modal-open .tg-modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+  label: scroll-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tg-modal-wrapper.tg-modal-animating .tg-modal {
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+@-webkit-keyframes tg-modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tg-modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes tg-modal-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes tg-modal-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes tg-modal-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tg-modal-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes tg-modal-scale-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes tg-modal-scale-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.tg-modal-fade-enter.tg-modal {
+  -webkit-animation: tg-modal-scale-in 300ms ease;
+          animation: tg-modal-scale-in 300ms ease;
+}
+
+.tg-modal-fade-enter.tg-modal-backdrop {
+  -webkit-animation: tg-modal-fade-in 300ms ease;
+          animation: tg-modal-fade-in 300ms ease;
+}
+
+.tg-modal-fade-exit.tg-modal {
+  -webkit-animation: tg-modal-scale-out 300ms ease;
+          animation: tg-modal-scale-out 300ms ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.tg-modal-fade-exit.tg-modal-backdrop {
+  -webkit-animation: tg-modal-fade-out 300ms ease;
+          animation: tg-modal-fade-out 300ms ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
