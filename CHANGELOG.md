@@ -3,7 +3,7 @@
 # Changelog
 
 - [Changelog](#changelog)
-    - [v0.9.0-beta.1](#v090-beta1)
+    - [v0.9.0-beta.2](#v090-beta2)
     - [v0.9.0-beta.0](#v090-beta0)
     - [v0.8.0](#v080)
     - [v0.7.1](#v071)
@@ -25,9 +25,11 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-### v0.9.0-beta.1
+### v0.9.0-beta.2
 
 - By default only listen to keyboard events when modal is open
+
+Functionally same as beta.1
 
 ### v0.9.0-beta.0
 
