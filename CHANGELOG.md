@@ -39,6 +39,7 @@
 - Migrate away from componentWillReceiveProps
 - Lock scroll of main body when modal is open via body-scroll-lock (issue #21, PR #54)
   - Fixes scrolling issues in mobile browsers
+- By default only listen to keyboard events when modal is open
 
 ### v0.8.0
 
