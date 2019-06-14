@@ -24,6 +24,7 @@ cp ./node_modules/tg-modal/dist/examples/* .tmp/
 # move .tmp to ../$version
 mkdir -p ../$version
 mv .tmp/* ../$version
+node fix-index.js ../$version/index.html
 
 # Remove previous link
 rm -f ../latest
