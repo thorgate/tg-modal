@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 
@@ -49,6 +50,9 @@ class Modal extends Component {
         // Enable/disable keyboard events
         keyboard: PropTypes.bool,
 
+        // Enable/disable body scroll locking
+        bodyScrollLock: PropTypes.bool,
+
         // This is internally used
         onToggle: PropTypes.func,
     };
@@ -62,6 +66,8 @@ class Modal extends Component {
 
         isStatic: false,
         isBasic: false,
+
+        bodyScrollLock: true,
 
         transitionName: 'tg-modal-fade',
         transitionDuration: 300,
@@ -85,6 +91,8 @@ class Modal extends Component {
         this.state = {
             animating: false,
         };
+
+        this.node = React.createRef();
 
         // validate children props and warn if something is wrong
         React.Children.forEach(props.children, (child) => {
@@ -156,7 +164,7 @@ class Modal extends Component {
 
         // Add body class and padding to scrollbar.
         if (typeof document !== 'undefined') {
-            const container = document.body;
+            const { body } = document;
 
             // Increment modal count when opening.
             if (state) {
@@ -166,13 +174,18 @@ class Modal extends Component {
             // Add toggle body class and update body padding if there is only one modal open.
             if (numberOfModalsOpen === 1) {
                 // Toggle open class.
-                toggleClass(container, 'tg-modal-open', state);
+                toggleClass(body, 'tg-modal-open', state);
+
+                const { bodyScrollLock } = this.props;
 
                 if (state) {
-                    this._origPadding = container.style.paddingRight;
-                    container.style.paddingRight = `${parseInt(this._origPadding || 0, 10) + props.scrollbarSize}px`;
-                } else {
-                    container.style.paddingRight = this._origPadding;
+                    if (bodyScrollLock && this.node.current) {
+                        disableBodyScroll(this.node.current, {
+                            reserveScrollBarGap: true,
+                        });
+                    }
+                } else if (bodyScrollLock && this.node.current) {
+                    clearAllBodyScrollLocks();
                 }
             }
 
@@ -349,6 +362,7 @@ class Modal extends Component {
                     onCancel={this.onCancel}
                     className={dialogClassName}
                     modalClassName={className}
+                    nodeRef={this.node}
                 >
                     {this.renderModalHeader()}
                     {this.renderModalBody()}

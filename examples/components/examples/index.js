@@ -10,4 +10,16 @@ import WithComponents from './WithComponents';
 import ReduxModal from './ReduxModal';
 import StrictMode from './StrictMode';
 
-export { Simple, Basic, Static, Confirm, BasicConfirm, Long, NestedLong, Markdown, WithComponents, ReduxModal, StrictMode };
+export {
+    Simple,
+    Basic,
+    Static,
+    Confirm,
+    BasicConfirm,
+    Long,
+    NestedLong,
+    Markdown,
+    WithComponents,
+    ReduxModal,
+    StrictMode,
+};

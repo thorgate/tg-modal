@@ -2658,6 +2658,7 @@ exports["Modal/Renders with correct classes (isOpen=true)(0)"] = {
                 "onCancel": "[function]",
                 "className": "tg",
                 "modalClassName": "",
+                "nodeRef": {},
                 "children": [
                   null,
                   null
@@ -2723,6 +2724,7 @@ exports["Modal/Renders with correct classes (isOpen=true)(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -2740,6 +2742,7 @@ exports["Modal/Renders with correct classes (isOpen=true)(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               null,
               null
@@ -2846,6 +2849,7 @@ exports["Modal/Renders with correct classes (isOpen=true)(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -2863,6 +2867,7 @@ exports["Modal/Renders with correct classes (isOpen=true)(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               null,
               null
@@ -2895,6 +2900,7 @@ exports["Modal/Renders with correct classes (isOpen=true)(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -2912,6 +2918,7 @@ exports["Modal/Renders with correct classes (isOpen=true)(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "key": "dialog"
           }
         }
@@ -2969,6 +2976,7 @@ exports["Modal/Renders with correct classes (wrapperClassName)(0)"] = {
                 "onCancel": "[function]",
                 "className": "tg",
                 "modalClassName": "",
+                "nodeRef": {},
                 "children": [
                   null,
                   null
@@ -3034,6 +3042,7 @@ exports["Modal/Renders with correct classes (wrapperClassName)(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -3051,6 +3060,7 @@ exports["Modal/Renders with correct classes (wrapperClassName)(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               null,
               null
@@ -3157,6 +3167,7 @@ exports["Modal/Renders with correct classes (wrapperClassName)(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -3174,6 +3185,7 @@ exports["Modal/Renders with correct classes (wrapperClassName)(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               null,
               null
@@ -3206,6 +3218,7 @@ exports["Modal/Renders with correct classes (wrapperClassName)(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -3223,6 +3236,7 @@ exports["Modal/Renders with correct classes (wrapperClassName)(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "key": "dialog"
           }
         }
@@ -3280,6 +3294,7 @@ exports["Modal/Renders with correct classes (className)(0)"] = {
                 "onCancel": "[function]",
                 "className": "tg",
                 "modalClassName": "goodest",
+                "nodeRef": {},
                 "children": [
                   null,
                   null
@@ -3345,6 +3360,7 @@ exports["Modal/Renders with correct classes (className)(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "goodest",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -3362,6 +3378,7 @@ exports["Modal/Renders with correct classes (className)(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "goodest",
+            "nodeRef": {},
             "children": [
               null,
               null
@@ -3468,6 +3485,7 @@ exports["Modal/Renders with correct classes (className)(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "goodest",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -3485,6 +3503,7 @@ exports["Modal/Renders with correct classes (className)(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "goodest",
+            "nodeRef": {},
             "children": [
               null,
               null
@@ -3517,6 +3536,7 @@ exports["Modal/Renders with correct classes (className)(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "goodest",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -3534,6 +3554,7 @@ exports["Modal/Renders with correct classes (className)(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "goodest",
+            "nodeRef": {},
             "key": "dialog"
           }
         }
@@ -3591,6 +3612,7 @@ exports["Modal/Renders with correct classes (dialogClassName)(0)"] = {
                 "onCancel": "[function]",
                 "className": "goodest",
                 "modalClassName": "",
+                "nodeRef": {},
                 "children": [
                   null,
                   null
@@ -3656,6 +3678,7 @@ exports["Modal/Renders with correct classes (dialogClassName)(0)"] = {
               "onCancel": "[function]",
               "className": "goodest",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -3673,6 +3696,7 @@ exports["Modal/Renders with correct classes (dialogClassName)(0)"] = {
             "onCancel": "[function]",
             "className": "goodest",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               null,
               null
@@ -3779,6 +3803,7 @@ exports["Modal/Renders with correct classes (dialogClassName)(0)"] = {
               "onCancel": "[function]",
               "className": "goodest",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -3796,6 +3821,7 @@ exports["Modal/Renders with correct classes (dialogClassName)(0)"] = {
             "onCancel": "[function]",
             "className": "goodest",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               null,
               null
@@ -3828,6 +3854,7 @@ exports["Modal/Renders with correct classes (dialogClassName)(0)"] = {
               "onCancel": "[function]",
               "className": "goodest",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 null,
                 null
@@ -3845,6 +3872,7 @@ exports["Modal/Renders with correct classes (dialogClassName)(0)"] = {
             "onCancel": "[function]",
             "className": "goodest",
             "modalClassName": "",
+            "nodeRef": {},
             "key": "dialog"
           }
         }
@@ -3902,6 +3930,7 @@ exports["Modal/Renders with string title(0)"] = {
                 "onCancel": "[function]",
                 "className": "tg",
                 "modalClassName": "",
+                "nodeRef": {},
                 "children": [
                   {
                     "type": "ModalHeader",
@@ -3977,6 +4006,7 @@ exports["Modal/Renders with string title(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 {
                   "type": "ModalHeader",
@@ -4004,6 +4034,7 @@ exports["Modal/Renders with string title(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               {
                 "type": "ModalHeader",
@@ -4131,6 +4162,7 @@ exports["Modal/Renders with string title(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 {
                   "type": "ModalHeader",
@@ -4158,6 +4190,7 @@ exports["Modal/Renders with string title(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               {
                 "type": "ModalHeader",
@@ -4211,6 +4244,7 @@ exports["Modal/Renders with string title(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 {
                   "type": "ModalHeader",
@@ -4249,6 +4283,7 @@ exports["Modal/Renders with string title(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "key": "dialog"
           },
           "children": [
@@ -4332,6 +4367,7 @@ exports["Modal/Renders children(0)"] = {
                 "onCancel": "[function]",
                 "className": "tg",
                 "modalClassName": "",
+                "nodeRef": {},
                 "children": [
                   {
                     "type": "ModalHeader",
@@ -4416,6 +4452,7 @@ exports["Modal/Renders children(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 {
                   "type": "ModalHeader",
@@ -4452,6 +4489,7 @@ exports["Modal/Renders children(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               {
                 "type": "ModalHeader",
@@ -4600,6 +4638,7 @@ exports["Modal/Renders children(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 {
                   "type": "ModalHeader",
@@ -4636,6 +4675,7 @@ exports["Modal/Renders children(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               {
                 "type": "ModalHeader",
@@ -4710,6 +4750,7 @@ exports["Modal/Renders children(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 {
                   "type": "ModalHeader",
@@ -4769,6 +4810,7 @@ exports["Modal/Renders children(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "key": "dialog"
           },
           "children": [
@@ -4874,6 +4916,7 @@ exports["Modal/Renders children even if null(0)"] = {
                 "onCancel": "[function]",
                 "className": "tg",
                 "modalClassName": "",
+                "nodeRef": {},
                 "children": [
                   {
                     "type": "ModalHeader",
@@ -4958,6 +5001,7 @@ exports["Modal/Renders children even if null(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 {
                   "type": "ModalHeader",
@@ -4994,6 +5038,7 @@ exports["Modal/Renders children even if null(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               {
                 "type": "ModalHeader",
@@ -5142,6 +5187,7 @@ exports["Modal/Renders children even if null(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 {
                   "type": "ModalHeader",
@@ -5178,6 +5224,7 @@ exports["Modal/Renders children even if null(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "children": [
               {
                 "type": "ModalHeader",
@@ -5252,6 +5299,7 @@ exports["Modal/Renders children even if null(0)"] = {
               "onCancel": "[function]",
               "className": "tg",
               "modalClassName": "",
+              "nodeRef": {},
               "children": [
                 {
                   "type": "ModalHeader",
@@ -5311,6 +5359,7 @@ exports["Modal/Renders children even if null(0)"] = {
             "onCancel": "[function]",
             "className": "tg",
             "modalClassName": "",
+            "nodeRef": {},
             "key": "dialog"
           },
           "children": [

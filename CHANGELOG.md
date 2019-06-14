@@ -26,7 +26,7 @@
 
 ### v0.9.0-beta.0 (in development)
 
-- Add react 16 to supported versions [issue #40, PR #51]
+- :exclamation: Drop support for react below `16.3.0`
 - Removed BrowserModal indirection and merged BrowserModal w/ Modal [issue #35, PR #51]
 - Added prop `className` to `Modal` [issue #50, PR #51]
   - Added prop `modalClassName` to `Modal.Dialog`
@@ -37,7 +37,8 @@
 - Add prettier
 - Update webpack, eslint and babel configuration
 - Migrate away from componentWillReceiveProps
-- Add `position: fixed` to `body.tg-modal-open` in default styles - see #21
+- Lock scroll of main body when modal is open via body-scroll-lock (issue #21, PR #54)
+  - Fixes scrolling issues in mobile browsers
 
 ### v0.8.0
 

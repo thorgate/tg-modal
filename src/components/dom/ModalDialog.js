@@ -8,11 +8,13 @@ class ModalDialog extends Component {
         modalClassName: PropTypes.string,
 
         onCancel: PropTypes.func.isRequired,
+        nodeRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
         isBasic: PropTypes.bool,
     };
 
     static defaultProps = {
         children: null,
+        nodeRef: null,
         className: 'tg-modal-dialog',
         isBasic: false,
         modalClassName: '',
@@ -42,7 +44,7 @@ class ModalDialog extends Component {
     };
 
     render() {
-        const { children, isBasic, className, modalClassName } = this.props;
+        const { children, isBasic, className, modalClassName, nodeRef } = this.props;
 
         return (
             <div
@@ -50,6 +52,7 @@ class ModalDialog extends Component {
                 onClick={this.onCancel}
                 onKeyPress={this.onKeyPress}
                 tabIndex={-1}
+                ref={nodeRef}
                 role="button"
             >
                 <div className={className} role="dialog">
