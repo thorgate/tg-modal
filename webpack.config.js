@@ -22,7 +22,7 @@ module.exports = {
     devtool: "source-map",
     output: {
         path: path.join(__dirname, 'examples'),
-        filename: '[name].js',
+        filename: '[name].main.js',
     },
     plugins: [
         new webpack.IgnorePlugin(/un~$/),
@@ -30,7 +30,7 @@ module.exports = {
             EXAMPLE_SRC: JSON.stringify(collectExampleSource())
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: '[name].main.css',
             chunkFilename: '[id].css',
         }),
     ],
