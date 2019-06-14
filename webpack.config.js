@@ -30,7 +30,7 @@ module.exports = {
             EXAMPLE_SRC: JSON.stringify(collectExampleSource())
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].main.css',
+            filename: '[name].css',
             chunkFilename: '[id].css',
         }),
     ],
