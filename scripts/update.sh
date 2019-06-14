@@ -8,10 +8,10 @@ mkdir -p ./node_modules/tg-modal
 rm -rf ./node_modules/tg-modal
 
 # Install latest available tg-modal
-npm install tg-modal@latest > /dev/null 2>&1
+npm install tg-modal@latest --no-save > /dev/null 2>&1
 
 # Get version of installed tg-modal
-version=`npm list tg-modal | grep "tg-modal@" | sed -r 's/.+tg\-modal\@//g'`
+version=`npm list tg-modal --json  | jq '.dependencies["tg-modal"].version' -r`
 echo "Found $version"
 
 # Make temporary directory
