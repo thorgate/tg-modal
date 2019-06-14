@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-
 class ModalHeader extends Component {
     static displayName = 'Modal.Header';
 
@@ -10,12 +9,15 @@ class ModalHeader extends Component {
         className: PropTypes.string,
         isStatic: PropTypes.bool,
         addClose: PropTypes.bool,
-        onCancel: PropTypes.func
+        onCancel: PropTypes.func,
     };
 
     static defaultProps = {
+        addClose: true,
+        children: null,
         className: 'tg-modal-header',
-        addClose: true
+        isStatic: false,
+        onCancel: null,
     };
 
     constructor(props) {
@@ -23,6 +25,7 @@ class ModalHeader extends Component {
 
         // warn if something is wrong with props
         if (props.addClose && !props.onCancel) {
+            // eslint-disable-next-line no-console
             console.warn(`${ModalHeader.displayName}: addClose is defined but onCancel is missing!`);
         }
     }
@@ -33,10 +36,10 @@ class ModalHeader extends Component {
             e.preventDefault();
         }
 
-        if (!this.props.isStatic) {
-            if (this.props.onCancel) {
-                this.props.onCancel(e, null);
-            }
+        const { isStatic, onCancel } = this.props;
+
+        if (!isStatic && onCancel) {
+            onCancel(e, null);
         }
     };
 
@@ -48,7 +51,9 @@ class ModalHeader extends Component {
         }
 
         const closeBtn = addClose ? (
-            <button className="tg-modal-close" aria-label="Close" onClick={this.onCancel}><span aria-hidden="true">&times;</span></button>
+            <button className="tg-modal-close" aria-label="Close" type="button" onClick={this.onCancel}>
+                <span aria-hidden="true">&times;</span>
+            </button>
         ) : null;
 
         return (

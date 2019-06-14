@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+.hidden {
+    display: none;
+}
+
 html {
     position: relative;
     min-height: 100%;
@@ -54,7 +58,15 @@ a {
 }
 
 .row {
-    @include clearfix;
+    &:after {
+      content    : "\0020";
+      display    : block;
+      height     : 0;
+      clear      : both;
+      overflow   : hidden;
+      visibility : hidden;
+    }
+
     margin-left: 0 -15px;
 
     .col-xs-6 {

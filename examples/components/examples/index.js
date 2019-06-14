@@ -8,7 +8,18 @@ import NestedLong from './NestedLong';
 import Markdown from './Markdown';
 import WithComponents from './WithComponents';
 import ReduxModal from './ReduxModal';
+import StrictMode from './StrictMode';
 
 export {
-    Simple, Basic, Static, Confirm, BasicConfirm, Long, NestedLong, Markdown, WithComponents, ReduxModal
+    Simple,
+    Basic,
+    Static,
+    Confirm,
+    BasicConfirm,
+    Long,
+    NestedLong,
+    Markdown,
+    WithComponents,
+    ReduxModal,
+    StrictMode,
 };

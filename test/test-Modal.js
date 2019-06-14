@@ -6,7 +6,6 @@ import { shallow } from 'enzyme';
 
 import Modal from '../src';
 
-
 const onCancel = () => null;
 
 describe('Modal', () => {
@@ -33,7 +32,12 @@ describe('Modal', () => {
         const node = shallow(<Modal onCancel={onCancel} isOpen className="goodest-boy" />);
 
         expect(node).to.matchSnapshot();
-        expect(node.find(Modal.Dialog).shallow().find('.goodest-boy')).to.have.length(1);
+        expect(
+            node
+                .find(Modal.Dialog)
+                .shallow()
+                .find('.goodest-boy'),
+        ).to.have.length(1);
     });
 
     it('Renders with correct classes (dialogClassName)', () => {
@@ -56,7 +60,7 @@ describe('Modal', () => {
         const node = shallow(
             <Modal onCancel={onCancel} isOpen autoWrap title="sum title">
                 am child
-            </Modal>
+            </Modal>,
         );
 
         expect(node).to.matchSnapshot();
@@ -67,7 +71,9 @@ describe('Modal', () => {
 
     it('Renders children even if null', () => {
         const node = shallow(
-            <Modal onCancel={onCancel} isOpen autoWrap title="sum title" children={[null, false, 'hello']} />
+            <Modal onCancel={onCancel} isOpen autoWrap title="sum title">
+                {[null, false, 'hello']}
+            </Modal>,
         );
 
         expect(node).to.matchSnapshot();

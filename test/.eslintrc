@@ -1,0 +1,6 @@
+{
+    "rules": {
+        "react/no-find-dom-node": 0,
+        "no-console": 0
+    },
+}

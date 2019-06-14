@@ -1,6 +1,4 @@
-
 function toggleClass(el, className, state) {
-
     if (el.classList) {
         if (typeof state === 'undefined') {
             el.classList.toggle(className);
@@ -9,7 +7,6 @@ function toggleClass(el, className, state) {
         } else {
             el.classList.remove(className);
         }
-
     } else {
         const classes = el.className.split(' ');
         const existingIndex = classes.indexOf(className);

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-
 class ModalDialog extends Component {
     static propTypes = {
         children: PropTypes.node,
@@ -9,11 +8,16 @@ class ModalDialog extends Component {
         modalClassName: PropTypes.string,
 
         onCancel: PropTypes.func.isRequired,
-        isBasic: PropTypes.bool
+        nodeRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+        isBasic: PropTypes.bool,
     };
 
     static defaultProps = {
-        className: 'tg-modal-dialog'
+        children: null,
+        nodeRef: null,
+        className: 'tg-modal-dialog',
+        isBasic: false,
+        modalClassName: '',
     };
 
     onCancel = (e) => {
@@ -22,20 +26,37 @@ class ModalDialog extends Component {
             e.preventDefault();
         }
 
-        this.props.onCancel(e, null);
+        const { onCancel } = this.props;
+
+        onCancel(e, null);
     };
 
     stopPropagate = (e) => {
         e.stopPropagation();
     };
 
+    onKeyPress = (e) => {
+        const { keyCode } = e;
+
+        if (keyCode === 13) {
+            this.onCancel(e);
+        }
+    };
+
     render() {
-        const { children, isBasic, className, modalClassName } = this.props;
+        const { children, isBasic, className, modalClassName, nodeRef } = this.props;
 
         return (
-            <div className={`tg-modal${isBasic ? ' tg-modal-basic' : ''} ${modalClassName}`} onClick={this.onCancel}>
-                <div className={className}>
-                    <div className="tg-modal-content" onClick={this.stopPropagate}>
+            <div
+                className={`tg-modal${isBasic ? ' tg-modal-basic' : ''} ${modalClassName}`}
+                onClick={this.onCancel}
+                onKeyPress={this.onKeyPress}
+                tabIndex={-1}
+                ref={nodeRef}
+                role="button"
+            >
+                <div className={className} role="dialog">
+                    <div className="tg-modal-content" onClick={this.stopPropagate} role="presentation">
                         {children}
                     </div>
                 </div>

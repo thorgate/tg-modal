@@ -2,34 +2,43 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Changelog
 
-- [v0.8.0](#v080)
-- [v0.7.1](#v071)
-- [v0.7.0](#v070)
-- [v0.6.0](#v060)
-- [v0.5.0](#v050)
-- [v0.4.1](#v041)
-- [v0.4.0](#v040)
-- [v0.3.2](#v032)
-- [v0.3.0](#v030)
-- [v0.2.10](#v0210)
-- [v0.2.8](#v028)
-- [v0.2.7](#v027)
-- [v0.2.3](#v023)
-- [v0.2.2](#v022)
-- [v0.1.1](#v011)
-- [v0.1.0](#v010)
-- [v0.0.1](#v001)
+- [Changelog](#changelog)
+    - [v0.9.0-beta.0 (in development)](#v090-beta0-in-development)
+    - [v0.8.0](#v080)
+    - [v0.7.1](#v071)
+    - [v0.7.0](#v070)
+    - [v0.6.0](#v060)
+    - [v0.5.0](#v050)
+    - [v0.4.1](#v041)
+    - [v0.4.0](#v040)
+    - [v0.3.2](#v032)
+    - [v0.3.0](#v030)
+    - [v0.2.10](#v0210)
+    - [v0.2.8](#v028)
+    - [v0.2.7](#v027)
+    - [v0.2.3](#v023)
+    - [v0.2.2](#v022)
+    - [v0.1.1](#v011)
+    - [v0.1.0](#v010)
+    - [v0.0.1](#v001)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-### v0.9.0-dev
+### v0.9.0-beta.0 (in development)
 
-- Add react 16 to supported versions [issue #40, PR #51]
+- :exclamation: Drop support for react below `16.3.0`
 - Removed BrowserModal indirection and merged BrowserModal w/ Modal [issue #35, PR #51]
 - Added prop `className` to `Modal` [issue #50, PR #51]
   - Added prop `modalClassName` to `Modal.Dialog`
 - Added prop `wrapperClassName` to `Modal`
-- Added node 9 to supported development engines
+- Update dependencies
+- Use yarn
+- Use node 8-12 in CI
+- Add prettier
+- Update webpack, eslint and babel configuration
+- Migrate away from componentWillReceiveProps
+- Lock scroll of main body when modal is open via body-scroll-lock (issue #21, PR #54)
+  - Fixes scrolling issues in mobile browsers
 
 ### v0.8.0
 

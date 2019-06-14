@@ -10,4 +10,4 @@ require('./styles/main.scss');
 
 const kiosk = new Kiosk();
 
-ReactDOM.render(<Prerendered initialOpen kiosk={kiosk} />, document.getElementById('content'));
+ReactDOM.hydrate(<Prerendered initialOpen kiosk={kiosk} />, document.getElementById('content'));

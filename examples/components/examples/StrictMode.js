@@ -35,20 +35,25 @@ class BasicModalExample extends Component {
         const { toggleCode } = this.props;
         const { isOpen } = this.state;
 
+        // Note: Currently warns when modal is shown
+        // issue ref: https://github.com/reactjs/react-transition-group/issues/429
+
         return (
             <div>
-                <div className="btn-group">
-                    <button type="button" className="btn btn-primary" onClick={this.toggleModal}>
-                        Open
-                    </button>
-                    <button type="button" className="btn btn-secondary" onClick={toggleCode}>
-                        Code
-                    </button>
-                </div>
+                <React.StrictMode>
+                    <div className="btn-group">
+                        <button type="button" className="btn btn-primary" onClick={this.toggleModal}>
+                            Open
+                        </button>
+                        <button type="button" className="btn btn-secondary" onClick={toggleCode}>
+                            Code
+                        </button>
+                    </div>
 
-                <Modal isOpen={isOpen} isBasic autoWrap title="Howdy!" onCancel={this.toggleModal}>
-                    <p>I’m a basic modal</p>
-                </Modal>
+                    <Modal isOpen={isOpen} isBasic autoWrap title="Howdy!" onCancel={this.toggleModal}>
+                        <p>I’m a basic modal</p>
+                    </Modal>
+                </React.StrictMode>
             </div>
         );
     }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 
@@ -10,16 +11,14 @@ import ModalHeader from './dom/ModalHeader';
 import ModalBody from './dom/ModalBody';
 import Backdrop from './dom/Backdrop';
 
-
 // This keeps track of how many modals that are open so that the
 // container class and container padding for the scrollbar is correctly set.
 let numberOfModalsOpen = 0;
 
 const keyCodes = {
     ESCAPE: 27,
-    ENTER: 13
+    ENTER: 13,
 };
-
 
 class Modal extends Component {
     static displayName = 'Modal';
@@ -43,42 +42,63 @@ class Modal extends Component {
 
         title: PropTypes.node,
 
-        TransitionClass: PropTypes.any.isRequired,
-        TransitionGroupClass: PropTypes.any.isRequired,
+        TransitionClass: PropTypes.func,
+        TransitionGroupClass: PropTypes.func,
 
-        style: PropTypes.object,
+        style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 
         // Enable/disable keyboard events
         keyboard: PropTypes.bool,
 
+        // Enable/disable body scroll locking
+        bodyScrollLock: PropTypes.bool,
+
         // This is internally used
-        onToggle: PropTypes.func
+        onToggle: PropTypes.func,
     };
 
     static defaultProps = {
         autoWrap: false,
+        children: null,
         className: '',
         dialogClassName: 'tg-modal-dialog',
         wrapperClassName: '',
+
+        isStatic: false,
+        isBasic: false,
+
+        bodyScrollLock: true,
 
         transitionName: 'tg-modal-fade',
         transitionDuration: 300,
 
         keyboard: true,
 
+        onToggle: null,
+        onConfirm: null,
+
+        title: null,
+
+        style: null,
+
         TransitionClass: CSSTransition,
-        TransitionGroupClass: TransitionGroup
+        TransitionGroupClass: TransitionGroup,
     };
 
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            animating: false,
+        };
+
+        this.node = React.createRef();
 
         // validate children props and warn if something is wrong
         React.Children.forEach(props.children, (child) => {
             if (child && child.type === ModalHeader) {
                 if (child.props.addClose && !child.props.onCancel) {
+                    // eslint-disable-next-line no-console
                     console.warn(`${ModalHeader.displayName}: addClose is defined but onCancel is missing!`);
                 }
             }
@@ -86,26 +106,36 @@ class Modal extends Component {
     }
 
     componentDidMount() {
-        this.onToggle(this.props.isOpen, this.getToggleProps());
+        const { isOpen } = this.props;
+
+        this.onToggle(isOpen, this.getToggleProps());
 
         if (typeof document !== 'undefined') {
-            if (this.props.keyboard) {
+            const { keyboard } = this.props;
+
+            if (keyboard) {
                 this.bindKeyboard();
             }
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (this.props.isOpen !== nextProps.isOpen) {
+    componentDidUpdate(prevProps, prevState) {
+        const { isOpen, keyboard } = this.props;
+
+        if (prevProps.isOpen !== isOpen) {
             this.setState({
-                animating: true
-            }, () => {
-                this.onToggle(nextProps.isOpen, this.getToggleProps());
+                animating: true,
             });
         }
 
-        if (this.props.keyboard !== nextProps.keyboard) {
-            if (nextProps.keyboard) {
+        const { animating } = this.state;
+
+        if (!prevState.animating && animating) {
+            this.onToggle(isOpen, this.getToggleProps());
+        }
+
+        if (prevProps.keyboard !== keyboard) {
+            if (keyboard) {
                 this.bindKeyboard();
             } else {
                 this.unbindKeyboard();
@@ -114,7 +144,9 @@ class Modal extends Component {
     }
 
     componentWillUnmount() {
-        if (this.props.isOpen) {
+        const { isOpen } = this.props;
+
+        if (isOpen) {
             this.onToggle(false, this.getToggleProps());
         }
 
@@ -124,13 +156,15 @@ class Modal extends Component {
     }
 
     onToggle(state, props) {
-        if (this.props.onToggle) {
-            this.props.onToggle(state, props);
+        const { onToggle } = this.props;
+
+        if (onToggle) {
+            onToggle(state, props);
         }
 
         // Add body class and padding to scrollbar.
         if (typeof document !== 'undefined') {
-            const container = document.body;
+            const { body } = document;
 
             // Increment modal count when opening.
             if (state) {
@@ -140,13 +174,18 @@ class Modal extends Component {
             // Add toggle body class and update body padding if there is only one modal open.
             if (numberOfModalsOpen === 1) {
                 // Toggle open class.
-                toggleClass(container, 'tg-modal-open', state);
+                toggleClass(body, 'tg-modal-open', state);
+
+                const { bodyScrollLock } = this.props;
 
                 if (state) {
-                    this._origPadding = container.style.paddingRight;
-                    container.style.paddingRight = `${parseInt(this._origPadding || 0, 10) + props.scrollbarSize}px`;
-                } else {
-                    container.style.paddingRight = this._origPadding;
+                    if (bodyScrollLock && this.node.current) {
+                        disableBodyScroll(this.node.current, {
+                            reserveScrollBarGap: true,
+                        });
+                    }
+                } else if (bodyScrollLock && this.node.current) {
+                    clearAllBodyScrollLocks();
                 }
             }
 
@@ -159,21 +198,23 @@ class Modal extends Component {
 
     onCancel = (e, extra) => {
         // Don't do anything while animating
-        if (this.state.animating) {
+        const { animating } = this.state;
+
+        if (animating) {
             return;
         }
 
-        if (this.props.isOpen && !this.props.isStatic) {
-            if (this.props.onCancel) {
-                this.props.onCancel(e, extra);
-            }
+        const { isOpen, isStatic, onCancel } = this.props;
+
+        if (isOpen && !isStatic && onCancel) {
+            onCancel(e, extra);
         }
     };
 
     getToggleProps(isOpen) {
         return {
             scrollbarSize: typeof document !== 'undefined' ? getScrollbarSize() : null,
-            className: isOpen ? 'tg-modal-open' : ''
+            className: isOpen ? 'tg-modal-open' : '',
         };
     }
 
@@ -187,7 +228,7 @@ class Modal extends Component {
             onEntered: this.clearAnimating,
             onExited: this.clearAnimating,
             unmountOnExit: true,
-            in: animating
+            in: animating,
         };
     }
 
@@ -201,6 +242,32 @@ class Modal extends Component {
         };
     }
 
+    clearAnimating = () => {
+        this.setState({
+            animating: false,
+        });
+    };
+
+    handleKeys = (e) => {
+        // Handle escape press
+        if (e.which === keyCodes.ESCAPE) {
+            this.onCancel(e, true);
+        } else if (e.which === keyCodes.ENTER) {
+            // Don't do anything while animating
+            const { animating } = this.state;
+
+            if (!animating) {
+                const { onConfirm } = this.props;
+
+                if (onConfirm) {
+                    e.preventDefault();
+
+                    onConfirm();
+                }
+            }
+        }
+    };
+
     bindKeyboard() {
         // Ensure we don't bind twice
         this.unbindKeyboard();
@@ -211,28 +278,6 @@ class Modal extends Component {
             document.addEventListener('keyup', this._keyHandler, false);
         }
     }
-
-    clearAnimating = () => {
-        this.setState({
-            animating: false
-        });
-    };
-
-    handleKeys = (e) => {
-        // Handle escape press
-        if (e.which === keyCodes.ESCAPE) {
-            this.onCancel(e, true);
-        } else if (e.which === keyCodes.ENTER) {
-            // Don't do anything while animating
-            if (!this.state.animating) {
-                if (this.props.onConfirm) {
-                    e.preventDefault();
-
-                    this.props.onConfirm();
-                }
-            }
-        }
-    };
 
     unbindKeyboard() {
         if (typeof document !== 'undefined') {
@@ -248,13 +293,13 @@ class Modal extends Component {
             return child;
         }
 
-        const { onCancel: onCancel } = this.props;
+        const { onCancel } = this.props;
         const { addClose, headerOnCancel } = child.props || {};
 
         if (child.type === ModalHeader && addClose && !headerOnCancel) {
             return React.cloneElement(child, {
                 ...child.props,
-                onCancel
+                onCancel,
             });
         }
 
@@ -262,16 +307,15 @@ class Modal extends Component {
     };
 
     renderModalBody() {
-        const children = React.Children.map(this.props.children, this.renderChild);
-        if (this.props.autoWrap) {
-            return (
-                <ModalBody>
-                    {children}
-                </ModalBody>
-            );
+        const { autoWrap, children } = this.props;
+
+        const nodes = React.Children.map(children, this.renderChild);
+
+        if (autoWrap) {
+            return <ModalBody>{nodes}</ModalBody>;
         }
 
-        return children;
+        return nodes;
     }
 
     renderModalHeader() {
@@ -310,9 +354,7 @@ class Modal extends Component {
         }
 
         return [
-            this.renderTransition(
-                <Backdrop isStatic={isStatic} onCancel={this.onCancel} key="backdrop" />
-            ),
+            this.renderTransition(<Backdrop isStatic={isStatic} onCancel={this.onCancel} key="backdrop" />),
             this.renderTransition(
                 <ModalDialog
                     key="dialog"
@@ -320,20 +362,18 @@ class Modal extends Component {
                     onCancel={this.onCancel}
                     className={dialogClassName}
                     modalClassName={className}
+                    nodeRef={this.node}
                 >
                     {this.renderModalHeader()}
                     {this.renderModalBody()}
-                </ModalDialog>
-            )];
+                </ModalDialog>,
+            ),
+        ];
     }
 
     render() {
         const { TransitionGroupClass } = this.props;
-        return (
-            <TransitionGroupClass {...this.getAnimatorGroupProps()}>
-                {this.renderModal()}
-            </TransitionGroupClass>
-        );
+        return <TransitionGroupClass {...this.getAnimatorGroupProps()}>{this.renderModal()}</TransitionGroupClass>;
     }
 }
 

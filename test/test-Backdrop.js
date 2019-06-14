@@ -8,7 +8,6 @@ import Backdrop from '../src/components/dom/Backdrop';
 
 import { buildContainer } from './util';
 
-
 describe('Modal Backdrop', () => {
     it('renders correctly', () => {
         const container = ReactDOM.findDOMNode(buildContainer(Backdrop, {}));

@@ -9,7 +9,6 @@ import ModalDialog from '../src/components/dom/ModalDialog';
 
 import { buildContainer } from './util';
 
-
 const onCancel = () => null;
 
 describe('ModalDialog', () => {
@@ -88,7 +87,9 @@ describe('ModalDialog', () => {
     });
 
     it('custom children work', () => {
-        const container = ReactDOM.findDOMNode(buildContainer(ModalDialog, { onCancel, children: (<span className="child">Sup</span>) }));
+        const container = ReactDOM.findDOMNode(
+            buildContainer(ModalDialog, { onCancel, children: <span className="child">Sup</span> }),
+        );
 
         assert.equal(container.querySelectorAll('.child').length, 1);
     });

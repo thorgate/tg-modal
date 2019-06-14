@@ -1,9 +1,5 @@
 // default.scss
 
-body.tg-modal-open {
-    overflow: hidden;
-}
-
 $modal-z-index: 1050;
 
 .tg-modal, .tg-modal-backdrop {
@@ -94,7 +90,8 @@ $modal-z-index: 1050;
                 padding: 1.8rem 1.5rem;
                 position: relative;
 
-                a + a {
+                a + a,
+                button + button {
                     margin-left: 1rem;
                 }
             }
@@ -146,6 +143,8 @@ $modal-z-index: 1050;
 .tg-modal-open .tg-modal {
     overflow-x: hidden;
     overflow-y: auto;
+    label: scroll-box;
+    -webkit-overflow-scrolling: touch;
 }
 
 .tg-modal-wrapper.tg-modal-animating {
