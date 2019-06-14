@@ -62,7 +62,7 @@ This will render a static modal, which cannot be hidden by the user.
 | title               | node   | When set, `Modal` will render this as child of `Modal.Header` element. 
 | isStatic            | bool   | Is the modal Static (backdrop click won't trigger `onCancel`) 
 | isBasic             | bool   | Is the modal Basic (backdrop only, best for confirms) 
-| keyboard            | bool   | Should the modal listen to keyboard events (`ENTER` or `ESCAPE` press) [default: true] 
+| keyboard            | bool?   | Should the modal listen to keyboard events (`ENTER` or `ESCAPE` press) [default: *isOpen*]
 | autoWrap            | bool   | If true, children will be wrapped inside `Modal.Body` [default: false] 
 | onToggle            | func   | Function called after the modal is toggled. `function (isOpen, props) { }` 
 | transitionName      | string | Name of animation to use for open/close (to see how to define custom ones, see default styles) [default: tg-modal-fade]
