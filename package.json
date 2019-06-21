@@ -127,5 +127,10 @@
   "nyc": {
     "sourceMap": false,
     "instrument": false
+  },
+  "greenkeeper": {
+    "ignore": [
+      "mocha"
+    ]
   }
 }

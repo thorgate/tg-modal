@@ -1,5 +1,7 @@
 # tg-modal
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/thorgate/tg-modal.svg)](https://greenkeeper.io/)
+
 ## Introduction
 
 tg-modal is a react component for Modals. It aims to provide a standalone
