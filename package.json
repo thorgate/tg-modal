@@ -96,7 +96,8 @@
   },
   "dependencies": {
     "body-scroll-lock": "^2.6.0-0",
-    "react-transition-group": "^4.0.0-0"
+    "react-transition-group": "^4.0.0-0",
+    "websocket-driver": "0.7.1"
   },
   "scripts": {
     "clean": "rimraf dist",
