@@ -27,10 +27,11 @@ import Modal from 'tg-modal';
 
 ### Styles
 
-To get the actual modal working (it might be invisible without them), one should import
-default styles to your own assets. These are available as `tg-modal/dist/default.scss`.
+To get the actual modal working (it might be invisible without styles), one should import
+default styles to your own assets. The default styles are available as:
 
-> SCSS available at: `tg-modal/dist/default.scss`
+> CSS: `node_modules/dist/default.css`
+> SCSS: `tg-modal/dist/default.scss`
 
 ### Custom styles
 
