@@ -63,7 +63,7 @@
     "jsdom-global": "3.0.2",
     "json-loader": "^0.5.7",
     "koa": "^2.7.0",
-    "mini-css-extract-plugin": "^0.7.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "mocha": "^4.0.1",
     "mocha-snapshots": "^4.2.0",
     "node-sass": "^4.12.0",
