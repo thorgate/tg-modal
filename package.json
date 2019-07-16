@@ -99,6 +99,9 @@
     "react-transition-group": "^4.0.0-0",
     "websocket-driver": "0.7.1"
   },
+  "resolutions": {
+    "lodash": ">=4.17.14"
+  },
   "scripts": {
     "clean": "rimraf dist",
     "lint": "eslint src test examples",
