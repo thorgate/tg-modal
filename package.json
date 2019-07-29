@@ -44,7 +44,7 @@
     "coveralls": "*",
     "cross-env": "^5.2.0",
     "css-loader": "^3.0.0",
-    "dependency-check": "*",
+    "dependency-check": ">=4.1.0",
     "doctoc": "*",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
