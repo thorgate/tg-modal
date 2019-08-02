@@ -85,7 +85,7 @@
     "superagent": "*",
     "url-loader": "^2.0.0",
     "watch": "*",
-    "webpack": "^4.34.0",
+    "webpack": "^4.39.1",
     "webpack-cli": "^3.3.4",
     "webpack-dev-server": "^3.7.1"
   },
