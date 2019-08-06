@@ -81,7 +81,7 @@
     "rimraf": "*",
     "sass-loader": "^7.1.0",
     "sinon": "^7.3.2",
-    "style-loader": "^0.23.1",
+    "style-loader": "^1.0.0",
     "superagent": "*",
     "url-loader": "^2.0.0",
     "watch": "*",
