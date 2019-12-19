@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/thorgate/tg-modal#readme",
   "devDependencies": {
-    "@babel/cli": "^7.5.0",
+    "@babel/cli": "^7.7.7",
     "@babel/core": "^7.5.0",
     "@babel/node": "^7.5.0",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
