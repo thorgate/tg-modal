@@ -80,7 +80,7 @@
     "resolve-url-loader": "^3.1.0",
     "rimraf": "*",
     "sass-loader": "^7.1.0",
-    "sinon": "^7.3.2",
+    "sinon": "^8.0.0",
     "style-loader": "^0.23.1",
     "superagent": "*",
     "url-loader": "^2.0.0",
