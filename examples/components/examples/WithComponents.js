@@ -4,15 +4,6 @@ import PropTypes from 'prop-types';
 import Modal from '../../../src/components/Modal';
 
 class WithComponentsModalExample extends Component {
-    static propTypes = {
-        initialOpen: PropTypes.bool,
-        toggleCode: PropTypes.func.isRequired,
-    };
-
-    static defaultProps = {
-        initialOpen: false,
-    };
-
     constructor(props) {
         super(props);
 
@@ -58,5 +49,14 @@ class WithComponentsModalExample extends Component {
         );
     }
 }
+
+WithComponentsModalExample.propTypes = {
+    initialOpen: PropTypes.bool,
+    toggleCode: PropTypes.func.isRequired,
+};
+
+WithComponentsModalExample.defaultProps = {
+    initialOpen: false,
+};
 
 export default WithComponentsModalExample;

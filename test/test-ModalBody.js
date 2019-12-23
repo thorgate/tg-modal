@@ -1,14 +1,16 @@
-import ReactDOM from 'react-dom';
-
 import { assert } from 'chai';
 
 import ModalBody from '../src/components/dom/ModalBody';
 
-import { buildContainer } from './util';
+import { testRenderFunctional } from './util';
+
+beforeEach(() => {
+    ModalBody.defaultProps['data-testid'] = 'Modal.Body';
+});
 
 describe('ModalBody', () => {
     it('renders correctly', () => {
-        const container = ReactDOM.findDOMNode(buildContainer(ModalBody, {}));
+        const container = testRenderFunctional(ModalBody, {}, 'Modal.Body');
 
         // Its a div
         assert.equal(container.nodeName, 'DIV');
@@ -18,7 +20,7 @@ describe('ModalBody', () => {
     });
 
     it('className works', () => {
-        const container = ReactDOM.findDOMNode(buildContainer(ModalBody, { className: 'foo' }));
+        const container = testRenderFunctional(ModalBody, { className: 'foo' }, 'Modal.Body');
 
         // Its a div
         assert.equal(container.nodeName, 'DIV');
@@ -28,7 +30,7 @@ describe('ModalBody', () => {
     });
 
     it('children work', () => {
-        const container = ReactDOM.findDOMNode(buildContainer(ModalBody, { children: 'hello world' }));
+        const container = testRenderFunctional(ModalBody, { children: 'hello world' }, 'Modal.Body');
 
         // Its a div
         assert.equal(container.nodeName, 'DIV');

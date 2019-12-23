@@ -9,7 +9,11 @@ import Modal from '../src';
 function assertValidComponent(a, key, displayName, Base = Component) {
     assert.isDefined(a, `${key} should be defined`);
     assert.isFunction(a, `${key} should be a function`);
-    assert(a.prototype instanceof Base, `${key} should be a Component`);
+
+    if (Base !== null) {
+        assert(a.prototype instanceof Base, `${key} should be a Component`);
+    }
+
     assert(a && a.displayName === displayName, `${key} should be ${displayName}`);
 }
 
@@ -24,7 +28,7 @@ describe('Exports work', () => {
     });
 
     it('default.Body is Modal.Body', () => {
-        assertValidComponent(Modal.Body, 'default.Body', 'Modal.Body');
+        assertValidComponent(Modal.Body, 'default.Body', 'Modal.Body', null);
     });
 
     it('default.Header is Modal.Header', () => {

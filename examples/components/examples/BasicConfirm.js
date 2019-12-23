@@ -4,18 +4,10 @@ import PropTypes from 'prop-types';
 import Modal from '../../../src/components/Modal';
 
 class BasicConfirmModalExample extends Component {
-    static propTypes = {
-        toggleCode: PropTypes.func.isRequired,
+    state = {
+        isOpen: false,
+        answer: null,
     };
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isOpen: false,
-            answer: null,
-        };
-    }
 
     onCancel = () => {
         this.setState({
@@ -84,5 +76,9 @@ class BasicConfirmModalExample extends Component {
         );
     }
 }
+
+BasicConfirmModalExample.propTypes = {
+    toggleCode: PropTypes.func.isRequired,
+};
 
 export default BasicConfirmModalExample;

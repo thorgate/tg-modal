@@ -23,71 +23,6 @@ const keyCodes = {
 const shouldBindKeyboard = ({ isOpen, keyboard }) => (keyboard === null ? isOpen : keyboard);
 
 class Modal extends Component {
-    static displayName = 'Modal';
-
-    static propTypes = {
-        isOpen: PropTypes.bool.isRequired,
-        onCancel: PropTypes.func.isRequired,
-        onConfirm: PropTypes.func,
-
-        children: PropTypes.node,
-
-        isStatic: PropTypes.bool,
-        isBasic: PropTypes.bool,
-        autoWrap: PropTypes.bool,
-        className: PropTypes.string,
-        dialogClassName: PropTypes.string,
-        wrapperClassName: PropTypes.string,
-
-        transitionName: PropTypes.string,
-        transitionDuration: PropTypes.number,
-
-        title: PropTypes.node,
-
-        TransitionClass: PropTypes.func,
-        TransitionGroupClass: PropTypes.func,
-
-        style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-
-        // Enable/disable keyboard events.
-        // When null, the default, it will behave as having same value as isOpen
-        keyboard: PropTypes.bool,
-
-        // Enable/disable body scroll locking
-        bodyScrollLock: PropTypes.bool,
-
-        // This is internally used
-        onToggle: PropTypes.func,
-    };
-
-    static defaultProps = {
-        autoWrap: false,
-        children: null,
-        className: '',
-        dialogClassName: 'tg-modal-dialog',
-        wrapperClassName: '',
-
-        isStatic: false,
-        isBasic: false,
-
-        bodyScrollLock: true,
-
-        transitionName: 'tg-modal-fade',
-        transitionDuration: 300,
-
-        keyboard: null,
-
-        onToggle: null,
-        onConfirm: null,
-
-        title: null,
-
-        style: null,
-
-        TransitionClass: CSSTransition,
-        TransitionGroupClass: TransitionGroup,
-    };
-
     constructor(props) {
         super(props);
 
@@ -379,5 +314,70 @@ class Modal extends Component {
         return <TransitionGroupClass {...this.getAnimatorGroupProps()}>{this.renderModal()}</TransitionGroupClass>;
     }
 }
+
+Modal.displayName = 'Modal';
+
+Modal.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onCancel: PropTypes.func.isRequired,
+    onConfirm: PropTypes.func,
+
+    children: PropTypes.node,
+
+    isStatic: PropTypes.bool,
+    isBasic: PropTypes.bool,
+    autoWrap: PropTypes.bool,
+    className: PropTypes.string,
+    dialogClassName: PropTypes.string,
+    wrapperClassName: PropTypes.string,
+
+    transitionName: PropTypes.string,
+    transitionDuration: PropTypes.number,
+
+    title: PropTypes.node,
+
+    TransitionClass: PropTypes.func,
+    TransitionGroupClass: PropTypes.func,
+
+    style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+
+    // Enable/disable keyboard events.
+    // When null, the default, it will behave as having same value as isOpen
+    keyboard: PropTypes.bool,
+
+    // Enable/disable body scroll locking
+    bodyScrollLock: PropTypes.bool,
+
+    // This is internally used
+    onToggle: PropTypes.func,
+};
+
+Modal.defaultProps = {
+    autoWrap: false,
+    children: null,
+    className: '',
+    dialogClassName: 'tg-modal-dialog',
+    wrapperClassName: '',
+
+    isStatic: false,
+    isBasic: false,
+
+    bodyScrollLock: true,
+
+    transitionName: 'tg-modal-fade',
+    transitionDuration: 300,
+
+    keyboard: null,
+
+    onToggle: null,
+    onConfirm: null,
+
+    title: null,
+
+    style: null,
+
+    TransitionClass: CSSTransition,
+    TransitionGroupClass: TransitionGroup,
+};
 
 export default Modal;

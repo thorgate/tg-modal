@@ -6,15 +6,6 @@ import classNames from 'classnames';
 import Modal from '../../../src/components/Modal';
 
 class LongNestedModalExample extends Component {
-    static propTypes = {
-        toggleCode: PropTypes.func.isRequired,
-        maxModals: PropTypes.number,
-    };
-
-    static defaultProps = {
-        maxModals: 8,
-    };
-
     state = {
         openModalCount: 0,
     };
@@ -142,5 +133,14 @@ class LongNestedModalExample extends Component {
         );
     }
 }
+
+LongNestedModalExample.propTypes = {
+    toggleCode: PropTypes.func.isRequired,
+    maxModals: PropTypes.number,
+};
+
+LongNestedModalExample.defaultProps = {
+    maxModals: 8,
+};
 
 export default LongNestedModalExample;

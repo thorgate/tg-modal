@@ -2,24 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Example extends Component {
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        component: PropTypes.func.isRequired,
-        src: PropTypes.string.isRequired,
-        children: PropTypes.node,
+    state = {
+        showCode: false,
     };
-
-    static defaultProps = {
-        children: null,
-    };
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            showCode: false,
-        };
-    }
 
     toggleCode = (e) => {
         e.preventDefault();
@@ -64,5 +49,16 @@ class Example extends Component {
         );
     }
 }
+
+Example.propTypes = {
+    title: PropTypes.string.isRequired,
+    component: PropTypes.func.isRequired,
+    src: PropTypes.string.isRequired,
+    children: PropTypes.node,
+};
+
+Example.defaultProps = {
+    children: null,
+};
 
 export default Example;
