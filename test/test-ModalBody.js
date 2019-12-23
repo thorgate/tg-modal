@@ -1,5 +1,3 @@
-import ReactDOM from 'react-dom';
-
 import { assert } from 'chai';
 
 import ModalBody from '../src/components/dom/ModalBody';
