@@ -11,7 +11,7 @@ before_script:
 
 after_success:
   - yarn coverage
-  - test $TRAVIS_NODE_VERSION = 10 && yarn coveralls
+  - test $TRAVIS_NODE_VERSION = 12 && yarn coveralls
 
 notifications:
     email: false
@@ -32,4 +32,4 @@ deploy:
       gTrPnUhYcBAADOitN1OmORx6/e9hLY1k=
   on:
     tags: true
-    node: "13"
+    node: "12"
