@@ -1,7 +1,5 @@
 # tg-modal
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/thorgate/tg-modal.svg)](https://greenkeeper.io/)
-
 ## Introduction
 
 tg-modal is a react component for Modals. It aims to provide a standalone
@@ -11,6 +9,7 @@ tg-modal is a react component for Modals. It aims to provide a standalone
 [![Build Status][travis-image]][travis-url]
 [![Coverage][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
+[![Greenkeeper badge](greenkeeper-image)](greenkeeper-url)
 [![Downloads][download-badge]][npm-url]
 
 ## Installation
@@ -116,6 +115,9 @@ MIT © [Thorgate](http://github.com/thorgate)
 
 [depstat-url]: https://david-dm.org/thorgate/tg-modal
 [depstat-image]: https://david-dm.org/thorgate/tg-modal.svg?style=flat-square
+
+[greenkeeper-image]: https://badges.greenkeeper.io/thorgate/tg-modal.svg
+[greenkeeper-url]: https://greenkeeper.io/
 
 [download-badge]: https://img.shields.io/npm/dm/tg-modal.svg?style=flat-square
 
