@@ -43,3 +43,10 @@ All new features an changes to existing features should be covered by tests.
    - Alternatively you can also create the tag via [Github](https://github.com/thorgate/tg-modal/releases/new)
 3. Travis will now automatically build and publish the new version to npm
 4. Make sure to add release notes under [Github releases](https://github.com/thorgate/tg-modal/releases)
+
+### Testing SSR example
+
+1. Start webpack `yarn start`
+2. In another terminal start the server `yarn server`
+3. Open http://127.0.0.1:3000/
+4. The modal should be open during initial page load (and even when JS is disabled)

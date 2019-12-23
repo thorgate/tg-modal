@@ -22,6 +22,13 @@ const keyCodes = {
 
 const shouldBindKeyboard = ({ isOpen, keyboard }) => (keyboard === null ? isOpen : keyboard);
 
+const getToggleProps = (isOpen) => {
+    return {
+        scrollbarSize: typeof document !== 'undefined' ? getScrollbarSize() : null,
+        className: isOpen ? 'tg-modal-open' : '',
+    };
+};
+
 class Modal extends Component {
     constructor(props) {
         super(props);
@@ -43,10 +50,20 @@ class Modal extends Component {
         });
     }
 
+    // Add support for SSR - since `componentDidMount` is not called in SSR anymore
+    //   In the future we can probably do something with Suspense here.
+    UNSAFE_componentWillMount() {
+        if (typeof document === 'undefined') {
+            const { isOpen } = this.props;
+
+            this.onToggle(isOpen, getToggleProps(isOpen));
+        }
+    }
+
     componentDidMount() {
         const { isOpen } = this.props;
 
-        this.onToggle(isOpen, this.getToggleProps());
+        this.onToggle(isOpen, getToggleProps(isOpen));
 
         if (typeof document !== 'undefined') {
             if (shouldBindKeyboard(this.props)) {
@@ -67,7 +84,7 @@ class Modal extends Component {
         const { animating } = this.state;
 
         if (!prevState.animating && animating) {
-            this.onToggle(isOpen, this.getToggleProps());
+            this.onToggle(isOpen, getToggleProps(isOpen));
         }
 
         const wasBound = shouldBindKeyboard(prevProps);
@@ -85,7 +102,7 @@ class Modal extends Component {
         const { isOpen } = this.props;
 
         if (isOpen) {
-            this.onToggle(false, this.getToggleProps());
+            this.onToggle(false, getToggleProps(isOpen));
         }
 
         if (typeof document !== 'undefined') {
@@ -148,13 +165,6 @@ class Modal extends Component {
             onCancel(e, extra);
         }
     };
-
-    getToggleProps(isOpen) {
-        return {
-            scrollbarSize: typeof document !== 'undefined' ? getScrollbarSize() : null,
-            className: isOpen ? 'tg-modal-open' : '',
-        };
-    }
 
     getAnimatorProps() {
         const { transitionName, transitionDuration } = this.props;

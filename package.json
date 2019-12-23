@@ -45,7 +45,6 @@
     "coveralls": ">=3.0.9",
     "cross-env": "^6.0.0",
     "css-loader": "^3.4.0",
-    "dependency-check": ">=4.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -107,7 +106,6 @@
   "scripts": {
     "clean": "rimraf dist",
     "lint": "eslint src test examples",
-    "check": "yarn lint -s 500 && $(yarn bin)/dependency-check package.json --entry src",
     "watch": "watch 'yarn build' src test",
     "pretest": "yarn check-engine",
     "prebuild": "yarn check-engine",
@@ -119,7 +117,6 @@
     "coverage": "nyc report && nyc report --reporter=html",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "postcoveralls": "rimraf ./coverage",
-    "deploy": "git pull --rebase origin master && git push origin master",
     "start": "cross-env BABEL_ENV=test $(yarn bin)/webpack-dev-server",
     "server": "cross-env BABEL_ENV=test babel-node --harmony server.js",
     "build-examples": "cross-env BABEL_ENV=commonjs NODE_ENV=production $(yarn bin)/webpack --config=webpack.config.prod.js",

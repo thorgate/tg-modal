@@ -1,46 +1,48 @@
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import { useCallback, createContext, useState } from 'react';
 
 import Modal from '../../src/components/Modal';
 
-// Kiosk is like store+actions in the same class
-export class Kiosk {
-    state = {
-        className: '',
-    };
+export const ModalContext = createContext();
 
-    flush() {
-        this.state = {
-            isOpen: false,
-            className: '',
-        };
-    }
+// Wrap the Modal component and hook into its open/close event
+const ServerSideModal = ({ onToggle, ...rest }) => {
+    const ctx = useContext(ModalContext);
 
-    getState() {
-        return this.state;
-    }
-
-    onAction(isOpen, bodyProps) {
-        this.state.isOpen = isOpen;
-        this.state.bodyProps = bodyProps;
-    }
-}
-
-// Extend the Base Modal component
-class ServerSideModal extends Modal {
-    onToggle(isOpen, bodyProps) {
-        // Call super.onToggle
-        super.onToggle(isOpen, bodyProps);
-
-        // Pass action to our kiosk
-        if (this.props.kiosk) {
-            this.props.kiosk.onAction(isOpen, bodyProps);
+    const wrappedOnToggle = useCallback((isOpen, bodyProps) => {
+        // Pass action to our global state handler
+        if (ctx && ctx.setBodyProps) {
+            ctx.setBodyProps(bodyProps);
         }
-    }
-}
 
-ServerSideModal.propTypes = {
-    // Note: You could also pass kiosk down from the root component via context
-    kiosk: PropTypes.instanceOf(Kiosk).isRequired,
+        if (onToggle) {
+            onToggle(isOpen, bodyProps);
+        }
+    }, [onToggle]);
+
+    return (
+        <Modal onToggle={wrappedOnToggle} {...rest} />
+    );
+
+};
+
+export const ModalManager = ({ children, setBodyProps: propsSetBodyProps }) => {
+    const [bodyProps, setBodyProps] = useState({ props: {} });
+
+    const wrappedSetBodyProps = useCallback((newBodyProps) => {
+        setBodyProps({ props: newBodyProps });
+
+        // Pass props to outside as well
+        if (propsSetBodyProps) {
+            propsSetBodyProps(newBodyProps);
+        }
+    }, [propsSetBodyProps]);
+
+    return (
+        <ModalContext.Provider value={{ bodyProps: bodyProps.props, setBodyProps: wrappedSetBodyProps }}>
+            {children}
+        </ModalContext.Provider>
+    );
 };
 
 export default ServerSideModal;

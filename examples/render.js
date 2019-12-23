@@ -1,13 +1,10 @@
-// Render serverside example in the client
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Prerendered from './components/Prerendered';
-import { Kiosk } from './components/Serverside';
 
 // Load styles
 require('./styles/main.scss');
+require('../src/styles/default.scss');
 
-const kiosk = new Kiosk();
-
-ReactDOM.hydrate(<Prerendered initialOpen kiosk={kiosk} />, document.getElementById('content'));
+ReactDOM.hydrate(<Prerendered initialOpen />, document.getElementById('content'));

@@ -29,10 +29,6 @@ module.exports = {
         new webpack.DefinePlugin({
             EXAMPLE_SRC: JSON.stringify(collectExampleSource())
         }),
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css',
-        }),
     ],
     resolve: {
         extensions: ['.js']
@@ -55,19 +51,12 @@ module.exports = {
             {
                 test: /\.(css|scss)$/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: true
-                        },
-                    },
+                    'style-loader',
                     {
                         loader: 'css-loader',
                         options: {
                             sourceMap: true,
-                            modules: {
-                                mode: 'global'
-                            },
+                            modules: 'global',
                             importLoaders: 2
                         },
                     }, {

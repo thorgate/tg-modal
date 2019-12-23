@@ -1,38 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Modal from './Serverside';
+import Modal, { ModalManager } from './Serverside';
 
-class Prerendered extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            isOpen: props.initialOpen,
-        };
-    }
+const Prerendered = ({ initialOpen, setBodyProps }) => {
+    const [isOpen, setIsOpen] = useState(initialOpen);
 
-    toggleModal = (e) => {
+    const toggleModal = (e) => {
         if (e && e.preventDefault) {
             e.preventDefault();
         }
 
-        this.setState((prevState) => ({
-            isOpen: !prevState.isOpen,
-        }));
+        setIsOpen((prevOpen) => !prevOpen);
     };
 
-    render() {
-        const { isOpen } = this.state;
-        const { kiosk } = this.props;
-
-        return (
+    return (
+        <ModalManager setBodyProps={setBodyProps}>
             <div>
-                <button className="btn btn-primary" onClick={this.toggleModal} type="button">
+                <button className="btn btn-primary" onClick={toggleModal} type="button">
                     Open
                 </button>
 
-                <Modal isOpen={isOpen} title="Longcat is long" kiosk={kiosk} onCancel={this.toggleModal}>
+                <Modal isOpen={isOpen} title="Longcat is long" onCancel={toggleModal} autoWrap>
                     <p>
                         Viral deep v squid chia, letterpress wayfarers artisan meggings tote bag four loko keffiyeh
                         hoodie cronut four dollar toast flannel.
@@ -101,13 +91,13 @@ class Prerendered extends Component {
                     </p>
                 </Modal>
             </div>
-        );
-    }
-}
+        </ModalManager>
+    );
+};
 
 Prerendered.propTypes = {
     initialOpen: PropTypes.bool,
-    kiosk: PropTypes.object.isRequired,
+    setBodyProps: PropTypes.func,
 };
 
 Prerendered.defaultProps = {
