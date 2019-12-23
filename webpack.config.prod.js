@@ -74,7 +74,9 @@ var config = {
                         loader: "sass-loader",
                         options: {
                             sourceMap: true,
-                            outputStyle: 'expanded',
+                            sassOptions: {
+                                outputStyle: 'expanded',
+                            },
                         }
                     },
                 ],
