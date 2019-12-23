@@ -9,7 +9,7 @@ tg-modal is a react component for Modals. It aims to provide a standalone
 [![Build Status][travis-image]][travis-url]
 [![Coverage][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
-[![Greenkeeper badge](greenkeeper-image)](greenkeeper-url)
+[![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
 [![Downloads][download-badge]][npm-url]
 
 ## Installation
