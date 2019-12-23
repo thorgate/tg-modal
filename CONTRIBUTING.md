@@ -44,6 +44,30 @@ All new features an changes to existing features should be covered by tests.
 3. Travis will now automatically build and publish the new version to npm
 4. Make sure to add release notes under [Github releases](https://github.com/thorgate/tg-modal/releases)
 
+Once the deployment to npm is completed you need to update [example pages](https://thorgate.github.io/tg-modal/). To do this you need to ensure your working directory is clean. Then you can check out the gh-pages branch with:
+
+Note: Make sure your origin remote is set to git@github.com:thorgate/tg-modal.git
+
+```
+git checkout gh-pages
+```
+
+Then you can run a script which downloads the latest release and creates a folder for it (like 0.9.0):
+
+```
+./scripts/update.sh
+```
+
+Finally you can stage, commit and push the changes:
+
+```
+git add -p 0.9.0/ latest
+git commit -m 'Add docs for 0.9.0'
+git push origin gh-pages
+```
+
+They should appear shortly under https://thorgate.github.io/tg-modal/
+
 ### Testing SSR example
 
 1. Start webpack `yarn start`
