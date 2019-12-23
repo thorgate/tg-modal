@@ -38,7 +38,7 @@
     "autoprefixer": "^9.6.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
-    "babel-plugin-istanbul": "^5.1.4",
+    "babel-plugin-istanbul": "^6.0.0",
     "chai": "^4.2.0",
     "classnames": "^2.2.6",
     "coveralls": "*",
