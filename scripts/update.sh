@@ -1,5 +1,9 @@
 #!/bin/bash
 
+DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)"
+
+cd $DIR
+
 # ensure paths exists
 mkdir -p ./node_modules
 mkdir -p ./node_modules/tg-modal
