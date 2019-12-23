@@ -11,10 +11,6 @@ require('../styles/main.scss');
 
 // The example app
 class App extends Component {
-    static propTypes = {
-        packageCfg: PropTypes.object.isRequired,
-    };
-
     render() {
         const { packageCfg } = this.props;
         const { name, description, version } = packageCfg;
@@ -112,5 +108,9 @@ class App extends Component {
         );
     }
 }
+
+App.propTypes = {
+    packageCfg: PropTypes.object.isRequired,
+};
 
 export default App;

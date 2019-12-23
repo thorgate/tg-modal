@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class PackageHeader extends Component {
-    static propTypes = {
-        name: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        version: PropTypes.string.isRequired,
-    };
-
     render() {
         const { name, description, version } = this.props;
 
@@ -25,5 +19,11 @@ class PackageHeader extends Component {
         );
     }
 }
+
+PackageHeader.propTypes = {
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    version: PropTypes.string.isRequired,
+};
 
 export default PackageHeader;

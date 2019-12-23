@@ -2,24 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class ModalDialog extends Component {
-    static propTypes = {
-        children: PropTypes.node,
-        className: PropTypes.string,
-        modalClassName: PropTypes.string,
-
-        onCancel: PropTypes.func.isRequired,
-        nodeRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-        isBasic: PropTypes.bool,
-    };
-
-    static defaultProps = {
-        children: null,
-        nodeRef: null,
-        className: 'tg-modal-dialog',
-        isBasic: false,
-        modalClassName: '',
-    };
-
     onCancel = (e) => {
         /* istanbul ignore else */
         if (e && e.preventDefault) {
@@ -64,5 +46,23 @@ class ModalDialog extends Component {
         );
     }
 }
+
+ModalDialog.propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    modalClassName: PropTypes.string,
+
+    onCancel: PropTypes.func.isRequired,
+    nodeRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+    isBasic: PropTypes.bool,
+};
+
+ModalDialog.defaultProps = {
+    children: null,
+    nodeRef: null,
+    className: 'tg-modal-dialog',
+    isBasic: false,
+    modalClassName: '',
+};
 
 export default ModalDialog;

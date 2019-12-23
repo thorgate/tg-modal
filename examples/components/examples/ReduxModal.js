@@ -47,10 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
     onClose: () => dispatch(closeModal()),
 });
 
-const ReduxModalConnector = connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(ReduxModal);
+const ReduxModalConnector = connect(mapStateToProps, mapDispatchToProps)(ReduxModal);
 
 function reducer(state = false, action) {
     switch (action.type) {

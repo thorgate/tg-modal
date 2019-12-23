@@ -1,24 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class ModalBody extends Component {
-    static displayName = 'Modal.Body';
+const ModalBody = ({ children, ...rest }) => <div {...rest}>{children}</div>;
 
-    static propTypes = {
-        children: PropTypes.node,
-        className: PropTypes.string,
-    };
+ModalBody.displayName = 'Modal.Body';
 
-    static defaultProps = {
-        children: null,
-        className: 'tg-modal-body',
-    };
+ModalBody.propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+};
 
-    render() {
-        const { children } = this.props;
-
-        return <div {...this.props}>{children}</div>;
-    }
-}
+ModalBody.defaultProps = {
+    children: null,
+    className: 'tg-modal-body',
+};
 
 export default ModalBody;

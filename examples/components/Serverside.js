@@ -4,11 +4,9 @@ import Modal from '../../src/components/Modal';
 
 // Kiosk is like store+actions in the same class
 export class Kiosk {
-    constructor() {
-        this.state = {
-            className: '',
-        };
-    }
+    state = {
+        className: '',
+    };
 
     flush() {
         this.state = {
@@ -29,11 +27,6 @@ export class Kiosk {
 
 // Extend the Base Modal component
 class ServerSideModal extends Modal {
-    static propTypes = {
-        // Note: You could also pass kiosk down from the root component via context
-        kiosk: PropTypes.instanceOf(Kiosk).isRequired,
-    };
-
     onToggle(isOpen, bodyProps) {
         // Call super.onToggle
         super.onToggle(isOpen, bodyProps);
@@ -44,5 +37,10 @@ class ServerSideModal extends Modal {
         }
     }
 }
+
+ServerSideModal.propTypes = {
+    // Note: You could also pass kiosk down from the root component via context
+    kiosk: PropTypes.instanceOf(Kiosk).isRequired,
+};
 
 export default ServerSideModal;

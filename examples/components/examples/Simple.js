@@ -4,17 +4,9 @@ import PropTypes from 'prop-types';
 import Modal from '../../../src/components/Modal';
 
 class SimpleModalExample extends Component {
-    static propTypes = {
-        toggleCode: PropTypes.func.isRequired,
+    state = {
+        isOpen: false,
     };
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isOpen: false,
-        };
-    }
 
     toggleModal = () => {
         this.setState((prevState) => ({
@@ -53,5 +45,9 @@ class SimpleModalExample extends Component {
         );
     }
 }
+
+SimpleModalExample.propTypes = {
+    toggleCode: PropTypes.func.isRequired,
+};
 
 export default SimpleModalExample;

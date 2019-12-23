@@ -8,17 +8,9 @@ import theMarkdown from '../../files/example.md';
 import Modal from '../../../src/components/Modal';
 
 class MarkdownModalExample extends Component {
-    static propTypes = {
-        toggleCode: PropTypes.func.isRequired,
+    state = {
+        isOpen: false,
     };
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isOpen: false,
-        };
-    }
 
     toggleModal = () => {
         this.setState((prevState) => ({
@@ -50,5 +42,9 @@ class MarkdownModalExample extends Component {
         );
     }
 }
+
+MarkdownModalExample.propTypes = {
+    toggleCode: PropTypes.func.isRequired,
+};
 
 export default MarkdownModalExample;

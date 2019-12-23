@@ -2,18 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Backdrop extends Component {
-    static propTypes = {
-        isStatic: PropTypes.bool,
-        onCancel: PropTypes.func,
-        className: PropTypes.string,
-    };
-
-    static defaultProps = {
-        className: 'tg-modal-backdrop',
-        isStatic: false,
-        onCancel: null,
-    };
-
     onCancel = (e) => {
         /* istanbul ignore else */
         if (e && e.preventDefault) {
@@ -43,5 +31,17 @@ class Backdrop extends Component {
         return <div {...rest} onClick={this.onCancel} role="button" tabIndex={-1} onKeyPress={this.onKeyPress} />;
     }
 }
+
+Backdrop.propTypes = {
+    isStatic: PropTypes.bool,
+    onCancel: PropTypes.func,
+    className: PropTypes.string,
+};
+
+Backdrop.defaultProps = {
+    className: 'tg-modal-backdrop',
+    isStatic: false,
+    onCancel: null,
+};
 
 export default Backdrop;

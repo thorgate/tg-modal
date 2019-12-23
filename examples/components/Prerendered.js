@@ -4,15 +4,6 @@ import PropTypes from 'prop-types';
 import Modal from './Serverside';
 
 class Prerendered extends Component {
-    static propTypes = {
-        initialOpen: PropTypes.bool,
-        kiosk: PropTypes.object.isRequired,
-    };
-
-    static defaultProps = {
-        initialOpen: false,
-    };
-
     constructor(props) {
         super(props);
 
@@ -113,5 +104,14 @@ class Prerendered extends Component {
         );
     }
 }
+
+Prerendered.propTypes = {
+    initialOpen: PropTypes.bool,
+    kiosk: PropTypes.object.isRequired,
+};
+
+Prerendered.defaultProps = {
+    initialOpen: false,
+};
 
 export default Prerendered;

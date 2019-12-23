@@ -2,24 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class ModalHeader extends Component {
-    static displayName = 'Modal.Header';
-
-    static propTypes = {
-        children: PropTypes.node,
-        className: PropTypes.string,
-        isStatic: PropTypes.bool,
-        addClose: PropTypes.bool,
-        onCancel: PropTypes.func,
-    };
-
-    static defaultProps = {
-        addClose: true,
-        children: null,
-        className: 'tg-modal-header',
-        isStatic: false,
-        onCancel: null,
-    };
-
     constructor(props) {
         super(props);
 
@@ -64,5 +46,23 @@ class ModalHeader extends Component {
         );
     }
 }
+
+ModalHeader.displayName = 'Modal.Header';
+
+ModalHeader.propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    isStatic: PropTypes.bool,
+    addClose: PropTypes.bool,
+    onCancel: PropTypes.func,
+};
+
+ModalHeader.defaultProps = {
+    addClose: true,
+    children: null,
+    className: 'tg-modal-header',
+    isStatic: false,
+    onCancel: null,
+};
 
 export default ModalHeader;
