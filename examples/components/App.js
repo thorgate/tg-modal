@@ -30,7 +30,8 @@ class App extends Component {
                         </Example>
 
                         <Example title="Static modal" component={examples.Static} src={EXAMPLE_SRC.Static}>
-                            Modals can be static.
+                            Modals can be static. A static modal does not have keyboard events. They also do not
+                            have a close button in their header.
                         </Example>
 
                         <Example title="Action modal" component={examples.Confirm} src={EXAMPLE_SRC.Confirm}>
@@ -42,11 +43,11 @@ class App extends Component {
                             component={examples.BasicConfirm}
                             src={EXAMPLE_SRC.BasicConfirm}
                         >
-                            Also works in basic/static mode
+                            Also works in basic/static mode.
                         </Example>
 
                         <Example title="Scrolling" component={examples.Long} src={EXAMPLE_SRC.Long}>
-                            Modals with content that exceeds the viewport will be scrollable
+                            Modals with content that exceeds the viewport will be scrollable.
                         </Example>
 
                         <Example
@@ -54,11 +55,11 @@ class App extends Component {
                             component={examples.NestedLong}
                             src={EXAMPLE_SRC.NestedLong}
                         >
-                            Nested modals with content that exceeds the viewport are also scrollable
+                            Nested modals with content that exceeds the viewport are also scrollable.
                         </Example>
 
                         <Example title="Special content" component={examples.Markdown} src={EXAMPLE_SRC.Markdown}>
-                            Modals render react components. This example uses react-remarkable to display markdown
+                            Modals render react components. This example uses react-remarkable to display markdown.
                         </Example>
 
                         <Example
@@ -78,7 +79,7 @@ class App extends Component {
                         </Example>
 
                         <Example title="StrictMode modal" component={examples.StrictMode} src={EXAMPLE_SRC.StrictMode}>
-                            Modal wrapped inside React.StrictMode
+                            Modal wrapped inside React.StrictMode.
                         </Example>
                     </div>
                 </div>

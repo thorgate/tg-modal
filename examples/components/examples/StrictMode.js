@@ -28,6 +28,7 @@ class BasicModalExample extends Component {
 
         // Note: Currently warns when modal is shown
         // issue ref: https://github.com/reactjs/react-transition-group/issues/429
+        // we also use UNSAFE_componentWillMount to allow SSR rendering
 
         return (
             <div>
