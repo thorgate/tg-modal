@@ -86,7 +86,8 @@
     "watch": "*",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "websocket-driver": "0.7.1"
   },
   "peerDependencies": {
     "@babel/runtime": ">=7.7.7",
@@ -95,8 +96,7 @@
   },
   "dependencies": {
     "body-scroll-lock": "^2.6.0-0",
-    "react-transition-group": "^4.0.0-0",
-    "websocket-driver": "0.7.1"
+    "react-transition-group": "^4.0.0-0"
   },
   "resolutions": {
     "lodash": ">=4.17.14",
