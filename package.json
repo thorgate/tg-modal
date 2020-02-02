@@ -58,7 +58,7 @@
     "file-loader": "^5.0.2",
     "is": "*",
     "istanbul": "*",
-    "jsdom": "16.0.1",
+    "jsdom": "16.1.0",
     "jsdom-global": "3.0.2",
     "json-loader": "^0.5.7",
     "koa": "^2.11.0",
