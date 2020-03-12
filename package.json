@@ -90,7 +90,7 @@
     "websocket-driver": "0.7.1"
   },
   "peerDependencies": {
-    "@babel/runtime": ">=7.7.7",
+    "@babel/runtime": ">=7.8.7",
     "prop-types": "^15.0.0-0",
     "react": "^16.3.0-0"
   },
