@@ -80,7 +80,7 @@
     "rimraf": "*",
     "sass-loader": "^8.0.0",
     "sinon": "^8.0.1",
-    "style-loader": "^1.0.0",
+    "style-loader": "^1.2.0",
     "superagent": "*",
     "url-loader": "^4.0.0",
     "watch": "*",
